@@ -1,0 +1,340 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>
+    </SchemaVersion>
+    <ProjectGuid>{00311EA0-8EE3-41E7-9D84-2B4E814C48DF}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>CapPresentacionSiReGe</RootNamespace>
+    <AssemblyName>CapPresentacionSiReGe</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MyType>Custom</MyType>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>CapPresentacionSiReGe.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DocumentationFile>CapPresentacionSiReGe.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=20.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\ASP.NET AJAX Control Toolkit\Bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="LoginControl">
+      <HintPath>\\dominiomep\compartidas\Aplicaciones MEP\Control de Logeo\Web\4.5\LoginControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Collections.Specialized" />
+    <Import Include="System.Configuration" />
+    <Import Include="System.Text" />
+    <Import Include="System.Text.RegularExpressions" />
+    <Import Include="System.Web" />
+    <Import Include="System.Web.Caching" />
+    <Import Include="System.Web.SessionState" />
+    <Import Include="System.Web.Security" />
+    <Import Include="System.Web.Profile" />
+    <Import Include="System.Web.UI" />
+    <Import Include="System.Web.UI.WebControls" />
+    <Import Include="System.Web.UI.WebControls.WebParts" />
+    <Import Include="System.Web.UI.HtmlControls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Contenido\Estilos.css" />
+    <Content Include="Contenido\Imagenes\Alerta.jpg" />
+    <Content Include="Contenido\Imagenes\Atencion de Gestiones del Servicio_OFF.png" />
+    <Content Include="Contenido\Imagenes\Atencion de Gestiones del Servicio_ON.png" />
+    <Content Include="Contenido\Imagenes\bullet.gif" />
+    <Content Include="Contenido\Imagenes\cargando.gif" />
+    <Content Include="Contenido\Imagenes\collapse_blue.jpg" />
+    <Content Include="Contenido\Imagenes\DAU_OFF.png" />
+    <Content Include="Contenido\Imagenes\DAU_ON.png" />
+    <Content Include="Contenido\Imagenes\DMC_OFF.png" />
+    <Content Include="Contenido\Imagenes\DMC_ON.png" />
+    <Content Include="Contenido\Imagenes\EncabezadoSistema.jpg" />
+    <Content Include="Contenido\Imagenes\expand_blue.jpg" />
+    <Content Include="Contenido\Imagenes\Fondo.jpg" />
+    <Content Include="Contenido\Imagenes\Fondo.png" />
+    <Content Include="Contenido\Imagenes\FondoMenu.png" />
+    <Content Include="Contenido\Imagenes\imgt2op.jpg" />
+    <Content Include="Contenido\Imagenes\logo.png" />
+    <Content Include="Contenido\Imagenes\logoMEP.gif" />
+    <Content Include="Contenido\Imagenes\MEP.ico" />
+    <Content Include="Contenido\Imagenes\Tranparencia.png" />
+    <Content Include="Formularios\Casos.aspx" />
+    <Content Include="Formularios\Form_Insertar_Casos.aspx" />
+    <Content Include="Formularios\Form_Insertar_Gestiones.aspx" />
+    <Content Include="Formularios\Form_Insertar_Informe.aspx" />
+    <Content Include="Formularios\Gestiones.aspx" />
+    <Content Include="Formularios\Informe.aspx" />
+    <Content Include="Formularios\Inicio.aspx" />
+    <Content Include="Formularios\MenuPrincipal.aspx" />
+    <Content Include="Formularios\Modificar_Casos.aspx" />
+    <Content Include="Formularios\Modificar_Gestiones.aspx" />
+    <Content Include="Formularios\Modificar_Informe.aspx" />
+    <Content Include="Login.aspx" />
+    <Content Include="MasterPage.Master" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Clases\Acceso_Datos.vb" />
+    <Compile Include="Clases\Funciones.vb" />
+    <Compile Include="Formularios\Casos.aspx.designer.vb">
+      <DependentUpon>Casos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Casos.aspx.vb">
+      <DependentUpon>Casos.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\Form_Insertar_Casos.aspx.designer.vb">
+      <DependentUpon>Form_Insertar_Casos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Form_Insertar_Casos.aspx.vb">
+      <DependentUpon>Form_Insertar_Casos.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\Form_Insertar_Gestiones.aspx.designer.vb">
+      <DependentUpon>Form_Insertar_Gestiones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Form_Insertar_Gestiones.aspx.vb">
+      <DependentUpon>Form_Insertar_Gestiones.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\Form_Insertar_Informe.aspx.designer.vb">
+      <DependentUpon>Form_Insertar_Informe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Form_Insertar_Informe.aspx.vb">
+      <DependentUpon>Form_Insertar_Informe.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\Gestiones.aspx.designer.vb">
+      <DependentUpon>Gestiones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Gestiones.aspx.vb">
+      <DependentUpon>Gestiones.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\Informe.aspx.designer.vb">
+      <DependentUpon>Informe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Informe.aspx.vb">
+      <DependentUpon>Informe.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\Inicio.aspx.designer.vb">
+      <DependentUpon>Inicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Inicio.aspx.vb">
+      <DependentUpon>Inicio.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\MenuPrincipal.aspx.designer.vb">
+      <DependentUpon>MenuPrincipal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\MenuPrincipal.aspx.vb">
+      <DependentUpon>MenuPrincipal.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\Modificar_Casos.aspx.designer.vb">
+      <DependentUpon>Modificar_Casos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Modificar_Casos.aspx.vb">
+      <DependentUpon>Modificar_Casos.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\Modificar_Gestiones.aspx.designer.vb">
+      <DependentUpon>Modificar_Gestiones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Modificar_Gestiones.aspx.vb">
+      <DependentUpon>Modificar_Gestiones.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\Modificar_Informe.aspx.designer.vb">
+      <DependentUpon>Modificar_Informe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Modificar_Informe.aspx.vb">
+      <DependentUpon>Modificar_Informe.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.vb">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.vb">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage.Master.designer.vb">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage.Master.vb">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Modulos\VariablesGlobales.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\MyExtensions\MyWebExtension.vb">
+      <VBMyExtensionTemplateID>Microsoft.VisualBasic.Web.MyExtension</VBMyExtensionTemplateID>
+      <VBMyExtensionTemplateVersion>1.0.0.0</VBMyExtensionTemplateVersion>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Scripts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CapAccesoDatos\CapAccesoDatosSiReGe.vbproj">
+      <Project>{1d56e787-e5b8-4cb1-b9fa-fd0a9da064f9}</Project>
+      <Name>CapAccesoDatosSiReGe</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CapEntidadesSiReGe\CapEntidadesSiReGe.vbproj">
+      <Project>{b8ae7675-9c4e-4df1-9d0f-9fd1e107f334}</Project>
+      <Name>CapEntidadesSiReGe</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CapLogicaNegocios\CapLogicaNegociosSiReGe.vbproj">
+      <Project>{13fbab98-9958-4771-a2a6-62910e6a10c3}</Project>
+      <Name>CapLogicaNegociosSiReGe</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>5098</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:25766/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
