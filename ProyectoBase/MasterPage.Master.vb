@@ -4,19 +4,8 @@
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         lblVersion.Text = "Versión del Sistema:" + Space(1) + System.Reflection.Assembly.GetExecutingAssembly.GetName.Version.ToString
 
-        If Not Page.IsPostBack Then
-            If Session("Usuario") IsNot Nothing Then
-                lblNombreUsuario.Text = CStr(Session("NombreUsuario"))
-                lblNombreUsuario.Visible = True
-                lblUsuario.Text = CStr(Session("Usuario"))
-                lblPerfil.Text = "Perfil: " + Session("Perfil")
-            Else
-                Session.Clear()
-                Response.Redirect(ResolveUrl("~/Login.aspx"))
-            End If
-            Menu()
-            DescripcionPerfil()
-        End If
+        
+        
     End Sub
 
     Private Sub Mensajes(ByVal str_CuerpoMensaje As String)

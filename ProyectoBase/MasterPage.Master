@@ -8,7 +8,7 @@
    
     
     <link rel="shortcut icon" href="Contenido/Imagenes/MEP.ico" type="image/x-icon" />
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    
     <link rel="stylesheet" href="Contenido/Estilos.css" />
     <script type="text/javascript">
         // Definicion del titulo y el boton de la ventana de mensaje

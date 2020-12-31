@@ -24,8 +24,8 @@
                                 <div class="col-md-3 col-md-offset-1">
                                     <div class="form-group">
                                         <asp:Label ID="Label2" Text="Funcionario que tramita*" runat="server"/>                                       
-                                        <asp:DropDownList ID="idEmpleados" runat="server" CssClass="form-control input-sm" DataSourceID="SqlDataSource1" DataTextField="nombreEmpleados" DataValueField="idEmpleados"  />
-                                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:SiReGeConnectionString %>" SelectCommand="SELECT [idEmpleados], [nombreEmpleados] FROM [Empleados]"></asp:SqlDataSource>
+                                        <asp:DropDownList ID="idEmpleados" runat="server" CssClass="form-control input-sm" DataSourceID="SqlDataSource1" DataTextField="vchNombreEmpleados" DataValueField="intIdEmpleados"  />
+                                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:bda_SIREGE_Connection %>" SelectCommand="SELECT [intIdEmpleados], [vchNombreEmpleados] FROM [tblEmpleados]"></asp:SqlDataSource>
                                     </div>
                                 </div>
 

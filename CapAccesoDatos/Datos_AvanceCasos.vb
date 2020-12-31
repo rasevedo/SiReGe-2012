@@ -8,12 +8,12 @@ Public Class Datos_AvanceCasos
     Public Function insertarAvancesCasos(ByVal dts As Entidad_AvanceCasos) As Boolean
         Try
             conectado()
-            cmd = New SqlCommand("insertarAvanceCasos")
+            cmd = New SqlCommand("palInsertarCasoAvances")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@idCasos", dts._idCasos)
-            cmd.Parameters.AddWithValue("@detalleAvance", dts._detalleAvance)
-            cmd.Parameters.AddWithValue("@fechaAvance", Convert.ToDateTime(dts._fechaAvance))
+            cmd.Parameters.AddWithValue("@intIdCasos", dts._idCasos)
+            cmd.Parameters.AddWithValue("@vchDetalleAvance", dts._detalleAvance)
+            cmd.Parameters.AddWithValue("@dtiFechaAvance", Convert.ToDateTime(dts._fechaAvance))
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
@@ -31,7 +31,7 @@ Public Class Datos_AvanceCasos
     Public Function mostrarAvanceCasos() As DataTable
         Try
             conectado()
-            cmd = New SqlCommand("mostrarAvancesCasos")
+            cmd = New SqlCommand("palMostrarCasoAvances")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
             If cmd.ExecuteNonQuery Then

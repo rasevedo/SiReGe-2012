@@ -68,7 +68,7 @@
                                     <div class="form-group">
                                         <asp:Label ID="Label7" Text="Funcionario que Tramita" runat="server"/>                                       
                                         <asp:DropDownList ID="idEmpleados" runat="server" CssClass="form-control input-sm" DataSourceID="SqlDataSource1" DataTextField="nombreEmpleados" DataValueField="idEmpleados"  />
-                                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:SiReGeConnectionString %>" SelectCommand="SELECT [idEmpleados], [nombreEmpleados] FROM [Empleados]"></asp:SqlDataSource>
+                                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:bda_SIREGE_Connection %>" SelectCommand="SELECT [idEmpleados], [nombreEmpleados] FROM [Empleados]"></asp:SqlDataSource>
                                     </div>
                                 </div>
                             </div>
@@ -111,7 +111,7 @@
                                     <div class="form-group">
                                         <asp:Label ID="Label12" Text="Descripción Unidad" runat="server" />
                                         <asp:DropDownList ID="DD1" runat="server" CssClass="form-control input-sm" AutoPostBack="True" OnSelectedIndexChanged="DD1_SelectedIndexChanged" DataSourceID="SqlDataSource2" DataTextField="descripcionUnidad" DataValueField="idUnidad"></asp:DropDownList>
-                                        <asp:SqlDataSource runat="server" ID="SqlDataSource2" ConnectionString='<%$ ConnectionStrings:SiReGeConnectionString %>' SelectCommand="SELECT [idUnidad], [descripcionUnidad] FROM [Unidad]"></asp:SqlDataSource>
+                                        <asp:SqlDataSource runat="server" ID="SqlDataSource2" ConnectionString='<%$ ConnectionStrings:bda_SIREGE_Connection %>' SelectCommand="SELECT [idUnidad], [descripcionUnidad] FROM [Unidad]"></asp:SqlDataSource>
                                     </div>
                                 </div>
 
@@ -146,7 +146,7 @@
                                     <div class="form-group">
                                         <asp:Label ID="Label16" Text="Dimensión*" runat="server" />
                                         <asp:DropDownList ID="DDL_Dimension1" runat="server" CssClass="form-control input-sm" DataSourceID="SqlDataSource3" DataTextField="tipoDimension" DataValueField="tipoDimension"></asp:DropDownList>
-                                        <asp:SqlDataSource runat="server" ID="SqlDataSource3" ConnectionString='<%$ ConnectionStrings:SiReGeConnectionString %>' SelectCommand="SELECT  tipoDimension FROM Dimensiones GROUP BY tipoDimension"></asp:SqlDataSource>
+                                        <asp:SqlDataSource runat="server" ID="SqlDataSource3" ConnectionString='<%$ ConnectionStrings:bda_SIREGE_Connection %>' SelectCommand="SELECT  tipoDimension FROM Dimensiones GROUP BY tipoDimension"></asp:SqlDataSource>
                                     </div>
                                 </div>
 
@@ -154,7 +154,7 @@
                                     <div class="form-group">
                                         <asp:Label ID="Label17" Text="Letra Dimensión*" runat="server" />
                                         <asp:DropDownList ID="DDL_Dimension2" runat="server" CssClass="form-control input-sm" DataSourceID="SqlDataSource4" DataTextField="letraDimension" DataValueField="idDimension" AutoPostBack="True" OnSelectedIndexChanged="DDL_Dimension2_SelectedIndexChanged"></asp:DropDownList>
-                                        <asp:SqlDataSource runat="server" ID="SqlDataSource4" ConnectionString='<%$ ConnectionStrings:SiReGeConnectionString %>' SelectCommand="SELECT [idDimension], [letraDimension] FROM [Dimensiones] WHERE ([tipoDimension] = @tipoDimension)">
+                                        <asp:SqlDataSource runat="server" ID="SqlDataSource4" ConnectionString='<%$ ConnectionStrings:bda_SIREGE_Connection %>' SelectCommand="SELECT [idDimension], [letraDimension] FROM [Dimensiones] WHERE ([tipoDimension] = @tipoDimension)">
                                             <SelectParameters>
                                                 <asp:ControlParameter ControlID="DDL_Dimension1" PropertyName="SelectedValue" Name="tipoDimension" Type="String"></asp:ControlParameter>
                                             </SelectParameters>
@@ -304,7 +304,7 @@
                                 </div>
                             </div>
                           
-                                <asp:SqlDataSource runat="server" ID="SqlDataSource6" ConnectionString='<%$ ConnectionStrings:SiReGeConnectionString %>' SelectCommand="mostrarAvancesCasos" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
+                                <asp:SqlDataSource runat="server" ID="SqlDataSource6" ConnectionString='<%$ ConnectionStrings:bda_SIREGE_Connection %>' SelectCommand="mostrarAvancesCasos" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
                                 </ContentTemplate>
                           </asp:UpdatePanel>
 

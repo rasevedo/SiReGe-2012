@@ -7,7 +7,7 @@ Imports System.Configuration
 Public Class Modificar_Casos
     Inherits System.Web.UI.Page
 
-    Dim con As SqlConnection = New SqlConnection("Data Source=localhost;Initial Catalog=SiReGe;Integrated Security=True")
+    Dim con As SqlConnection = New SqlConnection("Data Source=localhost;Initial Catalog=bda_SIREGE;Integrated Security=True")
 
     Private dt As DataTable = New DataTable()
 
@@ -24,7 +24,7 @@ Public Class Modificar_Casos
 
     Protected Sub DD1_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs)
         Dim strConnString As String = ConfigurationManager _
-             .ConnectionStrings("SiReGeConnectionString").ConnectionString
+             .ConnectionStrings("bda_SIREGE_Connection").ConnectionString
         Dim strQuery As String = "select descripcionDespacho, descripcionDireccion, descripcionDepartamento from Unidad where" _
                            & " idUnidad = @idUnidad"
         Dim con As New SqlConnection(strConnString)
@@ -51,7 +51,7 @@ Public Class Modificar_Casos
 
     Protected Sub DDL_Dimension2_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs)
         Dim strConnString As String = ConfigurationManager _
-             .ConnectionStrings("SiReGeConnectionString").ConnectionString
+             .ConnectionStrings("bda_SIREGE_Connection").ConnectionString
         Dim strQuery As String = "select descripcionLetraDimension from Dimensiones where" _
                            & " idDimension = @idDimension"
         Dim con As New SqlConnection(strConnString)
@@ -204,7 +204,7 @@ Public Class Modificar_Casos
 
     Sub FiltrarPorCaso()
         Dim strConnString As String = ConfigurationManager _
-             .ConnectionStrings("SiReGeConnectionString").ConnectionString
+             .ConnectionStrings("bda_SIREGE_Connection").ConnectionString
 
         Dim con As New SqlConnection(strConnString)
         con.Open()

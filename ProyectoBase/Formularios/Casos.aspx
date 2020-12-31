@@ -14,7 +14,7 @@
         <div class="col-lg-12" style="left: 0px; top: 20px; width: 1438px">
             <header class="panel-heading">
                 <div class="col-md-5 col-md-offset-3">
-                    <h1>Sistema de Casos</h1>
+                    <h1>&nbsp;&nbsp;&nbsp;&nbsp; Sistema de Casos</h1>
                 </div>
             </header>
         </div>
@@ -24,33 +24,28 @@
                             <div class="row">
                                  <div class="col-md-2 col-md-offset--1">
                                     <div class="form-group">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         <asp:Button Text="Nuevo" ID="btnAgregar"  Width="170px" runat="server" OnClick="Button1_Click" />
-                                    </div>
-                                </div>
-                                <div class="col-md-2 col-md-offset-0">
-                                    <div class="form-group">
                                         <asp:Button Text="Borrar" ID="btnBorrar"  Width="170px" runat="server" OnClick="Button3_Click" />
-                                    </div>
-                                </div>
-                                <div class="col-md-2 col-md-offset-0">
-                                    <div class="form-group">
                                         <asp:Button Text="Exportar" ID="btnExportar"  Width="170px" runat="server" OnClick="Button2_Click" />
-                                    </div>
-                                </div>                               
-                                <div class="col-md-2 col-md-offset-0">
-                                    <div class="form-group">
                                         <asp:Button Text="Volver" ID="btnVolver"  Width="170px" runat="server" OnClick="Button4_Click" />
                                     </div>
-                                </div>    
+                                </div>
+                                <div class="col-md-2 col-md-offset-0">
+                                    <div class="form-group">
+                                        <br />
+
+                                    </div>
+                                </div>
                              </div> 
                            
                 
-                   <div id="grdCharges" runat="server"  style="width: 1145px; overflow: auto; height: 450px">
+                   <div id="grdCharges" runat="server"  style="width: 1209px; overflow: auto; height: 450px">
 
-                       <asp:GridView ID="GridViewCasos" runat="server" CellPadding="10" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="2px" AutoGenerateColumns="False" DataKeyNames="idCasos" AllowPaging="True" AllowSorting="True" CellSpacing="10" HorizontalAlign="Center">
+                       <asp:GridView ID="GridViewCasos" runat="server" CellPadding="10" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="2px" AutoGenerateColumns="False" DataKeyNames="intIdCasos" AllowPaging="True" AllowSorting="True" CellSpacing="10" HorizontalAlign="Center" style="margin-left: 14px" Width="2422px">
                            <Columns>
                                <asp:buttonfield buttontype="Button" commandname="Select" text="Detalle"/>
-                               <asp:HyperLinkField Text="Modificar" DataNavigateUrlFields="idCasos" DataNavigateUrlFormatString="Modificar_Casos.aspx?idCasos={0}" />
+                               <asp:HyperLinkField Text="Modificar" DataNavigateUrlFields="intIdCasos" DataNavigateUrlFormatString="Modificar_Casos.aspx?intIdCasos={0}" />
                                <asp:TemplateField>
                                    <HeaderTemplate>
                                         <asp:CheckBox ID="checkAll" runat="server" onclick = "checkAll(this);" />
@@ -59,31 +54,31 @@
                                         <asp:CheckBox ID="chkSelect" runat="server" onclick="GridCheckOne(this)"></asp:CheckBox>
                                     </ItemTemplate>
                                </asp:TemplateField>    
-                               <asp:BoundField DataField="idCasos" HeaderText="Codigo Casos" ReadOnly="True" InsertVisible="False" ></asp:BoundField>
-                               <asp:BoundField DataField="numeroCasos" HeaderText="Numero de Caso"></asp:BoundField>
-                               <asp:BoundField DataField="estadoCasos" HeaderText="Estado de los Casos" ></asp:BoundField>
-                               <asp:BoundField DataField="fechaCasos" HeaderText="Fecha Caso" ></asp:BoundField>
-                               <asp:BoundField DataField="cedulaDenuncianteCasos" HeaderText="Cédula del Usuario" ></asp:BoundField>
-                               <asp:BoundField DataField="nombreDenucianteCasos" HeaderText="Nombre del Usuario" ></asp:BoundField>
-                               <asp:BoundField DataField="nombreEmpleados" HeaderText="Funcionario que Tramita" ></asp:BoundField>
-                               <asp:BoundField DataField="nombreCentroEducativo" HeaderText="Nombre del Centro Educativo" ></asp:BoundField>
-                               <asp:BoundField DataField="descripcionUnidad" HeaderText="Descripción Unidad" ></asp:BoundField>
-                               <asp:BoundField DataField="descripcionDespacho" HeaderText="Descripción Despacho" ></asp:BoundField>
-                               <asp:BoundField DataField="descripcionDireccion" HeaderText="Descripción Direccion" ></asp:BoundField>
-                               <asp:BoundField DataField="descripcionDepartamento" HeaderText="Descripción Departamento" ></asp:BoundField>
-                               <asp:BoundField DataField="numeroOficio" HeaderText="Numero del Oficio" ></asp:BoundField>
-                               <asp:BoundField DataField="fechaOficio" HeaderText="Fecha del Oficio" ></asp:BoundField>
-                               <asp:BoundField DataField="tipoDimension" HeaderText="Dimension" ></asp:BoundField>
-                               <asp:BoundField DataField="letraDimension" HeaderText="Letra Dimension" ></asp:BoundField>
-                               <asp:BoundField DataField="descripcionTipoDimension" HeaderText="Detalle Dimension" ></asp:BoundField>
-                               <asp:BoundField DataField="condicionCasos" HeaderText="Condición Casos" ></asp:BoundField>
-                               <asp:BoundField DataField="detalleInconformidadCasos" HeaderText="Detalle de Inconformidad" ></asp:BoundField>
-                               <asp:BoundField DataField="respuestaCasos" HeaderText="Respuesta" ></asp:BoundField>
-                               <asp:BoundField DataField="valoracionAdmisibilidad" HeaderText="Valoracion de Admisibilidad" ></asp:BoundField>
-                               <asp:BoundField DataField="veredictoValoracionIngreso" HeaderText="Veredicto de Valoracion de Ingreso" ></asp:BoundField>
-                               <asp:BoundField DataField="trazabilidadCasos" HeaderText="Trazabilidad" ></asp:BoundField>
-                               <asp:BoundField DataField="fechaRespuestaCasos" HeaderText="Fecha Respuesta del Caso" ></asp:BoundField>
-                               <asp:BoundField DataField="fechaCerradoCasos" HeaderText="Fecha de Cerrado" ></asp:BoundField>
+                               <asp:BoundField DataField="intIdCasos" HeaderText="Codigo Casos" ReadOnly="True" InsertVisible="False" ></asp:BoundField>
+                               <asp:BoundField DataField="vchNumeroCasos" HeaderText="Numero de Caso"></asp:BoundField>
+                               <asp:BoundField DataField="vchEstadoCasos" HeaderText="Estado de los Casos" ></asp:BoundField>
+                               <asp:BoundField DataField="dtiFechaCasos" HeaderText="Fecha Caso" ></asp:BoundField>
+                               <asp:BoundField DataField="intCedulaDenuncianteCasos" HeaderText="Cédula del Usuario" ></asp:BoundField>
+                               <asp:BoundField DataField="vchNombreDenucianteCasos" HeaderText="Nombre del Usuario" ></asp:BoundField>
+                               <asp:BoundField DataField="vchNombreEmpleados" HeaderText="Funcionario que Tramita" ></asp:BoundField>
+                               <asp:BoundField DataField="vchNombreCentroEducativo" HeaderText="Nombre del Centro Educativo" ></asp:BoundField>
+                               <asp:BoundField DataField="vchDescripcionUnidad" HeaderText="Descripción Unidad" ></asp:BoundField>
+                               <asp:BoundField DataField="vchDescripcionDespacho" HeaderText="Descripción Despacho" ></asp:BoundField>
+                               <asp:BoundField DataField="vchDescripcionDireccion" HeaderText="Descripción Direccion" ></asp:BoundField>
+                               <asp:BoundField DataField="vchdescripcionDepartamento" HeaderText="Descripción Departamento" ></asp:BoundField>
+                               <asp:BoundField DataField="vchNumeroOficio" HeaderText="Numero del Oficio" ></asp:BoundField>
+                               <asp:BoundField DataField="dtiFechaOficio" HeaderText="Fecha del Oficio" ></asp:BoundField>
+                               <asp:BoundField DataField="vchTipoDimension" HeaderText="Dimension" ></asp:BoundField>
+                               <asp:BoundField DataField="vchLetraDimension" HeaderText="Letra Dimension" ></asp:BoundField>
+                               <asp:BoundField DataField="vchDescripcionTipoDimension" HeaderText="Detalle Dimension" ></asp:BoundField>
+                               <asp:BoundField DataField="vchCondicionCasos" HeaderText="Condición Casos" ></asp:BoundField>
+                               <asp:BoundField DataField="vchDetalleInconformidadCasos" HeaderText="Detalle de Inconformidad" ></asp:BoundField>
+                               <asp:BoundField DataField="vchRespuestaCasos" HeaderText="Respuesta" ></asp:BoundField>
+                               <asp:BoundField DataField="vchValoracionAdmisibilidad" HeaderText="Valoracion de Admisibilidad" ></asp:BoundField>
+                               <asp:BoundField DataField="vchVeredictoValoracionIngreso" HeaderText="Veredicto de Valoracion de Ingreso" ></asp:BoundField>
+                               <asp:BoundField DataField="vchTrazabilidadCasos" HeaderText="Trazabilidad" ></asp:BoundField>
+                               <asp:BoundField DataField="dtiFechaRespuestaCasos" HeaderText="Fecha Respuesta del Caso" ></asp:BoundField>
+                               <asp:BoundField DataField="dtiFechaCerradoCasos" HeaderText="Fecha de Cerrado" ></asp:BoundField>
                            </Columns>
 
                            <RowStyle Width="250px" BackColor="#F7F6F3" ForeColor="#333333" HorizontalAlign="Center" />
@@ -96,7 +91,7 @@
                        
                        </asp:GridView>
 
-                       <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:SiReGeConnectionString %>' SelectCommand="mostrarCasos" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
+                       <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:bda_SIREGE_Connection %>' SelectCommand="mostrarCasos" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
                    
                        <script type = "text/javascript">
                            function checkAll(objRef) {

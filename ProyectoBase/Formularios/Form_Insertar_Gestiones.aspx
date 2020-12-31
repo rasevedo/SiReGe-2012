@@ -4,6 +4,11 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
 
+    <style type="text/css">
+        .input-sm {}
+        .input-lg {}
+    </style>
+
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">                
@@ -11,18 +16,18 @@
                 <div class="col-lg-12">                    
                         <header class="panel-heading">
                             <div class="col-md-5 col-md-offset-4">
-                                <h1>Insertar Gestión</h1>
+                                <h1 class="centrar">Insertar Gestión</h1>
                             </div>
                         </header>
                         <div class="panel-body">
 
                             <div class="row align-items-start">                               
                                 <div class="col-md-3 col-md-offset-5">
-                                <div class="form-group">
+                                <div class="centrar">
                                         <asp:Label ID="Label1" Text="Tipo de Gestión*" runat="server" />
                                         <br />
                                         <br />
-                                        <asp:RadioButtonList ID="RadioButtonList1"  runat="server" RepeatLayout="Flow" >
+                                        <asp:RadioButtonList ID="RadioButtonList1"  runat="server" RepeatLayout="Flow" CssClass="ajax__combobox_inputcontainer" >
                                             <asp:ListItem>Atención presencial</asp:ListItem>
                                             <asp:ListItem>Vía telefonica</asp:ListItem>
                                             <asp:ListItem>Correo Electrónico</asp:ListItem>
@@ -36,22 +41,28 @@
                             <div class="row">
                                 <div class="col-md-3 col-md-offset-1">
                                     <div class="form-group">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         <asp:Label ID="Label2" Text="Cédula del Usuario" runat="server" />
-                                        <asp:TextBox ID="txtcedulaUsuario" runat="server" Enabled="true" CssClass="form-control input-sm"  />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="Label3" Text="Nombre del Usuario" runat="server" />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <asp:Label ID="Label4" Text="Fecha de Ingreso*" runat="server"/>
+                                        <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <asp:TextBox ID="txtcedulaUsuario" runat="server" Enabled="true" CssClass="form-control input-sm" Height="25px" Width="250px"  />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;
+                                        <asp:TextBox ID="txtnombreUsuario" runat="server" Enabled="true" CssClass="form-control input-sm" Height="25px" Width="250px" />
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <asp:TextBox ID="txtfechaIngreso" runat="server" TextMode="Date" Enabled="true" CssClass="form-control input-sm" Height="25px" Width="250px"  />
                                     </div>
                                 </div>
 
                                 <div class="col-md-3 col-md-offset-1">
                                     <div class="form-group">
-                                        <asp:Label ID="Label3" Text="Nombre del Usuario" runat="server" />
-                                        <asp:TextBox ID="txtnombreUsuario" runat="server" Enabled="true" CssClass="form-control input-sm"  />
                                     </div>
                                 </div>
 
                                 <div class="col-md-3 col-md-offset-1" >
                                     <div class="form-group">
-                                        <asp:Label ID="Label4" Text="Fecha de Ingreso*" runat="server"/>
-                                        <asp:TextBox ID="txtfechaIngreso" runat="server" TextMode="Date" Enabled="true" CssClass="form-control input-sm"  />
                                     </div>
                                 </div>
                             </div>
@@ -60,15 +71,15 @@
                                 <div class="col-md-3 col-md-offset-1">
                                     <div class="form-group">
                                         <asp:Label ID="Label5" Text="Funcionario que tramita*" runat="server"/>                                       
-                                        <asp:DropDownList ID="idEmpleados" runat="server" CssClass="form-control input-sm" DataSourceID="SqlDataSource1" DataTextField="nombreEmpleados" DataValueField="idEmpleados"  />
-                                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:SiReGeConnectionString %>" SelectCommand="SELECT [idEmpleados], [nombreEmpleados] FROM [Empleados]"></asp:SqlDataSource>
+                                        <asp:DropDownList ID="idEmpleados" runat="server" CssClass="form-control input-sm" DataSourceID="SqlDataSource1" DataTextField="vchNombreEmpleados" DataValueField="intIdEmpleados" Height="25px" Width="250px"  />
+                                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:bda_SIREGE_Connection %>" SelectCommand="palSeleccionarEmpleados" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
                                     </div>
                                 </div>
 
                                 <div class="col-md-3 col-md-offset-1">
                                     <div class="form-group">
                                         <asp:Label ID="Label6" Text="Confidencialidad" runat="server" />
-                                        <asp:DropDownList ID="txtConfidencialidad" runat="server" CssClass="form-control input-sm" >
+                                        <asp:DropDownList ID="txtConfidencialidad" runat="server" CssClass="form-control input-sm" Height="25px" Width="250px" >
                                             <asp:ListItem Text="-Seleccione-" Value=" "></asp:ListItem>
                                             <asp:ListItem Text="Si" Value="Si"></asp:ListItem>
                                             <asp:ListItem Text="No" Value="No"></asp:ListItem>
@@ -143,7 +154,7 @@
                                 <div class="col-md-3 col-md-offset-1">
                                     <div class="form-group">
                                         <asp:Label ID="Label10" Text="Supervisión " runat="server" />
-                                        <asp:DropDownList ID="txtSupervision" runat="server" CssClass="form-control input-sm" >
+                                        <asp:DropDownList ID="txtSupervision" runat="server" CssClass="form-control input-sm" Height="25px" Width="250px" >
                                             <asp:ListItem Text="-Seleccione-" Value=" "></asp:ListItem>
                                             <asp:ListItem Text="Circuito 1" Value="Circuito 1"></asp:ListItem>
                                             <asp:ListItem Text="Circuito 2" Value="Circuito 2"></asp:ListItem>
@@ -168,22 +179,22 @@
                                 <div class="col-md-3 col-md-offset-1">
                                     <div class="form-group">
                                         <asp:Label ID="Label11" Text="Nombre del Centro Educativo" runat="server" />
-                                        <asp:TextBox ID="txtnombreCE" runat="server" Enabled="true" CssClass="form-control input-sm"  />
+                                        <asp:TextBox ID="txtnombreCE" runat="server" Enabled="true" CssClass="form-control input-sm" Height="25px" Width="250px" />
                                     </div>
                                 </div>
 
                                 <div class="col-md-3 col-md-offset-1">
                                     <div class="form-group">
                                         <asp:Label ID="Label12" Text="Descripción Unidad" runat="server" />
-                                        <asp:DropDownList ID="DD1" runat="server" CssClass="form-control input-sm" AutoPostBack="True" OnSelectedIndexChanged="DD1_SelectedIndexChanged" DataSourceID="SqlDataSource2" DataTextField="descripcionUnidad" DataValueField="idUnidad"></asp:DropDownList>
-                                        <asp:SqlDataSource runat="server" ID="SqlDataSource2" ConnectionString='<%$ ConnectionStrings:SiReGeConnectionString %>' SelectCommand="SELECT [idUnidad], [descripcionUnidad] FROM [Unidad]"></asp:SqlDataSource>
+                                        <asp:DropDownList ID="DD1" runat="server" CssClass="form-control input-sm" Height="25px" Width="250px" AutoPostBack="True" OnSelectedIndexChanged="DD1_SelectedIndexChanged" DataSourceID="SqlDataSource2" DataTextField="vchDescripcionUnidad" DataValueField="intIdUnidad"></asp:DropDownList >
+                                        <asp:SqlDataSource runat="server" ID="SqlDataSource2" ConnectionString='<%$ ConnectionStrings:bda_SIREGE_Connection %>' SelectCommand="palConsultarUnidades" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
                                     </div>
                                 </div>
 
                                 <div class="col-md-3 col-md-offset-1" >
                                     <div class="form-group">
                                         <asp:Label ID="Label13" Text="Número de Oficio " runat="server"/>
-                                        <asp:TextBox ID="txtnumeroOficio" runat="server"  Enabled="true" CssClass="form-control input-sm"  />
+                                        <asp:TextBox ID="txtnumeroOficio" runat="server"  Enabled="true" CssClass="form-control input-sm" Height="25px" Width="250px"  />
                                     </div>
                                 </div>
                             </div>
@@ -192,21 +203,21 @@
                                 <div class="col-md-3 col-md-offset-1">
                                     <div class="form-group">
                                         <asp:Label ID="Label14" Text="Descripción Despacho" runat="server" />                                      
-                                        <asp:TextBox ID="txtDespacho" runat="server" Enabled="false" CssClass="form-control input-sm"></asp:TextBox>
+                                        <asp:TextBox ID="txtDespacho" runat="server" Enabled="false" CssClass="form-control input-sm" Height="25px" Width="250px"></asp:TextBox>
                                     </div>
                                 </div>
 
                                 <div class="col-md-3 col-md-offset-1">
                                     <div class="form-group">
                                         <asp:Label ID="Label15" Text="Descripción Dirección" runat="server" />
-                                        <asp:TextBox ID="txtDireccion" runat="server" Enabled="false" CssClass="form-control input-sm"></asp:TextBox>
+                                        <asp:TextBox ID="txtDireccion" runat="server" Enabled="false" CssClass="form-control input-sm" Height="25px" Width="250px" ></asp:TextBox>
                                     </div>
                                 </div>
 
                                 <div class="col-md-3 col-md-offset-1" >
                                     <div class="form-group">
                                         <asp:Label ID="Label16" Text="Descripción Departamento" runat="server"/>
-                                        <asp:TextBox ID="txtDepartamento" runat="server" Enabled="false" CssClass="form-control input-sm"></asp:TextBox>
+                                        <asp:TextBox ID="txtDepartamento" runat="server" Enabled="false" CssClass="form-control input-sm" Height="25px" Width="250px" ></asp:TextBox>
                                     </div>
                                 </div>
                             </div>
@@ -215,10 +226,8 @@
                                 <div class="col-md-3 col-md-offset-1">
                                     <div class="form-group">
                                         <asp:Label ID="Label17" Text="Dimensión*" runat="server" />
-                                        <asp:DropDownList ID="DDL_Dimension1" runat="server" CssClass="form-control input-sm" DataSourceID="SqlDataSource3" DataTextField="tipoDimension" DataValueField="tipoDimension"></asp:DropDownList>
-                                        <asp:SqlDataSource runat="server" ID="SqlDataSource3" ConnectionString='<%$ ConnectionStrings:SiReGeConnectionString %>' SelectCommand="SELECT        tipoDimension
-FROM            Dimensiones
-GROUP BY tipoDimension"></asp:SqlDataSource>
+                                        <asp:DropDownList ID="DDL_Dimension1" runat="server" CssClass="form-control input-sm" Height="25px" Width="250px" DataSourceID="SqlDataSource3" DataTextField="vchTipoDimension" DataValueField="vchTipoDimension"></asp:DropDownList>
+                                        <asp:SqlDataSource runat="server" ID="SqlDataSource3" ConnectionString='<%$ ConnectionStrings:bda_SIREGE_Connection %>' SelectCommand="palAgruparTipoDimensiones" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
                                         
                                     </div>
                                 </div>
@@ -226,10 +235,10 @@ GROUP BY tipoDimension"></asp:SqlDataSource>
                                 <div class="col-md-3 col-md-offset-1">
                                     <div class="form-group">
                                         <asp:Label ID="Label18" Text="Letra Dimensión*" runat="server" />
-                                        <asp:DropDownList ID="DDL_Dimension2" runat="server" CssClass="form-control input-sm" DataSourceID="SqlDataSource4" DataTextField="letraDimension" DataValueField="idDimension" AutoPostBack="True" OnSelectedIndexChanged="DDL_Dimension2_SelectedIndexChanged"></asp:DropDownList>
-                                        <asp:SqlDataSource runat="server" ID="SqlDataSource4" ConnectionString='<%$ ConnectionStrings:SiReGeConnectionString %>' SelectCommand="SELECT [idDimension], [letraDimension] FROM [Dimensiones] WHERE ([tipoDimension] = @tipoDimension)">
+                                        <asp:DropDownList ID="DDL_Dimension2" runat="server" CssClass="form-control input-sm" Height="25px" Width="250px" DataSourceID="SqlDataSource4" DataTextField="vchLetraDimension" DataValueField="intIdDimension" AutoPostBack="True" OnSelectedIndexChanged="DDL_Dimension2_SelectedIndexChanged"></asp:DropDownList>
+                                        <asp:SqlDataSource runat="server" ID="SqlDataSource4" ConnectionString='<%$ ConnectionStrings:bda_SIREGE_Connection %>' SelectCommand="palSeleccionarLetraDimensiones" SelectCommandType="StoredProcedure">
                                             <SelectParameters>
-                                                <asp:ControlParameter ControlID="DDL_Dimension1" PropertyName="SelectedValue" Name="tipoDimension" Type="String"></asp:ControlParameter>
+                                                <asp:ControlParameter ControlID="DDL_Dimension1" PropertyName="SelectedValue" Name="vchTipoDimension" Type="String"></asp:ControlParameter>
                                             </SelectParameters>
                                         </asp:SqlDataSource>
                                        
@@ -239,7 +248,7 @@ GROUP BY tipoDimension"></asp:SqlDataSource>
                                 <div class="col-md-3 col-md-offset-1" >
                                     <div class="form-group">
                                         <asp:Label ID="Label19" Text="Detalle Dimensión*" runat="server"/>
-                                       <asp:TextBox ID="txtTipoDetalleLetraDimension" runat="server" Enabled="false" CssClass="form-control input-sm" ></asp:TextBox>
+                                       <asp:TextBox ID="txtTipoDetalleLetraDimension" runat="server" Enabled="false" CssClass="form-control input-sm" Height="25px" Width="250px" ></asp:TextBox>
                                         
                                     </div>
                                 </div>
@@ -249,7 +258,7 @@ GROUP BY tipoDimension"></asp:SqlDataSource>
                                 <div class="col-md-3 col-md-offset-1">
                                     <div class="form-group">
                                         <asp:Label ID="Label20" Text="Tipo de Usuario*" runat="server"  />
-                                        <asp:DropDownList ID="txtTipoUsuario" runat="server" CssClass="form-control input-sm">                            
+                                        <asp:DropDownList ID="txtTipoUsuario" runat="server" CssClass="form-control input-sm" Height="25px" Width="250px">                            
                                             <asp:ListItem Text="-Seleccione-" Value=" "></asp:ListItem>
                                             <asp:ListItem Text="Externo" Value="Externo"></asp:ListItem>
                                             <asp:ListItem Text="Interno" Value="Interno"></asp:ListItem>
@@ -260,7 +269,7 @@ GROUP BY tipoDimension"></asp:SqlDataSource>
                                 <div class="col-md-3 col-md-offset-1">
                                     <div class="form-group">
                                         <asp:Label ID="Label21" Text="Categoría" runat="server" />
-                                        <asp:DropDownList ID="txtCategoria" runat="server" CssClass="form-control input-sm"> 
+                                        <asp:DropDownList ID="txtCategoria" runat="server" CssClass="form-control input-sm" Height="25px" Width="250px"> 
                                             <asp:ListItem Text="-Seleccione-" Value=" "></asp:ListItem>
                                             <asp:ListItem Text="Redireccionar a dependencia" Value="Redireccionar a dependencia"></asp:ListItem>
                                             <asp:ListItem Text="Asignación casos DAT" Value="Asignación casos DAT"></asp:ListItem>
@@ -277,7 +286,7 @@ GROUP BY tipoDimension"></asp:SqlDataSource>
                                 <div class="col-lg-12 col-md-offset-1">
                                     <div class="form-group">
                                         <asp:Label ID="Label22" Text="Detalle*" runat="server" />                                       
-                                        <asp:TextBox runat="server" ID="txtasunto" TextMode="Multiline" CssClass="form-control input-lg"  Rows="5"  />
+                                        <asp:TextBox runat="server" ID="txtasunto" TextMode="Multiline" CssClass="form-control input-lg"  Rows="5" Width="868px"  />
                                     </div>
                                 </div>
                             </div>                           
@@ -294,13 +303,9 @@ GROUP BY tipoDimension"></asp:SqlDataSource>
                                  <div class="col-md-3 col-md-offset-1">
                                     <div class="form-group">
                                         <asp:Button Text="Agregar" ID="btnAgregar" CssClass="btn btn-primary" Width="170px" runat="server" OnClick="Button1_Click" />
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-md-offset-2" style="text-align: right; width: 220%;">
-                                    <div class="form-group">
                                         <asp:Button Text="Volver" ID="btnVolver" CssClass="btn btn-primary" Width="170px" runat="server" OnClick="Button2_Click" />
                                     </div>
-                                </div>                               
+                                </div>
                              </div>
                            
                          </div>                                         

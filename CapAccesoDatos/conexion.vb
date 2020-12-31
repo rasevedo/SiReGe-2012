@@ -7,7 +7,7 @@ Public Class conexion
     Protected Function conectado()
         Try
             'creamos la cadena de conexion
-            cnn = New SqlConnection("Data Source=localhost;Initial Catalog=SiReGe;Integrated Security=True")
+            cnn = New SqlConnection("Data Source=localhost;Initial Catalog=bda_SIREGE;Integrated Security=True")
             'abrimos la conexion
             cnn.Open()
             Return True

@@ -7,14 +7,14 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">  
-<link href="Estilo.css" rel="stylesheet" />
+    <link href="Estilo.css" rel="stylesheet" />
    
     <div class="row">
 
         <div class="col-lg-12" style="left: 0px; top: 20px; width: 1438px">
             <header class="panel-heading">
                 <div class="col-md-5 col-md-offset-3">
-                    <h1>Sistema de Informes</h1>
+                    <h1>&nbsp;&nbsp;&nbsp;&nbsp; Sistema de Informes</h1>
                 </div>
             </header>
         </div>
@@ -24,35 +24,30 @@
                             <div class="row">
                                  <div class="col-md-2 col-md-offset--1">
                                     <div class="form-group">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         <asp:Button Text="Nuevo" ID="btnAgregar"  Width="170px" runat="server" OnClick="Button1_Click" />
-                                    </div>
-                                </div>
-                                <div class="col-md-2 col-md-offset-0">
-                                    <div class="form-group">
                                         <asp:Button Text="Borrar" ID="btnBorrar"  Width="170px" runat="server" OnClick="Button3_Click" />
-                                    </div>
-                                </div>
-                                <div>
-                                    <div class="col-md-2 col-md-offset-0">
                                         <asp:Button Text="Exportar" ID="btnExportar"  Width="170px" runat="server" OnClick="Button2_Click" />
-                                    </div>
-                                </div>                                
-                                <div class="col-md-2 col-md-offset-0">
-                                    <div class="form-group">
                                         <asp:Button Text="Volver" ID="btnVolver"  Width="170px" runat="server" OnClick="Button4_Click" />
                                     </div>
-                                </div>    
+                                </div>
+                                <div class="col-md-2 col-md-offset-0">
+                                    <div class="form-group">
+                                        <br />
+
+                                    </div>
+                                </div>
                              </div> 
 
                            
 
                 
-                   <div id="grdCharges" runat="server"  style="width: 1145px; overflow: auto; height: 450px">
+                   <div id="grdCharges" runat="server"  style="width: 1221px; overflow: auto; height: 450px">
 
-                       <asp:GridView ID="GridViewInforme" runat="server" CellPadding="10" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="2px" AutoGenerateColumns="False" DataKeyNames="idInforme" AllowPaging="True" AllowSorting="True" CellSpacing="10" HorizontalAlign="Center">
+                       <asp:GridView ID="GridViewInforme" runat="server" CellPadding="10" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="2px" AutoGenerateColumns="False" DataKeyNames="intIdInforme" AllowPaging="True" AllowSorting="True" CellSpacing="10" HorizontalAlign="Center" style="margin-left: 9px" Width="1199px">
                            <Columns>
                                <asp:buttonfield buttontype="Button" commandname="Select" text="Detalle"/>
-                               <asp:HyperLinkField Text="Modificar" DataNavigateUrlFields="idInforme" DataNavigateUrlFormatString="Modificar_Informe.aspx?idInforme={0}" />
+                               <asp:HyperLinkField Text="Modificar" DataNavigateUrlFields="intIdInforme" DataNavigateUrlFormatString="Modificar_Informe.aspx?intIdInforme={0}" />
                                <asp:TemplateField>
                                    <HeaderTemplate>
                                         <asp:CheckBox ID="checkAll" runat="server" onclick = "checkAll(this);" />
@@ -61,15 +56,15 @@
                                         <asp:CheckBox ID="chkSelect" runat="server" onclick="GridCheckOne(this)"></asp:CheckBox>
                                     </ItemTemplate>
                                 </asp:TemplateField> 
-                               <asp:BoundField DataField="idInforme" HeaderText="Codigo del Informe" ReadOnly="True" InsertVisible="False" ></asp:BoundField>
-                               <asp:BoundField DataField="tituloInforme" HeaderText="Título del Informe" ></asp:BoundField>
-                               <asp:BoundField DataField="nombreEmpleados" HeaderText="Funcionario que Tramita" ></asp:BoundField>
-                               <asp:BoundField DataField="tipoInforme" HeaderText="Tipo de Informe" ></asp:BoundField>
-                               <asp:BoundField DataField="numeroOficio" HeaderText="Número del Oficio" ></asp:BoundField>
-                               <asp:BoundField DataField="fechaAprobacion" HeaderText="Fecha de Aprobación" ></asp:BoundField>
-                               <asp:BoundField DataField="fechaCulminacion" HeaderText="Fecha de Culminación" ></asp:BoundField>
-                               <asp:BoundField DataField="fechaTraslado" HeaderText="Fecha de Traslado" ></asp:BoundField>
-                               <asp:BoundField DataField="avanceInforme" HeaderText="Avance" ></asp:BoundField>
+                               <asp:BoundField DataField="intIdInforme" HeaderText="Codigo del Informe" ReadOnly="True" InsertVisible="False" ></asp:BoundField>
+                               <asp:BoundField DataField="vchTituloInforme" HeaderText="Título del Informe" ></asp:BoundField>
+                               <asp:BoundField DataField="vchNombreEmpleados" HeaderText="Funcionario que Tramita" ></asp:BoundField>
+                               <asp:BoundField DataField="vchTipoInforme" HeaderText="Tipo de Informe" ></asp:BoundField>
+                               <asp:BoundField DataField="vchNumeroOficio" HeaderText="Número del Oficio" ></asp:BoundField>
+                               <asp:BoundField DataField="dtiFechaAprobacion" HeaderText="Fecha de Aprobación" ></asp:BoundField>
+                               <asp:BoundField DataField="dtiFechaCulminacion" HeaderText="Fecha de Culminación" ></asp:BoundField>
+                               <asp:BoundField DataField="dtiFechaTraslado" HeaderText="Fecha de Traslado" ></asp:BoundField>
+                               <asp:BoundField DataField="vchAvanceInforme" HeaderText="Avance" ></asp:BoundField>
                            </Columns>
 
 
@@ -86,7 +81,7 @@
 
                        </asp:GridView>
 
-                       <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:SiReGeConnectionString %>' SelectCommand="mostrarInforme" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
+                       <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:bda_SIREGE_Connection %>' SelectCommand="mostrarInforme" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
                   
                        <script type = "text/javascript">
                            function checkAll(objRef) {
@@ -137,11 +132,11 @@
                                     <tr>
                                         <td>
                                             <b>Título del Informe: </b>
-                                            <asp:TextBox ID="txtTitulo_Informe" runat="server" Enabled="false" style="text-align: center" />
+                                            <asp:TextBox ID="txtTitulo_Informe" runat="server" Enabled="false" style="text-align: center" size="30" />
                                         </td>
                                         <td>
                                             <b>Nombre del funcionario: </b>
-                                            <asp:TextBox ID="txtEmpleado_Informe" runat="server" Enabled="false" style="text-align: center"/>
+                                            <asp:TextBox ID="txtEmpleado_Informe" runat="server" Enabled="false" style="text-align: center" size="30"/>
                                         </td>
                                         <td>
                                             <b>Tipo de Informe: </b>

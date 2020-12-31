@@ -9,27 +9,27 @@ Public Class Datos_Gestiones
     Public Function insertarGestiones(ByVal dts As Entidad_Gestiones) As Boolean
         Try
             conectado()
-            cmd = New SqlCommand("insertarGestiones")
+            cmd = New SqlCommand("palInsertarGestiones")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@idEmpleados", dts._idEmpleados)
-            cmd.Parameters.AddWithValue("@tipoGestiones", dts._tipoGestiones)
-            cmd.Parameters.AddWithValue("@cedulaUsuario", dts._cedulaUsuario)
-            cmd.Parameters.AddWithValue("@nombreUsuario", dts._nombreUsuario)
-            cmd.Parameters.AddWithValue("@tipoUsuario", dts._tipoUsuario)
-            cmd.Parameters.AddWithValue("@fechaIngreso", Convert.ToDateTime(dts._fechaIngreso))
-            cmd.Parameters.AddWithValue("@confidencialidadGestiones", dts._confidencialidadGestiones)
-            cmd.Parameters.AddWithValue("@fuenteGeneradora", dts._fuenteGeneradora)
-            cmd.Parameters.AddWithValue("@tipoServicio", dts._tipoServicio)
-            cmd.Parameters.AddWithValue("@direccionRegional", dts._direccionRegional)
-            cmd.Parameters.AddWithValue("@supervicionGestiones", dts._supervicionGestiones)
-            cmd.Parameters.AddWithValue("@nombreCentroEducativo", dts._nombreCentroEducativo)
-            cmd.Parameters.AddWithValue("@idUnidad", dts._idUnidad)
-            cmd.Parameters.AddWithValue("@idDimension", dts._idDimension)
-            cmd.Parameters.AddWithValue("@numeroOficio", dts._numeroOficio)
-            cmd.Parameters.AddWithValue("@detalleGestiones", dts._detalleGestiones)
-            cmd.Parameters.AddWithValue("@categoriaGestiones", dts._categoriaGestiones)
-            cmd.Parameters.AddWithValue("@respuestaGestiones", dts._respuestaGestiones)
+            cmd.Parameters.AddWithValue("@intIdEmpleados", dts._idEmpleados)
+            cmd.Parameters.AddWithValue("@vchTipoGestiones", dts._tipoGestiones)
+            cmd.Parameters.AddWithValue("@intCedulaUsuario", dts._cedulaUsuario)
+            cmd.Parameters.AddWithValue("@vchNombreUsuario", dts._nombreUsuario)
+            cmd.Parameters.AddWithValue("@vchTipoUsuario", dts._tipoUsuario)
+            cmd.Parameters.AddWithValue("@dtiFechaIngreso", Convert.ToDateTime(dts._fechaIngreso))
+            cmd.Parameters.AddWithValue("@vchConfidencialidadGestiones", dts._confidencialidadGestiones)
+            cmd.Parameters.AddWithValue("@vchFuenteGeneradora", dts._fuenteGeneradora)
+            cmd.Parameters.AddWithValue("@vchTipoServicio", dts._tipoServicio)
+            cmd.Parameters.AddWithValue("@vchDireccionRegional", dts._direccionRegional)
+            cmd.Parameters.AddWithValue("@vchSupervicionGestiones", dts._supervicionGestiones)
+            cmd.Parameters.AddWithValue("@vchNombreCentroEducativo", dts._nombreCentroEducativo)
+            cmd.Parameters.AddWithValue("@intIdUnidad", dts._idUnidad)
+            cmd.Parameters.AddWithValue("@intIdDimension", dts._idDimension)
+            cmd.Parameters.AddWithValue("@vchNumeroOficio", dts._numeroOficio)
+            cmd.Parameters.AddWithValue("@vchDetalleGestiones", dts._detalleGestiones)
+            cmd.Parameters.AddWithValue("@vchCategoriaGestiones", dts._categoriaGestiones)
+            cmd.Parameters.AddWithValue("@vchRespuestaGestiones", dts._respuestaGestiones)
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
@@ -46,7 +46,7 @@ Public Class Datos_Gestiones
     Public Function mostrarGestiones() As DataTable
         Try
             conectado()
-            cmd = New SqlCommand("mostrarGestiones")
+            cmd = New SqlCommand("palMostrarGestiones")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
             If cmd.ExecuteNonQuery Then
@@ -68,10 +68,10 @@ Public Class Datos_Gestiones
     Public Function borrarGestiones(ByVal dts As Entidad_Gestiones) As Boolean
         Try
             conectado()
-            cmd = New SqlCommand("eliminarGestiones")
+            cmd = New SqlCommand("palEliminarGestiones")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@idGestiones", dts._idGestiones)
+            cmd.Parameters.AddWithValue("@intIdGestiones", dts._idGestiones)
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
@@ -88,28 +88,28 @@ Public Class Datos_Gestiones
     Public Function modificarGestiones(ByVal dts As Entidad_Gestiones) As Boolean
         Try
             conectado()
-            cmd = New SqlCommand("modificarGestiones")
+            cmd = New SqlCommand("palModificarGestiones")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@idGestiones", dts._idGestiones)
-            cmd.Parameters.AddWithValue("@idEmpleados", dts._idEmpleados)
-            cmd.Parameters.AddWithValue("@tipoGestiones", dts._tipoGestiones)
-            cmd.Parameters.AddWithValue("@cedulaUsuario", dts._cedulaUsuario)
-            cmd.Parameters.AddWithValue("@nombreUsuario", dts._nombreUsuario)
-            cmd.Parameters.AddWithValue("@tipoUsuario", dts._tipoUsuario)
-            cmd.Parameters.AddWithValue("@fechaIngreso", Convert.ToDateTime(dts._fechaIngreso))
-            cmd.Parameters.AddWithValue("@confidencialidadGestiones", dts._confidencialidadGestiones)
-            cmd.Parameters.AddWithValue("@fuenteGeneradora", dts._fuenteGeneradora)
-            cmd.Parameters.AddWithValue("@tipoServicio", dts._tipoServicio)
-            cmd.Parameters.AddWithValue("@direccionRegional", dts._direccionRegional)
-            cmd.Parameters.AddWithValue("@supervicionGestiones", dts._supervicionGestiones)
-            cmd.Parameters.AddWithValue("@nombreCentroEducativo", dts._nombreCentroEducativo)
-            cmd.Parameters.AddWithValue("@idUnidad", dts._idUnidad)
-            cmd.Parameters.AddWithValue("@idDimension", dts._idDimension)
-            cmd.Parameters.AddWithValue("@numeroOficio", dts._numeroOficio)
-            cmd.Parameters.AddWithValue("@detalleGestiones", dts._detalleGestiones)
-            cmd.Parameters.AddWithValue("@categoriaGestiones", dts._categoriaGestiones)
-            cmd.Parameters.AddWithValue("@respuestaGestiones", dts._respuestaGestiones)
+            cmd.Parameters.AddWithValue("@intIdGestiones", dts._idGestiones)
+            cmd.Parameters.AddWithValue("@intIdEmpleados", dts._idEmpleados)
+            cmd.Parameters.AddWithValue("@vchTipoGestiones", dts._tipoGestiones)
+            cmd.Parameters.AddWithValue("@intCedulaUsuario", dts._cedulaUsuario)
+            cmd.Parameters.AddWithValue("@vchNombreUsuario", dts._nombreUsuario)
+            cmd.Parameters.AddWithValue("@vchTipoUsuario", dts._tipoUsuario)
+            cmd.Parameters.AddWithValue("@dtiFechaIngreso", Convert.ToDateTime(dts._fechaIngreso))
+            cmd.Parameters.AddWithValue("@vchConfidencialidadGestiones", dts._confidencialidadGestiones)
+            cmd.Parameters.AddWithValue("@vchFuenteGeneradora", dts._fuenteGeneradora)
+            cmd.Parameters.AddWithValue("@vchTipoServicio", dts._tipoServicio)
+            cmd.Parameters.AddWithValue("@vchDireccionRegional", dts._direccionRegional)
+            cmd.Parameters.AddWithValue("@vchSupervicionGestiones", dts._supervicionGestiones)
+            cmd.Parameters.AddWithValue("@vchNombreCentroEducativo", dts._nombreCentroEducativo)
+            cmd.Parameters.AddWithValue("@intIdUnidad", dts._idUnidad)
+            cmd.Parameters.AddWithValue("@intIdDimension", dts._idDimension)
+            cmd.Parameters.AddWithValue("@vchNumeroOficio", dts._numeroOficio)
+            cmd.Parameters.AddWithValue("@vchDetalleGestiones", dts._detalleGestiones)
+            cmd.Parameters.AddWithValue("@vchCategoriaGestiones", dts._categoriaGestiones)
+            cmd.Parameters.AddWithValue("@vchRespuestaGestiones", dts._respuestaGestiones)
             If cmd.ExecuteNonQuery Then
                 Return True
             Else

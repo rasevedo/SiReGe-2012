@@ -41,15 +41,6 @@ Partial Public Class Form_Insertar_Gestiones
     Protected WithEvents Label2 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''txtcedulaUsuario control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtcedulaUsuario As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
     '''Label3 control.
     '''</summary>
     '''<remarks>
@@ -59,15 +50,6 @@ Partial Public Class Form_Insertar_Gestiones
     Protected WithEvents Label3 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''txtnombreUsuario control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtnombreUsuario As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
     '''Label4 control.
     '''</summary>
     '''<remarks>
@@ -75,6 +57,24 @@ Partial Public Class Form_Insertar_Gestiones
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents Label4 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtcedulaUsuario control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtcedulaUsuario As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtnombreUsuario control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtnombreUsuario As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''txtfechaIngreso control.

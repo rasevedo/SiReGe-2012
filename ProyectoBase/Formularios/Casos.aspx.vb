@@ -19,7 +19,7 @@ Public Class Casos
 
     Dim dt As New DataTable
 
-    Dim MyConnString As String = ConfigurationManager.ConnectionStrings("SiReGeConnectionString").ConnectionString
+    Dim MyConnString As String = ConfigurationManager.ConnectionStrings("bda_SIREGE_Connection").ConnectionString
     Dim con As SqlConnection = Nothing
     Dim cmd As SqlCommand = Nothing
 

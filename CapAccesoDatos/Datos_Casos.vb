@@ -8,28 +8,28 @@ Public Class Datos_Casos
     Public Function insertarCasos(ByVal dts As Entidad_Casos) As Boolean
         Try
             conectado()
-            cmd = New SqlCommand("insertarCasos")
+            cmd = New SqlCommand("palInsertarCasos")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@numeroCasos", dts._numeroCasos)
-            cmd.Parameters.AddWithValue("@estadoCasos", dts._estadoCasos)
-            cmd.Parameters.AddWithValue("@fechaCasos", Convert.ToDateTime(dts._fechaCasos))
-            cmd.Parameters.AddWithValue("@cedulaDenuncianteCasos", dts._cedulaDenuncianteCasos)
-            cmd.Parameters.AddWithValue("@nombreDenucianteCasos", dts._nombreCentroEducativo)
-            cmd.Parameters.AddWithValue("@idEmpleados", dts._idEmpleados)
-            cmd.Parameters.AddWithValue("@nombreCentroEducativo", dts._nombreCentroEducativo)
-            cmd.Parameters.AddWithValue("@idUnidad", dts._idUnidad)
-            cmd.Parameters.AddWithValue("@numeroOficio", dts._numeroOficio)
-            cmd.Parameters.AddWithValue("@fechaOficio", Convert.ToDateTime(dts._fechaOficio))
-            cmd.Parameters.AddWithValue("@idDimension", dts._idDimension)
-            cmd.Parameters.AddWithValue("@condicionCasos", dts._condicionCasos)
-            cmd.Parameters.AddWithValue("@detalleInconformidadCasos", dts._detalleInconformidadCasos)
-            cmd.Parameters.AddWithValue("@respuestaCasos", dts._respuestaCasos)
-            cmd.Parameters.AddWithValue("@valoracionAdmisibilidad", dts._valoracionAdmisibilidad)
-            cmd.Parameters.AddWithValue("@veredictoValoracionIngreso", dts._veredictoValoracionIngreso)
-            cmd.Parameters.AddWithValue("@trazabilidadCasos", dts._trazabilidadCasos)
-            cmd.Parameters.AddWithValue("@fechaRespuestaCasos", Convert.ToDateTime(dts._fechaRespuestaCasos))
-            cmd.Parameters.AddWithValue("@fechaCerradoCasos", Convert.ToDateTime(dts._fechaCerradoCasos))
+            cmd.Parameters.AddWithValue("@vchNumeroCasos", dts._numeroCasos)
+            cmd.Parameters.AddWithValue("@vchEstadoCasos", dts._estadoCasos)
+            cmd.Parameters.AddWithValue("@dtiFechaCasos", Convert.ToDateTime(dts._fechaCasos))
+            cmd.Parameters.AddWithValue("@intCedulaDenuncianteCasos", dts._cedulaDenuncianteCasos)
+            cmd.Parameters.AddWithValue("@vchNombreDenucianteCasos", dts._nombreDenuncianteCasos)
+            cmd.Parameters.AddWithValue("@intIdEmpleados", dts._idEmpleados)
+            cmd.Parameters.AddWithValue("@vchNombreCentroEducativo", dts._nombreCentroEducativo)
+            cmd.Parameters.AddWithValue("@intIdUnidad", dts._idUnidad)
+            cmd.Parameters.AddWithValue("@vchNumeroOficio", dts._numeroOficio)
+            cmd.Parameters.AddWithValue("@dtiFechaOficio", Convert.ToDateTime(dts._fechaOficio))
+            cmd.Parameters.AddWithValue("@intIdDimension", dts._idDimension)
+            cmd.Parameters.AddWithValue("@vchCondicionCasos", dts._condicionCasos)
+            cmd.Parameters.AddWithValue("@vchDetalleInconformidadCasos", dts._detalleInconformidadCasos)
+            cmd.Parameters.AddWithValue("@vchRespuestaCasos", dts._respuestaCasos)
+            cmd.Parameters.AddWithValue("@vchValoracionAdmisibilidad", dts._valoracionAdmisibilidad)
+            cmd.Parameters.AddWithValue("@vchVeredictoValoracionIngreso", dts._veredictoValoracionIngreso)
+            cmd.Parameters.AddWithValue("@vchTrazabilidadCasos", dts._trazabilidadCasos)
+            cmd.Parameters.AddWithValue("@dtiFechaRespuestaCasos", Convert.ToDateTime(dts._fechaRespuestaCasos))
+            cmd.Parameters.AddWithValue("@dtiFechaCerradoCasos", Convert.ToDateTime(dts._fechaCerradoCasos))
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
@@ -47,7 +47,7 @@ Public Class Datos_Casos
     Public Function mostrarCasos() As DataTable
         Try
             conectado()
-            cmd = New SqlCommand("mostrarCasos")
+            cmd = New SqlCommand("palMostrarCasos")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
             If cmd.ExecuteNonQuery Then
@@ -71,10 +71,10 @@ Public Class Datos_Casos
     Public Function borrarCasos(ByVal dts As Entidad_Casos) As Boolean
         Try
             conectado()
-            cmd = New SqlCommand("eliminarCasos")
+            cmd = New SqlCommand("palEliminarCasos")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@idCasos", dts._idCasos)
+            cmd.Parameters.AddWithValue("@intIdCasos", dts._idCasos)
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
@@ -91,29 +91,29 @@ Public Class Datos_Casos
     Public Function modificarCasos(ByVal dts As Entidad_Casos) As Boolean
         Try
             conectado()
-            cmd = New SqlCommand("modificarCasos")
+            cmd = New SqlCommand("palModificarCasos")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@idCasos", dts._idCasos)
-            cmd.Parameters.AddWithValue("@numeroCasos", dts._numeroCasos)
-            cmd.Parameters.AddWithValue("@estadoCasos", dts._estadoCasos)
-            cmd.Parameters.AddWithValue("@fechaCasos", Convert.ToDateTime(dts._fechaCasos))
-            cmd.Parameters.AddWithValue("@cedulaDenuncianteCasos", dts._cedulaDenuncianteCasos)
-            cmd.Parameters.AddWithValue("@nombreDenucianteCasos", dts._nombreCentroEducativo)
-            cmd.Parameters.AddWithValue("@idEmpleados", dts._idEmpleados)
-            cmd.Parameters.AddWithValue("@nombreCentroEducativo", dts._nombreCentroEducativo)
-            cmd.Parameters.AddWithValue("@idUnidad", dts._idUnidad)
-            cmd.Parameters.AddWithValue("@numeroOficio", dts._numeroOficio)
-            cmd.Parameters.AddWithValue("@fechaOficio", Convert.ToDateTime(dts._fechaOficio))
-            cmd.Parameters.AddWithValue("@idDimension", dts._idDimension)
-            cmd.Parameters.AddWithValue("@condicionCasos", dts._condicionCasos)
-            cmd.Parameters.AddWithValue("@detalleInconformidadCasos", dts._detalleInconformidadCasos)
-            cmd.Parameters.AddWithValue("@respuestaCasos", dts._respuestaCasos)
-            cmd.Parameters.AddWithValue("@valoracionAdmisibilidad", dts._valoracionAdmisibilidad)
-            cmd.Parameters.AddWithValue("@veredictoValoracionIngreso", dts._veredictoValoracionIngreso)
-            cmd.Parameters.AddWithValue("@trazabilidadCasos", dts._trazabilidadCasos)
-            cmd.Parameters.AddWithValue("@fechaRespuestaCasos", Convert.ToDateTime(dts._fechaRespuestaCasos))
-            cmd.Parameters.AddWithValue("@fechaCerradoCasos", Convert.ToDateTime(dts._fechaCerradoCasos))
+            cmd.Parameters.AddWithValue("@intIdCasos", dts._idCasos)
+            cmd.Parameters.AddWithValue("@vchNumeroCasos", dts._numeroCasos)
+            cmd.Parameters.AddWithValue("@vchEstadoCasos", dts._estadoCasos)
+            cmd.Parameters.AddWithValue("@dtiFechaCasos", Convert.ToDateTime(dts._fechaCasos))
+            cmd.Parameters.AddWithValue("@intCedulaDenuncianteCasos", dts._cedulaDenuncianteCasos)
+            cmd.Parameters.AddWithValue("@vchNombreDenucianteCasos", dts._nombreDenuncianteCasos)
+            cmd.Parameters.AddWithValue("@intIdEmpleados", dts._idEmpleados)
+            cmd.Parameters.AddWithValue("@vchNombreCentroEducativo", dts._nombreCentroEducativo)
+            cmd.Parameters.AddWithValue("@intIdUnidad", dts._idUnidad)
+            cmd.Parameters.AddWithValue("@vchNumeroOficio", dts._numeroOficio)
+            cmd.Parameters.AddWithValue("@dtiFechaOficio", Convert.ToDateTime(dts._fechaOficio))
+            cmd.Parameters.AddWithValue("@intIdDimension", dts._idDimension)
+            cmd.Parameters.AddWithValue("@vchCondicionCasos", dts._condicionCasos)
+            cmd.Parameters.AddWithValue("@vchDetalleInconformidadCasos", dts._detalleInconformidadCasos)
+            cmd.Parameters.AddWithValue("@vchRespuestaCasos", dts._respuestaCasos)
+            cmd.Parameters.AddWithValue("@vchValoracionAdmisibilidad", dts._valoracionAdmisibilidad)
+            cmd.Parameters.AddWithValue("@vchVeredictoValoracionIngreso", dts._veredictoValoracionIngreso)
+            cmd.Parameters.AddWithValue("@vchTrazabilidadCasos", dts._trazabilidadCasos)
+            cmd.Parameters.AddWithValue("@dtiFechaRespuestaCasos", Convert.ToDateTime(dts._fechaRespuestaCasos))
+            cmd.Parameters.AddWithValue("@dtiFechaCerradoCasos", Convert.ToDateTime(dts._fechaCerradoCasos))
             If cmd.ExecuteNonQuery Then
                 Return True
             Else

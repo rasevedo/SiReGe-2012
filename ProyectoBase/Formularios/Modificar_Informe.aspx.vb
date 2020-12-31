@@ -9,7 +9,7 @@ Imports System.IO
 Public Class Modificar_Informe
     Inherits System.Web.UI.Page
 
-    Dim con As SqlConnection = New SqlConnection("Data Source=localhost;Initial Catalog=SiReGe;Integrated Security=True")
+    Dim con As SqlConnection = New SqlConnection("Data Source=localhost;Initial Catalog=bda_SIREGE;Integrated Security=True")
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not Me.IsPostBack Then

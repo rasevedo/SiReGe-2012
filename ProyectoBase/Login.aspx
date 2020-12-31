@@ -13,7 +13,7 @@
     <title></title>
        <script type="text/javascript">
            // constants to define the title of the alert and button text.
-           var ALERT_TITLE = "Sistema XXXXXXXXXXXXXX";
+           var ALERT_TITLE = "Sistema Registro de Gestiones";
            var ALERT_BUTTON_TEXT = "Ok";
 
            // over-ride the alert method only if this a newer browser.
@@ -74,7 +74,7 @@
             <div  id="encabezado" > </div>
               <div id="EncabezadoSistema">
             <br />
-                  Sistema XXXXXXXXXXXXXX
+                  Sistema Registro de Gestiones
             </div> 
             <div id="separador"></div>
             <div id="ContenedorPrincipal" style="text-align:center" > 

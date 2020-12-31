@@ -9,17 +9,17 @@ Public Class Datos_Informe
     Public Function insertarInforme(ByVal dts As Entidad_Informe) As Boolean
         Try
             conectado()
-            cmd = New SqlCommand("insertarInforme")
+            cmd = New SqlCommand("palInsertarInforme")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@tituloInforme", dts._tituloInforme)
-            cmd.Parameters.AddWithValue("@idEmpleados", dts._idEmpleados)
-            cmd.Parameters.AddWithValue("@tipoInforme", dts._tipoInforme)
-            cmd.Parameters.AddWithValue("@numeroOficio", dts._numeroOficio)
-            cmd.Parameters.AddWithValue("@fechaAprobacion", dts._fechaAprobacion)
-            cmd.Parameters.AddWithValue("@fechaCulminacion", dts._fechaCulminacion)
-            cmd.Parameters.AddWithValue("@fechaTraslado", dts._fechaTraslado)
-            cmd.Parameters.AddWithValue("@avanceInforme", dts._avanceInforme)
+            cmd.Parameters.AddWithValue("@vchTituloInforme", dts._tituloInforme)
+            cmd.Parameters.AddWithValue("@intIdEmpleados", dts._idEmpleados)
+            cmd.Parameters.AddWithValue("@vchTipoInforme", dts._tipoInforme)
+            cmd.Parameters.AddWithValue("@vchNumeroOficio", dts._numeroOficio)
+            cmd.Parameters.AddWithValue("@dtiFechaAprobacion", dts._fechaAprobacion)
+            cmd.Parameters.AddWithValue("@dtiFechaCulminacion", dts._fechaCulminacion)
+            cmd.Parameters.AddWithValue("@dtiFechaTraslado", dts._fechaTraslado)
+            cmd.Parameters.AddWithValue("@vchAvanceInforme", dts._avanceInforme)
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
@@ -36,7 +36,7 @@ Public Class Datos_Informe
     Public Function mostrarInforme() As DataTable
         Try
             conectado()
-            cmd = New SqlCommand("mostrarInforme")
+            cmd = New SqlCommand("palMostrarInforme")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
             If cmd.ExecuteNonQuery Then
@@ -58,10 +58,10 @@ Public Class Datos_Informe
     Public Function borrarInforme(ByVal dts As Entidad_Informe) As Boolean
         Try
             conectado()
-            cmd = New SqlCommand("eliminarInforme")
+            cmd = New SqlCommand("palEliminarInforme")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@idInforme", dts._idInforme)
+            cmd.Parameters.AddWithValue("@intIdInforme", dts._idInforme)
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
@@ -78,18 +78,18 @@ Public Class Datos_Informe
     Public Function modificarInforme(ByVal dts As Entidad_Informe) As Boolean
         Try
             conectado()
-            cmd = New SqlCommand("modificarInforme")
+            cmd = New SqlCommand("palModificarInforme")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = cnn
-            cmd.Parameters.AddWithValue("@idInforme", dts._idInforme)
-            cmd.Parameters.AddWithValue("@tituloInforme", dts._tituloInforme)
-            cmd.Parameters.AddWithValue("@idEmpleados", dts._idEmpleados)
-            cmd.Parameters.AddWithValue("@tipoInforme", dts._tipoInforme)
-            cmd.Parameters.AddWithValue("@numeroOficio", dts._numeroOficio)
-            cmd.Parameters.AddWithValue("@fechaAprobacion", dts._fechaAprobacion)
-            cmd.Parameters.AddWithValue("@fechaCulminacion", dts._fechaCulminacion)
-            cmd.Parameters.AddWithValue("@fechaTraslado", dts._fechaTraslado)
-            cmd.Parameters.AddWithValue("@avanceInforme", dts._avanceInforme)
+            cmd.Parameters.AddWithValue("@intIdInforme", dts._idInforme)
+            cmd.Parameters.AddWithValue("@vchTituloInforme", dts._tituloInforme)
+            cmd.Parameters.AddWithValue("@intIdEmpleados", dts._idEmpleados)
+            cmd.Parameters.AddWithValue("@vchTipoInforme", dts._tipoInforme)
+            cmd.Parameters.AddWithValue("@vchNumeroOficio", dts._numeroOficio)
+            cmd.Parameters.AddWithValue("@dtiFechaAprobacion", dts._fechaAprobacion)
+            cmd.Parameters.AddWithValue("@dtiFechaCulminacion", dts._fechaCulminacion)
+            cmd.Parameters.AddWithValue("@dtiFechaTraslado", dts._fechaTraslado)
+            cmd.Parameters.AddWithValue("@vchAvanceInforme", dts._avanceInforme)
             If cmd.ExecuteNonQuery Then
                 Return True
             Else

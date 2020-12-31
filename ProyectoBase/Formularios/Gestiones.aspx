@@ -32,7 +32,7 @@
         <div class="auto-style2">
             <header class="panel-heading">
                 <div class="col-md-5 col-md-offset-3">
-                    <h1 class="auto-style3">Sistema de Gestiones</h1>
+                    <h1 class="auto-style3">&nbsp;&nbsp; Sistema de Gestiones</h1>
                 </div>
             </header>
         </div>
@@ -42,32 +42,25 @@
                             <div class="row">
                                  <div class="col-md-2 col-md-offset--1">
                                     <div class="form-group">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         <asp:Button Text="Nuevo" ID="btnAgregar"  Width="170px" runat="server" OnClick="Button1_Click" />
-                                    </div>
-                                </div>
-                                <div class="col-md-2 col-md-offset-0">
-                                    <div class="form-group">
                                         <asp:Button Text="Borrar" ID="btnBorrar"  Width="170px" runat="server" OnClientClick="javascript:return Confirmationbox();" OnClick="Button3_Click" />
-                                    </div>
-                                </div>
-
-                             
-
-                                <div class="col-md-2 col-md-offset-0">
-                                    <div class="form-group">
                                         <asp:Button Text="Exportar" ID="btnExportar"  Width="170px" runat="server" OnClick="Button2_Click" />
-                                    </div>
-                                </div>                             
-                                <div class="col-md-2 col-md-offset-0">
-                                    <div class="form-group">
                                         <asp:Button Text="Volver" ID="btnVolver"  Width="170px" runat="server" OnClick="Button4_Click" />
                                     </div>
-                                </div>    
+                                </div>
+                                <div class="col-md-2 col-md-offset-0">
+                                    <div class="form-group">
+                                        <br />
+
+                                    </div>
+                                </div>   
                              </div> 
 
                             <div class="row">
                                  <div class="col-md-4 col-md-offset--1">
                                     <div class="form-group">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         Tipo de Gestión:
                                         <asp:DropDownList ID="Search" runat="server">
                                              <asp:ListItem>Atención presencial</asp:ListItem>
@@ -76,16 +69,22 @@
                                         </asp:DropDownList>
                                         <asp:Button ID="btnSearch" runat="server" Width="125px" Text="Buscar" OnClick="btnsearch_Click"/>
                                     </div>
-                                </div>                                
+                                </div> 
+                                <div class="col-md-2 col-md-offset-0">
+                                    <div class="form-group">
+                                        <br />
+
+                                    </div>
+                                </div>                               
                             </div> 
 
                    
-                   <div id="grdCharges" runat="server" style="width: 1145px; overflow: auto; height: 450px;" >
+                   <div id="grdCharges" runat="server" style="width: 1209px; overflow: auto; height: 450px; margin-left: 8px;" >
                        
-                       <asp:GridView ID="GridViewGestiones" runat="server" CellPadding="10" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="2px" AutoGenerateColumns="False" DataKeyNames="idGestiones"  AllowPaging="True" AllowSorting="True" CellSpacing="10" HorizontalAlign="Center" Width="50%" >
+                       <asp:GridView ID="GridViewGestiones" runat="server" CellPadding="10" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="2px" AutoGenerateColumns="False" DataKeyNames="intIdGestiones"  AllowPaging="True" AllowSorting="True" CellSpacing="10" HorizontalAlign="Center" Width="50%" >
                            <Columns>
                                <asp:buttonfield buttontype="Button" commandname="Select" text="Detalle"/>
-                               <asp:HyperLinkField Text="Modificar" DataNavigateUrlFields="idGestiones" DataNavigateUrlFormatString="Modificar_Gestiones.aspx?idGestiones={0}" />
+                               <asp:HyperLinkField Text="Modificar" DataNavigateUrlFields="intIdGestiones" DataNavigateUrlFormatString="Modificar_Gestiones.aspx?intIdGestiones={0}" />
                                <asp:TemplateField>
                                     <HeaderTemplate>
                                         <asp:CheckBox ID="checkAll" runat="server" onclick = "checkAll(this);" />
@@ -94,82 +93,82 @@
                                         <asp:CheckBox ID="chkSelect" runat="server" onclick="GridCheckOne(this)"></asp:CheckBox>
                                     </ItemTemplate>
                                </asp:TemplateField>                                                            
-                               <asp:BoundField DataField="idGestiones" HeaderText="Codigo de Gestión"    >
+                               <asp:BoundField DataField="intIdGestiones" HeaderText="Codigo de Gestión"    >
                                    <HeaderStyle HorizontalAlign="Center" />
                                </asp:BoundField>
-                               <asp:BoundField DataField="tipoGestiones" HeaderText="Tipo de Gestión"  >
+                               <asp:BoundField DataField="vchTipoGestiones" HeaderText="Tipo de Gestión"  >
                                    <ControlStyle Width="200px"></ControlStyle>
 
                                    <HeaderStyle Width="200px"></HeaderStyle>
                                </asp:BoundField>
-                               <asp:BoundField DataField="cedulaUsuario" HeaderText="Cedula del Usuario"  >
+                               <asp:BoundField DataField="intCedulaUsuario" HeaderText="Cedula del Usuario"  >
                                    <ControlStyle Width="200px"></ControlStyle>
 
                                    <HeaderStyle Width="200px"></HeaderStyle>
                                </asp:BoundField>
-                               <asp:BoundField DataField="nombreUsuario" HeaderText="Nombre del Usuario"  >
+                               <asp:BoundField DataField="vchNombreUsuario" HeaderText="Nombre del Usuario"  >
                                    <ControlStyle Width="200px"></ControlStyle>
 
                                    <HeaderStyle Width="200px"></HeaderStyle>
                                </asp:BoundField>
-                               <asp:BoundField DataField="fechaIngreso" HeaderText="Fecha de Ingreso"  HeaderStyle-Width="120px">
+                               <asp:BoundField DataField="dtiFechaIngreso" HeaderText="Fecha de Ingreso"  HeaderStyle-Width="120px">
 <HeaderStyle Width="120px"></HeaderStyle>
                                </asp:BoundField>
-                               <asp:BoundField DataField="confidencialidadGestiones" HeaderText="Confidencialidad"  HeaderStyle-Width="120px">
+                               <asp:BoundField DataField="vchConfidencialidadGestiones" HeaderText="Confidencialidad"  HeaderStyle-Width="120px">
 <HeaderStyle Width="120px"></HeaderStyle>
                                </asp:BoundField>
-                               <asp:BoundField DataField="fuenteGeneradora" HeaderText="Fuente Generadora"  HeaderStyle-Width="120px">
+                               <asp:BoundField DataField="vchFuenteGeneradora" HeaderText="Fuente Generadora"  HeaderStyle-Width="120px">
 <HeaderStyle Width="120px"></HeaderStyle>
                                </asp:BoundField>
-                               <asp:BoundField DataField="tipoServicio" HeaderText="Tipo de servicio"  HeaderStyle-Width="120px">
+                               <asp:BoundField DataField="vchTipoServicio" HeaderText="Tipo de servicio"  HeaderStyle-Width="120px">
 <HeaderStyle Width="120px"></HeaderStyle>
                                </asp:BoundField>
-                               <asp:BoundField DataField="nombreEmpleados" HeaderText="Funcionario que Tramita"  HeaderStyle-Width="120px">
+                               <asp:BoundField DataField="vchNombreEmpleados" HeaderText="Funcionario que Tramita"  HeaderStyle-Width="120px">
 <HeaderStyle Width="120px"></HeaderStyle>
                                </asp:BoundField>
-                               <asp:BoundField DataField="direccionRegional" HeaderText="Dirección Regional de Educación"  HeaderStyle-Width="120px">
+                               <asp:BoundField DataField="vchDireccionRegional" HeaderText="Dirección Regional de Educación"  HeaderStyle-Width="120px">
 <HeaderStyle Width="120px"></HeaderStyle>
                                </asp:BoundField>
-                               <asp:BoundField DataField="supervicionGestiones" HeaderText="Supervisión"  HeaderStyle-Width="120px">
+                               <asp:BoundField DataField="vchSupervicionGestiones" HeaderText="Supervisión"  HeaderStyle-Width="120px">
 <HeaderStyle Width="120px"></HeaderStyle>
                                </asp:BoundField>
-                               <asp:BoundField DataField="nombreCentroEducativo" HeaderText="Nombre del Centro Educativo"  HeaderStyle-Width="120px">
+                               <asp:BoundField DataField="vchNombreCentroEducativo" HeaderText="Nombre del Centro Educativo"  HeaderStyle-Width="120px">
 <HeaderStyle Width="120px"></HeaderStyle>
                                </asp:BoundField>
-                               <asp:BoundField DataField="descripcionUnidad" HeaderText="Descripción Unidad"  HeaderStyle-Width="120px">
+                               <asp:BoundField DataField="vchDescripcionUnidad" HeaderText="Descripción Unidad"  HeaderStyle-Width="120px">
 <HeaderStyle Width="120px"></HeaderStyle>
                                </asp:BoundField>
-                               <asp:BoundField DataField="descripcionDespacho" HeaderText="Descripción Despacho" HeaderStyle-Width="120px">
+                               <asp:BoundField DataField="vchDescripcionDespacho" HeaderText="Descripción Despacho" HeaderStyle-Width="120px">
 <HeaderStyle Width="120px"></HeaderStyle>
                                </asp:BoundField>
-                               <asp:BoundField DataField="descripcionDireccion" HeaderText="Descripción Dirección"  HeaderStyle-Width="120px">
+                               <asp:BoundField DataField="vchDescripcionDireccion" HeaderText="Descripción Dirección"  HeaderStyle-Width="120px">
 <HeaderStyle Width="120px"></HeaderStyle>
                                </asp:BoundField>
-                               <asp:BoundField DataField="descripcionDepartamento" HeaderText="Descripción Departamento" HeaderStyle-Width="120px">
+                               <asp:BoundField DataField="vchdescripcionDepartamento" HeaderText="Descripción Departamento" HeaderStyle-Width="120px">
 <HeaderStyle Width="120px"></HeaderStyle>
                                </asp:BoundField>
-                               <asp:BoundField DataField="numeroOficio" HeaderText="Numero de Oficio"  HeaderStyle-Width="120px">
+                               <asp:BoundField DataField="vchNumeroOficio" HeaderText="Numero de Oficio"  HeaderStyle-Width="120px">
 <HeaderStyle Width="120px"></HeaderStyle>
                                </asp:BoundField>
-                               <asp:BoundField DataField="tipoDimension" HeaderText="Dimensión"  HeaderStyle-Width="120px">
+                               <asp:BoundField DataField="vchTipoDimension" HeaderText="Dimensión"  HeaderStyle-Width="120px">
 <HeaderStyle Width="120px"></HeaderStyle>
                                </asp:BoundField>
-                               <asp:BoundField DataField="letraDimension" HeaderText="Letra Dimensión" HeaderStyle-Width="120px">
+                               <asp:BoundField DataField="vchLetraDimension" HeaderText="Letra Dimensión" HeaderStyle-Width="120px">
 <HeaderStyle Width="120px"></HeaderStyle>
                                </asp:BoundField>
-                               <asp:BoundField DataField="descripcionTipoDimension" HeaderText="Detalle Dimensión"  HeaderStyle-Width="120px">
+                               <asp:BoundField DataField="vchDescripcionTipoDimension" HeaderText="Detalle Dimensión"  HeaderStyle-Width="120px">
 <HeaderStyle Width="120px"></HeaderStyle>
                                </asp:BoundField>
-                               <asp:BoundField DataField="tipoUsuario" HeaderText="Tipo de Usuario" HeaderStyle-Width="120px">
+                               <asp:BoundField DataField="vchTipoUsuario" HeaderText="Tipo de Usuario" HeaderStyle-Width="120px">
 <HeaderStyle Width="120px"></HeaderStyle>
                                </asp:BoundField>
-                               <asp:BoundField DataField="detalleGestiones" HeaderText="Detalle de Gestiones"  HeaderStyle-Width="120px">
+                               <asp:BoundField DataField="vchDetalleGestiones" HeaderText="Detalle de Gestiones"  HeaderStyle-Width="120px">
 <HeaderStyle Width="120px"></HeaderStyle>
                                </asp:BoundField>                                 
-                               <asp:BoundField DataField="respuestaGestiones" HeaderText="Respuesta de Gestiones" HeaderStyle-Width="120px">
+                               <asp:BoundField DataField="vchRespuestaGestiones" HeaderText="Respuesta de Gestiones" HeaderStyle-Width="120px">
 <HeaderStyle Width="120px"></HeaderStyle>
                                </asp:BoundField>
-                               <asp:BoundField DataField="categoriaGestiones" HeaderText="Categoria de Gestiones"  HeaderStyle-Width="120px">
+                               <asp:BoundField DataField="vchCategoriaGestiones" HeaderText="Categoria de Gestiones"  HeaderStyle-Width="120px">
 <HeaderStyle Width="120px"></HeaderStyle>
                                </asp:BoundField>
                            </Columns>
@@ -185,7 +184,7 @@
                        </asp:GridView>
 
                       
-                       <asp:SqlDataSource runat="server" ID="SqlDataSourceGrid" ConnectionString='<%$ ConnectionStrings:SiReGeConnectionString %>' SelectCommand="mostrarGestiones" SelectCommandType="StoredProcedure" ></asp:SqlDataSource>
+                       <asp:SqlDataSource runat="server" ID="SqlDataSourceGrid" ConnectionString='<%$ ConnectionStrings:bda_SIREGE_Connection %>' SelectCommand="mostrarGestiones" SelectCommandType="StoredProcedure" ></asp:SqlDataSource>
                      
                       <script type = "text/javascript">
                           function checkAll(objRef) {

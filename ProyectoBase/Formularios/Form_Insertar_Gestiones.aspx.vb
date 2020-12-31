@@ -18,13 +18,12 @@ Public Class Form_Insertar_Gestiones
     'Devuelve:El idUnidad a insertar en la tabla Gestiones'
     Protected Sub DD1_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs)
         Dim strConnString As String = ConfigurationManager _
-             .ConnectionStrings("SiReGeConnectionString").ConnectionString
-        Dim strQuery As String = "select descripcionDespacho, descripcionDireccion, descripcionDepartamento from Unidad where" _
-                           & " idUnidad = @idUnidad"
+             .ConnectionStrings("bda_SIREGE_Connection").ConnectionString
+        Dim strQuery As String = "palSeleccionarUnidades"
         Dim con As New SqlConnection(strConnString)
         Dim cmd As New SqlCommand()
-        cmd.Parameters.AddWithValue("@idUnidad", DD1.SelectedItem.Value)
-        cmd.CommandType = CommandType.Text
+        cmd.Parameters.AddWithValue("@intIdUnidad", DD1.SelectedItem.Value)
+        cmd.CommandType = CommandType.StoredProcedure
         cmd.CommandText = strQuery
         cmd.Connection = con
         Try
@@ -49,13 +48,12 @@ Public Class Form_Insertar_Gestiones
     'Devuelve:El idDimension a insertar en la tabla Gestiones'
     Protected Sub DDL_Dimension2_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs)
         Dim strConnString As String = ConfigurationManager _
-             .ConnectionStrings("SiReGeConnectionString").ConnectionString
-        Dim strQuery As String = "select descripcionLetraDimension from Dimensiones where" _
-                           & " idDimension = @idDimension"
+             .ConnectionStrings("bda_SIREGE_Connection").ConnectionString
+        Dim strQuery As String = "palSeleccionarDimensiones"
         Dim con As New SqlConnection(strConnString)
         Dim cmd As New SqlCommand()
-        cmd.Parameters.AddWithValue("@idDimension", DDL_Dimension2.SelectedItem.Value)
-        cmd.CommandType = CommandType.Text
+        cmd.Parameters.AddWithValue("@intIdDimension", DDL_Dimension2.SelectedItem.Value)
+        cmd.CommandType = CommandType.StoredProcedure
         cmd.CommandText = strQuery
         cmd.Connection = con
         Try
@@ -107,7 +105,7 @@ Public Class Form_Insertar_Gestiones
                 End If
             Catch ex As Exception
                 Response.Write("<script language=javascript>alert('Hubo un problema en agregar el elemento')</script>")
-                ' MsgBox("Hubo un problema en agregar el elemento" + ex.Message)
+                MsgBox("Hubo un problema en agregar el elemento" + ex.Message)
             End Try
         Else
             Response.Write("<script language=javascript>alert('Faltan elementos que agregar')</script>")

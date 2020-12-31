@@ -233,11 +233,11 @@ Public Class Gestiones
     'Devuelve: Gridview filtrado'
     Protected Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         Dim strConnString As String = ConfigurationManager _
-             .ConnectionStrings("SiReGeConnectionString").ConnectionString
+             .ConnectionStrings("bda_SIREGE_Connection").ConnectionString
 
         Dim con As New SqlConnection(strConnString)
         con.Open()
-        Dim cmd As SqlCommand = New SqlCommand("SELECT G.idGestiones, G.tipoGestiones, G.cedulaUsuario, G.nombreUsuario, G.fechaIngreso, G.confidencialidadGestiones, G.fuenteGeneradora ,G.tipoServicio, E.nombreEmpleados,G.direccionRegional, G.supervicionGestiones, G.nombreCentroEducativo, U.descripcionUnidad, U.descripcionDespacho, U.descripcionDireccion, U.descripcionDepartamento,G.numeroOficio, D.tipoDimension, D.letraDimension, D.descripcionTipoDimension, G.tipoUsuario, G.detalleGestiones, G.respuestaGestiones, G.categoriaGestiones FROM Gestiones G join Empleados as E on G.idEmpleados = E.idEmpleados join Unidad as U on G.idUnidad = U.idUnidad join Dimensiones as D on G.idDimension = D.idDimension  WHERE tipoGestiones='" & Search.Text & "'", con)
+        Dim cmd As SqlCommand = New SqlCommand("SELECT G.intIdGestiones, G.vchTipoGestiones, G.intCedulaUsuario, G.vchNombreUsuario, G.dtiFechaIngreso, G.vchConfidencialidadGestiones, G.vchFuenteGeneradora ,G.vchTipoServicio, E.vchNombreEmpleados,G.vchDireccionRegional, G.vchSupervicionGestiones, G.vchNombreCentroEducativo, U.vchDescripcionUnidad, U.vchDescripcionDespacho, U.vchDescripcionDireccion, U.vchDescripcionDepartamento,G.vchNumeroOficio, D.vchTipoDimension, D.vchLetraDimension, D.descripcionTipoDimension, G.vchTipoUsuario, G.vchDetalleGestiones, G.vchRespuestaGestiones, G.vchCategoriaGestiones FROM tblGestiones G join tblEmpleados as E on G.intIdEmpleados = E.intIdEmpleados join tblUnidades as U on G.intIdUnidad = U.intIdUnidad join tblDimensiones as D on G.intIdDimension = D.intIdDimension  WHERE vchTipoGestiones='" & Search.Text & "'", con)
 
         Dim da As SqlDataAdapter = New SqlDataAdapter(cmd)
         Dim ds As DataSet = New DataSet()
