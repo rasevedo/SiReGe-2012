@@ -7,7 +7,7 @@
             ' Dim dsInfoUsuario As DataSet
             ' Dim intAplicacion As Integer
             'Consecutivo que genera el Sistema de Control de Accesos y Seguridad
-           
+
         Catch ex As Exception
         End Try
     End Sub
