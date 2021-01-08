@@ -1,9 +1,9 @@
-﻿<%@ Page Title="Casos" Language="vb" AutoEventWireup="false"  MasterPageFile="~/MasterPage.Master" CodeBehind="Casos.aspx.vb" Inherits="CapPresentacionSiReGe.Casos" EnableEventValidation="false" %>
+﻿<%@ Page Title="Tabla Casos-SistemaRegistroGestiones" Language="vb" AutoEventWireup="false"  MasterPageFile="~/MasterPage.Master" CodeBehind="Tabla Casos-SistemaRegistroGestiones.aspx.vb" Inherits="CapPresentacionSiReGe.Casos" EnableEventValidation="false" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %> 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    
+    <title>Tabla Casos-SistemaRegistroGestiones</title>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">   
@@ -45,7 +45,7 @@
                        <asp:GridView ID="GridViewCasos" runat="server" CellPadding="10" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="2px" AutoGenerateColumns="False" DataKeyNames="intIdCasos" AllowPaging="True" AllowSorting="True" CellSpacing="10" HorizontalAlign="Center" style="margin-left: 14px" Width="2422px">
                            <Columns>
                                <asp:buttonfield buttontype="Button" commandname="Select" text="Detalle"/>
-                               <asp:HyperLinkField Text="Modificar" DataNavigateUrlFields="intIdCasos" DataNavigateUrlFormatString="Modificar_Casos.aspx?intIdCasos={0}" />
+                               <asp:HyperLinkField Text="Modificar" DataNavigateUrlFields="intIdCasos" DataNavigateUrlFormatString="Modificar Casos-SistemaRegistroGestiones.aspx?intIdCasos={0}" />
                                <asp:TemplateField>
                                    <HeaderTemplate>
                                         <asp:CheckBox ID="checkAll" runat="server" onclick = "checkAll(this);" />

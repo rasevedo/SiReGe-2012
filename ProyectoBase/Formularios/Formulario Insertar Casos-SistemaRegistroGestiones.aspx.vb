@@ -13,9 +13,11 @@ Public Class Form_Insertar_Casos
         End If
     End Sub
 
+
 #Region "Seleccionar Unidad"
-    'Funcion que se utiliza para la elección de Unidad con dropdownlist de cascada con 3 textboxes ya que lo unico que se requiere es solo idUnidad por lo tanto se utiliza el espacio de Unidad como el responsable'
-    'Devuelve:El idUnidad a insertar en la tabla Casos'
+    'EFECTO: Función que se utiliza para la elección de Unidad con dropdownlist de cascada con 3 textboxes ya que lo único que se requiere es solo intIdUnidad por lo tanto se utiliza el espacio de Unidad como el responsable del ingreso de datos en la base de datos
+    'RECIBE: El campo de Unidad de tblUnidades
+    'DEVUELVE: El intIdUnidad a insertar en la tabla de tblCasos
     Protected Sub DD1_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs)
         Dim strConnString As String = ConfigurationManager _
              .ConnectionStrings("bda_SIREGE_Connection").ConnectionString
@@ -43,9 +45,10 @@ Public Class Form_Insertar_Casos
     End Sub
 #End Region
 
-#Region "Seleccionar letraDimension"
-    'Funcion que se utiliza para la elección de Dimensiones con dropdownlist de cascada con 1 textboxes ya que lo unico que se requiere es solo idDimension por lo tanto se utiliza el espacio de letra como el responsable ya que es elegido por tipoDimension'
-    'Devuelve:El idDimension a insertar en la tabla Casos'
+#Region "Seleccionar Letra de Dimensión"
+    'EFECTO: Función que se utiliza para la elección de tblDimensiones con dropdownlist de cascada con 1 textboxes ya que lo único que se requiere es solo intIdDimension por lo tanto se útiliza el espacio de vchLetraDimension como el responsable ya que es elegido por vchTipoDimension
+    'RECIBE: La selección del usuario con el campo de Tipo de Dimensión
+    'DEVUELVE: El intIdDimension a insertar en la tabla de tblCasos
     Protected Sub DDL_Dimension2_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs)
         Dim strConnString As String = ConfigurationManager _
              .ConnectionStrings("bda_SIREGE_Connection").ConnectionString
@@ -72,9 +75,10 @@ Public Class Form_Insertar_Casos
 #End Region
 
 
-
-    'La funcion de este boton se encarga revisar que todos los textboxes y dropdownlists esten rellenos para insertar en la base de datos. Aunque solo fuerza 3 textboxes como obligados para insertar'
-    'Devuelve: No devulve, pero insertar datos a la base de datos en la tabla Casos'
+#Region "btnAgregar datos a la tabla tblCasos"
+    'EFECTO: La función de este botón se encarga revisar que todos los textboxes y dropdownlists esten llenos para insertar en la base de datos. Aunque solo fuerza 3 textboxes como obligados para insertar
+    'RECIBE: La llamada de Datos_Casos y Entidad_Casos para la inserción a la base de datos
+    'DEVUELVE: Inserta los datos a la base de datos en la tabla tblCasos
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
         Dim dts As New Entidad_Casos
         Dim func As New Datos_Casos
@@ -100,30 +104,36 @@ Public Class Form_Insertar_Casos
                 dts._fechaRespuestaCasos = txtfechaRespuestaCasos.Text
                 dts._fechaCerradoCasos = txtfechaCerradoCasos.Text
                 If func.insertarCasos(dts) Then
-                    Response.Write("<script language=javascript>alert('El elemento se ha agregado')</script>")
+                    ModalPopupExtender_Exito.Show()
+                    'Response.Write("<script language=javascript>alert('El elemento se ha agregado')</script>")
                     ' MsgBox("Exito")
                     GestionLimpiar()
                 Else
-                    Response.Write("<script language=javascript>alert('Faltan espacio para rellenar')</script>")
-                    MsgBox("Fracaso")
+                    ModalPopupExtender_Incompleto.Show()
+                    ' Response.Write("<script language=javascript>alert('Faltan espacio para rellenar')</script>")
+                    ' MsgBox("Fracaso")
                 End If
             Catch ex As Exception
-                Response.Write("<script language=javascript>alert('Hubo un problema en agregar el elemento')</script>")
+                ModalPopupExtender_Error.Show()
+                'Response.Write("<script language=javascript>alert('Hubo un problema en agregar el elemento')</script>")
                 ' MsgBox(ex.Message)
             End Try
         Else
-            Response.Write("<script language=javascript>alert('Faltan elementos que agregar')</script>")
-            MsgBox("Falta datos")
+            ModalPopupExtender_Incompleto.Show()
+            'Response.Write("<script language=javascript>alert('Faltan elementos que agregar')</script>")
+            ' MsgBox("Falta datos")
         End If
     End Sub
+#End Region
 
     Protected Sub Button2_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
-        Response.Redirect("Casos.aspx")
+        Response.Redirect("Tabla Casos-SistemaRegistroGestiones.aspx")
     End Sub
 
-#Region "LimpiarFormulario"
-    'Funcion que se utiliza para limpiar todos los textboxes de la pagina'
-    'Devulve: Hace vacio todos los textboxes'
+#Region "Limpiar Formulario"
+    'EFECTO: Función que se utiliza para limpiar todos los textboxes de la pagina
+    'RECIBE: No recibe parametros
+    'DEVUELVE: Hace vacio todos los textboxes
     Sub GestionLimpiar()
         txtnumeroCaso.Text = String.Empty
         txtfechaCaso.Text = String.Empty

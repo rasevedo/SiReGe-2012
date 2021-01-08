@@ -439,12 +439,14 @@ h5
 }
 
 .centrar {
+    text-align
+
+.centrar {
     text-align: center;
     padding-left: 10%;
-    width: 790px;
+    margin-left: 0px;
 }
 
-/*Backcolor de los textbox*/
 .focusfld
 {
     background-color: lemonchiffon;

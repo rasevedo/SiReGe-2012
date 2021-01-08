@@ -3,14 +3,19 @@ Imports CapEntidadesSiReGe
 
 Public Class Datos_Casos
 
-    Inherits conexion
+    Inherits Conexion
     Dim cmd As New SqlCommand
+
+#Region "Insertar datos a la tabla tblCasos"
+    'EFECTO: Esta función inserta los datos para la tabla tblCasos
+    'RECIBE: Requiere el llamado de la Entidad de Casos
+    'DEVUELVE: NO DEVUELVE
     Public Function insertarCasos(ByVal dts As Entidad_Casos) As Boolean
         Try
-            conectado()
+
             cmd = New SqlCommand("palInsertarCasos")
             cmd.CommandType = CommandType.StoredProcedure
-            cmd.Connection = cnn
+            cmd.Connection = Conx
             cmd.Parameters.AddWithValue("@vchNumeroCasos", dts._numeroCasos)
             cmd.Parameters.AddWithValue("@vchEstadoCasos", dts._estadoCasos)
             cmd.Parameters.AddWithValue("@dtiFechaCasos", Convert.ToDateTime(dts._fechaCasos))
@@ -35,21 +40,25 @@ Public Class Datos_Casos
             Else
                 Return False
             End If
-
         Catch ex As Exception
             MsgBox(ex.Message)
             Return False
         Finally
-            desconectado()
+
         End Try
     End Function
+#End Region
 
+#Region "Mostrar los datos de la tabla tblCasos"
+    'EFECTO: Esta función muestra los datos de la tabla tblCasos
+    'RECIBE: No require de parámetros
+    'DEVUELVE: Devuelve los datos de la tabla tblCasos
     Public Function mostrarCasos() As DataTable
         Try
-            conectado()
+
             cmd = New SqlCommand("palMostrarCasos")
             cmd.CommandType = CommandType.StoredProcedure
-            cmd.Connection = cnn
+            cmd.Connection = Conx
             If cmd.ExecuteNonQuery Then
                 Dim dt As New DataTable
                 Dim da As New SqlDataAdapter(cmd)
@@ -57,23 +66,26 @@ Public Class Datos_Casos
                 Return dt
             Else
                 Return Nothing
-
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
             Return Nothing
         Finally
-            desconectado()
 
         End Try
     End Function
+#End Region
 
+#Region "Borrar datos a la tabla tblCasos"
+    'EFECTO: Esta función elimina los datos especificos de la tabla tblCasos
+    'RECIBE: Requiere el llamado de la Entidad de Casos
+    'DEVUELVE: NO DEVUELVE
     Public Function borrarCasos(ByVal dts As Entidad_Casos) As Boolean
         Try
-            conectado()
+
             cmd = New SqlCommand("palEliminarCasos")
             cmd.CommandType = CommandType.StoredProcedure
-            cmd.Connection = cnn
+            cmd.Connection = Conx
             cmd.Parameters.AddWithValue("@intIdCasos", dts._idCasos)
             If cmd.ExecuteNonQuery Then
                 Return True
@@ -84,16 +96,21 @@ Public Class Datos_Casos
             MsgBox(ex.Message)
             Return False
         Finally
-            desconectado()
+
         End Try
     End Function
+#End Region
 
+#Region "Modificar datos a la tabla tblCasos"
+    'EFECTO: Esta función modifica los datos para la tabla tblCasos
+    'RECIBE: Requiere el llamado de la Entidad de Casos
+    'DEVUELVE: NO DEVUELVE
     Public Function modificarCasos(ByVal dts As Entidad_Casos) As Boolean
         Try
-            conectado()
+
             cmd = New SqlCommand("palModificarCasos")
             cmd.CommandType = CommandType.StoredProcedure
-            cmd.Connection = cnn
+            cmd.Connection = Conx
             cmd.Parameters.AddWithValue("@intIdCasos", dts._idCasos)
             cmd.Parameters.AddWithValue("@vchNumeroCasos", dts._numeroCasos)
             cmd.Parameters.AddWithValue("@vchEstadoCasos", dts._estadoCasos)
@@ -123,8 +140,9 @@ Public Class Datos_Casos
             MsgBox(ex.Message)
             Return False
         Finally
-            desconectado()
+
         End Try
     End Function
+#End Region
 
 End Class

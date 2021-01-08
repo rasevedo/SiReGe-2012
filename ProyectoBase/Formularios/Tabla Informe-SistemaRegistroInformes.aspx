@@ -1,9 +1,10 @@
-﻿<%@ Page Title="Informe" Language="vb" AutoEventWireup="false" MasterPageFile="~/MasterPage.Master" CodeBehind="Informe.aspx.vb" Inherits="CapPresentacionSiReGe.Informe" EnableEventValidation="false" %>
+﻿<%@ Page Title="Tabla Informes-SistemaRegistroGestiones" Language="vb" AutoEventWireup="false" MasterPageFile="~/MasterPage.Master" CodeBehind="Tabla Informe-SistemaRegistroInformes.aspx.vb" Inherits="CapPresentacionSiReGe.Informe" EnableEventValidation="false" %>
 
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %> 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+    <title>Tabla Informes-SistemaRegistroGestiones</title>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">  
@@ -47,7 +48,7 @@
                        <asp:GridView ID="GridViewInforme" runat="server" CellPadding="10" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="2px" AutoGenerateColumns="False" DataKeyNames="intIdInforme" AllowPaging="True" AllowSorting="True" CellSpacing="10" HorizontalAlign="Center" style="margin-left: 9px" Width="1199px">
                            <Columns>
                                <asp:buttonfield buttontype="Button" commandname="Select" text="Detalle"/>
-                               <asp:HyperLinkField Text="Modificar" DataNavigateUrlFields="intIdInforme" DataNavigateUrlFormatString="Modificar_Informe.aspx?intIdInforme={0}" />
+                               <asp:HyperLinkField Text="Modificar" DataNavigateUrlFields="intIdInforme" DataNavigateUrlFormatString="Modificar Informes-SistemaRegistroGestiones.aspx?intIdInforme={0}" />
                                <asp:TemplateField>
                                    <HeaderTemplate>
                                         <asp:CheckBox ID="checkAll" runat="server" onclick = "checkAll(this);" />

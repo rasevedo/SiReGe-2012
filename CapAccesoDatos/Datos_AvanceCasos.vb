@@ -3,14 +3,19 @@ Imports CapEntidadesSiReGe
 
 Public Class Datos_AvanceCasos
 
-    Inherits conexion
+    Inherits Conexion
     Dim cmd As New SqlCommand
+
+#Region "Insertar datos a la tabla tblCasoAvances"
+    'EFECTO: Esta función inserta los datos para la tabla tblCasoAvances
+    'RECIBE: Requiere el llamado de la Entidad de AvanceCasos
+    'DEVUELVE: NO DEVUELVE
     Public Function insertarAvancesCasos(ByVal dts As Entidad_AvanceCasos) As Boolean
         Try
-            conectado()
+
             cmd = New SqlCommand("palInsertarCasoAvances")
             cmd.CommandType = CommandType.StoredProcedure
-            cmd.Connection = cnn
+            cmd.Connection = Conx
             cmd.Parameters.AddWithValue("@intIdCasos", dts._idCasos)
             cmd.Parameters.AddWithValue("@vchDetalleAvance", dts._detalleAvance)
             cmd.Parameters.AddWithValue("@dtiFechaAvance", Convert.ToDateTime(dts._fechaAvance))
@@ -23,17 +28,21 @@ Public Class Datos_AvanceCasos
             MsgBox(ex.Message)
             Return False
         Finally
-            desconectado()
+
         End Try
     End Function
+#End Region
 
-
+#Region "Mostrar los datos de la tabla tblCasoAvances"
+    'EFECTO: Esta función muestra los datos de la tabla tblCasoAvances
+    'RECIBE: No require de parámetros
+    'DEVUELVE: Devuelve los datos de la tabla tblCasoAvances
     Public Function mostrarAvanceCasos() As DataTable
         Try
-            conectado()
+
             cmd = New SqlCommand("palMostrarCasoAvances")
             cmd.CommandType = CommandType.StoredProcedure
-            cmd.Connection = cnn
+            cmd.Connection = Conx
             If cmd.ExecuteNonQuery Then
                 Dim dt As New DataTable
                 Dim da As New SqlDataAdapter(cmd)
@@ -46,8 +55,9 @@ Public Class Datos_AvanceCasos
             MsgBox(ex.Message)
             Return Nothing
         Finally
-            desconectado()
+
         End Try
     End Function
+#End Region
 
 End Class

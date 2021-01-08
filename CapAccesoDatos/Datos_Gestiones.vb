@@ -3,15 +3,19 @@ Imports CapEntidadesSiReGe
 
 Public Class Datos_Gestiones
 
-    Inherits conexion
+    Inherits Conexion
     Dim cmd As New SqlCommand
 
+#Region "Insertar datos a la tabla tblGestiones"
+    'EFECTO: Esta función inserta los datos para la tabla tblGestiones
+    'RECIBE: Requiere el llamado de la Entidad de Gestiones
+    'DEVUELVE: NO DEVUELVE
     Public Function insertarGestiones(ByVal dts As Entidad_Gestiones) As Boolean
         Try
-            conectado()
+
             cmd = New SqlCommand("palInsertarGestiones")
             cmd.CommandType = CommandType.StoredProcedure
-            cmd.Connection = cnn
+            cmd.Connection = Conx
             cmd.Parameters.AddWithValue("@intIdEmpleados", dts._idEmpleados)
             cmd.Parameters.AddWithValue("@vchTipoGestiones", dts._tipoGestiones)
             cmd.Parameters.AddWithValue("@intCedulaUsuario", dts._cedulaUsuario)
@@ -39,16 +43,21 @@ Public Class Datos_Gestiones
             MsgBox(ex.Message)
             Return False
         Finally
-            desconectado()
+
         End Try
     End Function
+#End Region
 
+#Region "Mostrar los datos de la tabla tblGestiones"
+    'EFECTO: Esta función muestra los datos de la tabla tblGestiones
+    'RECIBE: No require de parámetros
+    'DEVUELVE: Devuelve los datos de la tabla tblGestiones
     Public Function mostrarGestiones() As DataTable
         Try
-            conectado()
+
             cmd = New SqlCommand("palMostrarGestiones")
             cmd.CommandType = CommandType.StoredProcedure
-            cmd.Connection = cnn
+            cmd.Connection = Conx
             If cmd.ExecuteNonQuery Then
                 Dim dt As New DataTable
                 Dim da As New SqlDataAdapter(cmd)
@@ -61,16 +70,21 @@ Public Class Datos_Gestiones
             MsgBox(ex.Message)
             Return Nothing
         Finally
-            desconectado()
+
         End Try
     End Function
+#End Region
 
+#Region "Borrar datos a la tabla tblGestiones"
+    'EFECTO: Esta función elimina los datos especificos de la tabla tblGestiones
+    'RECIBE: Requiere el llamado de la Entidad de Gestiones
+    'DEVUELVE: NO DEVUELVE
     Public Function borrarGestiones(ByVal dts As Entidad_Gestiones) As Boolean
         Try
-            conectado()
+
             cmd = New SqlCommand("palEliminarGestiones")
             cmd.CommandType = CommandType.StoredProcedure
-            cmd.Connection = cnn
+            cmd.Connection = Conx
             cmd.Parameters.AddWithValue("@intIdGestiones", dts._idGestiones)
             If cmd.ExecuteNonQuery Then
                 Return True
@@ -81,16 +95,21 @@ Public Class Datos_Gestiones
             MsgBox(ex.Message)
             Return False
         Finally
-            desconectado()
+
         End Try
     End Function
+#End Region
 
+#Region "Modificar datos a la tabla tblGestiones"
+    'EFECTO: Esta función modifica los datos para la tabla tblGestiones
+    'RECIBE: Requiere el llamado de la Entidad de Gestiones
+    'DEVUELVE: NO DEVUELVE
     Public Function modificarGestiones(ByVal dts As Entidad_Gestiones) As Boolean
         Try
-            conectado()
+
             cmd = New SqlCommand("palModificarGestiones")
             cmd.CommandType = CommandType.StoredProcedure
-            cmd.Connection = cnn
+            cmd.Connection = Conx
             cmd.Parameters.AddWithValue("@intIdGestiones", dts._idGestiones)
             cmd.Parameters.AddWithValue("@intIdEmpleados", dts._idEmpleados)
             cmd.Parameters.AddWithValue("@vchTipoGestiones", dts._tipoGestiones)
@@ -119,9 +138,10 @@ Public Class Datos_Gestiones
             MsgBox(ex.Message)
             Return False
         Finally
-            desconectado()
+
         End Try
     End Function
+#End Region
 
 
 

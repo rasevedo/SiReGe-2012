@@ -3,15 +3,19 @@ Imports CapEntidadesSiReGe
 
 Public Class Datos_Informe
 
-    Inherits conexion
+    Inherits Conexion
     Dim cmd As New SqlCommand
 
+#Region "Insertar datos a la tabla tblInformes"
+    'EFECTO: Esta función inserta los datos para la tabla tblInformes
+    'RECIBE: Requiere el llamado de la Entidad de Informe
+    'DEVUELVE: NO DEVUELVE
     Public Function insertarInforme(ByVal dts As Entidad_Informe) As Boolean
         Try
-            conectado()
+
             cmd = New SqlCommand("palInsertarInforme")
             cmd.CommandType = CommandType.StoredProcedure
-            cmd.Connection = cnn
+            cmd.Connection = Conx
             cmd.Parameters.AddWithValue("@vchTituloInforme", dts._tituloInforme)
             cmd.Parameters.AddWithValue("@intIdEmpleados", dts._idEmpleados)
             cmd.Parameters.AddWithValue("@vchTipoInforme", dts._tipoInforme)
@@ -29,16 +33,21 @@ Public Class Datos_Informe
             MsgBox(ex.Message)
             Return False
         Finally
-            desconectado()
+
         End Try
     End Function
+#End Region
 
+#Region "Mostrar los datos de la tabla tblInformes"
+    'EFECTO: Esta función muestra los datos de la tabla tblInformes
+    'RECIBE: No require de parámetros
+    'DEVUELVE: Devuelve los datos de la tabla tblInformes
     Public Function mostrarInforme() As DataTable
         Try
-            conectado()
+
             cmd = New SqlCommand("palMostrarInforme")
             cmd.CommandType = CommandType.StoredProcedure
-            cmd.Connection = cnn
+            cmd.Connection = Conx
             If cmd.ExecuteNonQuery Then
                 Dim dt As New DataTable
                 Dim da As New SqlDataAdapter(cmd)
@@ -51,16 +60,21 @@ Public Class Datos_Informe
             MsgBox(ex.Message)
             Return Nothing
         Finally
-            desconectado()
+
         End Try
     End Function
+#End Region
 
+#Region "Borrar datos a la tabla tblInformes"
+    'EFECTO: Esta función elimina los datos especificos de la tabla tblInformes
+    'RECIBE: Requiere el llamado de la Entidad de Informe
+    'DEVUELVE: NO DEVUELVE
     Public Function borrarInforme(ByVal dts As Entidad_Informe) As Boolean
         Try
-            conectado()
+
             cmd = New SqlCommand("palEliminarInforme")
             cmd.CommandType = CommandType.StoredProcedure
-            cmd.Connection = cnn
+            cmd.Connection = Conx
             cmd.Parameters.AddWithValue("@intIdInforme", dts._idInforme)
             If cmd.ExecuteNonQuery Then
                 Return True
@@ -71,16 +85,21 @@ Public Class Datos_Informe
             MsgBox(ex.Message)
             Return False
         Finally
-            desconectado()
+
         End Try
     End Function
+#End Region
 
+#Region "Modificar datos a la tabla tblInformes"
+    'EFECTO: Esta función modifica los datos para la tabla tblInformes
+    'RECIBE: Requiere el llamado de la Entidad de Informe
+    'DEVUELVE: NO DEVUELVE
     Public Function modificarInforme(ByVal dts As Entidad_Informe) As Boolean
         Try
-            conectado()
+
             cmd = New SqlCommand("palModificarInforme")
             cmd.CommandType = CommandType.StoredProcedure
-            cmd.Connection = cnn
+            cmd.Connection = Conx
             cmd.Parameters.AddWithValue("@intIdInforme", dts._idInforme)
             cmd.Parameters.AddWithValue("@vchTituloInforme", dts._tituloInforme)
             cmd.Parameters.AddWithValue("@intIdEmpleados", dts._idEmpleados)
@@ -99,9 +118,10 @@ Public Class Datos_Informe
             MsgBox(ex.Message)
             Return False
         Finally
-            desconectado()
+
         End Try
     End Function
+#End Region
 
 
 

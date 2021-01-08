@@ -23,15 +23,6 @@ Partial Public Class MenuPrincipal
     Protected WithEvents ImgBtnGestion As Global.System.Web.UI.WebControls.ImageButton
 
     '''<summary>
-    '''Label1 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
     '''ImgBtnDAU control.
     '''</summary>
     '''<remarks>
@@ -41,15 +32,6 @@ Partial Public Class MenuPrincipal
     Protected WithEvents ImgBtnDAU As Global.System.Web.UI.WebControls.ImageButton
 
     '''<summary>
-    '''Label2 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents Label2 As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
     '''ImgBtnDMC control.
     '''</summary>
     '''<remarks>
@@ -57,6 +39,24 @@ Partial Public Class MenuPrincipal
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ImgBtnDMC As Global.System.Web.UI.WebControls.ImageButton
+
+    '''<summary>
+    '''Label1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''Label2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Label2 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''Label3 control.

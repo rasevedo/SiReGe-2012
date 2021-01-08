@@ -26,6 +26,9 @@ Public Class Gestiones
     End Sub
 
 #Region "Mostrar Tabla"
+    'EFECTO: Esta función es la que ayuda para llenar los datos del gridview tomados de la tabla de tblGestiones de la base de datos.
+    'RECIBE: No depende de un parametro. Y se guarda la función en func para luego ir llenando fila por fila el gridview. 
+    'DEVUELVE:Gridview con los datos de tblGestiones.
     Sub Mostrar()
         Try
             Dim func As New Datos_Gestiones
@@ -44,7 +47,7 @@ Public Class Gestiones
 
     'Boton dirige a la inserción de formularios
     Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
-        Response.Redirect("Form_Insertar_Gestiones.aspx")
+        Response.Redirect("Formulario Insertar Gestiones-SistemaRegistroGestiones.aspx")
     End Sub
 
     'Toda la informacion detro de este buton funcionan para la exportacion de datos
@@ -57,6 +60,10 @@ Public Class Gestiones
         ExportaWord()
     End Sub
 
+#Region "Exportar Panel a Word"
+    'EFECTO: Función que se útiliza para exportar la información presente a word. Durante este build se utilizará este metodo se espera en el siguiente prototipo resolverlo por medio de ReportViewer 11
+    'RECIBE: El único parámetro que recibe es el panel pnlPopup para obtener la información que debe exportar
+    'DEVUELVE: Devuelve un archivo .doc de Microsoft Word con la información del modal para su trabajo.
     Protected Sub ExportaWord()
         Response.Clear()
         Response.Buffer = True
@@ -76,8 +83,9 @@ Public Class Gestiones
         Response.Write(oStringWriter.ToString())
         Response.[End]()
     End Sub
+#End Region
 
-#Region "Mostrar Tabla"
+#Region "Reporte"
     Sub Reporte()
         'Dim dsGestiones As New GestionesReport()
         For Each row As GridViewRow In GridViewGestiones.Rows
@@ -112,9 +120,11 @@ Public Class Gestiones
     End Sub
 #End Region
 
-    'Esta funcion ayuda a una vez extraido los datos a exportar estos son guardados en un archivo de excel
-    'Devuelve: Crea un archivo de excel con las filas marcadas con check.
-#Region "Exportar Gridview a Excel"
+    
+#Region "Exportar a Excel"
+    'EFECTO: Función que se útiliza para exportar la información presente a word. Durante este build se utilizará este metodo se espera en el siguiente prototipo resolverlo por medio de ReportViewer 11
+    'RECIBE: Recibe como parametros todas las filas seleccionadas con un check en el gridview
+    'DEVUELVE: Un archivo .xls el cual contiene todas las filas del gridview seleccionadas
     Private Sub ExportGridView()
         Dim attachment As String = "attachment; filename=Gestiones.xls"
         Response.ClearContent()
@@ -131,13 +141,15 @@ Public Class Gestiones
         Response.[End]()
     End Sub
 
-    'La unica funcion de este es evitar un error que se crea al querer exportar'
-    'NO DEVUELVE'
+    'EFECTO: Función que se utilizá para controlar un error que poseé ExportGridView()
+    'RECIBE: NO RECIBE NADA
+    'DEVUELVE: NO DEVUELVE
     Public Overrides Sub VerifyRenderingInServerForm(ByVal control As Control)
     End Sub
 
-    'Si la opción dentro de la tabla es distinto a un checkbox, dropdownlist o linkbutton este sera preparado para tambien ser exportado'
-    'NO DEVUELVE'
+    'EFECTO: Si la opción dentro de la tabla es distinto a un checkbox, dropdownlist o linkbutton este sera preparado para tambien ser exportado
+    'RECIBE: El gridview presente GridViewCasos
+    'DEVUELVE: NO DEVUELVE
     Private Sub PrepareGridViewForExport(ByVal gv As Control)
         Dim lb As LinkButton = New LinkButton()
         Dim l As Literal = New Literal()
@@ -163,43 +175,50 @@ Public Class Gestiones
     End Sub
 #End Region
 
-    'La funcion dentro del boton revisa antes de borrar cuales filas estan marcadas con un check'
-    'Devuelve: Elimina la fila o filas seleccionadas'
-#Region "Borrar"
+
+#Region "btnBorrar la fila seleccionada"
+    'EFECTO:La función dentro del botón revisa antes de borrar cuales filas estan marcadas con un check
+    'RECIBE:Todas las filas del gridview marcadas con un check
+    'DEVUELVE:El borrado de la fila y la tabla del gridview actualizada
     Protected Sub Button3_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click
-        Try
-            Dim func As New Datos_Gestiones
-            Dim dts As New Entidad_Gestiones
-            For Each gvrow As GridViewRow In GridViewGestiones.Rows
-                Dim chkdelete As CheckBox = DirectCast(gvrow.FindControl("chkSelect"), CheckBox)
-                If chkdelete.Checked Then
-                    Dim gesid As Integer = Convert.ToInt32(GridViewGestiones.DataKeys(gvrow.RowIndex).Value)
-                    dts._idGestiones = gesid
-                    If func.borrarGestiones(dts) Then
-                        Response.Write("<script language=javascript>alert('El elemento ha sido eliminado de forma exitosa')</script>")
-                        'MsgBox("El elemento ha sido eliminado de forma exitosa")
-                    Else
-                        Response.Write("<script language=javascript>alert('No se ha eliminado el elemento.')</script>")
-                        'MsgBox("No se ha eliminado el elemento.")
+        If Session("Perfil") = "Administrador" Then
+            Try
+                Dim func As New Datos_Gestiones
+                Dim dts As New Entidad_Gestiones
+                For Each gvrow As GridViewRow In GridViewGestiones.Rows
+                    Dim chkdelete As CheckBox = DirectCast(gvrow.FindControl("chkSelect"), CheckBox)
+                    If chkdelete.Checked Then
+                        Dim gesid As Integer = Convert.ToInt32(GridViewGestiones.DataKeys(gvrow.RowIndex).Value)
+                        dts._idGestiones = gesid
+                        If func.borrarGestiones(dts) Then
+                            Response.Write("<script language=javascript>alert('El elemento ha sido eliminado de forma exitosa')</script>")
+                            'MsgBox("El elemento ha sido eliminado de forma exitosa")
+                        Else
+                            Response.Write("<script language=javascript>alert('No se ha eliminado el elemento.')</script>")
+                            'MsgBox("No se ha eliminado el elemento.")
+                        End If
                     End If
-                End If
-            Next
-            Mostrar()
-        Catch ex As Exception
-            Response.Write("<script language=javascript>alert('Hubo un problema en eliminar el elemento')</script>")
-            'MsgBox("Hubo un problema en eliminar el elmento" + ex.Message)
-        End Try
+                Next
+                Mostrar()
+            Catch ex As Exception
+                Response.Write("<script language=javascript>alert('Hubo un problema en eliminar el elemento')</script>")
+                'MsgBox("Hubo un problema en eliminar el elmento" + ex.Message)
+            End Try
+        Else
+            Response.Write("<script language=javascript>alert('El usuario no posee permiso para seleccionar el botón de borrar')</script>")
+        End If
     End Sub
 #End Region
 
     Protected Sub Button4_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
-        Response.Redirect("MenuPrincipal.aspx")
+        Response.Redirect("Menu Principal-SistemaRegistroGestiones.aspx")
     End Sub
 
 
-    'Funcion para la creacion del reporte aunque su funcionamiento esta incompleto debido a que no se logro implementar el reportviewer de forma correcta'
-    'NO DEVUELVE'
-#Region "SeleccionarFilas"
+#Region "Seleccionar Filas"
+    'EFECTO: Función que selecciona las filas para poder mapear el reporte para su creación.
+    'RECIBE: Cada fila dentro de GridViewCasos
+    'DEVUELVE: NO DEVUELVE
     Protected Sub GridViewGestiones_SelectedIndexChanged(sender As Object, e As EventArgs) Handles GridViewGestiones.SelectedIndexChanged
         txtId_Gestiones.Text = GridViewGestiones.SelectedRow.Cells(3).Text
         txtTipo_Gestiones.Text = Page.Server.HtmlDecode(GridViewGestiones.SelectedRow.Cells(4).Text)
@@ -229,8 +248,11 @@ Public Class Gestiones
     End Sub
 #End Region
 
-    'Boton con la funcion de filtrar datos en la tabla gridview por medio de tipoGestion seleccionado en el dropdownlist'
-    'Devuelve: Gridview filtrado'
+
+#Region "btnSearch Buscador para filtrar Gestiones"
+    'EFECTO: Botón con la función de filtrar datos en la tabla gridview por medio de vchTipoGestion seleccionado en el dropdownlist'
+    'RECIBE: El valor de vchTipoGestion seleccionado del dropdownlist
+    'DEVUELVE: Gridview filtrado
     Protected Sub btnsearch_Click(sender As Object, e As EventArgs) Handles btnSearch.Click
         Dim strConnString As String = ConfigurationManager _
              .ConnectionStrings("bda_SIREGE_Connection").ConnectionString
@@ -246,5 +268,6 @@ Public Class Gestiones
         GridViewGestiones.DataSource = ds
         GridViewGestiones.DataBind()
     End Sub
+#End Region
 
 End Class

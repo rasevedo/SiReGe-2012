@@ -70,12 +70,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccesoDatos.vb" />
-    <Compile Include="conexion.vb" />
+    <Compile Include="Conexion.vb" />
     <Compile Include="Datos_AvanceCasos.vb" />
     <Compile Include="Datos_Casos.vb" />
     <Compile Include="Datos_Gestiones.vb" />
     <Compile Include="Datos_Informe.vb" />
-    <Compile Include="Datos_Usuario.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

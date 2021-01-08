@@ -8,7 +8,7 @@ Public Class AccesoDatos
     Public Sub EstablecerCadenaConexion(ByVal int_Conexion As Integer)
         Select Case int_Conexion
             Case 1 'Cadena de conexion a la base de datos
-                ConexionSQLServer.ConnectionString = ConfigurationManager.ConnectionStrings("Cnn_NombreConexion").ConnectionString
+                ConexionSQLServer.ConnectionString = ConfigurationManager.ConnectionStrings("bda_SIREGE_Connection").ConnectionString
         End Select
     End Sub
 

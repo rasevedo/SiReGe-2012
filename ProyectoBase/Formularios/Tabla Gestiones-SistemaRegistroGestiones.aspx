@@ -1,10 +1,11 @@
-﻿<%@ Page Title="Gestiones" Language="vb" AutoEventWireup="false" MasterPageFile="~/MasterPage.Master"  CodeBehind="Gestiones.aspx.vb" Inherits="CapPresentacionSiReGe.Gestiones" EnableEventValidation="false"%>
+﻿<%@ Page Title="Tabla Gestiones-SistemaRegistroGestiones" Language="vb" AutoEventWireup="false" MasterPageFile="~/MasterPage.Master"  CodeBehind="Tabla Gestiones-SistemaRegistroGestiones.aspx.vb" Inherits="CapPresentacionSiReGe.Gestiones" EnableEventValidation="false"%>
 
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %> 
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
+    <title>Tabla Gestiones-SistemaRegistroGestiones</title>
     <style type="text/css">
         .auto-style2 {
             position: relative;
@@ -84,7 +85,7 @@
                        <asp:GridView ID="GridViewGestiones" runat="server" CellPadding="10" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="2px" AutoGenerateColumns="False" DataKeyNames="intIdGestiones"  AllowPaging="True" AllowSorting="True" CellSpacing="10" HorizontalAlign="Center" Width="50%" >
                            <Columns>
                                <asp:buttonfield buttontype="Button" commandname="Select" text="Detalle"/>
-                               <asp:HyperLinkField Text="Modificar" DataNavigateUrlFields="intIdGestiones" DataNavigateUrlFormatString="Modificar_Gestiones.aspx?intIdGestiones={0}" />
+                               <asp:HyperLinkField Text="Modificar" DataNavigateUrlFields="intIdGestiones" DataNavigateUrlFormatString="Modificar Gestiones-SistemaRegistroGestiones.aspx?intIdGestiones={0}" />
                                <asp:TemplateField>
                                     <HeaderTemplate>
                                         <asp:CheckBox ID="checkAll" runat="server" onclick = "checkAll(this);" />
