@@ -11,7 +11,7 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class Informe
+Partial Public Class Tabla_Informes
 
     '''<summary>
     '''btnAgregar control.
@@ -59,40 +59,40 @@ Partial Public Class Informe
     Protected WithEvents grdCharges As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''GridViewInforme control.
+    '''gvwInforme control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents GridViewInforme As Global.System.Web.UI.WebControls.GridView
+    Protected WithEvents gvwInforme As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
-    '''SqlDataSource1 control.
+    '''sdsGridview_Informes control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents SqlDataSource1 As Global.System.Web.UI.WebControls.SqlDataSource
+    Protected WithEvents sdsGridview_Informes As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
-    '''lnkFake control.
+    '''lnkFalso control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lnkFake As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents lnkFalso As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
-    '''mpe control.
+    '''mpeDetalles control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents mpe As Global.AjaxControlToolkit.ModalPopupExtender
+    Protected WithEvents mpeDetalles As Global.AjaxControlToolkit.ModalPopupExtender
 
     '''<summary>
     '''pnlPopup control.
@@ -104,110 +104,110 @@ Partial Public Class Informe
     Protected WithEvents pnlPopup As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
-    '''Label1 control.
+    '''lblPop_Id_Informe control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblPop_Id_Informe As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''txtId_Informe control.
+    '''txtPop_Id_Informe control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtId_Informe As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtPop_Id_Informe As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''txtTitulo_Informe control.
+    '''txtPop_Titulo_Informe control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtTitulo_Informe As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtPop_Titulo_Informe As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''txtEmpleado_Informe control.
+    '''txtPop_Empleado_Informe control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtEmpleado_Informe As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtPop_Empleado_Informe As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''txtTipo_Informe control.
+    '''txtPop_Tipo_Informe control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtTipo_Informe As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtPop_Tipo_Informe As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''txtNumOficio_Informe control.
+    '''txtPop_Num_Oficio_Informe control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtNumOficio_Informe As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtPop_Num_Oficio_Informe As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''txtFechaAprobacion control.
+    '''txtPop_Fecha_Aprobacion control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtFechaAprobacion As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtPop_Fecha_Aprobacion As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''txtFechaCulminacion control.
+    '''txtPop_Fecha_Culminacion control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtFechaCulminacion As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtPop_Fecha_Culminacion As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''txtFechaTraslado control.
+    '''txtPop_Fecha_Traslado control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtFechaTraslado As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtPop_Fecha_Traslado As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''txtAvance_Informe control.
+    '''txtPop_Avance_Informe control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtAvance_Informe As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtPop_Avance_Informe As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''btnExportarWord control.
+    '''btnExportar_Word control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btnExportarWord As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnExportar_Word As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''btnClose control.
+    '''btnCerrar_Modal control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btnClose As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnCerrar_Modal As Global.System.Web.UI.WebControls.Button
 End Class

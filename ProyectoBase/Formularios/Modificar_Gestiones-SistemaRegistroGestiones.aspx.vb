@@ -14,7 +14,7 @@ Public Class Modificar_Gestiones
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not Me.IsPostBack Then
-            Me.GetGestion()
+            Me.TomarGestion()
 
         End If
     End Sub
@@ -23,13 +23,13 @@ Public Class Modificar_Gestiones
     'EFECTO: Función que se utiliza para la elección de Unidad con dropdownlist de cascada con 3 textboxes ya que lo único que se requiere es solo intIdUnidad por lo tanto se utiliza el espacio de Unidad como el responsable del ingreso de datos en la base de datos
     'RECIBE: El campo de Unidad de tblUnidades
     'DEVUELVE: El intIdUnidad a insertar en la tabla de tblGestiones
-    Protected Sub DD1_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs)
+    Protected Sub ddlDescripcion_Unidad_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs)
         Dim strConnString As String = ConfigurationManager _
              .ConnectionStrings("bda_SIREGE_Connection").ConnectionString
         Dim strQuery As String = "palSeleccionarUnidades"
         Dim con As New SqlConnection(strConnString)
         Dim cmd As New SqlCommand()
-        cmd.Parameters.AddWithValue("@intIdUnidad", DD1.SelectedItem.Value)
+        cmd.Parameters.AddWithValue("@intIdUnidad", ddlDescripcion_Unidad.SelectedItem.Value)
         cmd.CommandType = CommandType.StoredProcedure
         cmd.CommandText = strQuery
         cmd.Connection = con
@@ -54,13 +54,13 @@ Public Class Modificar_Gestiones
     'EFECTO: Función que se utiliza para la elección de tblDimensiones con dropdownlist de cascada con 1 textboxes ya que lo único que se requiere es solo intIdDimension por lo tanto se útiliza el espacio de vchLetraDimension como el responsable ya que es elegido por vchTipoDimension
     'RECIBE: La selección del usuario con el campo de Tipo de Dimensión
     'DEVUELVE: El intIdDimension a insertar en la tabla de tblGestiones
-    Protected Sub DDL_Dimension2_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs)
+    Protected Sub ddlLetra_Dimension_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs)
         Dim strConnString As String = ConfigurationManager _
              .ConnectionStrings("bda_SIREGE_Connection").ConnectionString
         Dim strQuery As String = "palSeleccionarDimensiones"
         Dim con As New SqlConnection(strConnString)
         Dim cmd As New SqlCommand()
-        cmd.Parameters.AddWithValue("@intIdDimension", DDL_Dimension2.SelectedItem.Value)
+        cmd.Parameters.AddWithValue("@intIdDimension", ddlLetra_Dimension.SelectedItem.Value)
         cmd.CommandType = CommandType.StoredProcedure
         cmd.CommandText = strQuery
         cmd.Connection = con
@@ -68,7 +68,7 @@ Public Class Modificar_Gestiones
             con.Open()
             Dim sdr As SqlDataReader = cmd.ExecuteReader()
             While sdr.Read()
-                txtTipoDetalleLetraDimension.Text = sdr(0).ToString
+                txtTipo_Detalle_Letra_Dimension.Text = sdr(0).ToString
             End While
         Catch ex As Exception
             Throw ex
@@ -85,7 +85,7 @@ Public Class Modificar_Gestiones
     End Sub
 
     Protected Sub btnCancel_Click(ByVal sender As Object, ByVal e As EventArgs)
-        Response.Redirect("Tabla Gestiones-SistemaRegistroGestiones.aspx")
+        Response.Redirect("Tabla_Gestiones-SistemaRegistroGestiones.aspx")
     End Sub
 
     Private ReadOnly Property id As Integer
@@ -103,32 +103,31 @@ Public Class Modificar_Gestiones
         Try
             Dim dts As New Entidad_Gestiones
             Dim func As New Datos_Gestiones
-            dts._idGestiones = txtidGestiones.Text
-            dts._idEmpleados = idEmpleados.Text
-            dts._tipoGestiones = RadioButtonList1.Text
-            dts._cedulaUsuario = txtcedulaUsuario.Text
-            dts._nombreUsuario = txtnombreUsuario.Text
-            dts._tipoUsuario = txtTipoUsuario.Text
-            dts._fechaIngreso = txtfechaIngreso.Text
-            dts._confidencialidadGestiones = txtConfidencialidad.Text
-            dts._fuenteGeneradora = txtfuenteGeneradora.Text
-            dts._tipoServicio = txttipoServicio.Text
-            dts._direccionRegional = txtdireccionRegionalEducacion.Text
-            dts._supervicionGestiones = txtSupervision.Text
-            dts._nombreCentroEducativo = txtnombreCE.Text
-            dts._idUnidad = DD1.Text
-            dts._numeroOficio = txtnumeroOficio.Text
-            dts._idDimension = DDL_Dimension2.Text
-            dts._tipoUsuario = txtTipoUsuario.Text
-            dts._categoriaGestiones = txtCategoria.Text
-            dts._detalleGestiones = txtasunto.Text
-            dts._respuestaGestiones = txtrespuesta.Text
+            dts._idGestiones = txtId_Gestiones.Text
+            dts._idEmpleados = intIdEmpleados.Text
+            dts._tipoGestiones = rblTipo_Gestion.Text
+            dts._cedulaUsuario = txtCedula_Usuario.Text
+            dts._nombreUsuario = txtNombre_Usuario.Text
+            dts._tipoUsuario = ddlTipo_Usuario.Text
+            dts._fechaIngreso = txtFecha_Ingreso.Text
+            dts._confidencialidadGestiones = ddlConfidencialidad.Text
+            dts._fuenteGeneradora = ddlFuente_Generadora.Text
+            dts._tipoServicio = ddlTipo_Servicio.Text
+            dts._direccionRegional = ddl_Direccion_Regional_Educacion.Text
+            dts._supervicionGestiones = ddlSupervision.Text
+            dts._nombreCentroEducativo = txtNombre_CE.Text
+            dts._idUnidad = ddlDescripcion_Unidad.Text
+            dts._numeroOficio = txtNumero_Oficio.Text
+            dts._idDimension = ddlLetra_Dimension.Text
+            dts._categoriaGestiones = ddlCategoria.Text
+            dts._detalleGestiones = txtAsunto.Text
+            dts._respuestaGestiones = txtRespuesta.Text
             If func.modificarGestiones(dts) Then
                 ModalPopupExtender_Exito.Show()
                 'Response.Write("<script language=javascript>alert('El elemento se ha agregado')</script>")
                 '  MsgBox("Exito")
                 Response.Redirect(Request.Url.AbsoluteUri, False)
-                Response.Redirect("~/Tabla Gestiones-SistemaRegistroGestiones.aspx")
+                Response.Redirect("~/Tabla_Gestiones-SistemaRegistroGestiones.aspx")
             Else
                 ModalPopupExtender_Incompleto.Show()
                 'Response.Write("<script language=javascript>alert('Faltan espacio para rellenar')</script>")
@@ -146,7 +145,7 @@ Public Class Modificar_Gestiones
     'EFECTO: Esta función lee los datos de la fila del gridview y los toma para insertarlos en sus respectivos espacios en el formulario de modificación 
     'RECIBE: Solo requiere de la llamada del procedimiento almacenado
     'DEVUELVE: Muestra el formulario de modificación con todos sus espacios escritos con la información actual presente en la fila del gridview
-    Private Sub GetGestion()
+    Private Sub TomarGestion()
         Dim strQuery As String = "palAgarrarGestiones"
         Dim con As New SqlConnection(strConnString)
         Dim cmd As New SqlCommand()
@@ -158,25 +157,25 @@ Public Class Modificar_Gestiones
         Dim dt As DataTable = New DataTable()
         da.Fill(dt)
         For Each dr As DataRow In dt.Rows
-            Me.txtidGestiones.Text = dr("intIdGestiones").ToString()
-            'Me.idEmpleados.Text = dr("idEmpleados").ToString()
-            Me.RadioButtonList1.Text = dr("vchTipoGestiones").ToString()
-            Me.txtcedulaUsuario.Text = dr("intCedulaUsuario").ToString()
-            Me.txtnombreUsuario.Text = dr("vchNombreUsuario").ToString()
-            Me.txtTipoUsuario.Text = dr("vchTipoUsuario").ToString()
-            Me.txtfechaIngreso.Text = dr("dtiFechaIngreso").ToString()
-            Me.txtConfidencialidad.Text = dr("vchConfidencialidadGestiones").ToString()
-            Me.txtfuenteGeneradora.Text = dr("vchFuenteGeneradora").ToString()
-            Me.txttipoServicio.Text = dr("vchTipoServicio").ToString()
-            Me.txtdireccionRegionalEducacion.Text = dr("vchDireccionRegional").ToString()
-            Me.txtSupervision.Text = dr("vchSupervicionGestiones").ToString()
-            Me.txtnombreCE.Text = dr("vchNombreCentroEducativo").ToString()
-            ' Me.DD1.Text = dr("idUnidad").ToString()
-            Me.txtnumeroOficio.Text = dr("vchNumeroOficio").ToString()
-            ' Me.DDL_Dimension3.Text = dr("idDimension").ToString()
-            Me.txtCategoria.Text = dr("vchCategoriaGestiones").ToString()
-            Me.txtasunto.Text = dr("vchDetalleGestiones").ToString()
-            Me.txtrespuesta.Text = dr("vchRespuestaGestiones").ToString()
+            Me.txtId_Gestiones.Text = dr("intIdGestiones").ToString()
+            'Me.intIdEmpleados.Text = dr("intIdEmpleados").ToString()
+            Me.rblTipo_Gestion.Text = dr("vchTipoGestiones").ToString()
+            Me.txtCedula_Usuario.Text = dr("intCedulaUsuario").ToString()
+            Me.txtNombre_Usuario.Text = dr("vchNombreUsuario").ToString()
+            Me.ddlTipo_Usuario.Text = dr("vchTipoUsuario").ToString()
+            Me.txtFecha_Ingreso.Text = dr("dtiFechaIngreso").ToString()
+            Me.ddlConfidencialidad.Text = dr("vchConfidencialidadGestiones").ToString()
+            Me.ddlFuente_Generadora.Text = dr("vchFuenteGeneradora").ToString()
+            Me.ddlTipo_Servicio.Text = dr("vchTipoServicio").ToString()
+            Me.ddl_Direccion_Regional_Educacion.Text = dr("vchDireccionRegional").ToString()
+            Me.ddlSupervision.Text = dr("vchSupervicionGestiones").ToString()
+            Me.txtNombre_CE.Text = dr("vchNombreCentroEducativo").ToString()
+            ' Me.ddlDescripcion_Unidad.Text = dr("intIdUnidad").ToString()
+            Me.txtNumero_Oficio.Text = dr("vchNumeroOficio").ToString()
+            ' Me.ddlLetra_Dimension.Text = dr("intIdDimension").ToString()
+            Me.ddlCategoria.Text = dr("vchCategoriaGestiones").ToString()
+            Me.txtAsunto.Text = dr("vchDetalleGestiones").ToString()
+            Me.txtRespuesta.Text = dr("vchRespuestaGestiones").ToString()
         Next
     End Sub
 #End Region

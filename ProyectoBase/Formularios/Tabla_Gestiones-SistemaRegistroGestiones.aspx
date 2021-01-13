@@ -1,11 +1,11 @@
-﻿<%@ Page Title="Tabla Gestiones-SistemaRegistroGestiones" Language="vb" AutoEventWireup="false" MasterPageFile="~/MasterPage.Master"  CodeBehind="Tabla Gestiones-SistemaRegistroGestiones.aspx.vb" Inherits="CapPresentacionSiReGe.Gestiones" EnableEventValidation="false"%>
+﻿<%@ Page Title="Tabla_Gestiones-SistemaRegistroGestiones" Language="vb" AutoEventWireup="false" MasterPageFile="~/MasterPage.Master"  CodeBehind="Tabla_Gestiones-SistemaRegistroGestiones.aspx.vb" Inherits="CapPresentacionSiReGe.Tabla_Gestiones" EnableEventValidation="false"%>
 
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %> 
 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <title>Tabla Gestiones-SistemaRegistroGestiones</title>
+    <title>Tabla_Gestiones-SistemaRegistroGestiones</title>
     <style type="text/css">
         .auto-style2 {
             position: relative;
@@ -44,10 +44,10 @@
                                  <div class="col-md-2 col-md-offset--1">
                                     <div class="form-group">
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <asp:Button Text="Nuevo" ID="btnAgregar"  Width="170px" runat="server" OnClick="Button1_Click" />
-                                        <asp:Button Text="Borrar" ID="btnBorrar"  Width="170px" runat="server" OnClientClick="javascript:return Confirmationbox();" OnClick="Button3_Click" />
-                                        <asp:Button Text="Exportar" ID="btnExportar"  Width="170px" runat="server" OnClick="Button2_Click" />
-                                        <asp:Button Text="Volver" ID="btnVolver"  Width="170px" runat="server" OnClick="Button4_Click" />
+                                        <asp:Button Text="Nuevo" ID="btnAgregar"  Width="170px" runat="server" OnClick="btnAgregar_Click" />
+                                        <asp:Button Text="Borrar" ID="btnBorrar"  Width="170px" runat="server" OnClientClick="javascript:return Confirmationbox();" OnClick="btnBorrar_Click" />
+                                        <asp:Button Text="Exportar" ID="btnExportar"  Width="170px" runat="server" OnClick="btnExportar_Click" />
+                                        <asp:Button Text="Volver" ID="btnVolver"  Width="170px" runat="server" OnClick="btnVolver_Click" />
                                     </div>
                                 </div>
                                 <div class="col-md-2 col-md-offset-0">
@@ -63,12 +63,12 @@
                                     <div class="form-group">
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         Tipo de Gestión:
-                                        <asp:DropDownList ID="Search" runat="server">
+                                        <asp:DropDownList ID="ddlFiltro_Buscador" runat="server">
                                              <asp:ListItem>Atención presencial</asp:ListItem>
                                             <asp:ListItem>Vía telefonica</asp:ListItem>
                                             <asp:ListItem>Correo Electrónico</asp:ListItem>
                                         </asp:DropDownList>
-                                        <asp:Button ID="btnSearch" runat="server" Width="125px" Text="Buscar" OnClick="btnsearch_Click"/>
+                                        <asp:Button ID="btnBuscar_TipoGestion" runat="server" Width="125px" Text="Buscar" OnClick="btnBuscar_TipoGestion_Click"/>
                                     </div>
                                 </div> 
                                 <div class="col-md-2 col-md-offset-0">
@@ -82,16 +82,16 @@
                    
                    <div id="grdCharges" runat="server" style="width: 1209px; overflow: auto; height: 450px; margin-left: 8px;" >
                        
-                       <asp:GridView ID="GridViewGestiones" runat="server" CellPadding="10" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="2px" AutoGenerateColumns="False" DataKeyNames="intIdGestiones"  AllowPaging="True" AllowSorting="True" CellSpacing="10" HorizontalAlign="Center" Width="50%" >
+                       <asp:GridView ID="gvwGestiones" runat="server" CellPadding="10" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="2px" AutoGenerateColumns="False" DataKeyNames="intIdGestiones"  AllowPaging="True" AllowSorting="True" CellSpacing="10" HorizontalAlign="Center" Width="50%" >
                            <Columns>
                                <asp:buttonfield buttontype="Button" commandname="Select" text="Detalle"/>
                                <asp:HyperLinkField Text="Modificar" DataNavigateUrlFields="intIdGestiones" DataNavigateUrlFormatString="Modificar Gestiones-SistemaRegistroGestiones.aspx?intIdGestiones={0}" />
                                <asp:TemplateField>
                                     <HeaderTemplate>
-                                        <asp:CheckBox ID="checkAll" runat="server" onclick = "checkAll(this);" />
+                                        <asp:CheckBox ID="chkTodo" runat="server" onclick = "chkTodo(this);" />
                                     </HeaderTemplate>
                                     <ItemTemplate>
-                                        <asp:CheckBox ID="chkSelect" runat="server" onclick="GridCheckOne(this)"></asp:CheckBox>
+                                        <asp:CheckBox ID="chkSeleccionar" runat="server" onclick="GridCheckOne(this)"></asp:CheckBox>
                                     </ItemTemplate>
                                </asp:TemplateField>                                                            
                                <asp:BoundField DataField="intIdGestiones" HeaderText="Codigo de Gestión"    >
@@ -182,13 +182,11 @@
                             <HeaderStyle BackColor="#00A0e3" ForeColor="White" HorizontalAlign="Center" Width="150px" Wrap="False" />
                             <EditRowStyle BackColor="#999999" />
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                       </asp:GridView>
-
-                      
-                       <asp:SqlDataSource runat="server" ID="SqlDataSourceGrid" ConnectionString='<%$ ConnectionStrings:bda_SIREGE_Connection %>' SelectCommand="mostrarGestiones" SelectCommandType="StoredProcedure" ></asp:SqlDataSource>
+                       </asp:GridView>                     
+                       <asp:SqlDataSource runat="server" ID="sdsGridView_Gestiones" ConnectionString='<%$ ConnectionStrings:bda_SIREGE_Connection %>' SelectCommand="mostrarGestiones" SelectCommandType="StoredProcedure" ></asp:SqlDataSource>
                      
                       <script type = "text/javascript">
-                          function checkAll(objRef) {
+                          function chkTodo(objRef) {
                               var GridView = objRef.parentNode.parentNode.parentNode;
                               var inputList = GridView.getElementsByTagName("input");
                               for (var i = 0; i < inputList.length; i++) {
@@ -210,9 +208,9 @@
                           }
                       </script> 
 
-                        <asp:LinkButton Text="" ID = "lnkFake" runat="server" />
-                        <asp:ModalPopupExtender ID="mpe" runat="server" PopupControlID="pnlPopup" TargetControlID="lnkFake"
-                        CancelControlID="btnClose" BackgroundCssClass="modalBackground">
+                        <asp:LinkButton Text="" ID = "lnkFalso" runat="server" />
+                        <asp:ModalPopupExtender ID="mpeDetalles" runat="server" PopupControlID="pnlPopup" TargetControlID="lnkFalso"
+                        CancelControlID="btnCerrar_Modal" BackgroundCssClass="modalBackground">
                         </asp:ModalPopupExtender>
 
                        <asp:Panel ID="pnlPopup" runat="server" CssClass="modalPopup" Style="display: none" ScrollBars="Vertical" Height="590px" >
@@ -226,8 +224,8 @@
                                            
                                        </td>
                                         <td>
-                                            <asp:Label ID="Label1" runat="server" Text="Codigo de Gestión"></asp:Label>
-                                           <asp:TextBox ID="txtId_Gestiones" runat="server" Enabled="false" style="text-align: center"/>
+                                           <asp:Label ID="lblPop_Id_Gestiones" runat="server" Text="Codigo de Gestión"></asp:Label>
+                                           <asp:TextBox ID="txtPop_Id_Gestiones" runat="server" Enabled="false" style="text-align: center"/>
                                         </td>
                                        <td> 
                                            
@@ -236,29 +234,29 @@
                                     <tr>
                                         <td>
                                             <b>Tipo de Gestión: </b>
-                                            <asp:TextBox ID="txtTipo_Gestiones" runat="server" Enabled="false" style="text-align: center" />
+                                            <asp:TextBox ID="txtPop_Tipo_Gestiones" runat="server" Enabled="false" style="text-align: center" />
                                         </td>
                                         <td>
                                             <b>Cédula del Usuario: </b>
-                                            <asp:TextBox ID="txtCedulaUsuario" runat="server" Enabled="false" style="text-align: center"/>
+                                            <asp:TextBox ID="txtPop_Cedula_Usuario" runat="server" Enabled="false" style="text-align: center"/>
                                         </td>
                                         <td>
                                             <b>Nombre del Usuario: </b>
-                                            <asp:TextBox ID="txtNombreUsuario" runat="server" Enabled="false" style="text-align: center" />
+                                            <asp:TextBox ID="txtPop_Nombre_Usuario" runat="server" Enabled="false" style="text-align: center" />
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <b>Fecha de Ingreso: </b>
-                                            <asp:TextBox ID="txtFechaIngreso" runat="server" Enabled="false" style="text-align: center" />
+                                            <asp:TextBox ID="txtPop_Fecha_Ingreso" runat="server" Enabled="false" style="text-align: center" />
                                         </td>
                                         <td>
                                             <b>Confidencialidad: </b>
-                                            <asp:TextBox ID="txtConfidencialida" runat="server" Enabled="false" style="text-align: center"/>
+                                            <asp:TextBox ID="txtPop_Confidencialida" runat="server" Enabled="false" style="text-align: center"/>
                                         </td> 
                                         <td>
                                             <b>Supervisión: </b>
-                                            <asp:TextBox ID="txtSupervision" runat="server" Enabled="false" style="text-align: center" />
+                                            <asp:TextBox ID="txtPop_Supervision" runat="server" Enabled="false" style="text-align: center" />
                                         </td>
                                     </tr>
                                 </table>
@@ -267,74 +265,74 @@
                                    <tr>
                                        <td>
                                             <b>Fuente Generadora: </b>
-                                            <asp:TextBox ID="txtFuenteGeneradora" runat="server" Enabled="false" size="100" style="text-align: center" />
+                                            <asp:TextBox ID="txtPop_Fuente_Generadora" runat="server" Enabled="false" size="100" style="text-align: center" />
                                         </td>
                                    </tr>
                                     <tr>
                                         <td>
                                             <b>Tipo de Servicio: </b>
-                                            <asp:TextBox ID="txtTipoServicio" runat="server" Enabled="false" size="100" style="text-align: center" />
+                                            <asp:TextBox ID="txtPop_Tipo_Servicio" runat="server" Enabled="false" size="100" style="text-align: center" />
                                         </td> 
                                     </tr>
                                     <tr>
                                         <td>
                                             <b>Funcionario que tramita: </b>
-                                            <asp:TextBox ID="txtempleado" runat="server" Enabled="false" size="100" style="text-align: center" />
+                                            <asp:TextBox ID="txtPop_Empleado" runat="server" Enabled="false" size="100" style="text-align: center" />
                                         </td> 
                                     </tr>
                                     <tr>
                                         <td>
                                             <b>Dirección Regional de Educación: </b>
-                                            <asp:TextBox ID="txtRegional" runat="server" Enabled="false" size="100" style="text-align: center" />
+                                            <asp:TextBox ID="txtPop_Regional" runat="server" Enabled="false" size="100" style="text-align: center" />
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <b>Nombre del Centro Educativo: </b>
-                                            <asp:TextBox ID="txtCE" runat="server" Enabled="false" size="100" style="text-align: center" />
+                                            <asp:TextBox ID="txtPop_CE" runat="server" Enabled="false" size="100" style="text-align: center" />
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <b>Descripción de Unidad: </b>
-                                            <asp:TextBox ID="txtUnidad" runat="server" Enabled="false" size="100" style="text-align: center" />
+                                            <asp:TextBox ID="txtPop_Unidad" runat="server" Enabled="false" size="100" style="text-align: center" />
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <b>Descripción de Despacho: </b>
-                                            <asp:TextBox ID="txtDespacho" runat="server" Enabled="false" size="100" style="text-align: center" />
+                                            <asp:TextBox ID="txtPop_Despacho" runat="server" Enabled="false" size="100" style="text-align: center" />
                                         </td>
                                     </tr>
                                    <tr>
 
                                         <td>
                                             <b>Descripción de Dirección: </b>
-                                            <asp:TextBox ID="txtDireccion" runat="server" Enabled="false" size="100" style="text-align: center" />
+                                            <asp:TextBox ID="txtPop_Direccion" runat="server" Enabled="false" size="100" style="text-align: center" />
                                         </td>
                                     </tr>
                                    <tr>
                                         <td>
                                             <b>Descripción de Departamento: </b>
-                                            <asp:TextBox ID="txtDepartamento" runat="server" Enabled="false" size="100" style="text-align: center" />
+                                            <asp:TextBox ID="txtPop_Departamento" runat="server" Enabled="false" size="100" style="text-align: center" />
                                         </td>
                                     </tr>
                                    <tr>
                                         <td>
                                             <b>Dimensión: </b>
-                                            <asp:TextBox ID="txtDimension" runat="server" Enabled="false"  size="100" style="text-align: center"/>
+                                            <asp:TextBox ID="txtPop_Dimension" runat="server" Enabled="false"  size="100" style="text-align: center"/>
                                         </td>
                                     </tr>
                                    <tr>
                                        <td>
                                             <b>Letra de Dimensión: </b>
-                                             <asp:TextBox ID="txtLetraDim" runat="server" Enabled="false" style="text-align: center" />
+                                             <asp:TextBox ID="txtPop_Letra_Dimension" runat="server" Enabled="false" style="text-align: center" />
                                         </td>
                                     </tr>
                                    <tr>
                                         <td>
                                             <b>Detalle de la Dimensión: </b>
-                                            <asp:label ID="lblDetalleDim" runat="server" backcolor="#f8f8f8" borderwidth="1px" />
+                                            <asp:label ID="lblPop_Detalle_Dimension" runat="server" backcolor="#f8f8f8" borderwidth="1px" />
                                         </td>
                                     </tr>
                                    </table>
@@ -343,20 +341,20 @@
                                    <tr>
                                         <td>
                                             <b>Número de Oficio: </b>
-                                            <asp:TextBox ID="txtNumOficio" runat="server" Enabled="false" style="text-align: center"/>
+                                            <asp:TextBox ID="txtPop_Num_Oficio" runat="server" Enabled="false" style="text-align: center"/>
                                         </td>
                                         <td>
                                             
                                         </td>
                                        <td>
                                            <b>Tipo de Usuario: </b>
-                                           <asp:TextBox ID="txtTipoUsuario" runat="server" Enabled="false" style="text-align: center" />
+                                           <asp:TextBox ID="txtPop_Tipo_Usuario" runat="server" Enabled="false" style="text-align: center" />
                                         </td>
                                     </tr>
                                    <tr>
                                         <td>
                                              <b>Categoria de la Gestión: </b>
-                                            <asp:TextBox ID="txtCategoria_Gestion" runat="server" Enabled="false" style="text-align: center" />                                       
+                                            <asp:TextBox ID="txtPop_Categoria_Gestion" runat="server" Enabled="false" style="text-align: center" />                                       
                                         </td>
                                     </tr>
                                    </table>
@@ -368,7 +366,7 @@
                                        </td>
                                         <td>
                                              <b>Detalle de la Gestión: </b>
-                                             <asp:Label ID="lblDetalleGestion" runat="server" backcolor="#f8f8f8" borderwidth="1px"  />                                        
+                                             <asp:Label ID="lblPop_Detalle_Gestion" runat="server" backcolor="#f8f8f8" borderwidth="1px"  />                                        
                                         </td>
                                        <td> 
                                            
@@ -380,7 +378,7 @@
                                        </td>
                                         <td>
                                             <b>Respuesta de la Gestión: </b>
-                                            <asp:Label ID="lblRespuesta_Gestion" runat="server" backcolor="#f8f8f8" borderwidth="1px" />
+                                            <asp:Label ID="lblPop_Respuesta_Gestion" runat="server" backcolor="#f8f8f8" borderwidth="1px" />
                                         </td>  
                                        <td> 
                                            
@@ -391,8 +389,8 @@
                            </div>
                            
                            <div class="footer" style="float: right">
-                               <asp:Button Text="Exportar Información" ID="btnExportarWord" runat="server" CssClass="button" OnClick="ExportarWord_Click" />
-                               <asp:Button ID="btnClose" runat="server" Text="Cerrar" CssClass="button"/>
+                               <asp:Button Text="Exportar Información" ID="btnExportar_Word" runat="server" CssClass="button" OnClick="btnExportar_Word_Click" />
+                               <asp:Button ID="btnCerrar_Modal" runat="server" Text="Cerrar" CssClass="button"/>
                            </div>
                        </asp:Panel>
 

@@ -11,59 +11,59 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class MenuPrincipal
+Partial Public Class Menu_Principal
 
     '''<summary>
-    '''ImgBtnGestion control.
+    '''imbBtn_Gestion control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ImgBtnGestion As Global.System.Web.UI.WebControls.ImageButton
+    Protected WithEvents imbBtn_Gestion As Global.System.Web.UI.WebControls.ImageButton
 
     '''<summary>
-    '''ImgBtnDAU control.
+    '''imbBtn_DAU control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ImgBtnDAU As Global.System.Web.UI.WebControls.ImageButton
+    Protected WithEvents imbBtn_DAU As Global.System.Web.UI.WebControls.ImageButton
 
     '''<summary>
-    '''ImgBtnDMC control.
+    '''imbBtn_DMC control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ImgBtnDMC As Global.System.Web.UI.WebControls.ImageButton
+    Protected WithEvents imbBtn_DMC As Global.System.Web.UI.WebControls.ImageButton
 
     '''<summary>
-    '''Label1 control.
+    '''lblGestion_Servicio control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblGestion_Servicio As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''Label2 control.
+    '''lblAtencion_Usuario control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Label2 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblAtencion_Usuario As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''Label3 control.
+    '''lblMejora_Continua control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Label3 As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblMejora_Continua As Global.System.Web.UI.WebControls.Label
 End Class

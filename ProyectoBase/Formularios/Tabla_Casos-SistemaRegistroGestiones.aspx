@@ -1,9 +1,9 @@
-﻿<%@ Page Title="Tabla Casos-SistemaRegistroGestiones" Language="vb" AutoEventWireup="false"  MasterPageFile="~/MasterPage.Master" CodeBehind="Tabla Casos-SistemaRegistroGestiones.aspx.vb" Inherits="CapPresentacionSiReGe.Casos" EnableEventValidation="false" %>
+﻿<%@ Page Title="Tabla_Casos-SistemaRegistroGestiones" Language="vb" AutoEventWireup="false"  MasterPageFile="~/MasterPage.Master" CodeBehind="Tabla_Casos-SistemaRegistroGestiones.aspx.vb" Inherits="CapPresentacionSiReGe.Tabla_Casos" EnableEventValidation="false" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %> 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <title>Tabla Casos-SistemaRegistroGestiones</title>
+    <title>Tabla_Casos-SistemaRegistroGestiones</title>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">   
@@ -25,10 +25,10 @@
                                  <div class="col-md-2 col-md-offset--1">
                                     <div class="form-group">
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <asp:Button Text="Nuevo" ID="btnAgregar"  Width="170px" runat="server" OnClick="Button1_Click" />
-                                        <asp:Button Text="Borrar" ID="btnBorrar"  Width="170px" runat="server" OnClick="Button3_Click" />
-                                        <asp:Button Text="Exportar" ID="btnExportar"  Width="170px" runat="server" OnClick="Button2_Click" />
-                                        <asp:Button Text="Volver" ID="btnVolver"  Width="170px" runat="server" OnClick="Button4_Click" />
+                                        <asp:Button Text="Nuevo" ID="btnAgregar"  Width="170px" runat="server" OnClick="btnAgregar_Click" />
+                                        <asp:Button Text="Borrar" ID="btnBorrar"  Width="170px" runat="server" OnClick="btnBorrar_Click" />
+                                        <asp:Button Text="Exportar" ID="btnExportar"  Width="170px" runat="server" OnClick="btnExportar_Click" />
+                                        <asp:Button Text="Volver" ID="btnVolver"  Width="170px" runat="server" OnClick="btnVolver_Click" />
                                     </div>
                                 </div>
                                 <div class="col-md-2 col-md-offset-0">
@@ -42,16 +42,16 @@
                 
                    <div id="grdCharges" runat="server"  style="width: 1209px; overflow: auto; height: 450px">
 
-                       <asp:GridView ID="GridViewCasos" runat="server" CellPadding="10" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="2px" AutoGenerateColumns="False" DataKeyNames="intIdCasos" AllowPaging="True" AllowSorting="True" CellSpacing="10" HorizontalAlign="Center" style="margin-left: 14px" Width="2422px">
+                       <asp:GridView ID="gvwCasos" runat="server" CellPadding="10" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="2px" AutoGenerateColumns="False" DataKeyNames="intIdCasos" AllowPaging="True" AllowSorting="True" CellSpacing="10" HorizontalAlign="Center" style="margin-left: 14px" Width="2422px">
                            <Columns>
                                <asp:buttonfield buttontype="Button" commandname="Select" text="Detalle"/>
                                <asp:HyperLinkField Text="Modificar" DataNavigateUrlFields="intIdCasos" DataNavigateUrlFormatString="Modificar Casos-SistemaRegistroGestiones.aspx?intIdCasos={0}" />
                                <asp:TemplateField>
                                    <HeaderTemplate>
-                                        <asp:CheckBox ID="checkAll" runat="server" onclick = "checkAll(this);" />
+                                        <asp:CheckBox ID="chkTodo" runat="server" onclick = "chkTodo(this);" />
                                     </HeaderTemplate>
                                     <ItemTemplate>
-                                        <asp:CheckBox ID="chkSelect" runat="server" onclick="GridCheckOne(this)"></asp:CheckBox>
+                                        <asp:CheckBox ID="chkSeleccionar" runat="server" onclick="GridCheckOne(this)"></asp:CheckBox>
                                     </ItemTemplate>
                                </asp:TemplateField>    
                                <asp:BoundField DataField="intIdCasos" HeaderText="Codigo Casos" ReadOnly="True" InsertVisible="False" ></asp:BoundField>
@@ -91,10 +91,10 @@
                        
                        </asp:GridView>
 
-                       <asp:SqlDataSource runat="server" ID="SqlDataSource1" ConnectionString='<%$ ConnectionStrings:bda_SIREGE_Connection %>' SelectCommand="mostrarCasos" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
+                       <asp:SqlDataSource runat="server" ID="sdsGridView_Casos" ConnectionString='<%$ ConnectionStrings:bda_SIREGE_Connection %>' SelectCommand="mostrarCasos" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
                    
                        <script type = "text/javascript">
-                           function checkAll(objRef) {
+                           function chkTodo(objRef) {
                                var GridView = objRef.parentNode.parentNode.parentNode;
                                var inputList = GridView.getElementsByTagName("input");
                                for (var i = 0; i < inputList.length; i++) {
@@ -116,9 +116,9 @@
                            }
                       </script> 
 
-                       <asp:LinkButton Text="" ID = "lnkFake" runat="server" />
-                        <asp:ModalPopupExtender ID="mpe" runat="server" PopupControlID="pnlPopup" TargetControlID="lnkFake"
-                        CancelControlID="btnClose" BackgroundCssClass="modalBackground">
+                       <asp:LinkButton Text="" ID = "lnkFalso" runat="server" />
+                        <asp:ModalPopupExtender ID="mpeDetalles" runat="server" PopupControlID="pnlPopup" TargetControlID="lnkFalso"
+                        CancelControlID="btnCerrar_Modal" BackgroundCssClass="modalBackground">
                         </asp:ModalPopupExtender>
                        
                        <asp:Panel ID="pnlPopup" runat="server" CssClass="modalPopup" Style="display: none" ScrollBars="Vertical" Height="590px" >
@@ -132,8 +132,8 @@
                                            
                                        </td>
                                         <td>
-                                            <asp:Label ID="Label1" runat="server" Text="Codigo de Caso"></asp:Label>
-                                           <asp:TextBox ID="txtId_Caso" runat="server" Enabled="false" style="text-align: center"/>
+                                            <asp:Label ID="lblPop_Id_Caso" runat="server" Text="Codigo de Caso"></asp:Label>
+                                           <asp:TextBox ID="txtPop_Id_Caso" runat="server" Enabled="false" style="text-align: center"/>
                                         </td>
                                        <td> 
                                            
@@ -142,25 +142,25 @@
                                     <tr>
                                         <td>
                                             <b>Número de Caso: </b>
-                                            <asp:TextBox ID="txtNumCaso" runat="server" Enabled="false" style="text-align: center" />
+                                            <asp:TextBox ID="txtPop_Num_Caso" runat="server" Enabled="false" style="text-align: center" />
                                         </td>
                                         <td>
                                             <b>Estado del Caso: </b>
-                                            <asp:TextBox ID="txtEstadoCaso" runat="server" Enabled="false" style="text-align: center"/>
+                                            <asp:TextBox ID="txtPop_Estado_Caso" runat="server" Enabled="false" style="text-align: center"/>
                                         </td>
                                         <td>
                                             <b>Fecha del Caso: </b>
-                                            <asp:TextBox ID="txtFechaCaso" runat="server" Enabled="false" style="text-align: center" />
+                                            <asp:TextBox ID="txtPop_Fecha_Caso" runat="server" Enabled="false" style="text-align: center" />
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <b>Cédula del Usuario: </b>
-                                            <asp:TextBox ID="txtCedulaUsuario" runat="server" Enabled="false" style="text-align: center" />
+                                            <asp:TextBox ID="txtPop_Cedula_Usuario" runat="server" Enabled="false" style="text-align: center" />
                                         </td>
                                         <td>
                                             <b>Nombre del Usuario: </b>
-                                            <asp:TextBox ID="txtNombreUsuario" runat="server" Enabled="false" style="text-align: center"/>
+                                            <asp:TextBox ID="txtPop_Nombre_Usuario" runat="server" Enabled="false" style="text-align: center"/>
                                         </td> 
                                         <td>
                                             
@@ -172,55 +172,55 @@
                                    <tr>
                                        <td>
                                             <b>Funcionario que tramita: </b>
-                                            <asp:TextBox ID="txtempleado" runat="server" Enabled="false" size="100" style="text-align: center" />
+                                            <asp:TextBox ID="txtPop_Empleado" runat="server" Enabled="false" size="100" style="text-align: center" />
                                         </td>
                                    </tr>
                                     <tr>
                                         <td>
                                             <b>Nombre del Centro Educativo: </b>
-                                            <asp:TextBox ID="txtCE" runat="server" Enabled="false" size="100" style="text-align: center" />
+                                            <asp:TextBox ID="txtPop_CE" runat="server" Enabled="false" size="100" style="text-align: center" />
                                         </td> 
                                     </tr>                                 
                                     <tr>
                                         <td>
                                             <b>Descripción de Unidad: </b>
-                                            <asp:TextBox ID="txtUnidad" runat="server" Enabled="false" size="100" style="text-align: center" />
+                                            <asp:TextBox ID="txtPop_Unidad" runat="server" Enabled="false" size="100" style="text-align: center" />
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
                                             <b>Descripción de Despacho: </b>
-                                            <asp:TextBox ID="txtDespacho" runat="server" Enabled="false" size="100" style="text-align: center" />
+                                            <asp:TextBox ID="txtPop_Despacho" runat="server" Enabled="false" size="100" style="text-align: center" />
                                         </td>
                                     </tr>
                                    <tr>
                                         <td>
                                             <b>Descripción de Dirección: </b>
-                                            <asp:TextBox ID="txtDireccion" runat="server" Enabled="false" size="100" style="text-align: center" />
+                                            <asp:TextBox ID="txtPop_Direccion" runat="server" Enabled="false" size="100" style="text-align: center" />
                                         </td>
                                     </tr>
                                    <tr>
                                         <td>
                                             <b>Descripción de Departamento: </b>
-                                            <asp:TextBox ID="txtDepartamento" runat="server" Enabled="false" size="100" style="text-align: center" />
+                                            <asp:TextBox ID="txtPop_Departamento" runat="server" Enabled="false" size="100" style="text-align: center" />
                                         </td>
                                     </tr>
                                    <tr>
                                         <td>
                                             <b>Dimensión: </b>
-                                            <asp:TextBox ID="txtDimension" runat="server" Enabled="false"  size="100" style="text-align: center"/>
+                                            <asp:TextBox ID="txtPop_Dimension" runat="server" Enabled="false"  size="100" style="text-align: center"/>
                                         </td>
                                     </tr>
                                    <tr>
                                        <td>
                                             <b>Letra de Dimensión: </b>
-                                             <asp:TextBox ID="txtLetraDim" runat="server" Enabled="false" style="text-align: center" />
+                                             <asp:TextBox ID="txtPop_Letra_Dimension" runat="server" Enabled="false" style="text-align: center" />
                                         </td>
                                     </tr>
                                    <tr>
                                         <td>
                                             <b>Detalle de la Dimensión: </b>
-                                            <asp:label ID="lblDetalleDim" runat="server" backcolor="#f8f8f8" borderwidth="1px" />
+                                            <asp:label ID="lblPop_Detalle_Dimension" runat="server" backcolor="#f8f8f8" borderwidth="1px" />
                                         </td>
                                     </tr>
                                    </table>
@@ -229,15 +229,15 @@
                                    <tr>
                                         <td>
                                             <b>Número de Oficio: </b>
-                                            <asp:TextBox ID="txtNumOficio" runat="server" Enabled="false" style="text-align: center"/>
+                                            <asp:TextBox ID="txtPop_Num_Oficio" runat="server" Enabled="false" style="text-align: center"/>
                                         </td>
                                         <td>
                                             <b>Fecha del Oficio: </b>
-                                            <asp:TextBox ID="txtFechaOficio" runat="server" Enabled="false" style="text-align: center" />
+                                            <asp:TextBox ID="txtPop_Fecha_Oficio" runat="server" Enabled="false" style="text-align: center" />
                                         </td>
                                        <td>
                                            <b>Condición del Caso: </b>
-                                           <asp:TextBox ID="txtCondicionCaso" runat="server" Enabled="false" style="text-align: center" />
+                                           <asp:TextBox ID="txtPop_Condicion_Caso" runat="server" Enabled="false" style="text-align: center" />
                                         </td>
                                     </tr>
                                    </table>
@@ -246,13 +246,13 @@
                                    <tr>
                                         <td>
                                              <b>Detalle de Inconformidad: </b>
-                                             <asp:Label ID="lblDetalleInconformidad" runat="server" backcolor="#f8f8f8" borderwidth="1px"  />                                        
+                                             <asp:Label ID="lblPop_Detalle_Inconformidad" runat="server" backcolor="#f8f8f8" borderwidth="1px"  />                                        
                                         </td>
                                     </tr>
                                    <tr>   
                                         <td>
                                             <b>Respuesta del Caso: </b>
-                                            <asp:Label ID="lblRespuesta_Caso" runat="server" backcolor="#f8f8f8" borderwidth="1px" />
+                                            <asp:Label ID="lblPop_Respuesta_Caso" runat="server" backcolor="#f8f8f8" borderwidth="1px" />
                                         </td>  
                                     </tr>                                
                                </table>
@@ -260,31 +260,31 @@
                                    <tr>
                                         <td>
                                             <b>Fecha de Respuesta: </b>
-                                            <asp:TextBox ID="txtFechaRespuesta" runat="server" Enabled="false" size="100" style="text-align: center" />
+                                            <asp:TextBox ID="txtPop_Fecha_Respuesta" runat="server" Enabled="false" size="100" style="text-align: center" />
                                         </td>
                                     </tr>
                                    <tr>
                                         <td>
                                             <b>Valoración de Admisibilidad: </b>
-                                            <asp:TextBox ID="txtValoracionAdmisibilidad" runat="server" Enabled="false" size="100" style="text-align: center" />
+                                            <asp:TextBox ID="txtPop_Valoracion_Admisibilidad" runat="server" Enabled="false" size="100" style="text-align: center" />
                                         </td>
                                     </tr>
                                    <tr>
                                         <td>
                                             <b>Veredicto de Valoración de Ingreso: </b>
-                                            <asp:TextBox ID="txtVeredicto" runat="server" Enabled="false" size="100" style="text-align: center" />
+                                            <asp:TextBox ID="txtPop_Veredicto" runat="server" Enabled="false" size="100" style="text-align: center" />
                                         </td>
                                     </tr>
                                    <tr>
                                         <td>
                                             <b>Trazabilidad: </b>
-                                            <asp:TextBox ID="txtTrazabilidad" runat="server" Enabled="false" size="100" style="text-align: center" />
+                                            <asp:TextBox ID="txtPop_Trazabilidad" runat="server" Enabled="false" size="100" style="text-align: center" />
                                         </td>
                                     </tr>
                                    <tr>
                                         <td>
                                             <b>Fecha de Cerrado: </b>
-                                            <asp:TextBox ID="txtFechaCerrado" runat="server" Enabled="false" size="100" style="text-align: center" />
+                                            <asp:TextBox ID="txtPop_Fecha_Cerrado" runat="server" Enabled="false" size="100" style="text-align: center" />
                                         </td>
                                     </tr>
                                 </table>
@@ -292,8 +292,8 @@
                            </div>
                            
                            <div class="footer" style="float: right">
-                               <asp:Button Text="Exportar Información" ID="btnExportarWord" runat="server" CssClass="button" OnClick="ExportarWord_Click" />
-                               <asp:Button ID="btnClose" runat="server" Text="Cerrar" CssClass="button"/>
+                               <asp:Button Text="Exportar Información" ID="btnExportar_Word" runat="server" CssClass="button" OnClick="btnExportar_Word_Click" />
+                               <asp:Button ID="btnCerrar_Modal" runat="server" Text="Cerrar" CssClass="button"/>
                            </div>
                        </asp:Panel>
                    

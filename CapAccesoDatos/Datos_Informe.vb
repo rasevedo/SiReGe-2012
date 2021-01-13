@@ -12,7 +12,6 @@ Public Class Datos_Informe
     'DEVUELVE: NO DEVUELVE
     Public Function insertarInforme(ByVal dts As Entidad_Informe) As Boolean
         Try
-
             cmd = New SqlCommand("palInsertarInforme")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = Conx
@@ -44,7 +43,6 @@ Public Class Datos_Informe
     'DEVUELVE: Devuelve los datos de la tabla tblInformes
     Public Function mostrarInforme() As DataTable
         Try
-
             cmd = New SqlCommand("palMostrarInforme")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = Conx
@@ -71,7 +69,6 @@ Public Class Datos_Informe
     'DEVUELVE: NO DEVUELVE
     Public Function borrarInforme(ByVal dts As Entidad_Informe) As Boolean
         Try
-
             cmd = New SqlCommand("palEliminarInforme")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = Conx
@@ -96,7 +93,6 @@ Public Class Datos_Informe
     'DEVUELVE: NO DEVUELVE
     Public Function modificarInforme(ByVal dts As Entidad_Informe) As Boolean
         Try
-
             cmd = New SqlCommand("palModificarInforme")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = Conx

@@ -4,7 +4,7 @@ Imports System.Data.SqlClient
 Imports System.Data
 Imports System.Configuration
 
-Public Class Form_Insertar_Informe
+Public Class Formulario_Insertar_Informes
     Inherits System.Web.UI.Page
 
     Dim strConnString As String = ConfigurationManager _
@@ -13,8 +13,8 @@ Public Class Form_Insertar_Informe
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
-            For i As Integer = 0 To txtavanceInforme.Items.Count - 1
-                txtavanceInforme.Items(i).Attributes.Add("onclick", "OnlyOneCheckList(this)")
+            For i As Integer = 0 To ddlAvance_Informe.Items.Count - 1
+                ddlAvance_Informe.Items(i).Attributes.Add("onclick", "OnlyOneCheckList(this)")
             Next
         End If
     End Sub
@@ -23,26 +23,26 @@ Public Class Form_Insertar_Informe
     'EFECTO: La función de este botón se encarga revisar que todos los textboxes y dropdownlists esten llenos para insertar en la base de datos. 
     'RECIBE: La llamada de Datos_Informe y Entidad_Informe para la inserción a la base de datos
     'DEVUELVE: Inserta los datos a la base de datos en la tabla tblInformes
-    Protected Sub Button1_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
+    Protected Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
         Dim dts As New Entidad_Informe
         Dim func As New Datos_Informe
-        If txttituloInforme.Text <> "" And txtfechaAprobacion.Text <> "" Then
+        If txtTitulo_Informe.Text <> "" And txtFecha_Aprobacion.Text <> "" Then
             Try
-                dts._tituloInforme = txttituloInforme.Text
-                dts._idEmpleados = idEmpleados.Text
-                dts._tituloInforme = txttipoInforme.Text
-                dts._numeroOficio = txtnumeroOficio.Text
-                dts._tipoInforme = txttipoInforme.Text
-                dts._fechaAprobacion = txtfechaAprobacion.Text
-                dts._fechaCulminacion = txtfechaCulminacion.Text
-                dts._fechaTraslado = txtfechaTraslado.Text
-                dts._avanceInforme = txtavanceInforme.Text
+                dts._tituloInforme = txtTitulo_Informe.Text
+                dts._idEmpleados = intIdEmpleados.Text
+                dts._tituloInforme = txtTitulo_Informe.Text
+                dts._numeroOficio = txtNumero_Oficio.Text
+                dts._tipoInforme = txtTitulo_Informe.Text
+                dts._fechaAprobacion = txtFecha_Aprobacion.Text
+                dts._fechaCulminacion = txtFecha_Culminacion.Text
+                dts._fechaTraslado = txtFecha_Traslado.Text
+                dts._avanceInforme = ddlAvance_Informe.Text
                 If func.insertarInforme(dts) Then
                     ModalPopupExtender_Exito.Show()
                     ' Insert_checklist()
                     'Response.Write("<script language=javascript>alert('El elemento se ha agregado')</script>")
                     GestionLimpiar()
-                    txtavanceInforme.ClearSelection()
+                    ddlAvance_Informe.ClearSelection()
                 Else
                     ModalPopupExtender_Incompleto.Show()
                     ' Response.Write("<script language=javascript>alert('Faltan espacio para rellenar')</script>")
@@ -61,8 +61,8 @@ Public Class Form_Insertar_Informe
     End Sub
 #End Region
 
-    Protected Sub Button2_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
-        Response.Redirect("Tabla Informe-SistemaRegistroInformes.aspx")
+    Protected Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
+        Response.Redirect("Tabla_Informe-SistemaRegistroInformes.aspx")
     End Sub
 
 #Region "Limpiar Formulario"
@@ -70,11 +70,11 @@ Public Class Form_Insertar_Informe
     'RECIBE: No recibe parametros
     'DEVUELVE: Hace vacio todos los textboxes
     Sub GestionLimpiar()
-        txttituloInforme.Text = String.Empty
-        txtnumeroOficio.Text = String.Empty
-        txtfechaAprobacion.Text = String.Empty
-        txtfechaCulminacion.Text = String.Empty
-        txtfechaTraslado.Text = String.Empty
+        txtTitulo_Informe.Text = String.Empty
+        txtNumero_Oficio.Text = String.Empty
+        txtFecha_Aprobacion.Text = String.Empty
+        txtFecha_Culminacion.Text = String.Empty
+        txtFecha_Traslado.Text = String.Empty
     End Sub
 #End Region
 
@@ -89,19 +89,17 @@ Public Class Form_Insertar_Informe
         cmd.CommandType = CommandType.StoredProcedure
         cmd.CommandText = strQuery
         Dim str As String = ""
-        For i As Integer = 0 To txtavanceInforme.Items.Count - 1
-            If txtavanceInforme.Items(i).Selected Then
+        For i As Integer = 0 To ddlAvance_Informe.Items.Count - 1
+            If ddlAvance_Informe.Items(i).Selected Then
                 If str = "" Then
-                    str = txtavanceInforme.Items(i).Text
+                    str = ddlAvance_Informe.Items(i).Text
                 Else
-                    str += "," & txtavanceInforme.Items(i).Text
+                    str += "," & ddlAvance_Informe.Items(i).Text
                 End If
             End If
         Next
         cmd.Parameters.AddWithValue("@vchAvanceInforme", SqlDbType.VarChar).Value = str.Trim()
         cmd.Connection = con
-        'Dim cmd As SqlCommand = New SqlCommand("Insert into Informe(avanceInforme) values('" & str & "')", con)
-        'cmd.ExecuteNonQuery()
     End Sub
 #End Region
 

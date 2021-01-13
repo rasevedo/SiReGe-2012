@@ -12,7 +12,6 @@ Public Class Datos_Gestiones
     'DEVUELVE: NO DEVUELVE
     Public Function insertarGestiones(ByVal dts As Entidad_Gestiones) As Boolean
         Try
-
             cmd = New SqlCommand("palInsertarGestiones")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = Conx
@@ -54,7 +53,6 @@ Public Class Datos_Gestiones
     'DEVUELVE: Devuelve los datos de la tabla tblGestiones
     Public Function mostrarGestiones() As DataTable
         Try
-
             cmd = New SqlCommand("palMostrarGestiones")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = Conx
@@ -81,7 +79,6 @@ Public Class Datos_Gestiones
     'DEVUELVE: NO DEVUELVE
     Public Function borrarGestiones(ByVal dts As Entidad_Gestiones) As Boolean
         Try
-
             cmd = New SqlCommand("palEliminarGestiones")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = Conx
@@ -106,7 +103,6 @@ Public Class Datos_Gestiones
     'DEVUELVE: NO DEVUELVE
     Public Function modificarGestiones(ByVal dts As Entidad_Gestiones) As Boolean
         Try
-
             cmd = New SqlCommand("palModificarGestiones")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = Conx

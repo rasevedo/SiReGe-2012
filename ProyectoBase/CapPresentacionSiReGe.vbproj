@@ -125,17 +125,17 @@
     <Content Include="Contenido\Imagenes\logoMEP.gif" />
     <Content Include="Contenido\Imagenes\MEP.ico" />
     <Content Include="Contenido\Imagenes\Tranparencia.png" />
-    <Content Include="Formularios\Tabla Casos-SistemaRegistroGestiones.aspx" />
-    <Content Include="Formularios\Formulario Insertar Casos-SistemaRegistroGestiones.aspx" />
-    <Content Include="Formularios\Formulario Insertar Gestiones-SistemaRegistroGestiones.aspx" />
-    <Content Include="Formularios\Formulario Insertar Informes-SistemaRegistroGestiones.aspx" />
-    <Content Include="Formularios\Tabla Gestiones-SistemaRegistroGestiones.aspx" />
-    <Content Include="Formularios\Tabla Informe-SistemaRegistroInformes.aspx" />
+    <Content Include="Formularios\Tabla_Casos-SistemaRegistroGestiones.aspx" />
+    <Content Include="Formularios\Formulario_Insertar_Casos-SistemaRegistroGestiones.aspx" />
+    <Content Include="Formularios\Formulario_Insertar_Gestiones-SistemaRegistroGestiones.aspx" />
+    <Content Include="Formularios\Formulario_Insertar_Informes-SistemaRegistroGestiones.aspx" />
+    <Content Include="Formularios\Tabla_Gestiones-SistemaRegistroGestiones.aspx" />
+    <Content Include="Formularios\Tabla_Informe-SistemaRegistroInformes.aspx" />
     <Content Include="Formularios\Inicio.aspx" />
-    <Content Include="Formularios\Menu Principal-SistemaRegistroGestiones.aspx" />
-    <Content Include="Formularios\Modificar Casos-SistemaRegistroGestiones.aspx" />
-    <Content Include="Formularios\Modificar Gestiones-SistemaRegistroGestiones.aspx" />
-    <Content Include="Formularios\Modificar Informes-SistemaRegistroGestiones.aspx" />
+    <Content Include="Formularios\Menu_Principal-SistemaRegistroGestiones.aspx" />
+    <Content Include="Formularios\Modificar_Casos-SistemaRegistroGestiones.aspx" />
+    <Content Include="Formularios\Modificar_Gestiones-SistemaRegistroGestiones.aspx" />
+    <Content Include="Formularios\Modificar_Informes-SistemaRegistroGestiones.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="MasterPage.Master" />
     <Content Include="Web.config">
@@ -145,46 +145,46 @@
   <ItemGroup>
     <Compile Include="Clases\Acceso_Datos.vb" />
     <Compile Include="Clases\Funciones.vb" />
-    <Compile Include="Formularios\Tabla Casos-SistemaRegistroGestiones.aspx.designer.vb">
-      <DependentUpon>Tabla Casos-SistemaRegistroGestiones.aspx</DependentUpon>
+    <Compile Include="Formularios\Tabla_Casos-SistemaRegistroGestiones.aspx.designer.vb">
+      <DependentUpon>Tabla_Casos-SistemaRegistroGestiones.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Tabla Casos-SistemaRegistroGestiones.aspx.vb">
-      <DependentUpon>Tabla Casos-SistemaRegistroGestiones.aspx</DependentUpon>
+    <Compile Include="Formularios\Tabla_Casos-SistemaRegistroGestiones.aspx.vb">
+      <DependentUpon>Tabla_Casos-SistemaRegistroGestiones.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="Formularios\Formulario Insertar Casos-SistemaRegistroGestiones.aspx.designer.vb">
-      <DependentUpon>Formulario Insertar Casos-SistemaRegistroGestiones.aspx</DependentUpon>
+    <Compile Include="Formularios\Formulario_Insertar_Casos-SistemaRegistroGestiones.aspx.designer.vb">
+      <DependentUpon>Formulario_Insertar_Casos-SistemaRegistroGestiones.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Formulario Insertar Casos-SistemaRegistroGestiones.aspx.vb">
-      <DependentUpon>Formulario Insertar Casos-SistemaRegistroGestiones.aspx</DependentUpon>
+    <Compile Include="Formularios\Formulario_Insertar_Casos-SistemaRegistroGestiones.aspx.vb">
+      <DependentUpon>Formulario_Insertar_Casos-SistemaRegistroGestiones.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="Formularios\Formulario Insertar Gestiones-SistemaRegistroGestiones.aspx.designer.vb">
-      <DependentUpon>Formulario Insertar Gestiones-SistemaRegistroGestiones.aspx</DependentUpon>
+    <Compile Include="Formularios\Formulario_Insertar_Gestiones-SistemaRegistroGestiones.aspx.designer.vb">
+      <DependentUpon>Formulario_Insertar_Gestiones-SistemaRegistroGestiones.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Formulario Insertar Gestiones-SistemaRegistroGestiones.aspx.vb">
-      <DependentUpon>Formulario Insertar Gestiones-SistemaRegistroGestiones.aspx</DependentUpon>
+    <Compile Include="Formularios\Formulario_Insertar_Gestiones-SistemaRegistroGestiones.aspx.vb">
+      <DependentUpon>Formulario_Insertar_Gestiones-SistemaRegistroGestiones.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="Formularios\Formulario Insertar Informes-SistemaRegistroGestiones.aspx.designer.vb">
-      <DependentUpon>Formulario Insertar Informes-SistemaRegistroGestiones.aspx</DependentUpon>
+    <Compile Include="Formularios\Formulario_Insertar_Informes-SistemaRegistroGestiones.aspx.designer.vb">
+      <DependentUpon>Formulario_Insertar_Informes-SistemaRegistroGestiones.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Formulario Insertar Informes-SistemaRegistroGestiones.aspx.vb">
-      <DependentUpon>Formulario Insertar Informes-SistemaRegistroGestiones.aspx</DependentUpon>
+    <Compile Include="Formularios\Formulario_Insertar_Informes-SistemaRegistroGestiones.aspx.vb">
+      <DependentUpon>Formulario_Insertar_Informes-SistemaRegistroGestiones.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="Formularios\Tabla Gestiones-SistemaRegistroGestiones.aspx.designer.vb">
-      <DependentUpon>Tabla Gestiones-SistemaRegistroGestiones.aspx</DependentUpon>
+    <Compile Include="Formularios\Tabla_Gestiones-SistemaRegistroGestiones.aspx.designer.vb">
+      <DependentUpon>Tabla_Gestiones-SistemaRegistroGestiones.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Tabla Gestiones-SistemaRegistroGestiones.aspx.vb">
-      <DependentUpon>Tabla Gestiones-SistemaRegistroGestiones.aspx</DependentUpon>
+    <Compile Include="Formularios\Tabla_Gestiones-SistemaRegistroGestiones.aspx.vb">
+      <DependentUpon>Tabla_Gestiones-SistemaRegistroGestiones.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="Formularios\Tabla Informe-SistemaRegistroInformes.aspx.designer.vb">
-      <DependentUpon>Tabla Informe-SistemaRegistroInformes.aspx</DependentUpon>
+    <Compile Include="Formularios\Tabla_Informe-SistemaRegistroInformes.aspx.designer.vb">
+      <DependentUpon>Tabla_Informe-SistemaRegistroInformes.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Tabla Informe-SistemaRegistroInformes.aspx.vb">
-      <DependentUpon>Tabla Informe-SistemaRegistroInformes.aspx</DependentUpon>
+    <Compile Include="Formularios\Tabla_Informe-SistemaRegistroInformes.aspx.vb">
+      <DependentUpon>Tabla_Informe-SistemaRegistroInformes.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Formularios\Inicio.aspx.designer.vb">
@@ -194,32 +194,32 @@
       <DependentUpon>Inicio.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="Formularios\Menu Principal-SistemaRegistroGestiones.aspx.designer.vb">
-      <DependentUpon>Menu Principal-SistemaRegistroGestiones.aspx</DependentUpon>
+    <Compile Include="Formularios\Menu_Principal-SistemaRegistroGestiones.aspx.designer.vb">
+      <DependentUpon>Menu_Principal-SistemaRegistroGestiones.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Menu Principal-SistemaRegistroGestiones.aspx.vb">
-      <DependentUpon>Menu Principal-SistemaRegistroGestiones.aspx</DependentUpon>
+    <Compile Include="Formularios\Menu_Principal-SistemaRegistroGestiones.aspx.vb">
+      <DependentUpon>Menu_Principal-SistemaRegistroGestiones.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="Formularios\Modificar Casos-SistemaRegistroGestiones.aspx.designer.vb">
-      <DependentUpon>Modificar Casos-SistemaRegistroGestiones.aspx</DependentUpon>
+    <Compile Include="Formularios\Modificar_Casos-SistemaRegistroGestiones.aspx.designer.vb">
+      <DependentUpon>Modificar_Casos-SistemaRegistroGestiones.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Modificar Casos-SistemaRegistroGestiones.aspx.vb">
-      <DependentUpon>Modificar Casos-SistemaRegistroGestiones.aspx</DependentUpon>
+    <Compile Include="Formularios\Modificar_Casos-SistemaRegistroGestiones.aspx.vb">
+      <DependentUpon>Modificar_Casos-SistemaRegistroGestiones.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="Formularios\Modificar Gestiones-SistemaRegistroGestiones.aspx.designer.vb">
-      <DependentUpon>Modificar Gestiones-SistemaRegistroGestiones.aspx</DependentUpon>
+    <Compile Include="Formularios\Modificar_Gestiones-SistemaRegistroGestiones.aspx.designer.vb">
+      <DependentUpon>Modificar_Gestiones-SistemaRegistroGestiones.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Modificar Gestiones-SistemaRegistroGestiones.aspx.vb">
-      <DependentUpon>Modificar Gestiones-SistemaRegistroGestiones.aspx</DependentUpon>
+    <Compile Include="Formularios\Modificar_Gestiones-SistemaRegistroGestiones.aspx.vb">
+      <DependentUpon>Modificar_Gestiones-SistemaRegistroGestiones.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
-    <Compile Include="Formularios\Modificar Informes-SistemaRegistroGestiones.aspx.designer.vb">
-      <DependentUpon>Modificar Informes-SistemaRegistroGestiones.aspx</DependentUpon>
+    <Compile Include="Formularios\Modificar_Informes-SistemaRegistroGestiones.aspx.designer.vb">
+      <DependentUpon>Modificar_Informes-SistemaRegistroGestiones.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\Modificar Informes-SistemaRegistroGestiones.aspx.vb">
-      <DependentUpon>Modificar Informes-SistemaRegistroGestiones.aspx</DependentUpon>
+    <Compile Include="Formularios\Modificar_Informes-SistemaRegistroGestiones.aspx.vb">
+      <DependentUpon>Modificar_Informes-SistemaRegistroGestiones.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Login.aspx.designer.vb">
