@@ -7,9 +7,11 @@ Imports System.Configuration
 Public Class Formulario_Insertar_Gestiones
     Inherits System.Web.UI.Page
 
+    Dim cmd As New SqlCommand
+
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
-
+            txtNombre_Funcionario.Text = Session("NombreUsuario")
         End If
     End Sub
 
@@ -80,13 +82,16 @@ Public Class Formulario_Insertar_Gestiones
     Protected Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
         Dim dts As New Entidad_Gestiones
         Dim func As New Datos_Gestiones
-        If intIdEmpleados.Text <> "" Then
+        If rblTipo_Gestion.Text <> "" And txtNombre_Usuario.Text <> "" And txtFecha_Ingreso.Text <> "" And txtNombre_Funcionario.Text <> "" And ddlFuente_Generadora.Text <> "" And ddlTipo_Servicio.Text <> "" And ddlDescripcion_Unidad.Text <> "" And ddlLetra_Dimension.Text <> "" And ddlTipo_Usuario.Text <> "" And txtAsunto.Text <> "" Then
             Try
                 dts._tipoGestiones = rblTipo_Gestion.Text
-                dts._cedulaUsuario = txtCedula_Usuario.Text
+                If Not String.IsNullOrEmpty(txtCedula_Usuario.Text) Then
+                    dts._cedulaUsuario = Integer.Parse(txtCedula_Usuario.Text)
+                End If
+
                 dts._nombreUsuario = txtNombre_Usuario.Text
                 dts._fechaIngreso = Convert.ToDateTime(txtFecha_Ingreso.Text)
-                dts._idEmpleados = intIdEmpleados.Text
+                dts._nombreFuncionario = txtNombre_Funcionario.Text
                 dts._confidencialidadGestiones = ddlConfidencialidad.Text
                 dts._fuenteGeneradora = ddlFuente_Generadora.Text
                 dts._tipoServicio = ddlTipo_Servicio.Text
@@ -97,26 +102,31 @@ Public Class Formulario_Insertar_Gestiones
                 dts._numeroOficio = txtNumero_Oficio.Text
                 dts._idDimension = ddlLetra_Dimension.Text
                 dts._tipoUsuario = ddlTipo_Usuario.Text
-                dts._categoriaGestiones = ddlCategoria.Text
                 dts._detalleGestiones = txtAsunto.Text
                 dts._respuestaGestiones = txtRespuesta.Text
+
+
+
                 If func.insertarGestiones(dts) Then
+                    '         Dim intIdGestiones As String = cmd.Parameters("@intIdGestiones").Value.ToString()
+                    txtPop_Id_Gestiones.Text = dts._idGestiones
                     ModalPopupExtender_Exito.Show()
-                    'Response.Write("<script language=javascript>alert('El elemento se ha agregado')</script>")
+                    ' Response.Write("<script language=javascript>alert('El elemento se ha agregado exitosamente')</script>")
                     GestionLimpiar()
                 Else
                     ModalPopupExtender_Incompleto.Show()
-                    'Response.Write("<script language=javascript>alert('Faltan espacios para rellenar')</script>")
-                    ' MsgBox("Faltan espacios que rellenar")
+                    ' Response.Write("<script language=javascript>alert('Faltan elementos que agregar en el formulario')</script>")
+                    'MsgBox("Faltan espacios que rellenar")
                 End If
             Catch ex As Exception
                 ModalPopupExtender_Error.Show()
-                ' Response.Write("<script language=javascript>alert('Hubo un problema en agregar el elemento')</script>")
-                ' MsgBox("Hubo un problema en agregar el elemento" + ex.Message)
+                'Response.Write("<script language=javascript>alert('Hubo un problema en agregar el elemento. Porfavor revisar formulario.')</script>")
+
+                MsgBox("Hubo un problema en agregar el elemento" + ex.Message)
             End Try
         Else
             ModalPopupExtender_Incompleto.Show()
-            ' Response.Write("<script language=javascript>alert('Faltan elementos que agregar')</script>")
+            'Response.Write("<script language=javascript>alert('Faltan elementos que agregar en el formulario')</script>")
             'MsgBox("Faltan datos que agregar")
         End If
     End Sub
@@ -131,20 +141,27 @@ Public Class Formulario_Insertar_Gestiones
     'RECIBE: No recibe parametros
     'DEVUELVE: Hace vacio todos los textboxes
     Sub GestionLimpiar()
+        rblTipo_Gestion.SelectedIndex = -1
         txtCedula_Usuario.Text = String.Empty
         txtNombre_Usuario.Text = String.Empty
         txtFecha_Ingreso.Text = String.Empty
-        ddlConfidencialidad.Text = String.Empty
-        ddlFuente_Generadora.Text = String.Empty
-        ddlTipo_Servicio.Text = String.Empty
-        ddlDireccion_Regional_Educacion.Text = String.Empty
-        ddlSupervision.Text = String.Empty
+        ddlConfidencialidad.SelectedIndex = -1
+        ddlFuente_Generadora.SelectedIndex = -1
+        ddlTipo_Servicio.SelectedIndex = -1
+        ddlDireccion_Regional_Educacion.SelectedIndex = -1
+        ddlSupervision.SelectedIndex = -1
         txtNombre_CE.Text = String.Empty
         txtNumero_Oficio.Text = String.Empty
-        ddlTipo_Usuario.Text = String.Empty
-        ddlCategoria.Text = String.Empty
+        ddlTipo_Usuario.SelectedIndex = -1
         txtAsunto.Text = String.Empty
         txtRespuesta.Text = String.Empty
+        ddlDescripcion_Unidad.SelectedIndex = -1
+        txtDespacho.Text = String.Empty
+        txtDireccion.Text = String.Empty
+        txtDepartamento.Text = String.Empty
+        ddlTipo_Dimension.SelectedIndex = -1
+        ddlLetra_Dimension.SelectedIndex = -1
+        txtTipo_Detalle_Letra_Dimension.Text = String.Empty
     End Sub
 #End Region
 

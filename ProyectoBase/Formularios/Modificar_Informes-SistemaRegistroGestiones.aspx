@@ -33,7 +33,8 @@
     </style>
 </asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">               
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">  
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />            
             <div class="row">
                 <div class="col-lg-12">                    
                         <header class="panel-heading">
@@ -58,17 +59,17 @@
                                     <div class="form-group">
                                         <table style="width: 100%;">
                                             <tr>
-                                                <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblTitulo_Informe" Text="Título del Informe" runat="server" /></td>
+                                                <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblTitulo_Informe" Text="Título del Informe*" runat="server" /></td>
 
                                                 <td class="auto-style8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblFuncionario_Tramita" Text="Funcionario que tramita*" runat="server"/></td>
 
-                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblTipo_Informe" Text="Tipo de Informe " runat="server"/></td>
+                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblTipo_Informe" Text="Tipo de Informe*" runat="server"/></td>
                                             </tr>
                                             <tr>
                                                 <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtTitulo_Informe" runat="server" Enabled="true" CssClass="form-control input-sm" Height="25px" Width="273px"  /></td>
 
-                                                <td class="auto-style8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:DropDownList ID="intIdEmpleados" runat="server" CssClass="form-control input-sm" DataSourceID="sdsEmpleados" DataTextField="vchNombreEmpleados" DataValueField="intIdEmpleados" Height="30px" Width="279px"  />
-                                                    <asp:SqlDataSource ID="sdsEmpleados" runat="server" ConnectionString="<%$ ConnectionStrings:bda_SIREGE_Connection %>" SelectCommand="palSeleccionarEmpleados" SelectCommandType="StoredProcedure"></asp:SqlDataSource></td>
+                                                <td class="auto-style8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtNombre_Funcionario" runat="server" Enabled="false" CssClass="form-control input-sm" Height="30px" Width="279px"  /></td>
+                                                    
 
                                                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:DropDownList ID="ddlTipo_Informe" runat="server" CssClass="form-control input-sm" Height="30px" Width="279px" >
                                                         <asp:ListItem Text="Informe" Value="Informe"></asp:ListItem>
@@ -100,7 +101,7 @@
                                             <tr>
                                                 <td class="auto-style10">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtNumero_Oficio" runat="server"  Enabled="true" CssClass="form-control input-sm" Height="25px" Width="273px" /></td>
 
-                                                <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Aprobacion" runat="server" TextMode="Date" Enabled="true" CssClass="form-control input-sm" Height="30px" Width="279px"   /></td>
+                                                <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Aprobacion" runat="server"  Enabled="true" CssClass="form-control input-sm" Height="30px" Width="279px"   /></td>
                                             </tr>                                            
                                         </table> 
                                         <div class="col-md-3 col-md-offset-1">
@@ -122,9 +123,9 @@
                                                 <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblFecha_Traslado" Text="Fecha de Traslado" runat="server"/></td>
                                             </tr>
                                             <tr>
-                                                <td class="auto-style11">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Culminacion" runat="server" TextMode="Date" Enabled="true" CssClass="form-control input-sm" Height="30px" Width="279px"  /></td>
+                                                <td class="auto-style11">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Culminacion" runat="server"  Enabled="true" CssClass="form-control input-sm" Height="30px" Width="279px"  /></td>
 
-                                                <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Traslado" runat="server" TextMode="Date" Enabled="true" CssClass="form-control input-sm" Height="30px" Width="279px"  /></td>
+                                                <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Traslado" runat="server" Enabled="true" CssClass="form-control input-sm" Height="30px" Width="279px"  /></td>
                                             </tr>
                                         </table>
                                         <div class="col-md-3 col-md-offset-1">
@@ -178,6 +179,90 @@
                                         </div>                                       
                                     </div>
                                 </div>                                      
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3 col-md-offset-1">
+                                    <div class="form-group">
+                                        <table style="width: 100%;">
+                                            <tr>
+                                                <td class="auto-style10">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblRemitido" Text="Remitido A " runat="server"/></td>                                              
+                                            </tr>
+                                            <tr>
+                                                <td class="auto-style10">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtRemitido" runat="server"  Enabled="true" CssClass="form-control input-sm" Height="25px" Width="273px" /></td>                                             
+                                            </tr>                                            
+                                        </table> 
+                                        <div class="col-md-3 col-md-offset-1">
+                                            <div class="form-group">
+                                                <br />                                                               
+                                            </div>
+                                        </div>                                       
+                                    </div>
+                                </div>                                                               
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3 col-md-offset-1">
+                                    <div class="form-group">
+                                        <table style="width: 100%;">
+                                            <tr>
+                                                <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblHallazgo_Informe" Text="Hallazgos del Informe" runat="server"/> </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox runat="server" ID="txtHallazgo" TextMode="Multiline" Enabled="true" CssClass="form-control input-lg" Name="S2" Rows="5" Cols="12" Width="1125px" style="resize:none;" /></td>
+                                            </tr>
+                                        </table>
+                                        <div class="col-md-3 col-md-offset-1">
+                                            <div class="form-group">
+                                                <br />                                                               
+                                            </div>
+                                        </div>                                     
+                                    </div>
+                                </div>                                                                
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-3 col-md-offset-1">
+                                    <div class="form-group">
+                                        <table style="width: 100%;">
+                                            <tr>
+                                                <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblRecomendaciones" Text="Recomendaciones" runat="server"/> </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox runat="server" ID="txtRecomendaciones" TextMode="Multiline" Enabled="true" CssClass="form-control input-lg" Name="S2" Rows="5" Cols="12" Width="1125px" style="resize:none;" /></td>
+                                            </tr>
+                                        </table>
+                                        <div class="col-md-3 col-md-offset-1">
+                                            <div class="form-group">
+                                                <br />                                                               
+                                            </div>
+                                        </div>                                     
+                                    </div>
+                                </div>                                                                
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-md-3 col-md-offset-1">
+                                    <div class="form-group">
+                                        <table style="width: 100%;">
+                                            <tr>
+                                                <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblObservaciones_Informe" Text="Observaciones Generales" runat="server"/> </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox runat="server" ID="txtObservaciones" TextMode="Multiline" Enabled="true" CssClass="form-control input-lg" Name="S2" Rows="5" Cols="12" Width="1125px" style="resize:none;" /></td>
+                                            </tr>
+                                        </table>
+                                        <div class="col-md-3 col-md-offset-1">
+                                            <div class="form-group">
+                                                <br />                                                               
+                                            </div>
+                                        </div>                                     
+                                    </div>
+                                </div>                                                                
                             </div>
 
 

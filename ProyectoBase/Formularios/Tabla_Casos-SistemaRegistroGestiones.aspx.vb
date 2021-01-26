@@ -149,7 +149,7 @@ Public Class Tabla_Casos
     'RECIBE:Todas las filas del gridview marcadas con un check
     'DEVUELVE:El borrado de la fila y la tabla del gridview actualizada
     Protected Sub btnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click
-        If Session("Perfil") = "Administrador" Then
+        If Session("Perfil") = "AD" Then
             Try
                 Dim func As New Datos_Casos
                 Dim dts As New Entidad_Casos
@@ -160,6 +160,7 @@ Public Class Tabla_Casos
                         dts._idCasos = gesid
                         If func.borrarCasos(dts) Then
                             Response.Write("<script language=javascript>alert('El elemento ha sido eliminado de forma exitosa')</script>")
+                            gvwCasos.DataBind()
                             'MsgBox("El elemento ha sido eliminado de forma exitosa")
                         Else
                             Response.Write("<script language=javascript>alert('No se ha eliminado el elemento.')</script>")
@@ -204,10 +205,10 @@ Public Class Tabla_Casos
         txtPop_Fecha_Oficio.Text = gvwCasos.SelectedRow.Cells(16).Text
         txtPop_Dimension.Text = Page.Server.HtmlDecode(gvwCasos.SelectedRow.Cells(17).Text)
         txtPop_Letra_Dimension.Text = gvwCasos.SelectedRow.Cells(18).Text
-        lblPop_Detalle_Dimension.Text = Page.Server.HtmlDecode(gvwCasos.SelectedRow.Cells(19).Text)
+        txtPop_Detalle_Dimension.Text = Page.Server.HtmlDecode(gvwCasos.SelectedRow.Cells(19).Text)
         txtPop_Condicion_Caso.Text = Page.Server.HtmlDecode(gvwCasos.SelectedRow.Cells(20).Text)
-        lblPop_Detalle_Inconformidad.Text = Page.Server.HtmlDecode(gvwCasos.SelectedRow.Cells(21).Text)
-        lblPop_Respuesta_Caso.Text = Page.Server.HtmlDecode(gvwCasos.SelectedRow.Cells(22).Text)
+        txtPop_Detalle_Inconformidad.Text = Page.Server.HtmlDecode(gvwCasos.SelectedRow.Cells(21).Text)
+        txtPop_Respuesta_Caso.Text = Page.Server.HtmlDecode(gvwCasos.SelectedRow.Cells(22).Text)
         txtPop_Valoracion_Admisibilidad.Text = Page.Server.HtmlDecode(gvwCasos.SelectedRow.Cells(23).Text)
         txtPop_Veredicto.Text = Page.Server.HtmlDecode(gvwCasos.SelectedRow.Cells(24).Text)
         txtPop_Trazabilidad.Text = Page.Server.HtmlDecode(gvwCasos.SelectedRow.Cells(25).Text)
@@ -216,6 +217,14 @@ Public Class Tabla_Casos
         mpeDetalles.Show()
     End Sub
 #End Region
+
+
+    Protected Sub btnBuscador_Click(sender As Object, e As EventArgs) Handles btnBuscador.Click
+        Response.Redirect("Buscador_Casos-SistemaRegistroGestiones.aspx")
+
+
+
+    End Sub
 
 
 End Class

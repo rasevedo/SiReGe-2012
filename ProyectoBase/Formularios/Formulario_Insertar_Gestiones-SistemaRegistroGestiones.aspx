@@ -21,7 +21,8 @@
 
 </asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">                
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />          
             <div class="row justify-content-md-center">
                 <div class="col-lg-12">                    
                         <header class="panel-heading">
@@ -62,14 +63,14 @@
                                 <div class="col-md-3 col-md-offset-1">
                                     <div class="form-group">
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblCedula_Usuario" Text="Cédula del Usuario" runat="server" />
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="lblNombre_Usuaro" Text="Nombre del Usuario" runat="server" />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="lblNombre_Usuaro" Text="Nombre del Usuario*" runat="server" />
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="lblFecha_Ingreso" Text="Fecha de Ingreso*" runat="server"/>
                                         <br />
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtCedula_Usuario" runat="server" Enabled="true" CssClass="form-control input-sm" Height="25px" Width="273px"  />
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         
                                         <asp:TextBox ID="txtNombre_Usuario" runat="server" Enabled="true" CssClass="form-control input-sm" Height="25px" Width="273px" />                                        
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Ingreso" runat="server" TextMode="Date" Enabled="true" CssClass="form-control input-sm" Height="25px" Width="271px"  />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Ingreso" runat="server" TextMode="DateTimeLocal" Enabled="true" CssClass="form-control input-sm" Height="25px" Width="271px"  />
                                         
                                     </div>
                                 </div>
@@ -77,9 +78,7 @@
                                 <div class="col-md-3 col-md-offset-1">
                                     <div class="form-group">
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <asp:RangeValidator ID="rgvCedula" runat="server" ControlToValidate="txtCedula_Usuario" 
-                                           ErrorMessage="Cédula debe tener 9 números" MaximumValue="9" 
-                                           MinimumValue="9" Type="Integer" ForeColor="Red"></asp:RangeValidator>
+                                        
                                         <br />
                                     </div>
                                 </div>
@@ -98,8 +97,8 @@
                                                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblFuente_Generadora" Text="Fuente Generadora*" runat="server" /></td>
                                             </tr>
                                             <tr>
-                                                <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:DropDownList ID="intIdEmpleados" runat="server" CssClass="form-control input-sm" DataSourceID="sdsEmpleados" DataTextField="vchNombreEmpleados" DataValueField="intIdEmpleados" Height="30px" Width="279px"  />
-                                                    <asp:SqlDataSource ID="sdsEmpleados" runat="server" ConnectionString="<%$ ConnectionStrings:bda_SIREGE_Connection %>" SelectCommand="palSeleccionarEmpleados" SelectCommandType="StoredProcedure"></asp:SqlDataSource></td>
+                                                <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtNombre_Funcionario" runat="server" Enabled="false" CssClass="form-control input-sm" Height="30px" Width="279px"  /></td>
+                                                    
                                                 
                                                 <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:DropDownList ID="ddlConfidencialidad" runat="server" CssClass="form-control input-sm" Height="29px" Width="277px" >
                                                         <asp:ListItem Text="-Seleccione-" Value=" "></asp:ListItem>
@@ -204,6 +203,10 @@
                                 </div>
                             </div>
 
+                           
+
+                          <asp:UpdatePanel runat="server" id="UpdatePanel" updatemode="Conditional">  
+                            <ContentTemplate>
                             <div class="row">
                                 <div class="col-md-3 col-md-offset-1">
                                     <div class="form-group">
@@ -211,7 +214,7 @@
                                                    <tr>
                                                        <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblCentro_Educativo" Text="Nombre del Centro Educativo" runat="server" /></td>
                                                        
-                                                       <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblDescripcion_Unidad" Text="Descripción Unidad" runat="server" /></td>
+                                                       <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblDescripcion_Unidad" Text="Descripción Unidad*" runat="server" /></td>
                                                        
                                                        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblNumero_Oficio" Text="Número de Oficio " runat="server"/></td>
                                                    </tr>
@@ -233,6 +236,7 @@
                                     </div>
                                 </div>
                             </div>
+                           
 
                             <div class="row">
                                 <div class="col-md-3 col-md-offset-1">
@@ -261,7 +265,12 @@
                                     </div>
                                 </div>
                             </div>
+                            </ContentTemplate>
+                        </asp:UpdatePanel>
 
+
+                        <asp:UpdatePanel runat="server" id="UpdatePanel2" updatemode="Conditional">  
+                            <ContentTemplate>
                             <div class="row">
                                 <div class="col-md-3 col-md-offset-1">
                                     <div class="form-group">
@@ -296,6 +305,8 @@
                                     </div>
                                 </div>
                             </div>
+                         </ContentTemplate>
+                        </asp:UpdatePanel>
 
                             <div class="row">
                                 <div class="col-md-3 col-md-offset-1">
@@ -304,7 +315,7 @@
                                               <tr>
                                                     <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblTipo_Usuario" Text="Tipo de Usuario*" runat="server"  /></td>
 
-                                                    <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblCategoria" Text="Categoría" runat="server" /></td>
+                                                    <td>&nbsp;</td>
 
                                                     <td>&nbsp;</td>
                                                </tr>
@@ -314,17 +325,7 @@
                                                             <asp:ListItem Text="Externo" Value="Externo"></asp:ListItem>
                                                             <asp:ListItem Text="Interno" Value="Interno"></asp:ListItem>
                                                         </asp:DropDownList></td>
-
-                                                    <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:DropDownList ID="ddlCategoria" runat="server" CssClass="form-control input-sm" Height="29px" Width="283px"> 
-                                                            <asp:ListItem Text="-Seleccione-" Value=" "></asp:ListItem>
-                                                            <asp:ListItem Text="Redireccionar a dependencia" Value="Redireccionar a dependencia"></asp:ListItem>
-                                                            <asp:ListItem Text="Asignación casos DAT" Value="Asignación casos DAT"></asp:ListItem>
-                                                            <asp:ListItem Text="Prensa y Drh comunicaciones" Value="Prensa y Drh comunicaciones"></asp:ListItem>
-                                                            <asp:ListItem Text="Mejora Continua" Value="Mejora Continua"></asp:ListItem>
-                                                            <asp:ListItem Text="Espera información" Value="Espera información"></asp:ListItem>
-                                                            <asp:ListItem Text="Dirección de la CS" Value="Dirección de la CS"></asp:ListItem>
-                                                        </asp:DropDownList></td>
-
+                                                  
                                                     <td>&nbsp;</td>
                                                 </tr>                                              
                                            </table>
@@ -345,7 +346,7 @@
                                                 <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblDetalle" Text="Detalle*" runat="server" /></td>                                                 
                                             </tr>
                                             <tr>
-                                                <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox runat="server" ID="txtAsunto" TextMode="Multiline" CssClass="form-control input-lg"  Rows="5" Width="1125px"  /></td>          
+                                                <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox runat="server" ID="txtAsunto" TextMode="Multiline" CssClass="form-control input-lg"  Rows="5" Width="1125px" style="resize:none;"  /></td>          
                                             </tr>                                                   
                                         </table>
                                         <div class="col-md-3 col-md-offset-1">
@@ -365,7 +366,7 @@
                                                 <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblRespuesta" Text="Respuesta" runat="server"/></td>                                                 
                                             </tr>
                                             <tr>
-                                                <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox runat="server" ID="txtRespuesta" TextMode="Multiline" Enabled="true" CssClass="form-control input-lg" Rows="5" Width="1125px" /></td>           
+                                                <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox runat="server" ID="txtRespuesta" TextMode="Multiline" Enabled="true" CssClass="form-control input-lg" Rows="5" Width="1125px" style="resize:none;" /></td>           
                                             </tr>                                                   
                                         </table>
                                         <div class="col-md-3 col-md-offset-1">
@@ -393,7 +394,7 @@
                          
                             
                             <asp:LinkButton ID="lnkDummy" runat="server"></asp:LinkButton>
-                            <asp:ModalPopupExtender ID="ModalPopupExtender_Exito" BehaviorID="MPE_Exito" runat="server"
+                            <asp:ModalPopupExtender ID="ModalPopupExtender_Exito" BehaviorID="ModalPopupExtender_Exito" runat="server"
                                 PopupControlID="pnlPopup_Exito" TargetControlID="lnkDummy" BackgroundCssClass="modalBackground"
                                 CancelControlID="btnCerrar_Exito">
                             </asp:ModalPopupExtender>
@@ -404,11 +405,14 @@
                                 <div class="body">
                                     El elemento se ha agregado exitosamente
                                     <br />
+                                    <asp:Label ID="lblPop_Id_Gestiones" runat="server" Text="Su codigo de gestión es el siguiente:"></asp:Label>
+                                    <asp:TextBox ID="txtPop_Id_Gestiones" runat="server" Enabled="false" style="text-align: center"/>
+                                    <br />
                                     <asp:Button ID="btnCerrar_Exito" runat="server" Text="Cerrar" />
                                 </div>
                             </asp:Panel>
 
-                            <asp:ModalPopupExtender ID="ModalPopupExtender_Incompleto" BehaviorID="MPE_Incompleto" runat="server"
+                            <asp:ModalPopupExtender ID="ModalPopupExtender_Incompleto" BehaviorID="ModalPopupExtender_Incompleto" runat="server"
                                 PopupControlID="pnlPopup_Incompleto" TargetControlID="lnkDummy" BackgroundCssClass="modalBackground"
                                 CancelControlID="btnCerrar_Incompleto">
                             </asp:ModalPopupExtender>
@@ -417,22 +421,22 @@
                                     Mensaje de Información
                                 </div>
                                 <div class="body">
-                                    Faltan elementos que agregar en el formulario
+                                    <asp:Label ID="Label1" runat="server" Text="Faltan elementos que agregar en el formulario"></asp:Label>
                                     <br />
                                     <asp:Button ID="btnCerrar_Incompleto" runat="server" Text="Cerrar" />
                                 </div>
                             </asp:Panel>
 
-                            <asp:ModalPopupExtender ID="ModalPopupExtender_Error" BehaviorID="MPE_Error" runat="server"
+                            <asp:ModalPopupExtender ID="ModalPopupExtender_Error" BehaviorID="ModalPopupExtender_Error" runat="server"
                                 PopupControlID="pnlPopup_Error" TargetControlID="lnkDummy" BackgroundCssClass="modalBackground"
                                 CancelControlID="btnCerrar_Error">
                             </asp:ModalPopupExtender>
-                            <asp:Panel ID="Panel1" runat="server" CssClass="modalPopup" Style="display: none">
+                            <asp:Panel ID="pnlPopup_Error" runat="server" CssClass="modalPopup" Style="display: none">
                                 <div class="header">
                                     Mensaje de Alerta
                                 </div>
                                 <div class="body">
-                                    Hubo un problema en agregar el elemento. Porfavor revisar formulario.
+                                    <asp:Label ID="Label2" runat="server" Text="Hubo un problema en agregar el elemento. Porfavor revisar formulario."></asp:Label>
                                     <br />
                                     <asp:Button ID="btnCerrar_Error" runat="server" Text="Cerrar" />
                                 </div>

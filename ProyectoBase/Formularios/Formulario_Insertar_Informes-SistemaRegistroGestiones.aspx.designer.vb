@@ -50,22 +50,13 @@ Partial Public Class Formulario_Insertar_Informes
     Protected WithEvents txtTitulo_Informe As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''intIdEmpleados control.
+    '''txtNombre_Funcionario control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents intIdEmpleados As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''sdsEmpleados control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents sdsEmpleados As Global.System.Web.UI.WebControls.SqlDataSource
+    Protected WithEvents txtNombre_Funcionario As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''ddlTipo_Informe control.
@@ -165,6 +156,78 @@ Partial Public Class Formulario_Insertar_Informes
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlAvance_Informe As Global.System.Web.UI.WebControls.CheckBoxList
+
+    '''<summary>
+    '''lblRemitido control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblRemitido As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtRemitido control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtRemitido As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''lblHallazgo_Informe control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblHallazgo_Informe As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtHallazgo control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtHallazgo As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''lblRecomendaciones control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblRecomendaciones As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtRecomendaciones control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtRecomendaciones As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''lblObservaciones_Informe control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblObservaciones_Informe As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtObservaciones control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtObservaciones As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''btnAgregar control.

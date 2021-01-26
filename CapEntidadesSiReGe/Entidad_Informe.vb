@@ -2,13 +2,17 @@
 
     Private idInforme As Integer
     Private tituloInforme As String
-    Private idEmpleados As Integer
+    Private nombreFuncionario As String
     Private tipoInforme As String
     Private numeroOficio As String
     Private fechaAprobacion As DateTime
     Private fechaCulminacion As DateTime
     Private fechaTraslado As DateTime
     Private avanceInforme As String
+    Private remitido As String
+    Private hallazgo As String
+    Private recomendaciones As String
+    Private observaciones As String
 
 
     Public Property _idInforme
@@ -29,14 +33,15 @@
         End Set
     End Property
 
-    Public Property _idEmpleados
+    Public Property _nombreFuncionario
         Get
-            Return idEmpleados
+            Return nombreFuncionario
         End Get
         Set(value)
-            idEmpleados = value
+            nombreFuncionario = value
         End Set
     End Property
+
 
     Public Property _tipoInforme
         Get
@@ -91,6 +96,43 @@
             avanceInforme = value
         End Set
     End Property
+
+    Public Property _remitido
+        Get
+            Return remitido
+        End Get
+        Set(value)
+            remitido = value
+        End Set
+    End Property
+
+    Public Property _hallazgo
+        Get
+            Return hallazgo
+        End Get
+        Set(value)
+            hallazgo = value
+        End Set
+    End Property
+
+    Public Property _recomendaciones
+        Get
+            Return recomendaciones
+        End Get
+        Set(value)
+            recomendaciones = value
+        End Set
+    End Property
+
+    Public Property _observaciones
+        Get
+            Return observaciones
+        End Get
+        Set(value)
+            observaciones = value
+        End Set
+    End Property
+
 
     Public Sub New()
 

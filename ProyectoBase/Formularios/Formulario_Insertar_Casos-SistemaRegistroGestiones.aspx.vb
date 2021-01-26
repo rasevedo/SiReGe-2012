@@ -9,7 +9,7 @@ Public Class Formulario_Insertar_Casos
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
-
+            txtNombre_Funcionario.Text = Session("NombreUsuario")
         End If
     End Sub
 
@@ -82,17 +82,26 @@ Public Class Formulario_Insertar_Casos
     Protected Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
         Dim dts As New Entidad_Casos
         Dim func As New Datos_Casos
-        If txtNumero_Caso.Text <> "" And ddlEstado_Caso.Text <> "" And txtNombre_Usuario.Text <> "" Then
+        If txtNumero_Caso.Text <> "" And ddlEstado_Caso.Text <> "" And txtNombre_Usuario.Text <> "" And txtFecha_Caso.Text <> "" And txtNombre_Funcionario.Text <> "" And ddlCondicion_Caso.Text <> "" And ddlDescripcion_Unidad.Text <> "" And ddlLetra_Dimension.Text <> "" And ddlValoracion_Admisibilidad.Text <> "" And txtAsunto.Text <> "" Then
             Try
                 dts._numeroCasos = txtNumero_Caso.Text
                 dts._estadoCasos = ddlEstado_Caso.Text
                 dts._fechaCasos = txtFecha_Caso.Text
-                dts._cedulaDenuncianteCasos = txtCedula_Usuario.Text
+                If Not String.IsNullOrEmpty(txtCedula_Usuario.Text) Then
+                    dts._cedulaDenuncianteCasos = Integer.Parse(txtCedula_Usuario.Text)
+                End If
                 dts._nombreDenuncianteCasos = txtNombre_Usuario.Text
-                dts._idEmpleados = intIdEmpleados.Text
+                dts._nombreFuncionario = txtNombre_Funcionario.Text
                 dts._nombreCentroEducativo = txtNombre_CE.Text
                 dts._numeroOficio = txtNumero_Oficio.Text
-                dts._fechaOficio = txtFecha_Caso.Text
+
+                If txtFecha_Oficio.Text = "" Then
+                    dts._fechaOficio = ("01/01/2000 00:00:00")
+                Else
+                    dts._fechaOficio = txtFecha_Oficio.Text
+                End If
+                ' dts._fechaOficio = txtFecha_Oficio.Text
+
                 dts._condicionCasos = ddlCondicion_Caso.Text
                 dts._idUnidad = ddlDescripcion_Unidad.Text
                 dts._idDimension = ddlLetra_Dimension.Text
@@ -101,26 +110,39 @@ Public Class Formulario_Insertar_Casos
                 dts._trazabilidadCasos = ddlTrazabilidad_Casos.Text
                 dts._detalleInconformidadCasos = txtAsunto.Text
                 dts._respuestaCasos = txtRespuesta.Text
-                dts._fechaRespuestaCasos = txtFecha_Respuesta_Casos.Text
-                dts._fechaCerradoCasos = txtFecha_Cerrado_Casos.Text
+
+                If txtFecha_Respuesta_Casos.Text = "" Then
+                    dts._fechaRespuestaCasos = ("01/01/2000 00:00:00")
+                Else
+                    dts._fechaRespuestaCasos = txtFecha_Respuesta_Casos.Text
+                End If
+
+                If txtFecha_Cerrado_Casos.Text = "" Then
+                    dts._fechaCerradoCasos = ("01/01/2000 00:00:00")
+                Else
+                    dts._fechaCerradoCasos = txtFecha_Cerrado_Casos.Text
+                End If
+               
+                'dts._fechaCerradoCasos = txtFecha_Cerrado_Casos.Text
+
                 If func.insertarCasos(dts) Then
                     ModalPopupExtender_Exito.Show()
-                    'Response.Write("<script language=javascript>alert('El elemento se ha agregado')</script>")
+                    'Response.Write("<script language=javascript>alert('El elemento se ha agregado exitosamente')</script>")
                     ' MsgBox("Exito")
                     GestionLimpiar()
                 Else
                     ModalPopupExtender_Incompleto.Show()
-                    ' Response.Write("<script language=javascript>alert('Faltan espacio para rellenar')</script>")
-                    ' MsgBox("Fracaso")
+                    ' Response.Write("<script language=javascript>alert('Faltan elementos que agregar en el formulario')</script>")
+                    'MsgBox("Fracaso")
                 End If
             Catch ex As Exception
                 ModalPopupExtender_Error.Show()
-                'Response.Write("<script language=javascript>alert('Hubo un problema en agregar el elemento')</script>")
-                ' MsgBox(ex.Message)
+                'Response.Write("<script language=javascript>alert('Hubo un problema en agregar el elemento. Porfavor revisar formulario.')</script>")
+                MsgBox(ex.Message)
             End Try
         Else
             ModalPopupExtender_Incompleto.Show()
-            'Response.Write("<script language=javascript>alert('Faltan elementos que agregar')</script>")
+            'Response.Write("<script language=javascript>alert('Faltan elementos que agregar en el formulario')</script>")
             ' MsgBox("Falta datos")
         End If
     End Sub
@@ -136,13 +158,24 @@ Public Class Formulario_Insertar_Casos
     'DEVUELVE: Hace vacio todos los textboxes
     Sub GestionLimpiar()
         txtNumero_Caso.Text = String.Empty
+        ddlEstado_Caso.SelectedIndex = -1
         txtFecha_Caso.Text = String.Empty
         txtCedula_Usuario.Text = String.Empty
         txtNombre_Usuario.Text = String.Empty
         txtNombre_CE.Text = String.Empty
         txtNumero_Oficio.Text = String.Empty
         txtFecha_Oficio.Text = String.Empty
-        ddlVeredicto_Valoracion.Text = String.Empty
+        ddlCondicion_Caso.SelectedIndex = -1
+        ddlDescripcion_Unidad.SelectedIndex = -1
+        txtDespacho.Text = String.Empty
+        txtDireccion.Text = String.Empty
+        txtDepartamento.Text = String.Empty
+        ddlTipo_Dimension.SelectedIndex = -1
+        ddlLetra_Dimension.SelectedIndex = -1
+        txtTipo_Detalle_Letra_Dimension.Text = String.Empty
+        ddlVeredicto_Valoracion.SelectedIndex = -1
+        ddlVeredicto_Valoracion.SelectedIndex = -1
+        ddlTrazabilidad_Casos.SelectedIndex = -1
         txtAsunto.Text = String.Empty
         txtRespuesta.Text = String.Empty
         txtFecha_Respuesta_Casos.Text = String.Empty

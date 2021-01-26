@@ -11,106 +11,52 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class Formulario_Insertar_Casos
+Partial Public Class Buscador_Gestiones_SistemaRegistroGestiones
 
     '''<summary>
-    '''lblNumero_Caso control.
+    '''UpdatePanelBuscador control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblNumero_Caso As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents UpdatePanelBuscador As Global.System.Web.UI.UpdatePanel
 
     '''<summary>
-    '''lblEstado_Caso control.
+    '''lblTipo_Gestiones control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblEstado_Caso As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblTipo_Gestiones As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''lblFecha_Caso control.
+    '''lblNombre_Funcionario control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblFecha_Caso As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblNombre_Funcionario As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''txtNumero_Caso control.
+    '''lblFuente_Generadora control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtNumero_Caso As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents lblFuente_Generadora As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''ddlEstado_Caso control.
+    '''ddlTipo_Gestiones control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ddlEstado_Caso As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''txtFecha_Caso control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtFecha_Caso As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''lblCedula_Usuario control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblCedula_Usuario As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''lblNombre_Usuario control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblNombre_Usuario As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''lblFuncionario_Tramita control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblFuncionario_Tramita As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''txtCedula_Usuario control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtCedula_Usuario As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''txtNombre_Usuario control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtNombre_Usuario As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents ddlTipo_Gestiones As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
     '''txtNombre_Funcionario control.
@@ -122,58 +68,13 @@ Partial Public Class Formulario_Insertar_Casos
     Protected WithEvents txtNombre_Funcionario As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''lblNombre_CE control.
+    '''ddlFuente_Generadora control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblNombre_CE As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''lblNumero_Oficio control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblNumero_Oficio As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''lblFecha_Oficio control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblFecha_Oficio As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''txtNombre_CE control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtNombre_CE As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''txtNumero_Oficio control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtNumero_Oficio As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''txtFecha_Oficio control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtFecha_Oficio As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents ddlFuente_Generadora As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
     '''UpdatePanel control.
@@ -185,13 +86,58 @@ Partial Public Class Formulario_Insertar_Casos
     Protected WithEvents UpdatePanel As Global.System.Web.UI.UpdatePanel
 
     '''<summary>
-    '''lblCondicion_Caso control.
+    '''lblConfidencialidad control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblCondicion_Caso As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblConfidencialidad As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''lblDireccion_Regiones control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblDireccion_Regiones As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''ddlConfidencialidad control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddlConfidencialidad As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''ddlDireccion_Regional_Educacion control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddlDireccion_Regional_Educacion As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''UpdatePanel1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UpdatePanel1 As Global.System.Web.UI.UpdatePanel
+
+    '''<summary>
+    '''lblNombre_Usuario control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblNombre_Usuario As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''lblDescripcion_Unidad control.
@@ -203,13 +149,13 @@ Partial Public Class Formulario_Insertar_Casos
     Protected WithEvents lblDescripcion_Unidad As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''ddlCondicion_Caso control.
+    '''txtNombre_Usuario control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ddlCondicion_Caso As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents txtNombre_Usuario As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''ddlDescripcion_Unidad control.
@@ -230,274 +176,13 @@ Partial Public Class Formulario_Insertar_Casos
     Protected WithEvents sdsDescripcion_Unidad As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
-    '''lblDescripcion_Despacho control.
+    '''btnBuscar_Gestion control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblDescripcion_Despacho As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''lblDescripcion_Direccion control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblDescripcion_Direccion As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''lblDescripcion_Departamento control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblDescripcion_Departamento As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''txtDespacho control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtDespacho As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''txtDireccion control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtDireccion As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''txtDepartamento control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtDepartamento As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''UpdatePanel2 control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents UpdatePanel2 As Global.System.Web.UI.UpdatePanel
-
-    '''<summary>
-    '''lblDimension control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblDimension As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''lblLetra_Dimension control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblLetra_Dimension As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''lblDetalle_Dimension control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblDetalle_Dimension As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''ddlTipo_Dimension control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ddlTipo_Dimension As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''sdsTipo_Dimensiones control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents sdsTipo_Dimensiones As Global.System.Web.UI.WebControls.SqlDataSource
-
-    '''<summary>
-    '''ddlLetra_Dimension control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ddlLetra_Dimension As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''sdsLetra_Dimension control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents sdsLetra_Dimension As Global.System.Web.UI.WebControls.SqlDataSource
-
-    '''<summary>
-    '''txtTipo_Detalle_Letra_Dimension control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtTipo_Detalle_Letra_Dimension As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''lblValoracion_Admisibilidad control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblValoracion_Admisibilidad As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''lblVeredicto_Valoracion control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblVeredicto_Valoracion As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''lblTrazabilidad control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblTrazabilidad As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''ddlValoracion_Admisibilidad control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ddlValoracion_Admisibilidad As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''ddlVeredicto_Valoracion control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ddlVeredicto_Valoracion As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''ddlTrazabilidad_Casos control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ddlTrazabilidad_Casos As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''lblDetalle_Inconformidad control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblDetalle_Inconformidad As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''txtAsunto control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtAsunto As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''lblRespuesta_Caso control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblRespuesta_Caso As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''txtRespuesta control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtRespuesta As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''lblFecha_Respuesta control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblFecha_Respuesta As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''lblFecha_Cierre control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblFecha_Cierre As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''txtFecha_Respuesta_Casos control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtFecha_Respuesta_Casos As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''txtFecha_Cerrado_Casos control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtFecha_Cerrado_Casos As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''btnAgregar control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btnAgregar As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnBuscar_Gestion As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''btnVolver control.
@@ -509,92 +194,290 @@ Partial Public Class Formulario_Insertar_Casos
     Protected WithEvents btnVolver As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''lnkDummy control.
+    '''grdCharges control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lnkDummy As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents grdCharges As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
-    '''ModalPopupExtender_Exito control.
+    '''gvwGestiones control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ModalPopupExtender_Exito As Global.AjaxControlToolkit.ModalPopupExtender
+    Protected WithEvents gvwGestiones As Global.System.Web.UI.WebControls.GridView
 
     '''<summary>
-    '''pnlPopup_Exito control.
+    '''sdsGridView_Gestiones control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents pnlPopup_Exito As Global.System.Web.UI.WebControls.Panel
+    Protected WithEvents sdsGridView_Gestiones As Global.System.Web.UI.WebControls.SqlDataSource
 
     '''<summary>
-    '''btnCerrar_Exito control.
+    '''lblmsg control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btnCerrar_Exito As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents lblmsg As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''ModalPopupExtender_Incompleto control.
+    '''lnkFalso control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ModalPopupExtender_Incompleto As Global.AjaxControlToolkit.ModalPopupExtender
+    Protected WithEvents lnkFalso As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
-    '''pnlPopup_Incompleto control.
+    '''mpeDetalles control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents pnlPopup_Incompleto As Global.System.Web.UI.WebControls.Panel
+    Protected WithEvents mpeDetalles As Global.AjaxControlToolkit.ModalPopupExtender
 
     '''<summary>
-    '''btnCerrar_Incompleto control.
+    '''pnlPopup control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btnCerrar_Incompleto As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents pnlPopup As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
-    '''ModalPopupExtender_Error control.
+    '''lblPop_Id_Gestiones control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ModalPopupExtender_Error As Global.AjaxControlToolkit.ModalPopupExtender
+    Protected WithEvents lblPop_Id_Gestiones As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''pnlPopup_Error control.
+    '''txtPop_Id_Gestiones control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents pnlPopup_Error As Global.System.Web.UI.WebControls.Panel
+    Protected WithEvents txtPop_Id_Gestiones As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''btnCerrar_Error control.
+    '''txtPop_Tipo_Gestiones control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btnCerrar_Error As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents txtPop_Tipo_Gestiones As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtPop_Cedula_Usuario control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPop_Cedula_Usuario As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtPop_Nombre_Usuario control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPop_Nombre_Usuario As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtPop_Fecha_Ingreso control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPop_Fecha_Ingreso As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtPop_Confidencialida control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPop_Confidencialida As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtPop_Supervision control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPop_Supervision As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtPop_Fuente_Generadora control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPop_Fuente_Generadora As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtPop_Tipo_Servicio control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPop_Tipo_Servicio As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtPop_Empleado control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPop_Empleado As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtPop_Regional control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPop_Regional As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtPop_CE control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPop_CE As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtPop_Unidad control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPop_Unidad As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtPop_Despacho control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPop_Despacho As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtPop_Direccion control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPop_Direccion As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtPop_Departamento control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPop_Departamento As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtPop_Dimension control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPop_Dimension As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtPop_Letra_Dimension control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPop_Letra_Dimension As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtPop_Detalle_Dimension control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPop_Detalle_Dimension As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtPop_Num_Oficio control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPop_Num_Oficio As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtPop_Tipo_Usuario control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPop_Tipo_Usuario As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtPop_Detalle_Gestion control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPop_Detalle_Gestion As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtPop_Respuesta_Gestion control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPop_Respuesta_Gestion As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''btnCerrar_Modal control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnCerrar_Modal As Global.System.Web.UI.WebControls.Button
 End Class

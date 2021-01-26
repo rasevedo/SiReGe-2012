@@ -12,10 +12,13 @@ Public Class Datos_AvanceCasos
     'DEVUELVE: NO DEVUELVE
     Public Function insertarAvancesCasos(ByVal dts As Entidad_AvanceCasos) As Boolean
         Try
+            Conx.ConnectionString = CnnString
 
             cmd = New SqlCommand("palInsertarCasoAvances")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = Conx
+            cmd.Connection.Open()
+
             cmd.Parameters.AddWithValue("@intIdCasos", dts._idCasos)
             cmd.Parameters.AddWithValue("@vchDetalleAvance", dts._detalleAvance)
             cmd.Parameters.AddWithValue("@dtiFechaAvance", Convert.ToDateTime(dts._fechaAvance))
@@ -28,7 +31,7 @@ Public Class Datos_AvanceCasos
             MsgBox(ex.Message)
             Return False
         Finally
-
+            cmd.Connection.Close()
         End Try
     End Function
 #End Region
@@ -39,10 +42,12 @@ Public Class Datos_AvanceCasos
     'DEVUELVE: Devuelve los datos de la tabla tblCasoAvances
     Public Function mostrarAvanceCasos() As DataTable
         Try
+            Conx.ConnectionString = CnnString
 
             cmd = New SqlCommand("palMostrarCasoAvances")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = Conx
+            cmd.Connection.Open()
             If cmd.ExecuteNonQuery Then
                 Dim dt As New DataTable
                 Dim da As New SqlDataAdapter(cmd)
@@ -53,9 +58,10 @@ Public Class Datos_AvanceCasos
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
+            cmd.Connection.Close()
             Return Nothing
         Finally
-
+            cmd.Connection.Close()
         End Try
     End Function
 #End Region

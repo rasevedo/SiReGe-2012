@@ -125,6 +125,9 @@
     <Content Include="Contenido\Imagenes\logoMEP.gif" />
     <Content Include="Contenido\Imagenes\MEP.ico" />
     <Content Include="Contenido\Imagenes\Tranparencia.png" />
+    <Content Include="Formularios\Buscador_Casos-SistemaRegistroGestiones.aspx" />
+    <Content Include="Formularios\Buscador_Gestiones-SistemaRegistroGestiones.aspx" />
+    <Content Include="Formularios\Buscador_Informes-SistemaRegistroGestiones.aspx" />
     <Content Include="Formularios\Tabla_Casos-SistemaRegistroGestiones.aspx" />
     <Content Include="Formularios\Formulario_Insertar_Casos-SistemaRegistroGestiones.aspx" />
     <Content Include="Formularios\Formulario_Insertar_Gestiones-SistemaRegistroGestiones.aspx" />
@@ -145,6 +148,27 @@
   <ItemGroup>
     <Compile Include="Clases\Acceso_Datos.vb" />
     <Compile Include="Clases\Funciones.vb" />
+    <Compile Include="Formularios\Buscador_Casos-SistemaRegistroGestiones.aspx.designer.vb">
+      <DependentUpon>Buscador_Casos-SistemaRegistroGestiones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Buscador_Casos-SistemaRegistroGestiones.aspx.vb">
+      <DependentUpon>Buscador_Casos-SistemaRegistroGestiones.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\Buscador_Gestiones-SistemaRegistroGestiones.aspx.designer.vb">
+      <DependentUpon>Buscador_Gestiones-SistemaRegistroGestiones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Buscador_Gestiones-SistemaRegistroGestiones.aspx.vb">
+      <DependentUpon>Buscador_Gestiones-SistemaRegistroGestiones.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Formularios\Buscador_Informes-SistemaRegistroGestiones.aspx.designer.vb">
+      <DependentUpon>Buscador_Informes-SistemaRegistroGestiones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Buscador_Informes-SistemaRegistroGestiones.aspx.vb">
+      <DependentUpon>Buscador_Informes-SistemaRegistroGestiones.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Formularios\Tabla_Casos-SistemaRegistroGestiones.aspx.designer.vb">
       <DependentUpon>Tabla_Casos-SistemaRegistroGestiones.aspx</DependentUpon>
     </Compile>

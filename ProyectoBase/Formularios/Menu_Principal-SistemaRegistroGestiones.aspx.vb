@@ -30,7 +30,9 @@
 
 
     Protected Sub imbBtn_DAU_Click(sender As Object, e As ImageClickEventArgs) Handles imbBtn_DAU.Click
-        If Session("Perfil") = "DAT" Then
+        If Session("Perfil") = "AD" Then
+            Response.Redirect("Tabla_Casos-SistemaRegistroGestiones.aspx")
+        ElseIf Session("Perfil") = "DT" Then
             Response.Redirect("Tabla_Casos-SistemaRegistroGestiones.aspx")
         Else
             Response.Write("<script language=javascript>alert('El usuario no posee permisos para acceder la siguiente pantalla')</script>")
@@ -39,7 +41,9 @@
 
 
     Protected Sub imbBtn_DMC_Click(sender As Object, e As ImageClickEventArgs) Handles imbBtn_DMC.Click
-        If Session("Perfil") = "DMC" Then
+        If Session("Perfil") = "AD" Then
+            Response.Redirect("Tabla_Informe-SistemaRegistroInformes.aspx")
+        ElseIf Session("Perfil") = "DC" Then
             Response.Redirect("Tabla_Informe-SistemaRegistroInformes.aspx")
         Else
             Response.Write("<script language=javascript>alert('El usuario no posee permisos para acceder la siguiente pantalla')</script>")

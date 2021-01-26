@@ -6,6 +6,6 @@ Public Class Conexion
 
     Public Conx As New SqlConnection
 
-    Public Const CnnString As String = "Server=localhost;Database=bda_SIREGE;User Id=usr_sirege;Password=SIREGEadmin;"
+    Public Const CnnString As String = "Server=RODRIGO-LAPTOP;Database=bda_SIREGE;User Id=usr_sirege;Password=SIREGEadmin;"
 
 End Class

@@ -22,7 +22,9 @@ Public Class Tabla_Informes
     Dim dt As New DataTable
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        MostrarTabla()
+        If Not Page.IsPostBack Then
+            MostrarTabla()
+        End If
     End Sub
 
 #Region "Mostrar Tabla"
@@ -56,7 +58,7 @@ Public Class Tabla_Informes
         ExportarGridView()
     End Sub
 
-    Protected Sub ExportarWord_Click(sender As Object, e As EventArgs) Handles btnExportar_Word.Click
+    Protected Sub btnExportar_Word_Click(sender As Object, e As EventArgs) Handles btnExportar_Word.Click
         ExportarWord()
     End Sub
 
@@ -143,17 +145,18 @@ Public Class Tabla_Informes
     'RECIBE:Todas las filas del gridview marcadas con un check
     'DEVUELVE:El borrado de la fila y la tabla del gridview actualizada
     Protected Sub btnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click
-        If Session("Perfil") = "Administrador" Then
+        If Session("Perfil") = "AD" Then
             Try
                 Dim func As New Datos_Informe
                 Dim dts As New Entidad_Informe
                 For Each gvrow As GridViewRow In gvwInforme.Rows
-                    Dim chkborrar As CheckBox = DirectCast(gvrow.FindControl("chkSelect"), CheckBox)
+                    Dim chkborrar As CheckBox = DirectCast(gvrow.FindControl("chkSeleccionar"), CheckBox)
                     If chkborrar.Checked Then
                         Dim gesid As Integer = Convert.ToInt32(gvwInforme.DataKeys(gvrow.RowIndex).Value)
                         dts._idInforme = gesid
                         If func.borrarInforme(dts) Then
                             Response.Write("<script language=javascript>alert('El elemento ha sido eliminado de forma exitosa')</script>")
+                            gvwInforme.DataBind()
                             'MsgBox("El elemento ha sido eliminado de forma exitosa")
                         Else
                             Response.Write("<script language=javascript>alert('No se ha eliminado el elemento.')</script>")
@@ -164,7 +167,7 @@ Public Class Tabla_Informes
                 MostrarTabla()
             Catch ex As Exception
                 Response.Write("<script language=javascript>alert('Hubo un problema en eliminar el elemento')</script>")
-                'MsgBox("Hubo un problema en eliminar el elmento" + ex.Message)
+                MsgBox("Hubo un problema en eliminar el elmento" + ex.Message)
             End Try
         Else
             Response.Write("<script language=javascript>alert('El usuario no posee permiso para seleccionar el botón de borrar')</script>")
@@ -190,8 +193,19 @@ Public Class Tabla_Informes
         txtPop_Fecha_Culminacion.Text = gvwInforme.SelectedRow.Cells(9).Text
         txtPop_Fecha_Traslado.Text = gvwInforme.SelectedRow.Cells(10).Text
         txtPop_Avance_Informe.Text = Page.Server.HtmlDecode(gvwInforme.SelectedRow.Cells(11).Text)
+        txtPop_Remitido.Text = gvwInforme.SelectedRow.Cells(12).Text
+        txtPop_Hallazgo_Informe.Text = Page.Server.HtmlDecode(gvwInforme.SelectedRow.Cells(13).Text)
+        txtPop_Recomendaciones.Text = Page.Server.HtmlDecode(gvwInforme.SelectedRow.Cells(14).Text)
+        txtPop_Observaciones_Generales.Text = Page.Server.HtmlDecode(gvwInforme.SelectedRow.Cells(15).Text)
         mpeDetalles.Show()
     End Sub
 #End Region
+
+    Protected Sub btnBuscador_Click(sender As Object, e As EventArgs) Handles btnBuscador.Click
+        Response.Redirect("Buscador_Informes-SistemaRegistroGestiones.aspx")
+
+
+
+    End Sub
 
 End Class

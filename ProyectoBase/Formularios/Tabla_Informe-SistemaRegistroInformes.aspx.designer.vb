@@ -50,6 +50,15 @@ Partial Public Class Tabla_Informes
     Protected WithEvents btnVolver As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
+    '''btnBuscador control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnBuscador As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
     '''grdCharges control.
     '''</summary>
     '''<remarks>
@@ -192,6 +201,42 @@ Partial Public Class Tabla_Informes
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPop_Avance_Informe As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtPop_Remitido control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPop_Remitido As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtPop_Hallazgo_Informe control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPop_Hallazgo_Informe As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtPop_Recomendaciones control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPop_Recomendaciones As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtPop_Observaciones_Generales control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPop_Observaciones_Generales As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''btnExportar_Word control.

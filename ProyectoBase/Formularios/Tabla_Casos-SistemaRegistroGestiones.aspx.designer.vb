@@ -50,6 +50,15 @@ Partial Public Class Tabla_Casos
     Protected WithEvents btnVolver As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
+    '''btnBuscador control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnBuscador As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
     '''grdCharges control.
     '''</summary>
     '''<remarks>
@@ -239,13 +248,13 @@ Partial Public Class Tabla_Casos
     Protected WithEvents txtPop_Letra_Dimension As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''lblPop_Detalle_Dimension control.
+    '''txtPop_Detalle_Dimension control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblPop_Detalle_Dimension As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents txtPop_Detalle_Dimension As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''txtPop_Num_Oficio control.
@@ -275,22 +284,22 @@ Partial Public Class Tabla_Casos
     Protected WithEvents txtPop_Condicion_Caso As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''lblPop_Detalle_Inconformidad control.
+    '''txtPop_Detalle_Inconformidad control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblPop_Detalle_Inconformidad As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents txtPop_Detalle_Inconformidad As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''lblPop_Respuesta_Caso control.
+    '''txtPop_Respuesta_Caso control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblPop_Respuesta_Caso As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents txtPop_Respuesta_Caso As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''txtPop_Fecha_Respuesta control.

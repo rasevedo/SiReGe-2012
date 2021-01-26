@@ -6,21 +6,26 @@ Public Class Datos_Gestiones
     Inherits Conexion
     Dim cmd As New SqlCommand
 
+
 #Region "Insertar datos a la tabla tblGestiones"
     'EFECTO: Esta función inserta los datos para la tabla tblGestiones
     'RECIBE: Requiere el llamado de la Entidad de Gestiones
     'DEVUELVE: NO DEVUELVE
     Public Function insertarGestiones(ByVal dts As Entidad_Gestiones) As Boolean
         Try
+            Conx.ConnectionString = CnnString
+
             cmd = New SqlCommand("palInsertarGestiones")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = Conx
-            cmd.Parameters.AddWithValue("@intIdEmpleados", dts._idEmpleados)
+            cmd.Connection.Open()
+
+            cmd.Parameters.AddWithValue("@vchNombreFuncionario", dts._nombreFuncionario)
             cmd.Parameters.AddWithValue("@vchTipoGestiones", dts._tipoGestiones)
             cmd.Parameters.AddWithValue("@intCedulaUsuario", dts._cedulaUsuario)
             cmd.Parameters.AddWithValue("@vchNombreUsuario", dts._nombreUsuario)
             cmd.Parameters.AddWithValue("@vchTipoUsuario", dts._tipoUsuario)
-            cmd.Parameters.AddWithValue("@dtiFechaIngreso", Convert.ToDateTime(dts._fechaIngreso))
+            cmd.Parameters.AddWithValue("@dtiFechaIngreso", DateTime.Parse(dts._fechaIngreso))
             cmd.Parameters.AddWithValue("@vchConfidencialidadGestiones", dts._confidencialidadGestiones)
             cmd.Parameters.AddWithValue("@vchFuenteGeneradora", dts._fuenteGeneradora)
             cmd.Parameters.AddWithValue("@vchTipoServicio", dts._tipoServicio)
@@ -31,9 +36,12 @@ Public Class Datos_Gestiones
             cmd.Parameters.AddWithValue("@intIdDimension", dts._idDimension)
             cmd.Parameters.AddWithValue("@vchNumeroOficio", dts._numeroOficio)
             cmd.Parameters.AddWithValue("@vchDetalleGestiones", dts._detalleGestiones)
-            cmd.Parameters.AddWithValue("@vchCategoriaGestiones", dts._categoriaGestiones)
             cmd.Parameters.AddWithValue("@vchRespuestaGestiones", dts._respuestaGestiones)
+
+            cmd.Parameters.AddWithValue("@intIdGestiones", SqlDbType.Int).Direction = ParameterDirection.Output
+
             If cmd.ExecuteNonQuery Then
+                dts._idGestiones = cmd.Parameters("@intIdGestiones").Value.ToString()
                 Return True
             Else
                 Return False
@@ -42,7 +50,7 @@ Public Class Datos_Gestiones
             MsgBox(ex.Message)
             Return False
         Finally
-
+            cmd.Connection.Close()
         End Try
     End Function
 #End Region
@@ -53,9 +61,12 @@ Public Class Datos_Gestiones
     'DEVUELVE: Devuelve los datos de la tabla tblGestiones
     Public Function mostrarGestiones() As DataTable
         Try
+            Conx.ConnectionString = CnnString
+
             cmd = New SqlCommand("palMostrarGestiones")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = Conx
+            cmd.Connection.Open()
             If cmd.ExecuteNonQuery Then
                 Dim dt As New DataTable
                 Dim da As New SqlDataAdapter(cmd)
@@ -68,7 +79,7 @@ Public Class Datos_Gestiones
             MsgBox(ex.Message)
             Return Nothing
         Finally
-
+            cmd.Connection.Close()
         End Try
     End Function
 #End Region
@@ -79,20 +90,28 @@ Public Class Datos_Gestiones
     'DEVUELVE: NO DEVUELVE
     Public Function borrarGestiones(ByVal dts As Entidad_Gestiones) As Boolean
         Try
+            Conx.ConnectionString = CnnString
+
             cmd = New SqlCommand("palEliminarGestiones")
-            cmd.CommandType = CommandType.StoredProcedure
+
             cmd.Connection = Conx
+            cmd.CommandType = CommandType.StoredProcedure
+            cmd.Connection.Open()
+
             cmd.Parameters.AddWithValue("@intIdGestiones", dts._idGestiones)
+
             If cmd.ExecuteNonQuery Then
                 Return True
+                MsgBox("Exito")               
             Else
                 Return False
+                MsgBox("Fallo")
             End If
         Catch ex As Exception
-            MsgBox(ex.Message)
+            MsgBox("Entro aqui: " + ex.Message)
             Return False
         Finally
-
+            cmd.Connection.Close()
         End Try
     End Function
 #End Region
@@ -103,11 +122,17 @@ Public Class Datos_Gestiones
     'DEVUELVE: NO DEVUELVE
     Public Function modificarGestiones(ByVal dts As Entidad_Gestiones) As Boolean
         Try
+            Conx.ConnectionString = CnnString
+
+
             cmd = New SqlCommand("palModificarGestiones")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = Conx
+
+            cmd.Connection.Open()
+
             cmd.Parameters.AddWithValue("@intIdGestiones", dts._idGestiones)
-            cmd.Parameters.AddWithValue("@intIdEmpleados", dts._idEmpleados)
+            cmd.Parameters.AddWithValue("@vchNombreFuncionario", dts._nombreFuncionario)
             cmd.Parameters.AddWithValue("@vchTipoGestiones", dts._tipoGestiones)
             cmd.Parameters.AddWithValue("@intCedulaUsuario", dts._cedulaUsuario)
             cmd.Parameters.AddWithValue("@vchNombreUsuario", dts._nombreUsuario)
@@ -123,8 +148,8 @@ Public Class Datos_Gestiones
             cmd.Parameters.AddWithValue("@intIdDimension", dts._idDimension)
             cmd.Parameters.AddWithValue("@vchNumeroOficio", dts._numeroOficio)
             cmd.Parameters.AddWithValue("@vchDetalleGestiones", dts._detalleGestiones)
-            cmd.Parameters.AddWithValue("@vchCategoriaGestiones", dts._categoriaGestiones)
             cmd.Parameters.AddWithValue("@vchRespuestaGestiones", dts._respuestaGestiones)
+
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
@@ -134,7 +159,7 @@ Public Class Datos_Gestiones
             MsgBox(ex.Message)
             Return False
         Finally
-
+            cmd.Connection.Close()
         End Try
     End Function
 #End Region

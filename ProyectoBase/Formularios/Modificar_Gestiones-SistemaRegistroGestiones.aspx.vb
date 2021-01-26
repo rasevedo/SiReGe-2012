@@ -14,6 +14,7 @@ Public Class Modificar_Gestiones
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not Me.IsPostBack Then
+            txtNombre_Funcionario.Text = Session("NombreUsuario")
             Me.TomarGestion()
 
         End If
@@ -104,12 +105,16 @@ Public Class Modificar_Gestiones
             Dim dts As New Entidad_Gestiones
             Dim func As New Datos_Gestiones
             dts._idGestiones = txtId_Gestiones.Text
-            dts._idEmpleados = intIdEmpleados.Text
+            dts._nombreFuncionario = txtNombre_Funcionario.Text
             dts._tipoGestiones = rblTipo_Gestion.Text
-            dts._cedulaUsuario = txtCedula_Usuario.Text
+
+            If Not String.IsNullOrEmpty(txtCedula_Usuario.Text) Then
+                dts._cedulaUsuario = Integer.Parse(txtCedula_Usuario.Text)
+            End If
+
             dts._nombreUsuario = txtNombre_Usuario.Text
             dts._tipoUsuario = ddlTipo_Usuario.Text
-            dts._fechaIngreso = txtFecha_Ingreso.Text
+            dts._fechaIngreso = Convert.ToDateTime(txtFecha_Ingreso.Text)
             dts._confidencialidadGestiones = ddlConfidencialidad.Text
             dts._fuenteGeneradora = ddlFuente_Generadora.Text
             dts._tipoServicio = ddlTipo_Servicio.Text
@@ -119,23 +124,22 @@ Public Class Modificar_Gestiones
             dts._idUnidad = ddlDescripcion_Unidad.Text
             dts._numeroOficio = txtNumero_Oficio.Text
             dts._idDimension = ddlLetra_Dimension.Text
-            dts._categoriaGestiones = ddlCategoria.Text
             dts._detalleGestiones = txtAsunto.Text
             dts._respuestaGestiones = txtRespuesta.Text
             If func.modificarGestiones(dts) Then
                 ModalPopupExtender_Exito.Show()
-                'Response.Write("<script language=javascript>alert('El elemento se ha agregado')</script>")
+                ' Response.Write("<script language=javascript>alert('El elemento se ha modificado exitosamente')</script>")
                 '  MsgBox("Exito")
                 Response.Redirect(Request.Url.AbsoluteUri, False)
-                Response.Redirect("~/Tabla_Gestiones-SistemaRegistroGestiones.aspx")
+                Response.Redirect("~/Formularios/Tabla_Gestiones-SistemaRegistroGestiones.aspx")
             Else
                 ModalPopupExtender_Incompleto.Show()
-                'Response.Write("<script language=javascript>alert('Faltan espacio para rellenar')</script>")
+                'Response.Write("<script language=javascript>alert('Se ha modificado un elemento erroneamente')</script>")
                 ' MsgBox("Fracaso")
             End If
         Catch ex As Exception
             ModalPopupExtender_Error.Show()
-            'Response.Write("<script language=javascript>alert('Hubo un problema en agregar el elemento. Porfavor rellenar de nuevo los espacios de fechas y dimensiones')</script>")
+            'Response.Write("<script language=javascript>alert('Hubo un problema en modificar el elemento. Porfavor revisar formulario. Porfavor rellenar de nuevo los espacios de fechas y dimensiones')</script>")
             'MsgBox(ex.Message)
         End Try
     End Sub
@@ -158,22 +162,32 @@ Public Class Modificar_Gestiones
         da.Fill(dt)
         For Each dr As DataRow In dt.Rows
             Me.txtId_Gestiones.Text = dr("intIdGestiones").ToString()
-            'Me.intIdEmpleados.Text = dr("intIdEmpleados").ToString()
+            Me.txtNombre_Funcionario.Text = dr("vchNombreFuncionario").ToString()           
             Me.rblTipo_Gestion.Text = dr("vchTipoGestiones").ToString()
             Me.txtCedula_Usuario.Text = dr("intCedulaUsuario").ToString()
             Me.txtNombre_Usuario.Text = dr("vchNombreUsuario").ToString()
             Me.ddlTipo_Usuario.Text = dr("vchTipoUsuario").ToString()
-            Me.txtFecha_Ingreso.Text = dr("dtiFechaIngreso").ToString()
+            Me.txtFecha_Ingreso.Text = Convert.ToDateTime(dr("dtiFechaIngreso").ToString())
             Me.ddlConfidencialidad.Text = dr("vchConfidencialidadGestiones").ToString()
             Me.ddlFuente_Generadora.Text = dr("vchFuenteGeneradora").ToString()
             Me.ddlTipo_Servicio.Text = dr("vchTipoServicio").ToString()
             Me.ddl_Direccion_Regional_Educacion.Text = dr("vchDireccionRegional").ToString()
             Me.ddlSupervision.Text = dr("vchSupervicionGestiones").ToString()
             Me.txtNombre_CE.Text = dr("vchNombreCentroEducativo").ToString()
-            ' Me.ddlDescripcion_Unidad.Text = dr("intIdUnidad").ToString()
+
+            Me.ddlDescripcion_Unidad.Items.FindByValue(dr("vchDescripcionUnidad").ToString())
+            'If Me.ddlDescripcion_Unidad.Items.FindByValue(dr("vchDescripcionUnidad").ToString()) IsNot Nothing Then
+            'Me.ddlDescripcion_Unidad.SelectedIndex = dr("vchDescripcionUnidad").ToString()
+            '  End If
+
+            ' Me.ddlDescripcion_Unidad.SelectedValue = dr("vchDescripcionUnidad")
+            Me.txtDespacho.Text = dr("vchDescripcionDespacho").ToString()
+            Me.txtDireccion.Text = dr("vchDescripcionDireccion").ToString()
+            Me.txtDepartamento.Text = dr("vchdescripcionDepartamento").ToString()
             Me.txtNumero_Oficio.Text = dr("vchNumeroOficio").ToString()
-            ' Me.ddlLetra_Dimension.Text = dr("intIdDimension").ToString()
-            Me.ddlCategoria.Text = dr("vchCategoriaGestiones").ToString()
+            ' Me.ddlTipo_Dimension.DataTextFormatString = dr("vchTipoDimension").ToString()
+            ' Me.ddlLetra_Dimension.DataTextFormatString = dr("vchLetraDimension").ToString()
+            Me.txtTipo_Detalle_Letra_Dimension.Text = dr("vchDescripcionTipoDimension").ToString()
             Me.txtAsunto.Text = dr("vchDetalleGestiones").ToString()
             Me.txtRespuesta.Text = dr("vchRespuestaGestiones").ToString()
         Next

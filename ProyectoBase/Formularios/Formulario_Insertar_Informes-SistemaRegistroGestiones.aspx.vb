@@ -13,6 +13,7 @@ Public Class Formulario_Insertar_Informes
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
+            txtNombre_Funcionario.Text = Session("NombreUsuario")
             For i As Integer = 0 To ddlAvance_Informe.Items.Count - 1
                 ddlAvance_Informe.Items(i).Attributes.Add("onclick", "OnlyOneCheckList(this)")
             Next
@@ -26,36 +27,66 @@ Public Class Formulario_Insertar_Informes
     Protected Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
         Dim dts As New Entidad_Informe
         Dim func As New Datos_Informe
-        If txtTitulo_Informe.Text <> "" And txtFecha_Aprobacion.Text <> "" Then
+
+
+
+
+        If txtTitulo_Informe.Text <> "" And txtNombre_Funcionario.Text <> "" And ddlTipo_Informe.Text <> "" Then
             Try
+
+                Dim dt As DateTime? = Nothing
+
                 dts._tituloInforme = txtTitulo_Informe.Text
-                dts._idEmpleados = intIdEmpleados.Text
-                dts._tituloInforme = txtTitulo_Informe.Text
+                dts._nombreFuncionario = txtNombre_Funcionario.Text
                 dts._numeroOficio = txtNumero_Oficio.Text
-                dts._tipoInforme = txtTitulo_Informe.Text
-                dts._fechaAprobacion = txtFecha_Aprobacion.Text
-                dts._fechaCulminacion = txtFecha_Culminacion.Text
-                dts._fechaTraslado = txtFecha_Traslado.Text
+                dts._tipoInforme = ddlTipo_Informe.Text
+
+                If txtFecha_Aprobacion.Text = "" Then
+                    dts._fechaAprobacion = ("01/01/2000 00:00:00")
+                Else
+                    dts._fechaAprobacion = txtFecha_Aprobacion.Text
+                End If
+                'dts._fechaAprobacion = txtFecha_Aprobacion.Text
+
+                If txtFecha_Culminacion.Text = "" Then
+                    dts._fechaCulminacion = ("01/01/2000 00:00:00")
+                Else
+                    dts._fechaCulminacion = txtFecha_Culminacion.Text
+                End If
+                'dts._fechaCulminacion = txtFecha_Culminacion.Text
+
+                If txtFecha_Traslado.Text = "" Then
+                    dts._fechaTraslado = ("01/01/2000 00:00:00")
+                Else
+                    dts._fechaTraslado = txtFecha_Traslado.Text
+                End If
+                'dts._fechaTraslado = txtFecha_Traslado.Text
+
                 dts._avanceInforme = ddlAvance_Informe.Text
+                dts._remitido = txtRemitido.Text
+                dts._hallazgo = txtHallazgo.Text
+                dts._recomendaciones = txtRecomendaciones.Text
+                dts._observaciones = txtObservaciones.Text
+
                 If func.insertarInforme(dts) Then
                     ModalPopupExtender_Exito.Show()
                     ' Insert_checklist()
-                    'Response.Write("<script language=javascript>alert('El elemento se ha agregado')</script>")
+                    'Response.Write("<script language=javascript>alert('El elemento se ha agregado exitosamente')</script>")
                     GestionLimpiar()
                     ddlAvance_Informe.ClearSelection()
                 Else
                     ModalPopupExtender_Incompleto.Show()
-                    ' Response.Write("<script language=javascript>alert('Faltan espacio para rellenar')</script>")
+                    'Response.Write("<script language=javascript>alert('Faltan elementos que agregar en el formulario')</script>")
                     'MsgBox("Fracaso")
                 End If
             Catch ex As Exception
                 ModalPopupExtender_Error.Show()
-                'Response.Write("<script language=javascript>alert('Hubo un problema en agregar el elemento')</script>")
-                'MsgBox(ex.Message)
+                ' Response.Write("<script language=javascript>alert('Hubo un problema en agregar el elemento. Porfavor revisar formulario.')</script>")
+                MsgBox(ex.Message)
             End Try
         Else
             ModalPopupExtender_Incompleto.Show()
-            'Response.Write("<script language=javascript>alert('Faltan elementos que agregar')</script>")
+            'Response.Write("<script language=javascript>alert('Faltan elementos que agregar en el formulario')</script>")
             'MsgBox("Falta datos")
         End If
     End Sub
@@ -71,10 +102,16 @@ Public Class Formulario_Insertar_Informes
     'DEVUELVE: Hace vacio todos los textboxes
     Sub GestionLimpiar()
         txtTitulo_Informe.Text = String.Empty
+        ddlTipo_Informe.SelectedIndex = -1
         txtNumero_Oficio.Text = String.Empty
         txtFecha_Aprobacion.Text = String.Empty
         txtFecha_Culminacion.Text = String.Empty
         txtFecha_Traslado.Text = String.Empty
+        txtRemitido.Text = String.Empty
+        txtHallazgo.Text = String.Empty
+        txtRecomendaciones.Text = String.Empty
+        txtObservaciones.Text = String.Empty
+        ddlAvance_Informe.SelectedIndex = -1
     End Sub
 #End Region
 

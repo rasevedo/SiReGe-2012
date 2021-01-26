@@ -6,7 +6,7 @@
     Private fechaCasos As DateTime
     Private cedulaDenuncianteCasos As Integer
     Private nombreDenuncianteCasos As String
-    Private idEmpleados As Integer
+    Private nombreFuncionario As String
     Private nombreCentroEducativo As String
     Private idUnidad As Integer
     Private numeroOficio As String
@@ -77,12 +77,12 @@
         End Set
     End Property
 
-    Public Property _idEmpleados
+    Public Property _nombreFuncionario
         Get
-            Return idEmpleados
+            Return nombreFuncionario
         End Get
         Set(value)
-            idEmpleados = value
+            nombreFuncionario = value
         End Set
     End Property
 
@@ -122,11 +122,11 @@
         End Set
     End Property
 
-    Public Property _idDimension
+    Public Property _idDimension As Integer
         Get
             Return idDimension
         End Get
-        Set(value)
+        Set(value As Integer)
             idDimension = value
         End Set
     End Property

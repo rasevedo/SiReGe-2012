@@ -1,12 +1,12 @@
 ﻿Public Class Entidad_Gestiones
 
     Private idGestiones As Integer
-    Private idEmpleados As Integer
     Private tipoGestiones As String
     Private cedulaUsuario As Integer
     Private nombreUsuario As String
     Private tipoUsuario As String
     Private fechaIngreso As DateTime
+    Private nombreFuncionario As String
     Private confidencialidadGestiones As String
     Private fuenteGeneradora As String
     Private tipoServicio As String
@@ -17,7 +17,6 @@
     Private idDimension As Integer
     Private numeroOficio As String
     Private detalleGestiones As String
-    Private categoriaGestiones As String
     Private respuestaGestiones As String
 
 
@@ -30,14 +29,7 @@
         End Set
     End Property
 
-    Public Property _idEmpleados
-        Get
-            Return idEmpleados
-        End Get
-        Set(value)
-            idEmpleados = value
-        End Set
-    End Property
+   
 
     Public Property _tipoGestiones
         Get
@@ -83,6 +75,16 @@
             fechaIngreso = value
         End Set
     End Property
+
+    Public Property _nombreFuncionario
+        Get
+            Return nombreFuncionario
+        End Get
+        Set(value)
+            nombreFuncionario = value
+        End Set
+    End Property
+
 
     Public Property _confidencialidadGestiones
         Get
@@ -171,15 +173,6 @@
         End Get
         Set(value)
             detalleGestiones = value
-        End Set
-    End Property
-
-    Public Property _categoriaGestiones
-        Get
-            Return categoriaGestiones
-        End Get
-        Set(value)
-            categoriaGestiones = value
         End Set
     End Property
 

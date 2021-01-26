@@ -86,15 +86,6 @@ Partial Public Class Formulario_Insertar_Gestiones
     Protected WithEvents txtFecha_Ingreso As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''rgvCedula control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents rgvCedula As Global.System.Web.UI.WebControls.RangeValidator
-
-    '''<summary>
     '''lblFuncionario_Tramita control.
     '''</summary>
     '''<remarks>
@@ -122,22 +113,13 @@ Partial Public Class Formulario_Insertar_Gestiones
     Protected WithEvents lblFuente_Generadora As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''intIdEmpleados control.
+    '''txtNombre_Funcionario control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents intIdEmpleados As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''sdsEmpleados control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents sdsEmpleados As Global.System.Web.UI.WebControls.SqlDataSource
+    Protected WithEvents txtNombre_Funcionario As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''ddlConfidencialidad control.
@@ -210,6 +192,15 @@ Partial Public Class Formulario_Insertar_Gestiones
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlSupervision As Global.System.Web.UI.WebControls.DropDownList
+
+    '''<summary>
+    '''UpdatePanel control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UpdatePanel As Global.System.Web.UI.UpdatePanel
 
     '''<summary>
     '''lblCentro_Educativo control.
@@ -329,6 +320,15 @@ Partial Public Class Formulario_Insertar_Gestiones
     Protected WithEvents txtDepartamento As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''UpdatePanel2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UpdatePanel2 As Global.System.Web.UI.UpdatePanel
+
+    '''<summary>
     '''lblDimension control.
     '''</summary>
     '''<remarks>
@@ -410,15 +410,6 @@ Partial Public Class Formulario_Insertar_Gestiones
     Protected WithEvents lblTipo_Usuario As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''lblCategoria control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblCategoria As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
     '''ddlTipo_Usuario control.
     '''</summary>
     '''<remarks>
@@ -426,15 +417,6 @@ Partial Public Class Formulario_Insertar_Gestiones
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents ddlTipo_Usuario As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''ddlCategoria control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ddlCategoria As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
     '''lblDetalle control.
@@ -518,6 +500,24 @@ Partial Public Class Formulario_Insertar_Gestiones
     Protected WithEvents pnlPopup_Exito As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
+    '''lblPop_Id_Gestiones control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblPop_Id_Gestiones As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtPop_Id_Gestiones control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtPop_Id_Gestiones As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
     '''btnCerrar_Exito control.
     '''</summary>
     '''<remarks>
@@ -545,6 +545,15 @@ Partial Public Class Formulario_Insertar_Gestiones
     Protected WithEvents pnlPopup_Incompleto As Global.System.Web.UI.WebControls.Panel
 
     '''<summary>
+    '''Label1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''btnCerrar_Incompleto control.
     '''</summary>
     '''<remarks>
@@ -563,13 +572,22 @@ Partial Public Class Formulario_Insertar_Gestiones
     Protected WithEvents ModalPopupExtender_Error As Global.AjaxControlToolkit.ModalPopupExtender
 
     '''<summary>
-    '''Panel1 control.
+    '''pnlPopup_Error control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Panel1 As Global.System.Web.UI.WebControls.Panel
+    Protected WithEvents pnlPopup_Error As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''Label2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Label2 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''btnCerrar_Error control.

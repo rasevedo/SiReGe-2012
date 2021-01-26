@@ -14,6 +14,7 @@ Public Class Modificar_Informe
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not Me.IsPostBack Then
+            txtNombre_Funcionario.Text = Session("NombreUsuario")
             Me.TomarInforme()
         End If
     End Sub
@@ -42,28 +43,48 @@ Public Class Modificar_Informe
             Dim func As New Datos_Informe
             dts._idInforme = txtId_Informe.Text
             dts._tituloInforme = txtTitulo_Informe.Text
-            dts._idEmpleados = intIdEmpleados.Text
+            dts._nombreFuncionario = txtNombre_Funcionario.Text
             dts._tituloInforme = txtTitulo_Informe.Text
             dts._numeroOficio = txtNumero_Oficio.Text
             dts._tipoInforme = ddlTipo_Informe.Text
-            dts._fechaAprobacion = txtFecha_Aprobacion.Text
-            dts._fechaCulminacion = txtFecha_Culminacion.Text
-            dts._fechaTraslado = txtFecha_Traslado.Text
+
+            If txtFecha_Aprobacion.Text = "" Then
+                dts._fechaAprobacion = ("01/01/2000 00:00:00")
+            Else
+                dts._fechaAprobacion = txtFecha_Aprobacion.Text
+            End If
+
+            If txtFecha_Culminacion.Text = "" Then
+                dts._fechaCulminacion = ("01/01/2000 00:00:00")
+            Else
+                dts._fechaCulminacion = txtFecha_Culminacion.Text
+            End If
+
+            If txtFecha_Traslado.Text = "" Then
+                dts._fechaTraslado = ("01/01/2000 00:00:00")
+            Else
+                dts._fechaTraslado = txtFecha_Traslado.Text
+            End If
+
             dts._avanceInforme = ddlAvance_Informe.Text
+            dts._remitido = txtRemitido.Text
+            dts._hallazgo = txtHallazgo.Text
+            dts._recomendaciones = txtRecomendaciones.Text
+            dts._observaciones = txtObservaciones.Text
             If func.modificarInforme(dts) Then
                 ModalPopupExtender_Exito.Show()
-                'Response.Write("<script language=javascript>alert('El elemento se ha agregado')</script>")
+                'Response.Write("<script language=javascript>alert('El elemento se ha modificado exitosamente')</script>")
                 ' MsgBox("Exito")
                 Response.Redirect(Request.Url.AbsoluteUri, False)
-                Response.Redirect("~/Tabla_Informe-SistemaRegistroInformes.aspx")
+                Response.Redirect("~/Formularios/Tabla_Informe-SistemaRegistroInformes.aspx")
             Else
                 ModalPopupExtender_Incompleto.Show()
-                'Response.Write("<script language=javascript>alert('Faltan espacio para rellenar')</script>")
+                ' Response.Write("<script language=javascript>alert('Se ha modificado un elemento erroneamente')</script>")
                 ' MsgBox("Fracaso")
             End If
         Catch ex As Exception
             ModalPopupExtender_Error.Show()
-            'Response.Write("<script language=javascript>alert('Hubo un problema en agregar el elemento. Porfavor rellenar de nuevo los espacios de fechas y dimensiones')</script>")
+            'Response.Write("<script language=javascript>alert('Hubo un problema en modificar el elemento. Porfavor revisar formulario. Porfavor rellenar de nuevo los espacios de fechas y dimensiones')</script>")
             'MsgBox(ex.Message)
         End Try
     End Sub
@@ -114,6 +135,7 @@ Public Class Modificar_Informe
         For Each dr As DataRow In dt.Rows
             Me.txtId_Informe.Text = dr("intIdInforme").ToString()
             Me.txtTitulo_Informe.Text = dr("vchTituloInforme").ToString()
+            Me.txtNombre_Funcionario.Text = dr("vchNombreFuncionario").ToString()
             '' Me.intIdEmpleados.Text = dr("intIdEmpleados").ToString()
             Me.txtTitulo_Informe.Text = dr("vchTipoInforme").ToString()
             Me.txtNumero_Oficio.Text = dr("vchNumeroOficio").ToString()
@@ -122,6 +144,10 @@ Public Class Modificar_Informe
             Me.txtFecha_Culminacion.Text = dr("dtiFechaCulminacion").ToString()
             Me.txtFecha_Traslado.Text = dr("dtiFechaTraslado").ToString()
             Me.ddlAvance_Informe.Text = dr("vchAvanceInforme").ToString()
+            Me.txtRemitido.Text = dr("vchRemitido").ToString()
+            Me.txtHallazgo.Text = dr("vchHallazgo").ToString()
+            Me.txtRecomendaciones.Text = dr("vchRecomendaciones").ToString()
+            Me.txtObservaciones.Text = dr("vchObservaciones").ToString()
         Next
     End Sub
 #End Region

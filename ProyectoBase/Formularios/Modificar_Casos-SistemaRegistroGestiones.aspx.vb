@@ -14,6 +14,7 @@ Public Class Modificar_Casos
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not Me.IsPostBack Then
+            txtNombre_Funcionario.Text = Session("NombreUsuario")
             Me.TomarCaso()
             AvancePanel.Visible = False
             Me.MostrarAvanceGridview()
@@ -109,13 +110,21 @@ Public Class Modificar_Casos
             dts._numeroCasos = txtNumero_Caso.Text
             dts._estadoCasos = ddlEstado_Caso.Text
             dts._fechaCasos = txtFecha_Caso.Text
-            dts._cedulaDenuncianteCasos = txtCedula_Usuario.Text
+            If Not String.IsNullOrEmpty(txtCedula_Usuario.Text) Then
+                dts._cedulaDenuncianteCasos = Integer.Parse(txtCedula_Usuario.Text)
+            End If
             dts._nombreDenuncianteCasos = txtNombre_Usuario.Text
-            dts._idEmpleados = intIdEmpleados.Text
+            dts._nombreFuncionario = txtNombre_Funcionario.Text
             dts._nombreCentroEducativo = txtNombre_CE.Text
             dts._idUnidad = ddlDescripcion_Unidad.Text
             dts._numeroOficio = txtNumero_Oficio.Text
-            dts._fechaOficio = txtFecha_Oficio.Text
+
+            If txtFecha_Oficio.Text = "" Then
+                dts._fechaOficio = ("01/01/2000 00:00:00")
+            Else
+                dts._fechaOficio = txtFecha_Oficio.Text
+            End If
+
             dts._idDimension = ddlLetra_Dimension.Text
             dts._condicionCasos = ddlCondicion_Caso.Text
             dts._detalleInconformidadCasos = txtAsunto.Text
@@ -123,22 +132,33 @@ Public Class Modificar_Casos
             dts._valoracionAdmisibilidad = ddlValoracion_Admisibilidad.Text
             dts._veredictoValoracionIngreso = ddlVeredicto_Valoracion.Text
             dts._trazabilidadCasos = ddlTrazabilidad_Casos.Text
-            dts._fechaRespuestaCasos = txtFecha_Respuesta_Casos.Text
-            dts._fechaCerradoCasos = txtFecha_Cerrado_Casos.Text
+
+            If txtFecha_Respuesta_Casos.Text = "" Then
+                dts._fechaRespuestaCasos = ("01/01/2000 00:00:00")
+            Else
+                dts._fechaRespuestaCasos = txtFecha_Respuesta_Casos.Text
+            End If
+
+            If txtFecha_Cerrado_Casos.Text = "" Then
+                dts._fechaCerradoCasos = ("01/01/2000 00:00:00")
+            Else
+                dts._fechaCerradoCasos = txtFecha_Cerrado_Casos.Text
+            End If
+
             If func.modificarCasos(dts) Then
                 ModalPopupExtender_Exito.Show()
-                'Response.Write("<script language=javascript>alert('El elemento se ha agregado')</script>")
+                'Response.Write("<script language=javascript>alert('El elemento se ha modificado exitosamente')</script>")
                 'MsgBox("Exito")
-                Response.Redirect(Request.Url.AbsoluteUri, False)
-                Response.Redirect("~/Tabla_Casos-SistemaRegistroGestiones.aspx")
+                'Response.Redirect(Request.Url.AbsoluteUri, False)
+
             Else
                 ModalPopupExtender_Incompleto.Show()
-                'Response.Write("<script language=javascript>alert('Faltan espacio para rellenar')</script>")
+                'Response.Write("<script language=javascript>alert('Se ha modificado un elemento erroneamente')</script>")
                 ' MsgBox("Fracaso")
             End If
         Catch ex As Exception
             ModalPopupExtender_Error.Show()
-            ' Response.Write("<script language=javascript>alert('Hubo un problema en agregar el elemento. Porfavor rellenar de nuevo los espacios de fechas y dimensiones')</script>")
+            'Response.Write("<script language=javascript>alert('Hubo un problema en modificar el elemento. Porfavor revisar formulario. Porfavor rellenar de nuevo los espacios de fechas y dimensiones')</script>")
             'MsgBox(ex.Message)
         End Try
     End Sub
@@ -167,12 +187,18 @@ Public Class Modificar_Casos
             Me.txtFecha_Caso.Text = dr("dtiFechaCasos").ToString()
             Me.txtCedula_Usuario.Text = dr("intCedulaDenuncianteCasos").ToString()
             Me.txtNombre_Usuario.Text = dr("vchNombreDenucianteCasos").ToString()
+            Me.txtNombre_Funcionario.Text = dr("vchNombreFuncionario").ToString()
             ' Me.intIdEmpleados.Text = dr("intIdEmpleados").ToString()
             Me.txtNombre_CE.Text = dr("vchNombreCentroEducativo").ToString()
             ' Me.ddlDescripcion_Unidad.Text = dr("intIdUnidad").ToString()
+            Me.txtDespacho.Text = dr("vchDescripcionDespacho").ToString()
+            Me.txtDireccion.Text = dr("vchDescripcionDireccion").ToString()
+            Me.txtDepartamento.Text = dr("vchdescripcionDepartamento").ToString()
             Me.txtNumero_Oficio.Text = dr("vchNumeroOficio").ToString()
             Me.txtFecha_Oficio.Text = dr("dtiFechaOficio").ToString()
-            ' Me.ddlLetra_Dimension.Text = dr("intIdDimension").ToString()
+            ' Me.ddlTipo_Dimension.DataTextFormatString = dr("vchTipoDimension").ToString()
+            ' Me.ddlLetra_Dimension.DataTextFormatString = dr("vchLetraDimension").ToString()
+            Me.txtTipo_Detalle_Letra_Dimension.Text = dr("vchDescripcionTipoDimension").ToString()
             Me.ddlCondicion_Caso.Text = dr("vchCondicionCasos").ToString()
             Me.txtAsunto.Text = dr("vchDetalleInconformidadCasos").ToString()
             Me.txtRespuesta.Text = dr("vchRespuestaCasos").ToString()
@@ -187,7 +213,6 @@ Public Class Modificar_Casos
 
     Protected Sub btnAgregarAvance_Click(sender As Object, e As EventArgs) Handles btnAgregarAvance.Click
         AvancePanel.Visible = True
-
     End Sub
 
 #Region "btnInsertarAvance Insertar el Avance/Seguimiento del Caso respectivo"
@@ -197,21 +222,36 @@ Public Class Modificar_Casos
     Protected Sub btnInsertar_Avance_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnInsertar_Avance.Click
         Dim dts As New Entidad_AvanceCasos
         Dim func As New Datos_AvanceCasos
-        Try
-            dts._idCasos = txtId_Casos.Text
-            dts._detalleAvance = txtDetalle_Avance.Text
-            dts._fechaAvance = txtFecha_Avance.Text
-            If func.insertarAvancesCasos(dts) Then
-                ModalPopupExtender_AvanceExito.Show()
-                ' MsgBox("Exito")
-            Else
+        If txtDetalle_Avance.Text <> "" And txtFecha_Avance.Text <> "" Then
+            Try
+                dts._idCasos = txtId_Casos.Text
+                dts._detalleAvance = txtDetalle_Avance.Text
+
+                If txtFecha_Avance.Text = "" Then
+                    dts._fechaAvance = ("01/01/2000 00:00:00")
+                Else
+                    dts._fechaAvance = txtFecha_Avance.Text
+                End If
+
+                If func.insertarAvancesCasos(dts) Then
+                    ModalPopupExtender_AvanceExito.Show()                   
+                    Me.MostrarAvanceGridview()
+                    Me.FiltrarPorCaso()               
+                    ' Response.Write("<script language=javascript>alert('El avance del caso ha sido registrado exitosamente')</script>")               
+                    ' MsgBox("Exito")
+                Else
+                    ModalPopupExtender_AvanceError.Show()
+                    ' Response.Write("<script language=javascript>alert('Hubo un problema en agregar el avance. Porfavor revisar que esta ingresando la información correcta.')</script>")
+                    'MsgBox("Fracaso")
+                End If
+            Catch ex As Exception
                 ModalPopupExtender_AvanceError.Show()
-                'MsgBox("Fracaso")
-            End If
-        Catch ex As Exception
+                'Response.Write("<script language=javascript>alert('Hubo un problema en agregar el avance. Porfavor revisar que esta ingresando la información correcta.')</script>")
+                'MsgBox(ex.Message)
+            End Try
+        Else
             ModalPopupExtender_AvanceError.Show()
-            ' MsgBox(ex.Message)
-        End Try
+        End If       
     End Sub
 #End Region
 
@@ -255,6 +295,8 @@ Public Class Modificar_Casos
         gvwAvance.DataBind()
     End Sub
 #End Region
+
+    
 
 
 End Class

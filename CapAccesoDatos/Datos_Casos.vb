@@ -13,19 +13,31 @@ Public Class Datos_Casos
     Public Function insertarCasos(ByVal dts As Entidad_Casos) As Boolean
         Try
 
+            Conx.ConnectionString = CnnString
+
             cmd = New SqlCommand("palInsertarCasos")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = Conx
+            cmd.Connection.Open()
+
             cmd.Parameters.AddWithValue("@vchNumeroCasos", dts._numeroCasos)
             cmd.Parameters.AddWithValue("@vchEstadoCasos", dts._estadoCasos)
-            cmd.Parameters.AddWithValue("@dtiFechaCasos", Convert.ToDateTime(dts._fechaCasos))
+            cmd.Parameters.AddWithValue("@dtiFechaCasos", DateTime.Parse(dts._fechaCasos))
             cmd.Parameters.AddWithValue("@intCedulaDenuncianteCasos", dts._cedulaDenuncianteCasos)
             cmd.Parameters.AddWithValue("@vchNombreDenucianteCasos", dts._nombreDenuncianteCasos)
-            cmd.Parameters.AddWithValue("@intIdEmpleados", dts._idEmpleados)
+            cmd.Parameters.AddWithValue("@vchNombreFuncionario", dts._nombreFuncionario)
             cmd.Parameters.AddWithValue("@vchNombreCentroEducativo", dts._nombreCentroEducativo)
             cmd.Parameters.AddWithValue("@intIdUnidad", dts._idUnidad)
             cmd.Parameters.AddWithValue("@vchNumeroOficio", dts._numeroOficio)
-            cmd.Parameters.AddWithValue("@dtiFechaOficio", Convert.ToDateTime(dts._fechaOficio))
+
+            'If dts._fechaOficio Is Nothing Then
+            ' cmd.Parameters.AddWithValue("@dtiFechaOficio", DBNull.Value) ' Or DBNull.Value depending on the framework, I believe
+            ' Else
+            '  cmd.Parameters.AddWithValue("@dtiFechaOficio", DateTime.Parse(dts._fechaOficio))
+            '  End If
+
+            cmd.Parameters.AddWithValue("@dtiFechaOficio", dts._fechaOficio)
+
             cmd.Parameters.AddWithValue("@intIdDimension", dts._idDimension)
             cmd.Parameters.AddWithValue("@vchCondicionCasos", dts._condicionCasos)
             cmd.Parameters.AddWithValue("@vchDetalleInconformidadCasos", dts._detalleInconformidadCasos)
@@ -33,8 +45,23 @@ Public Class Datos_Casos
             cmd.Parameters.AddWithValue("@vchValoracionAdmisibilidad", dts._valoracionAdmisibilidad)
             cmd.Parameters.AddWithValue("@vchVeredictoValoracionIngreso", dts._veredictoValoracionIngreso)
             cmd.Parameters.AddWithValue("@vchTrazabilidadCasos", dts._trazabilidadCasos)
-            cmd.Parameters.AddWithValue("@dtiFechaRespuestaCasos", Convert.ToDateTime(dts._fechaRespuestaCasos))
-            cmd.Parameters.AddWithValue("@dtiFechaCerradoCasos", Convert.ToDateTime(dts._fechaCerradoCasos))
+
+            '  If dts._fechaRespuestaCasos Is Nothing Then
+            'cmd.Parameters.AddWithValue("@dtiFechaRespuestaCasos", DBNull.Value) ' Or DBNull.Value depending on the framework, I believe
+            ' Else
+            ' cmd.Parameters.AddWithValue("@dtiFechaRespuestaCasos", DateTime.Parse(dts._fechaRespuestaCasos))
+            ' End If
+
+            cmd.Parameters.AddWithValue("@dtiFechaRespuestaCasos", dts._fechaRespuestaCasos)
+
+            ' If dts._fechaCerradoCasos Is Nothing Then
+            'cmd.Parameters.AddWithValue("@dtiFechaCerradoCasos", DBNull.Value) ' Or DBNull.Value depending on the framework, I believe
+            ' Else
+            ' cmd.Parameters.AddWithValue("@dtiFechaCerradoCasos", DateTime.Parse(dts._fechaCerradoCasos))
+            ' End If
+
+
+            cmd.Parameters.AddWithValue("@dtiFechaCerradoCasos", dts._fechaCerradoCasos)
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
@@ -44,7 +71,7 @@ Public Class Datos_Casos
             MsgBox(ex.Message)
             Return False
         Finally
-
+            cmd.Connection.Close()
         End Try
     End Function
 #End Region
@@ -55,10 +82,12 @@ Public Class Datos_Casos
     'DEVUELVE: Devuelve los datos de la tabla tblCasos
     Public Function mostrarCasos() As DataTable
         Try
+            Conx.ConnectionString = CnnString
 
             cmd = New SqlCommand("palMostrarCasos")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = Conx
+            cmd.Connection.Open()
             If cmd.ExecuteNonQuery Then
                 Dim dt As New DataTable
                 Dim da As New SqlDataAdapter(cmd)
@@ -69,9 +98,10 @@ Public Class Datos_Casos
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
+            cmd.Connection.Close()
             Return Nothing
         Finally
-
+            cmd.Connection.Close()
         End Try
     End Function
 #End Region
@@ -82,10 +112,13 @@ Public Class Datos_Casos
     'DEVUELVE: NO DEVUELVE
     Public Function borrarCasos(ByVal dts As Entidad_Casos) As Boolean
         Try
+            Conx.ConnectionString = CnnString
 
             cmd = New SqlCommand("palEliminarCasos")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = Conx
+
+            cmd.Connection.Open()
             cmd.Parameters.AddWithValue("@intIdCasos", dts._idCasos)
             If cmd.ExecuteNonQuery Then
                 Return True
@@ -96,7 +129,7 @@ Public Class Datos_Casos
             MsgBox(ex.Message)
             Return False
         Finally
-
+            cmd.Connection.Close()
         End Try
     End Function
 #End Region
@@ -107,21 +140,24 @@ Public Class Datos_Casos
     'DEVUELVE: NO DEVUELVE
     Public Function modificarCasos(ByVal dts As Entidad_Casos) As Boolean
         Try
+            Conx.ConnectionString = CnnString
 
             cmd = New SqlCommand("palModificarCasos")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = Conx
+
+            cmd.Connection.Open()
             cmd.Parameters.AddWithValue("@intIdCasos", dts._idCasos)
             cmd.Parameters.AddWithValue("@vchNumeroCasos", dts._numeroCasos)
             cmd.Parameters.AddWithValue("@vchEstadoCasos", dts._estadoCasos)
             cmd.Parameters.AddWithValue("@dtiFechaCasos", Convert.ToDateTime(dts._fechaCasos))
             cmd.Parameters.AddWithValue("@intCedulaDenuncianteCasos", dts._cedulaDenuncianteCasos)
             cmd.Parameters.AddWithValue("@vchNombreDenucianteCasos", dts._nombreDenuncianteCasos)
-            cmd.Parameters.AddWithValue("@intIdEmpleados", dts._idEmpleados)
+            cmd.Parameters.AddWithValue("@vchNombreFuncionario", dts._nombreFuncionario)
             cmd.Parameters.AddWithValue("@vchNombreCentroEducativo", dts._nombreCentroEducativo)
             cmd.Parameters.AddWithValue("@intIdUnidad", dts._idUnidad)
             cmd.Parameters.AddWithValue("@vchNumeroOficio", dts._numeroOficio)
-            cmd.Parameters.AddWithValue("@dtiFechaOficio", Convert.ToDateTime(dts._fechaOficio))
+            cmd.Parameters.AddWithValue("@dtiFechaOficio", dts._fechaOficio)
             cmd.Parameters.AddWithValue("@intIdDimension", dts._idDimension)
             cmd.Parameters.AddWithValue("@vchCondicionCasos", dts._condicionCasos)
             cmd.Parameters.AddWithValue("@vchDetalleInconformidadCasos", dts._detalleInconformidadCasos)
@@ -129,8 +165,8 @@ Public Class Datos_Casos
             cmd.Parameters.AddWithValue("@vchValoracionAdmisibilidad", dts._valoracionAdmisibilidad)
             cmd.Parameters.AddWithValue("@vchVeredictoValoracionIngreso", dts._veredictoValoracionIngreso)
             cmd.Parameters.AddWithValue("@vchTrazabilidadCasos", dts._trazabilidadCasos)
-            cmd.Parameters.AddWithValue("@dtiFechaRespuestaCasos", Convert.ToDateTime(dts._fechaRespuestaCasos))
-            cmd.Parameters.AddWithValue("@dtiFechaCerradoCasos", Convert.ToDateTime(dts._fechaCerradoCasos))
+            cmd.Parameters.AddWithValue("@dtiFechaRespuestaCasos", dts._fechaRespuestaCasos)
+            cmd.Parameters.AddWithValue("@dtiFechaCerradoCasos", dts._fechaCerradoCasos)
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
@@ -140,7 +176,7 @@ Public Class Datos_Casos
             MsgBox(ex.Message)
             Return False
         Finally
-
+            cmd.Connection.Close()
         End Try
     End Function
 #End Region

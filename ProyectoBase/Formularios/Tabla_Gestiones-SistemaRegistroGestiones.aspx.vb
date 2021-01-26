@@ -18,12 +18,12 @@ Public Class Tabla_Gestiones
     Inherits System.Web.UI.Page
 
     Dim dt As New DataTable
-    Dim strQuery As String = ConfigurationManager _
+    Dim strConnString As String = ConfigurationManager _
              .ConnectionStrings("bda_SIREGE_Connection").ConnectionString
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not Page.IsPostBack Then
-            MostrarTabla()
+            Me.MostrarTabla()
         End If
     End Sub
 
@@ -182,34 +182,51 @@ Public Class Tabla_Gestiones
     'RECIBE:Todas las filas del gridview marcadas con un check
     'DEVUELVE:El borrado de la fila y la tabla del gridview actualizada
     Protected Sub btnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click
-        If Session("Perfil") = "Administrador" Then
+        If Session("Perfil") = "AD" Then
             Try
                 Dim func As New Datos_Gestiones
                 Dim dts As New Entidad_Gestiones
                 For Each gvrow As GridViewRow In gvwGestiones.Rows
-                    Dim chkborrar As CheckBox = DirectCast(gvrow.FindControl("chkSeleccionar"), CheckBox)
-                    If chkborrar.Checked Then
-                        Dim gesid As Integer = Convert.ToInt32(gvwGestiones.DataKeys(gvrow.RowIndex).Value)
-                        dts._idGestiones = gesid
-                        If func.borrarGestiones(dts) Then
-                            Response.Write("<script language=javascript>alert('El elemento ha sido eliminado de forma exitosa')</script>")
-                            'MsgBox("El elemento ha sido eliminado de forma exitosa")
-                        Else
-                            Response.Write("<script language=javascript>alert('No se ha eliminado el elemento.')</script>")
-                            'MsgBox("No se ha eliminado el elemento.")
-                        End If
+                    Dim chkdelete As CheckBox = DirectCast(gvrow.FindControl("chkSelect"), CheckBox)
+                    Dim gesid As Integer = Convert.ToInt32(gvwGestiones.DataKeys(gvrow.RowIndex).Value)
+                    If chkdelete.Checked Then                      
+                        Try
+                            dts._idGestiones = gesid
+                            If func.borrarGestiones(dts) Then
+                                'Response.Write("<script language=javascript>alert('El elemento ha sido eliminado de forma exitosa')</script>")
+                                MsgBox("El elemento ha sido eliminado de forma exitosa")
+                                ' Me.MostrarTabla()
+                                gvwGestiones.DataBind()
+                            Else
+                                ' Response.Write("<script language=javascript>alert('No se ha eliminado el elemento.')</script>")
+                                ' MsgBox("No se ha eliminado el elemento.")
+                                '  gvwGestiones.DataBind()
+                            End If                           
+                            MostrarTabla()
+                        Catch ex As Exception
+                            MsgBox("Hubo un problema en eliminar el elmento: " + ex.Message)
+                        End Try
+                        MostrarTabla()
+                        'gvwGestiones.DataBind()
                     End If
                 Next
                 MostrarTabla()
+                ' gvwGestiones.DataBind()
             Catch ex As Exception
-                Response.Write("<script language=javascript>alert('Hubo un problema en eliminar el elemento')</script>")
-                'MsgBox("Hubo un problema en eliminar el elmento" + ex.Message)
+                MsgBox(ex.Message)
             End Try
         Else
             Response.Write("<script language=javascript>alert('El usuario no posee permiso para seleccionar el botón de borrar')</script>")
         End If
     End Sub
 #End Region
+
+
+
+
+
+
+
 
     Protected Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
         Response.Redirect("Menu_Principal-SistemaRegistroGestiones.aspx")
@@ -240,33 +257,19 @@ Public Class Tabla_Gestiones
         txtPop_Num_Oficio.Text = Page.Server.HtmlDecode(gvwGestiones.SelectedRow.Cells(19).Text)
         txtPop_Dimension.Text = Page.Server.HtmlDecode(gvwGestiones.SelectedRow.Cells(20).Text)
         txtPop_Letra_Dimension.Text = gvwGestiones.SelectedRow.Cells(21).Text
-        lblPop_Detalle_Dimension.Text = Page.Server.HtmlDecode(gvwGestiones.SelectedRow.Cells(22).Text)
-        txtPop_Tipo_Usuario.Text = Page.Server.HtmlDecode(gvwGestiones.SelectedRow.Cells(23).Text)
-        lblPop_Detalle_Gestion.Text = Page.Server.HtmlDecode(gvwGestiones.SelectedRow.Cells(24).Text)
-        lblPop_Respuesta_Gestion.Text = Page.Server.HtmlDecode(gvwGestiones.SelectedRow.Cells(25).Text)
-        txtPop_Categoria_Gestion.Text = Page.Server.HtmlDecode(gvwGestiones.SelectedRow.Cells(26).Text)
+        txtPop_Detalle_Dimension.Text = Page.Server.HtmlDecode(gvwGestiones.SelectedRow.Cells(22).Text)
+        txtPop_Tipo_Usuario.Text = gvwGestiones.SelectedRow.Cells(23).Text
+        txtPop_Detalle_Gestion.Text = Page.Server.HtmlDecode(gvwGestiones.SelectedRow.Cells(24).Text)
+        txtPop_Respuesta_Gestion.Text = Page.Server.HtmlDecode(gvwGestiones.SelectedRow.Cells(25).Text)
         mpeDetalles.Show()
     End Sub
 #End Region
 
 
 #Region "btnBuscar_TipoGestion Buscador para filtrar Gestiones"
-    'EFECTO: Botón con la función de filtrar datos en la tabla gridview por medio de vchTipoGestion seleccionado en el dropdownlist'
-    'RECIBE: El valor de vchTipoGestion seleccionado del dropdownlist
-    'DEVUELVE: Gridview filtrado
     Protected Sub btnBuscar_TipoGestion_Click(sender As Object, e As EventArgs) Handles btnBuscar_TipoGestion.Click
-        Dim strQuery As String = "palFiltrarTipoGestiones"
-        Dim con As New SqlConnection(strQuery)
-        Dim cmd As New SqlCommand()
-        cmd.CommandType = CommandType.StoredProcedure
-        cmd.CommandText = strQuery
-        cmd.Parameters.AddWithValue("@vchTipoGestiones", SqlDbType.VarChar).Value = ddlFiltro_Buscador.Text.Trim()
-        cmd.Connection = con
-        Dim da As SqlDataAdapter = New SqlDataAdapter(cmd)
-        Dim ds As DataSet = New DataSet()
-        da.Fill(ds)
-        gvwGestiones.DataSource = ds
-        gvwGestiones.DataBind()
+        Response.Redirect("Buscador_Gestiones-SistemaRegistroGestiones.aspx")
+
     End Sub
 #End Region
 

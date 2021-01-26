@@ -1,14 +1,12 @@
 ﻿<%@ Page Title="Menu_Principal-SistemaRegistroGestiones" Language="vb" AutoEventWireup="false" MasterPageFile="~/MasterPage.Master"  CodeBehind="Menu_Principal-SistemaRegistroGestiones.aspx.vb" Inherits="CapPresentacionSiReGe.Menu_Principal" %>
 
 
-
-
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <title>Menu_Principal-SistemaRegistroGestiones</title>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
-
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <div class="row"> 
         <div class="col-lg-12">
             

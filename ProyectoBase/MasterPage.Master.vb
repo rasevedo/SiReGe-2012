@@ -3,8 +3,19 @@
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         lblVersion.Text = "Versión del Sistema:" + Space(1) + System.Reflection.Assembly.GetExecutingAssembly.GetName.Version.ToString
-
-
+        If Not Page.IsPostBack Then
+            If Session("Usuario") IsNot Nothing Then
+                lblNombreUsuario.Text = CStr(Session("NombreUsuario"))
+                lblNombreUsuario.Visible = True
+                lblUsuario.Text = CStr(Session("Usuario"))
+                lblPerfil.Text = "Perfil: " + Session("Perfil")
+            Else
+                Session.Clear()
+                Response.Redirect(ResolveUrl("~/Login.aspx"))
+            End If
+            Menu()
+            DescripcionPerfil()
+        End If
 
     End Sub
 
@@ -19,7 +30,7 @@
     Private Sub DescripcionPerfil()
         Dim dt_Datos As DataTable
         dt_Datos = _Funciones.ObtenerDescripcionPerfil(Convert.ToString(Session("Perfil"))).Tables("resultado")
-        lblDescripcion.Text = dt_Datos.Rows(0).Item("vchDescripcion")
+        lblDescripcion.Text = dt_Datos.Rows(0).Item("vch_desc_perfil")
         dt_Datos.Dispose()
     End Sub
 
@@ -75,8 +86,8 @@
 
     Protected Sub Menu1_MenuItemClick(ByVal sender As Object, ByVal e As System.Web.UI.WebControls.MenuEventArgs) Handles Menu1.MenuItemClick
         Select Case e.Item.Text
-            Case "Inicio"
-                Response.Redirect(ResolveUrl("~/Formularios/Inicio.aspx"))
+            Case "Menú"
+                Response.Redirect(ResolveUrl("~/Formularios/Menu_Principal-SistemaRegistroGestiones.aspx"))
             Case "Salir"
                 Response.Expires = 0
                 Response.Cookies.Clear()

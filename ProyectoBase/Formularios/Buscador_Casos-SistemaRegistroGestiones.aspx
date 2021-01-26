@@ -1,62 +1,118 @@
-﻿<%@ Page Title="Tabla_Casos-SistemaRegistroGestiones" Language="vb" AutoEventWireup="false"  MasterPageFile="~/MasterPage.Master" CodeBehind="Tabla_Casos-SistemaRegistroGestiones.aspx.vb" Inherits="CapPresentacionSiReGe.Tabla_Casos" EnableEventValidation="false" %>
+﻿<%@ Page Title="Buscador_Casos-SistemaRegistroGestiones" Language="vb" AutoEventWireup="false" MasterPageFile="~/MasterPage.Master" CodeBehind="Buscador_Casos-SistemaRegistroGestiones.aspx.vb" Inherits="CapPresentacionSiReGe.Buscador_Casos_SistemaRegistroGestiones" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %> 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
-    <title>Tabla_Casos-SistemaRegistroGestiones</title>
+    <title>Buscador_Casos-SistemaRegistroGestiones</title>
+    <style type="text/css">
+        .input-sm {
+            margin-top: 0px;
+            margin-bottom: 0px;
+            margin-left: 1px;
+        }
+        .input-lg {}
+        .auto-style2 {
+            width: 392px;
+        }
+        .auto-style3 {
+            width: 432px;
+        }
+    </style>
+
 </asp:Content>
 
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">   
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
     <link href="Estilo.css" rel="stylesheet" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+
+    <asp:UpdatePanel runat="server" id="UpdatePanelBuscador" updatemode="Conditional">  
+    <ContentTemplate>
     <div class="row">
 
-        <div class="col-lg-12" style="left: 0px; top: 20px; width: 1438px">
+        <div class="auto-style2">
             <header class="panel-heading">
                 <div class="col-md-5 col-md-offset-3">
-                    <h1>&nbsp;&nbsp;&nbsp;&nbsp; Sistema de Casos</h1>
+                    <h1 class="auto-style3">&nbsp;&nbsp; Buscador de Casos</h1>
                 </div>
             </header>
         </div>
 
         <div class="panel-body">
-
                             <div class="row">
-                                 <div class="col-md-2 col-md-offset--1">
+                                <div class="col-md-3 col-md-offset-1">
                                     <div class="form-group">
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <asp:Button Text="Nuevo" ID="btnAgregar"  Width="170px" runat="server" OnClick="btnAgregar_Click" />
-                                        <asp:Button Text="Borrar" ID="btnBorrar"  Width="170px" runat="server" OnClick="btnBorrar_Click" />
-                                        <asp:Button Text="Exportar" ID="btnExportar"  Width="170px" runat="server" OnClick="btnExportar_Click" />
-                                        <asp:Button Text="Volver" ID="btnVolver"  Width="170px" runat="server" OnClick="btnVolver_Click" />
+                                        <table style="width: 100%;">
+                                            <tr>
+                                                <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblEstado_Casos" Text="Estado de Casos" runat="server"/></td>
+                                                
+                                                <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblNombre_Funcionario" Text="Nombre de Funcionario" runat="server" /></td>
+                                                
+                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblCondicion_Casos" Text="Condición Casos" runat="server" /></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:DropDownList ID="ddlEstado_Caso" runat="server" CssClass="form-control input-sm" Height="30px" Width="279px"  >
+                                                        <asp:ListItem Text=" " Value=" "></asp:ListItem>
+                                                        <asp:ListItem Text="ABIERTO" Value="ABIERTO"></asp:ListItem>
+                                                        <asp:ListItem Text="CERRADO" Value="CERRADO"></asp:ListItem>
+                                                    </asp:DropDownList></td>
+                                                    
+                                                
+                                                <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtNombre_Funcionario" runat="server" CssClass="form-control input-sm" Height="29px" Width="277px" /></td>
+                                                        
+                                                
+                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:DropDownList ID="ddlCondicion_Caso" runat="server" CssClass="form-control input-sm" Height="29px" Width="283px" >
+                                                        <asp:ListItem Text=" " Value=" "></asp:ListItem>
+                                                        <asp:ListItem Text="EXTERNO " Value="EXTERNO"></asp:ListItem>
+                                                        <asp:ListItem Text="INTERNO " Value="INTERNO"></asp:ListItem>
+                                                    </asp:DropDownList></td>
+                                            </tr>  
+                                        </table>
                                     </div>
-                                </div>
-                                <div class="col-md-2 col-md-offset-0">
+                                </div>                  
+                            </div>
+
+                        <asp:UpdatePanel runat="server" id="UpdatePanel1" updatemode="Conditional">  
+                        <ContentTemplate>
+                        <div class="row">
+                                <div class="col-md-3 col-md-offset-1">
                                     <div class="form-group">
-                                        <br />
-
+                                        <table style="width: 100%;">
+                                            <tr>
+                                                <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblNombre_Denunciante" Text="Nombre del Denunciante" runat="server"/></td>
+                                                
+                                                <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblDescripcion_Unidad" Text="Descripción Unidad" runat="server" /></td>
+                                                
+                                                <td>&nbsp;</td>
+                                            </tr>
+                                            <tr>
+                                                <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtNombre_Denunciante" runat="server"  CssClass="form-control input-sm" Height="30px" Width="279px"  /></td>
+                                                       
+                                                                                                   
+                                                <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:DropDownList ID="ddlDescripcion_Unidad" runat="server" CssClass="form-control input-sm" Height="29px" Width="283px" AutoPostBack="True" OnSelectedIndexChanged="ddlDescripcion_Unidad_SelectedIndexChanged" DataSourceID="sdsDescripcion_Unidad" DataTextField="vchDescripcionUnidad" DataValueField="intIdUnidad"></asp:DropDownList >
+                                                            <asp:SqlDataSource runat="server" ID="sdsDescripcion_Unidad" ConnectionString='<%$ ConnectionStrings:bda_SIREGE_Connection %>' SelectCommand="palConsultarUnidades" SelectCommandType="StoredProcedure"></asp:SqlDataSource></td>
+                                                           
+                                                
+                                                <td>&nbsp;</td>
+                                            </tr>  
+                                        </table>
                                     </div>
-                                </div>
-                             </div> 
+                                </div>                  
+                            </div>
+                        </ContentTemplate>
+                        </asp:UpdatePanel>
 
-                            <div class="row">
-                                 <div class="col-md-4 col-md-offset--1">
-                                    <div class="form-group">
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                  
-                                        <asp:Button ID="btnBuscador" runat="server" Width="125px" Text="Buscador" OnClick="btnBuscador_Click"/>
-                                    </div>
-                                </div> 
-                                <div class="col-md-2 col-md-offset-0">
-                                    <div class="form-group">
-                                        <br />
-
-                                    </div>
-                                </div>                               
-                            </div> 
-                           
-                
-                   <div id="grdCharges" runat="server"  style="width: 1209px; overflow: auto; height: 450px">
-
+                  
+                <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Button ID="btnBuscar_Casos" runat="server" Width="125px" Text="Buscar" OnClick="btnBuscar_Casos_Click"/>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <asp:Button  ID="btnVolver" runat="server" Width="125px" Text="Volver" OnClick="btnVolver_Click"/>
+                <br />
+                <br />
+             
+               
+           <div id="grdCharges" runat="server"  style="width: 1209px; overflow: auto; height: 450px">
                        <asp:GridView ID="gvwCasos" runat="server" CellPadding="10" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="2px" AutoGenerateColumns="False" DataKeyNames="intIdCasos" AllowPaging="False" AllowSorting="True" CellSpacing="10" HorizontalAlign="Center" style="margin-left: 14px" Width="2422px">
                            <Columns>
                                <asp:buttonfield buttontype="Button" commandname="Select" text="Detalle"/>
@@ -129,9 +185,12 @@
                                    }
                                }
                            }
-                      </script> 
+                      </script>  
+                     
+               </div>
+               <asp:Label ID="lblmsg" runat="server" Visible="false"></asp:Label>
 
-                       <asp:LinkButton Text="" ID = "lnkFalso" runat="server" />
+                        <asp:LinkButton Text="" ID = "lnkFalso" runat="server" />
                         <asp:ModalPopupExtender ID="mpeDetalles" runat="server" PopupControlID="pnlPopup" TargetControlID="lnkFalso"
                         CancelControlID="btnCerrar_Modal" BackgroundCssClass="modalBackground">
                         </asp:ModalPopupExtender>
@@ -369,18 +428,15 @@
                            </div>
                            
                            <div class="footer" style="float: right">
-                               <asp:Button Text="Exportar Información" ID="btnExportar_Word" runat="server" CssClass="button" OnClick="btnExportar_Word_Click" />
+                               
                                <asp:Button ID="btnCerrar_Modal" runat="server" Text="Cerrar" CssClass="button"/>
                            </div>
                        </asp:Panel>
-                   
-                   
-                   </div>
 
-
-                </div>
+        </div>
 
     </div>
-
+    </ContentTemplate>
+    </asp:UpdatePanel>
     
 </asp:Content>

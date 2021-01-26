@@ -131,22 +131,13 @@ Partial Public Class Modificar_Casos
     Protected WithEvents txtNombre_Usuario As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''intIdEmpleados control.
+    '''txtNombre_Funcionario control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents intIdEmpleados As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''sdsEmpleados control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents sdsEmpleados As Global.System.Web.UI.WebControls.SqlDataSource
+    Protected WithEvents txtNombre_Funcionario As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''lblNombre_CE control.
@@ -201,6 +192,15 @@ Partial Public Class Modificar_Casos
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtFecha_Oficio As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''UpdatePanel control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UpdatePanel As Global.System.Web.UI.UpdatePanel
 
     '''<summary>
     '''lblCondicion_Caso control.
@@ -300,6 +300,15 @@ Partial Public Class Modificar_Casos
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtDepartamento As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''UpdatePanel2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UpdatePanel2 As Global.System.Web.UI.UpdatePanel
 
     '''<summary>
     '''lblDimension control.
@@ -500,6 +509,15 @@ Partial Public Class Modificar_Casos
     Protected WithEvents txtFecha_Cerrado_Casos As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
+    '''UpdatePanel3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UpdatePanel3 As Global.System.Web.UI.UpdatePanel
+
+    '''<summary>
     '''btnAgregarAvance control.
     '''</summary>
     '''<remarks>
@@ -563,6 +581,15 @@ Partial Public Class Modificar_Casos
     Protected WithEvents btnInsertar_Avance As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
+    '''UpdatePanel4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UpdatePanel4 As Global.System.Web.UI.UpdatePanel
+
+    '''<summary>
     '''gvwAvance control.
     '''</summary>
     '''<remarks>
@@ -599,13 +626,13 @@ Partial Public Class Modificar_Casos
     Protected WithEvents btnCancelar As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''lnkDummy control.
+    '''lnk control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lnkDummy As Global.System.Web.UI.WebControls.LinkButton
+    Protected WithEvents lnk As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
     '''ModalPopupExtender_Exito control.
@@ -633,6 +660,15 @@ Partial Public Class Modificar_Casos
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnCerrar_Exito As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''lnkDummy control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lnkDummy As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
     '''ModalPopupExtender_Incompleto control.
@@ -689,6 +725,15 @@ Partial Public Class Modificar_Casos
     Protected WithEvents btnCerrar_Error As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
+    '''lnkDummy2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lnkDummy2 As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
     '''ModalPopupExtender_AvanceExito control.
     '''</summary>
     '''<remarks>
@@ -714,6 +759,15 @@ Partial Public Class Modificar_Casos
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents btnCerrar_Avance_Exito As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''lnkDummy3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lnkDummy3 As Global.System.Web.UI.WebControls.LinkButton
 
     '''<summary>
     '''ModalPopupExtender_AvanceError control.

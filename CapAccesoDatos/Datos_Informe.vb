@@ -12,17 +12,24 @@ Public Class Datos_Informe
     'DEVUELVE: NO DEVUELVE
     Public Function insertarInforme(ByVal dts As Entidad_Informe) As Boolean
         Try
+            Conx.ConnectionString = CnnString
+
             cmd = New SqlCommand("palInsertarInforme")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = Conx
+            cmd.Connection.Open()
             cmd.Parameters.AddWithValue("@vchTituloInforme", dts._tituloInforme)
-            cmd.Parameters.AddWithValue("@intIdEmpleados", dts._idEmpleados)
+            cmd.Parameters.AddWithValue("@vchNombreFuncionario", dts._nombreFuncionario)
             cmd.Parameters.AddWithValue("@vchTipoInforme", dts._tipoInforme)
             cmd.Parameters.AddWithValue("@vchNumeroOficio", dts._numeroOficio)
             cmd.Parameters.AddWithValue("@dtiFechaAprobacion", dts._fechaAprobacion)
             cmd.Parameters.AddWithValue("@dtiFechaCulminacion", dts._fechaCulminacion)
             cmd.Parameters.AddWithValue("@dtiFechaTraslado", dts._fechaTraslado)
             cmd.Parameters.AddWithValue("@vchAvanceInforme", dts._avanceInforme)
+            cmd.Parameters.AddWithValue("@vchRemitido", dts._remitido)
+            cmd.Parameters.AddWithValue("@vchHallazgo", dts._hallazgo)
+            cmd.Parameters.AddWithValue("@vchRecomendaciones", dts._recomendaciones)
+            cmd.Parameters.AddWithValue("@vchObservaciones", dts._observaciones)
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
@@ -32,7 +39,7 @@ Public Class Datos_Informe
             MsgBox(ex.Message)
             Return False
         Finally
-
+            cmd.Connection.Close()
         End Try
     End Function
 #End Region
@@ -43,9 +50,12 @@ Public Class Datos_Informe
     'DEVUELVE: Devuelve los datos de la tabla tblInformes
     Public Function mostrarInforme() As DataTable
         Try
+            Conx.ConnectionString = CnnString
+
             cmd = New SqlCommand("palMostrarInforme")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = Conx
+            cmd.Connection.Open()
             If cmd.ExecuteNonQuery Then
                 Dim dt As New DataTable
                 Dim da As New SqlDataAdapter(cmd)
@@ -56,9 +66,10 @@ Public Class Datos_Informe
             End If
         Catch ex As Exception
             MsgBox(ex.Message)
+            cmd.Connection.Close()
             Return Nothing
         Finally
-
+            cmd.Connection.Close()
         End Try
     End Function
 #End Region
@@ -69,9 +80,12 @@ Public Class Datos_Informe
     'DEVUELVE: NO DEVUELVE
     Public Function borrarInforme(ByVal dts As Entidad_Informe) As Boolean
         Try
+            Conx.ConnectionString = CnnString
+
             cmd = New SqlCommand("palEliminarInforme")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = Conx
+            cmd.Connection.Open()
             cmd.Parameters.AddWithValue("@intIdInforme", dts._idInforme)
             If cmd.ExecuteNonQuery Then
                 Return True
@@ -82,7 +96,7 @@ Public Class Datos_Informe
             MsgBox(ex.Message)
             Return False
         Finally
-
+            cmd.Connection.Close()
         End Try
     End Function
 #End Region
@@ -93,18 +107,24 @@ Public Class Datos_Informe
     'DEVUELVE: NO DEVUELVE
     Public Function modificarInforme(ByVal dts As Entidad_Informe) As Boolean
         Try
+            Conx.ConnectionString = CnnString
             cmd = New SqlCommand("palModificarInforme")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = Conx
+            cmd.Connection.Open()
             cmd.Parameters.AddWithValue("@intIdInforme", dts._idInforme)
             cmd.Parameters.AddWithValue("@vchTituloInforme", dts._tituloInforme)
-            cmd.Parameters.AddWithValue("@intIdEmpleados", dts._idEmpleados)
+            cmd.Parameters.AddWithValue("@vchNombreFuncionario", dts._nombreFuncionario)
             cmd.Parameters.AddWithValue("@vchTipoInforme", dts._tipoInforme)
             cmd.Parameters.AddWithValue("@vchNumeroOficio", dts._numeroOficio)
             cmd.Parameters.AddWithValue("@dtiFechaAprobacion", dts._fechaAprobacion)
             cmd.Parameters.AddWithValue("@dtiFechaCulminacion", dts._fechaCulminacion)
             cmd.Parameters.AddWithValue("@dtiFechaTraslado", dts._fechaTraslado)
             cmd.Parameters.AddWithValue("@vchAvanceInforme", dts._avanceInforme)
+            cmd.Parameters.AddWithValue("@vchRemitido", dts._remitido)
+            cmd.Parameters.AddWithValue("@vchHallazgo", dts._hallazgo)
+            cmd.Parameters.AddWithValue("@vchRecomendaciones", dts._recomendaciones)
+            cmd.Parameters.AddWithValue("@vchObservaciones", dts._observaciones)
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
@@ -114,7 +134,7 @@ Public Class Datos_Informe
             MsgBox(ex.Message)
             Return False
         Finally
-
+            cmd.Connection.Close()
         End Try
     End Function
 #End Region
