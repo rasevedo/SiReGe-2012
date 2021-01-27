@@ -3,6 +3,8 @@
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %> 
 
+<%@ Register Assembly="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <title>Tabla_Gestiones-SistemaRegistroGestiones</title>
@@ -44,10 +46,10 @@
                                  <div class="col-md-2 col-md-offset--1">
                                     <div class="form-group">
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <asp:Button Text="Nuevo" ID="btnAgregar"  Width="170px" runat="server" OnClick="btnAgregar_Click" />
-                                        <asp:Button Text="Borrar" ID="btnBorrar"  Width="170px" runat="server" OnClientClick="javascript:return Confirmationbox();" OnClick="btnBorrar_Click" />
-                                        <asp:Button Text="Exportar" ID="btnExportar"  Width="170px" runat="server" OnClick="btnExportar_Click" />
-                                        <asp:Button Text="Volver" ID="btnVolver"  Width="170px" runat="server" OnClick="btnVolver_Click" />
+                                        <asp:Button Text="Nuevo" ID="btnAgregar"  Width="85px" Height="45px" runat="server" OnClick="btnAgregar_Click" />
+                                        <asp:Button Text="Borrar" ID="btnBorrar"  Width="85px" Height="45px" runat="server" OnClientClick="javascript:return Confirmationbox();" OnClick="btnBorrar_Click" />
+                                        <asp:Button Text="Exportar Todo" ID="btnExportar"  Width="100px" Height="45px" runat="server" OnClick="btnExportar_Click" />
+                                        <asp:Button Text="Volver" ID="btnVolver"  Width="85px" Height="45px" runat="server" OnClick="btnVolver_Click" />
                                     </div>
                                 </div>
                                 <div class="col-md-2 col-md-offset-0">
@@ -62,7 +64,7 @@
                                  <div class="col-md-4 col-md-offset--1">
                                     <div class="form-group">
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                  
-                                        <asp:Button ID="btnBuscar_TipoGestion" runat="server" Width="125px" Text="Buscador" OnClick="btnBuscar_TipoGestion_Click"/>
+                                        <asp:Button ID="btnBuscar_TipoGestion" runat="server" Width="85px" Height="45px" Text="Buscador" OnClick="btnBuscar_TipoGestion_Click"/>
                                     </div>
                                 </div> 
                                 <div class="col-md-2 col-md-offset-0">
@@ -78,7 +80,7 @@
                                            
                            <asp:GridView ID="gvwGestiones" runat="server" CellPadding="10" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="2px" AutoGenerateColumns="False" DataKeyNames="intIdGestiones" AllowSorting="True" CellSpacing="10" HorizontalAlign="Center" Width="50%" >
                            <Columns>
-                               <asp:buttonfield buttontype="Button" commandname="Select" text="Detalle"/>
+                               <asp:buttonfield buttontype="Button" commandname="Select" text="Detalle" />
                                <asp:HyperLinkField Text="Modificar" DataNavigateUrlFields="intIdGestiones" DataNavigateUrlFormatString="Modificar_Gestiones-SistemaRegistroGestiones.aspx?intIdGestiones={0}" />
                                <asp:TemplateField>
                                     <HeaderTemplate>
@@ -88,18 +90,18 @@
                                         <asp:CheckBox ID="chkSelect" runat="server" onclick="GridCheckOne(this)"></asp:CheckBox>
                                     </ItemTemplate>
                                </asp:TemplateField>                                                            
-                               <asp:BoundField DataField="intIdGestiones" HeaderText="Codigo de Gestión"    >
+                               <asp:BoundField DataField="intIdGestiones" HeaderText="Código de Gestión"    >
                                    <HeaderStyle HorizontalAlign="Center" />
                                </asp:BoundField>
                                <asp:BoundField DataField="vchTipoGestiones" HeaderText="Tipo de Gestión"  >
                                    <ControlStyle Width="200px"></ControlStyle>
                                    <HeaderStyle Width="200px"></HeaderStyle>
                                </asp:BoundField>
-                               <asp:BoundField DataField="intCedulaUsuario" HeaderText="Cedula del Usuario"  >
+                               <asp:BoundField DataField="intCedulaUsuario" HeaderText="Cédula del Denunciante"  >
                                    <ControlStyle Width="200px"></ControlStyle>
                                    <HeaderStyle Width="200px"></HeaderStyle>
                                </asp:BoundField>
-                               <asp:BoundField DataField="vchNombreUsuario" HeaderText="Nombre del Usuario"  >
+                               <asp:BoundField DataField="vchNombreUsuario" HeaderText="Nombre del Denunciante"  >
                                    <ControlStyle Width="200px"></ControlStyle>
                                    <HeaderStyle Width="200px"></HeaderStyle>
                                </asp:BoundField>
@@ -139,7 +141,7 @@
                                <asp:BoundField DataField="vchdescripcionDepartamento" HeaderText="Descripción Departamento" HeaderStyle-Width="120px">
                                    <HeaderStyle Width="120px"></HeaderStyle>
                                </asp:BoundField>
-                               <asp:BoundField DataField="vchNumeroOficio" HeaderText="Numero de Oficio"  HeaderStyle-Width="120px">
+                               <asp:BoundField DataField="vchNumeroOficio" HeaderText="Número de Oficio"  HeaderStyle-Width="120px">
                                    <HeaderStyle Width="120px"></HeaderStyle>
                                </asp:BoundField>
                                <asp:BoundField DataField="vchTipoDimension" HeaderText="Dimensión"  HeaderStyle-Width="120px">
@@ -148,7 +150,7 @@
                                <asp:BoundField DataField="vchLetraDimension" HeaderText="Letra Dimensión" HeaderStyle-Width="120px">
                                    <HeaderStyle Width="120px"></HeaderStyle>
                                </asp:BoundField>
-                               <asp:BoundField DataField="vchDescripcionTipoDimension" HeaderText="Detalle Dimensión"  HeaderStyle-Width="120px">
+                               <asp:BoundField DataField="vchDescripcionTipoDimension" HeaderText="Detalle de la Dimensión"  HeaderStyle-Width="120px">
                                    <HeaderStyle Width="120px"></HeaderStyle>
                                </asp:BoundField>
                                <asp:BoundField DataField="vchTipoUsuario" HeaderText="Tipo de Usuario" HeaderStyle-Width="120px">
@@ -206,10 +208,10 @@
                                Detalles de la Gestión
                            </div>
                            <div class="body">
-                               <table border="0j">
+                               <table border="0">
                                    <tr>
                                        <td> 
-                                           <asp:Label ID="lblPop_Id_Gestiones" runat="server" Text="Codigo de Gestión:"></asp:Label>
+                                           <asp:Label ID="lblPop_Id_Gestiones" runat="server" Text="Código de Gestión:"></asp:Label>
                                            
                                        </td>
                                         <td>

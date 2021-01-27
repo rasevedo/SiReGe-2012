@@ -581,6 +581,15 @@ Partial Public Class Modificar_Casos
     Protected WithEvents btnInsertar_Avance As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
+    '''grdAvancePanel control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents grdAvancePanel As Global.System.Web.UI.HtmlControls.HtmlGenericControl
+
+    '''<summary>
     '''UpdatePanel4 control.
     '''</summary>
     '''<remarks>

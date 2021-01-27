@@ -25,10 +25,10 @@
                                  <div class="col-md-2 col-md-offset--1">
                                     <div class="form-group">
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <asp:Button Text="Nuevo" ID="btnAgregar"  Width="170px" runat="server" OnClick="btnAgregar_Click" />
-                                        <asp:Button Text="Borrar" ID="btnBorrar"  Width="170px" runat="server" OnClick="btnBorrar_Click" />
-                                        <asp:Button Text="Exportar" ID="btnExportar"  Width="170px" runat="server" OnClick="btnExportar_Click" />
-                                        <asp:Button Text="Volver" ID="btnVolver"  Width="170px" runat="server" OnClick="btnVolver_Click" />
+                                        <asp:Button Text="Nuevo" ID="btnAgregar"  Width="85px" Height="45px" runat="server" OnClick="btnAgregar_Click" />
+                                        <asp:Button Text="Borrar" ID="btnBorrar"  Width="85px" Height="45px" runat="server" OnClick="btnBorrar_Click" />
+                                        <asp:Button Text="Exportar Todo" ID="btnExportar"  Width="100px" Height="45px" runat="server" OnClick="btnExportar_Click" />
+                                        <asp:Button Text="Volver" ID="btnVolver"  Width="85px" Height="45px" runat="server" OnClick="btnVolver_Click" />
                                     </div>
                                 </div>
                                 <div class="col-md-2 col-md-offset-0">
@@ -43,7 +43,7 @@
                                  <div class="col-md-4 col-md-offset--1">
                                     <div class="form-group">
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                  
-                                        <asp:Button ID="btnBuscador" runat="server" Width="125px" Text="Buscador" OnClick="btnBuscador_Click"/>
+                                        <asp:Button ID="btnBuscador" runat="server" Width="85px" Height="45px" Text="Buscador" OnClick="btnBuscador_Click"/>
                                     </div>
                                 </div> 
                                 <div class="col-md-2 col-md-offset-0">
@@ -69,28 +69,28 @@
                                         <asp:CheckBox ID="chkSeleccionar" runat="server" onclick="GridCheckOne(this)"></asp:CheckBox>
                                     </ItemTemplate>
                                </asp:TemplateField>    
-                               <asp:BoundField DataField="intIdCasos" HeaderText="Codigo Casos" ReadOnly="True" InsertVisible="False" ></asp:BoundField>
-                               <asp:BoundField DataField="vchNumeroCasos" HeaderText="Numero de Caso"></asp:BoundField>
+                               <asp:BoundField DataField="intIdCasos" HeaderText="Código Casos" ReadOnly="True" InsertVisible="False" ></asp:BoundField>
+                               <asp:BoundField DataField="vchNumeroCasos" HeaderText="Número de Caso"></asp:BoundField>
                                <asp:BoundField DataField="vchEstadoCasos" HeaderText="Estado de los Casos" ></asp:BoundField>
                                <asp:BoundField DataField="dtiFechaCasos" HeaderText="Fecha Caso" ></asp:BoundField>
-                               <asp:BoundField DataField="intCedulaDenuncianteCasos" HeaderText="Cédula del Usuario" ></asp:BoundField>
-                               <asp:BoundField DataField="vchNombreDenucianteCasos" HeaderText="Nombre del Usuario" ></asp:BoundField>
+                               <asp:BoundField DataField="intCedulaDenuncianteCasos" HeaderText="Cédula del Denunciante" ></asp:BoundField>
+                               <asp:BoundField DataField="vchNombreDenucianteCasos" HeaderText="Nombre del Denunciante" ></asp:BoundField>
                                <asp:BoundField DataField="vchNombreFuncionario" HeaderText="Funcionario que Tramita" ></asp:BoundField>
                                <asp:BoundField DataField="vchNombreCentroEducativo" HeaderText="Nombre del Centro Educativo" ></asp:BoundField>
                                <asp:BoundField DataField="vchDescripcionUnidad" HeaderText="Descripción Unidad" ></asp:BoundField>
                                <asp:BoundField DataField="vchDescripcionDespacho" HeaderText="Descripción Despacho" ></asp:BoundField>
-                               <asp:BoundField DataField="vchDescripcionDireccion" HeaderText="Descripción Direccion" ></asp:BoundField>
+                               <asp:BoundField DataField="vchDescripcionDireccion" HeaderText="Descripción Dirección" ></asp:BoundField>
                                <asp:BoundField DataField="vchdescripcionDepartamento" HeaderText="Descripción Departamento" ></asp:BoundField>
-                               <asp:BoundField DataField="vchNumeroOficio" HeaderText="Numero del Oficio" ></asp:BoundField>
-                               <asp:BoundField DataField="dtiFechaOficio" HeaderText="Fecha del Oficio" ></asp:BoundField>
-                               <asp:BoundField DataField="vchTipoDimension" HeaderText="Dimension" ></asp:BoundField>
-                               <asp:BoundField DataField="vchLetraDimension" HeaderText="Letra Dimension" ></asp:BoundField>
-                               <asp:BoundField DataField="vchDescripcionTipoDimension" HeaderText="Detalle Dimension" ></asp:BoundField>
+                               <asp:BoundField DataField="vchNumeroOficio" HeaderText="Número de Oficio" ></asp:BoundField>
+                               <asp:BoundField DataField="dtiFechaOficio" HeaderText="Fecha de Oficio" ></asp:BoundField>
+                               <asp:BoundField DataField="vchTipoDimension" HeaderText="Dimensión" ></asp:BoundField>
+                               <asp:BoundField DataField="vchLetraDimension" HeaderText="Letra Dimensión" ></asp:BoundField>
+                               <asp:BoundField DataField="vchDescripcionTipoDimension" HeaderText="Detalle de la Dimensión" ></asp:BoundField>
                                <asp:BoundField DataField="vchCondicionCasos" HeaderText="Condición Casos" ></asp:BoundField>
                                <asp:BoundField DataField="vchDetalleInconformidadCasos" HeaderText="Detalle de Inconformidad" ></asp:BoundField>
                                <asp:BoundField DataField="vchRespuestaCasos" HeaderText="Respuesta" ></asp:BoundField>
-                               <asp:BoundField DataField="vchValoracionAdmisibilidad" HeaderText="Valoracion de Admisibilidad" ></asp:BoundField>
-                               <asp:BoundField DataField="vchVeredictoValoracionIngreso" HeaderText="Veredicto de Valoracion de Ingreso" ></asp:BoundField>
+                               <asp:BoundField DataField="vchValoracionAdmisibilidad" HeaderText="Valoración de Admisibilidad" ></asp:BoundField>
+                               <asp:BoundField DataField="vchVeredictoValoracionIngreso" HeaderText="Veredicto de Valoración de Ingreso" ></asp:BoundField>
                                <asp:BoundField DataField="vchTrazabilidadCasos" HeaderText="Trazabilidad" ></asp:BoundField>
                                <asp:BoundField DataField="dtiFechaRespuestaCasos" HeaderText="Fecha Respuesta del Caso" ></asp:BoundField>
                                <asp:BoundField DataField="dtiFechaCerradoCasos" HeaderText="Fecha de Cerrado" ></asp:BoundField>
@@ -145,7 +145,7 @@
                                <table border="0">
                                    <tr>
                                        <td> 
-                                           <asp:Label ID="lblPop_Id_Caso" runat="server" Text="Codigo de Caso"></asp:Label>                                           
+                                           <asp:Label ID="lblPop_Id_Caso" runat="server" Text="Código de Caso"></asp:Label>                                           
                                        </td>
                                         <td>
                                            <asp:TextBox ID="txtPop_Id_Caso" runat="server" Enabled="false" size="35" style="text-align: left"/> 

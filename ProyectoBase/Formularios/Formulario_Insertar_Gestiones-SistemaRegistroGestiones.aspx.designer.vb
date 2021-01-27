@@ -41,13 +41,13 @@ Partial Public Class Formulario_Insertar_Gestiones
     Protected WithEvents lblCedula_Usuario As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''lblNombre_Usuaro control.
+    '''lblNombre_Usuario control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblNombre_Usuaro As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblNombre_Usuario As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''lblFecha_Ingreso control.

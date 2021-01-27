@@ -213,6 +213,7 @@ Public Class Modificar_Casos
 
     Protected Sub btnAgregarAvance_Click(sender As Object, e As EventArgs) Handles btnAgregarAvance.Click
         AvancePanel.Visible = True
+        btnAgregarAvance.Enabled = False
     End Sub
 
 #Region "btnInsertarAvance Insertar el Avance/Seguimiento del Caso respectivo"
@@ -236,7 +237,10 @@ Public Class Modificar_Casos
                 If func.insertarAvancesCasos(dts) Then
                     ModalPopupExtender_AvanceExito.Show()                   
                     Me.MostrarAvanceGridview()
-                    Me.FiltrarPorCaso()               
+                    Me.FiltrarPorCaso()
+                    Me.AvanceLimpiar()
+                    AvancePanel.Visible = False
+                    btnAgregarAvance.Enabled = True
                     ' Response.Write("<script language=javascript>alert('El avance del caso ha sido registrado exitosamente')</script>")               
                     ' MsgBox("Exito")
                 Else
@@ -296,7 +300,17 @@ Public Class Modificar_Casos
     End Sub
 #End Region
 
-    
+#Region "Limpiar Avance"
+    'EFECTO: Función que se utiliza para limpiar todos los textboxes del avance
+    'RECIBE: No recibe parametros
+    'DEVUELVE: Hace vacio todos los textboxes
+    Sub AvanceLimpiar()
+        txtFecha_Avance.Text = String.Empty
+        txtDetalle_Avance.Text = String.Empty
+    End Sub
+#End Region
+
+
 
 
 End Class

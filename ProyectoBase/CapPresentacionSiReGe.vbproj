@@ -148,6 +148,26 @@
   <ItemGroup>
     <Compile Include="Clases\Acceso_Datos.vb" />
     <Compile Include="Clases\Funciones.vb" />
+    <Compile Include="DataSet_Casos.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet_Casos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dstCasos.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dstCasos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dstGestiones.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dstGestiones.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dstInformes.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dstInformes.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Buscador_Casos-SistemaRegistroGestiones.aspx.designer.vb">
       <DependentUpon>Buscador_Casos-SistemaRegistroGestiones.aspx</DependentUpon>
     </Compile>
@@ -282,6 +302,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Formularios\Bitacora_Gestion.rdlc" />
+    <EmbeddedResource Include="Formularios\Report_Caso.rdlc" />
+    <EmbeddedResource Include="Formularios\Report_Gestion.rdlc" />
+    <EmbeddedResource Include="Formularios\Report_Informe.rdlc" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -290,6 +314,50 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="dstGestiones.xsc">
+      <DependentUpon>dstGestiones.xsd</DependentUpon>
+    </Content>
+    <Content Include="DataSet_Casos.xsc">
+      <DependentUpon>DataSet_Casos.xsd</DependentUpon>
+    </Content>
+    <None Include="DataSet_Casos.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet_Casos.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="DataSet_Casos.xss">
+      <DependentUpon>DataSet_Casos.xsd</DependentUpon>
+    </Content>
+    <Content Include="dstCasos.xsc">
+      <DependentUpon>dstCasos.xsd</DependentUpon>
+    </Content>
+    <None Include="dstCasos.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dstCasos.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="dstCasos.xss">
+      <DependentUpon>dstCasos.xsd</DependentUpon>
+    </Content>
+    <None Include="dstGestiones.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dstGestiones.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="dstGestiones.xss">
+      <DependentUpon>dstGestiones.xsd</DependentUpon>
+    </Content>
+    <Content Include="dstInformes.xsc">
+      <DependentUpon>dstInformes.xsd</DependentUpon>
+    </Content>
+    <None Include="dstInformes.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dstInformes.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="dstInformes.xss">
+      <DependentUpon>dstInformes.xsd</DependentUpon>
+    </Content>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

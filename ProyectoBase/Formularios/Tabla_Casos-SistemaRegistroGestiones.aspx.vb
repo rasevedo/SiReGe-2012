@@ -3,6 +3,7 @@ Imports CapEntidadesSiReGe
 Imports System.Data
 Imports System.Data.SqlClient
 Imports System.Configuration
+Imports Microsoft.Reporting.WebForms
 Imports System.Collections
 Imports AjaxControlToolkit
 Imports System.Web
@@ -56,9 +57,8 @@ Public Class Tabla_Casos
     End Sub
 
     'Toda la informacion detro de este buton funcionan para la exportacion de datos
-    Protected Sub btnExportar_Click(sender As Object, e As EventArgs) Handles btnExportar.Click
-        PrepararGridView_Export(gvwCasos)
-        ExportarGridView()
+    Protected Sub btnExportar_Click(sender As Object, e As EventArgs) Handles btnExportar.Click       
+        ExportarCasosExcel("Casos_Tabla")
     End Sub
 
     Protected Sub btnExportar_Word_Click(sender As Object, e As EventArgs) Handles btnExportar_Word.Click
@@ -94,53 +94,33 @@ Public Class Tabla_Casos
     'EFECTO: Función que se útiliza para exportar la información presente a word. Durante este build se utilizará este metodo se espera en el siguiente prototipo resolverlo por medio de ReportViewer 11
     'RECIBE: Recibe como parametros todas las filas seleccionadas con un check en el gridview
     'DEVUELVE: Un archivo .xls el cual contiene todas las filas del gridview seleccionadas
-    Private Sub ExportarGridView()
-        Dim attachment As String = "attachment; filename=Casos.xls"
-        Response.ClearContent()
-        Response.AddHeader("content-disposition", attachment)
-        Response.ContentType = "application/ms-excel"
-        Dim sw As StringWriter = New StringWriter()
-        Dim htw As HtmlTextWriter = New HtmlTextWriter(sw)
-        Dim frm As HtmlForm = New HtmlForm()
-        gvwCasos.Parent.Controls.Add(frm)
-        frm.Attributes("runat") = "server"
-        frm.Controls.Add(gvwCasos)
-        frm.RenderControl(htw)
-        Response.Write(sw.ToString())
-        Response.[End]()
-    End Sub
+    Private Sub ExportarCasosExcel(ByVal fileName As String)
+        Dim con As New SqlConnection(ConfigurationManager.ConnectionStrings("bda_SIREGE_Connection").ToString())
+        Try
+            Dim adp As New SqlDataAdapter("palMostrarCasos", con)
+            Dim ds As New dstCasos()
+            adp.Fill(ds, "palMostrarCasos")
+            Dim datasource As New ReportDataSource("DataSet_Casos", ds.Tables(0))
 
-    'EFECTO: Función que se utilizá para controlar un error que poseé ExportGridView()
-    'RECIBE: NO RECIBE NADA
-    'DEVUELVE: NO DEVUELVE
-    Public Overrides Sub VerifyRenderingInServerForm(ByVal control As Control)
-    End Sub
+            Dim warnings As Warning()
+            Dim streams As String()
+            Dim MIMETYPE As String = String.Empty
+            Dim encoding As String = String.Empty
+            Dim extension As String = String.Empty
 
-    'EFECTO: Si la opción dentro de la tabla es distinto a un checkbox, dropdownlist o linkbutton este sera preparado para tambien ser exportado
-    'RECIBE: El gridview presente GridViewCasos
-    'DEVUELVE: NO DEVUELVE
-    Private Sub PrepararGridView_Export(ByVal gv As Control)
-        Dim lb As LinkButton = New LinkButton()
-        Dim l As Literal = New Literal()
-        Dim name As String = String.Empty
-        For i As Integer = 0 To gv.Controls.Count - 1
-            If gv.Controls(i).[GetType]() = GetType(LinkButton) Then
-                l.Text = (TryCast(gv.Controls(i), LinkButton)).Text
-                gv.Controls.Remove(gv.Controls(i))
-                gv.Controls.AddAt(i, l)
-            ElseIf gv.Controls(i).[GetType]() = GetType(DropDownList) Then
-                l.Text = (TryCast(gv.Controls(i), DropDownList)).SelectedItem.Text
-                gv.Controls.Remove(gv.Controls(i))
-                gv.Controls.AddAt(i, l)
-            ElseIf gv.Controls(i).[GetType]() = GetType(CheckBox) Then
-                l.Text = If((TryCast(gv.Controls(i), CheckBox)).Checked, "True", "False")
-                gv.Controls.Remove(gv.Controls(i))
-                gv.Controls.AddAt(i, l)
-            End If
-            If gv.Controls(i).HasControls() Then
-                PrepararGridView_Export(gv.Controls(i))
-            End If
-        Next
+            Dim rptviewer As New ReportViewer()
+            rptviewer.ProcessingMode = ProcessingMode.Local
+            rptviewer.LocalReport.ReportPath = "C:\Users\Usuario01\Documents\Visual Studio 2012\Projects\SistemaRegistroGestiones\ProyectoBase\Formularios\Report_Caso.rdlc"
+            rptviewer.LocalReport.DataSources.Add(datasource)
+            Dim bytes As Byte() = rptviewer.LocalReport.Render("Excel", Nothing, MIMETYPE, encoding, extension, streams, warnings)
+            Response.Buffer = True
+            Response.Clear()
+            Response.ContentType = MIMETYPE
+            Response.AddHeader("content-disposition", "attachment; filename=" & fileName & "." & extension)
+            Response.BinaryWrite(bytes)
+            Response.Flush()
+        Catch ex As Exception
+        End Try
     End Sub
 #End Region
 
@@ -221,9 +201,6 @@ Public Class Tabla_Casos
 
     Protected Sub btnBuscador_Click(sender As Object, e As EventArgs) Handles btnBuscador.Click
         Response.Redirect("Buscador_Casos-SistemaRegistroGestiones.aspx")
-
-
-
     End Sub
 
 

@@ -26,10 +26,10 @@
                                  <div class="col-md-2 col-md-offset--1">
                                     <div class="form-group">
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <asp:Button Text="Nuevo" ID="btnAgregar"  Width="170px" runat="server" OnClick="btnAgregar_Click" />
-                                        <asp:Button Text="Borrar" ID="btnBorrar"  Width="170px" runat="server" OnClick="btnBorrar_Click" />
-                                        <asp:Button Text="Exportar" ID="btnExportar"  Width="170px" runat="server" OnClick="btnExportar_Click" />
-                                        <asp:Button Text="Volver" ID="btnVolver"  Width="170px" runat="server" OnClick="btnVolver_Click" />
+                                        <asp:Button Text="Nuevo" ID="btnAgregar"  Width="85px" Height="45px" runat="server" OnClick="btnAgregar_Click" />
+                                        <asp:Button Text="Borrar" ID="btnBorrar"  Width="85px" Height="45px" runat="server" OnClick="btnBorrar_Click" />
+                                        <asp:Button Text="Exportar Todo" ID="btnExportar"  Width="100px" Height="45px" runat="server" OnClick="btnExportar_Click" />
+                                        <asp:Button Text="Volver" ID="btnVolver" Width="85px" Height="45px" runat="server" OnClick="btnVolver_Click" />
                                     </div>
                                 </div>
                                 <div class="col-md-2 col-md-offset-0">
@@ -44,7 +44,7 @@
                                  <div class="col-md-4 col-md-offset--1">
                                     <div class="form-group">
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                                  
-                                        <asp:Button ID="btnBuscador" runat="server" Width="125px" Text="Buscador" OnClick="btnBuscador_Click"/>
+                                        <asp:Button ID="btnBuscador" runat="server" Width="85px" Height="45px" Text="Buscador" OnClick="btnBuscador_Click"/>
                                     </div>
                                 </div> 
                                 <div class="col-md-2 col-md-offset-0">
@@ -72,7 +72,7 @@
                                         <asp:CheckBox ID="chkSeleccionar" runat="server" onclick="GridCheckOne(this)"></asp:CheckBox>
                                     </ItemTemplate>
                                 </asp:TemplateField> 
-                               <asp:BoundField DataField="intIdInforme" HeaderText="Codigo del Informe" ReadOnly="True" InsertVisible="False" ></asp:BoundField>
+                               <asp:BoundField DataField="intIdInforme" HeaderText="Código del Informe" ReadOnly="True" InsertVisible="False" ></asp:BoundField>
                                <asp:BoundField DataField="vchTituloInforme" HeaderText="Título del Informe" ></asp:BoundField>
                                <asp:BoundField DataField="vchNombreFuncionario" HeaderText="Funcionario que Tramita" ></asp:BoundField>
                                <asp:BoundField DataField="vchTipoInforme" HeaderText="Tipo de Informe" ></asp:BoundField>
@@ -139,7 +139,7 @@
                                <table border="0">
                                    <tr>
                                        <td> 
-                                          <asp:Label ID="lblPop_Id_Informe" runat="server" Text="Codigo de Informe"></asp:Label> 
+                                          <asp:Label ID="lblPop_Id_Informe" runat="server" Text="Código de Informe"></asp:Label> 
                                        </td>
                                         <td>               
                                            <asp:TextBox ID="txtPop_Id_Informe" runat="server" Enabled="false" size="30" style="text-align: left"/>

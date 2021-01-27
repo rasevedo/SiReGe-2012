@@ -27,14 +27,10 @@ Public Class Formulario_Insertar_Informes
     Protected Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
         Dim dts As New Entidad_Informe
         Dim func As New Datos_Informe
-
-
-
-
         If txtTitulo_Informe.Text <> "" And txtNombre_Funcionario.Text <> "" And ddlTipo_Informe.Text <> "" Then
             Try
 
-                Dim dt As DateTime? = Nothing
+                Dim dt As DateTime? = Convert.ToDateTime(txtFecha_Aprobacion.Text)
 
                 dts._tituloInforme = txtTitulo_Informe.Text
                 dts._nombreFuncionario = txtNombre_Funcionario.Text
