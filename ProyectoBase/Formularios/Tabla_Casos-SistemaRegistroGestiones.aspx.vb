@@ -98,9 +98,9 @@ Public Class Tabla_Casos
         Dim con As New SqlConnection(ConfigurationManager.ConnectionStrings("bda_SIREGE_Connection").ToString())
         Try
             Dim adp As New SqlDataAdapter("palMostrarCasos", con)
-            Dim ds As New dstCasos()
-            adp.Fill(ds, "palMostrarCasos")
-            Dim datasource As New ReportDataSource("DataSet_Casos", ds.Tables(0))
+            '   Dim ds As New dstCasos()
+            '  adp.Fill(ds, "palMostrarCasos")
+            ' Dim datasource As New ReportDataSource("DataSet_Casos", ds.Tables(0))
 
             Dim warnings As Warning()
             Dim streams As String()
@@ -110,8 +110,8 @@ Public Class Tabla_Casos
 
             Dim rptviewer As New ReportViewer()
             rptviewer.ProcessingMode = ProcessingMode.Local
-            rptviewer.LocalReport.ReportPath = "C:\Users\Usuario01\Documents\Visual Studio 2012\Projects\SistemaRegistroGestiones\ProyectoBase\Formularios\Report_Caso.rdlc"
-            rptviewer.LocalReport.DataSources.Add(datasource)
+            '  rptviewer.LocalReport.ReportPath = "C:\Users\Usuario01\Documents\Visual Studio 2012\Projects\SistemaRegistroGestiones\ProyectoBase\Formularios\Report_Caso.rdlc"
+            ' rptviewer.LocalReport.DataSources.Add(datasource)
             Dim bytes As Byte() = rptviewer.LocalReport.Render("Excel", Nothing, MIMETYPE, encoding, extension, streams, warnings)
             Response.Buffer = True
             Response.Clear()

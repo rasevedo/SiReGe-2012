@@ -22,9 +22,25 @@ Public Class Datos_Informe
             cmd.Parameters.AddWithValue("@vchNombreFuncionario", dts._nombreFuncionario)
             cmd.Parameters.AddWithValue("@vchTipoInforme", dts._tipoInforme)
             cmd.Parameters.AddWithValue("@vchNumeroOficio", dts._numeroOficio)
-            cmd.Parameters.AddWithValue("@dtiFechaAprobacion", dts._fechaAprobacion)
-            cmd.Parameters.AddWithValue("@dtiFechaCulminacion", dts._fechaCulminacion)
-            cmd.Parameters.AddWithValue("@dtiFechaTraslado", dts._fechaTraslado)
+
+            If dts._fechaAprobacion = "#12:00:00 AM#" Then
+                cmd.Parameters.AddWithValue("@dtiFechaAprobacion", System.DBNull.Value)
+            Else
+                cmd.Parameters.AddWithValue("@dtiFechaAprobacion", dts._fechaAprobacion)
+            End If
+
+            If dts._fechaCulminacion = "#12:00:00 AM#" Then
+                cmd.Parameters.AddWithValue("@dtiFechaCulminacion", System.DBNull.Value)
+            Else
+                cmd.Parameters.AddWithValue("@dtiFechaCulminacion", dts._fechaCulminacion)
+            End If
+
+            If dts._fechaTraslado = "#12:00:00 AM#" Then
+                cmd.Parameters.AddWithValue("@dtiFechaTraslado", System.DBNull.Value)
+            Else
+                cmd.Parameters.AddWithValue("@dtiFechaTraslado", dts._fechaTraslado)
+            End If
+
             cmd.Parameters.AddWithValue("@vchAvanceInforme", dts._avanceInforme)
             cmd.Parameters.AddWithValue("@vchRemitido", dts._remitido)
             cmd.Parameters.AddWithValue("@vchHallazgo", dts._hallazgo)
@@ -117,9 +133,25 @@ Public Class Datos_Informe
             cmd.Parameters.AddWithValue("@vchNombreFuncionario", dts._nombreFuncionario)
             cmd.Parameters.AddWithValue("@vchTipoInforme", dts._tipoInforme)
             cmd.Parameters.AddWithValue("@vchNumeroOficio", dts._numeroOficio)
-            cmd.Parameters.AddWithValue("@dtiFechaAprobacion", dts._fechaAprobacion)
-            cmd.Parameters.AddWithValue("@dtiFechaCulminacion", dts._fechaCulminacion)
-            cmd.Parameters.AddWithValue("@dtiFechaTraslado", dts._fechaTraslado)
+
+            If dts._fechaAprobacion = "#12:00:00 AM#" Then
+                cmd.Parameters.AddWithValue("@dtiFechaAprobacion", System.DBNull.Value)
+            Else
+                cmd.Parameters.AddWithValue("@dtiFechaAprobacion", dts._fechaAprobacion)
+            End If
+
+            If dts._fechaCulminacion = "#12:00:00 AM#" Then
+                cmd.Parameters.AddWithValue("@dtiFechaCulminacion", System.DBNull.Value)
+            Else
+                cmd.Parameters.AddWithValue("@dtiFechaCulminacion", dts._fechaCulminacion)
+            End If
+
+            If dts._fechaTraslado = "#12:00:00 AM#" Then
+                cmd.Parameters.AddWithValue("@dtiFechaTraslado", System.DBNull.Value)
+            Else
+                cmd.Parameters.AddWithValue("@dtiFechaTraslado", dts._fechaTraslado)
+            End If
+
             cmd.Parameters.AddWithValue("@vchAvanceInforme", dts._avanceInforme)
             cmd.Parameters.AddWithValue("@vchRemitido", dts._remitido)
             cmd.Parameters.AddWithValue("@vchHallazgo", dts._hallazgo)

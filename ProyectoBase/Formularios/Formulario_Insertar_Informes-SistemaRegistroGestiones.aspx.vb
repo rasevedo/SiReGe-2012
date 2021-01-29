@@ -30,7 +30,7 @@ Public Class Formulario_Insertar_Informes
         If txtTitulo_Informe.Text <> "" And txtNombre_Funcionario.Text <> "" And ddlTipo_Informe.Text <> "" Then
             Try
 
-                Dim dt As DateTime? = Convert.ToDateTime(txtFecha_Aprobacion.Text)
+                ' Dim dt As DateTime? = Convert.ToDateTime(txtFecha_Aprobacion.Text)
 
                 dts._tituloInforme = txtTitulo_Informe.Text
                 dts._nombreFuncionario = txtNombre_Funcionario.Text
@@ -38,25 +38,22 @@ Public Class Formulario_Insertar_Informes
                 dts._tipoInforme = ddlTipo_Informe.Text
 
                 If txtFecha_Aprobacion.Text = "" Then
-                    dts._fechaAprobacion = ("01/01/2000 00:00:00")
+                    dts._fechaAprobacion = Nothing
                 Else
                     dts._fechaAprobacion = txtFecha_Aprobacion.Text
                 End If
-                'dts._fechaAprobacion = txtFecha_Aprobacion.Text
 
                 If txtFecha_Culminacion.Text = "" Then
-                    dts._fechaCulminacion = ("01/01/2000 00:00:00")
+                    dts._fechaCulminacion = Nothing
                 Else
                     dts._fechaCulminacion = txtFecha_Culminacion.Text
                 End If
-                'dts._fechaCulminacion = txtFecha_Culminacion.Text
 
                 If txtFecha_Traslado.Text = "" Then
-                    dts._fechaTraslado = ("01/01/2000 00:00:00")
+                    dts._fechaTraslado = Nothing
                 Else
                     dts._fechaTraslado = txtFecha_Traslado.Text
                 End If
-                'dts._fechaTraslado = txtFecha_Traslado.Text
 
                 dts._avanceInforme = ddlAvance_Informe.Text
                 dts._remitido = txtRemitido.Text
@@ -137,4 +134,5 @@ Public Class Formulario_Insertar_Informes
 #End Region
 
 
+    
 End Class

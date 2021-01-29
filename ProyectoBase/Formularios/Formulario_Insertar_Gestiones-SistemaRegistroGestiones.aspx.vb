@@ -63,8 +63,8 @@ Public Class Formulario_Insertar_Gestiones
         Try
             con.Open()
             Dim sdr As SqlDataReader = cmd.ExecuteReader()
-            While sdr.Read()
-                txtTipo_Detalle_Letra_Dimension.Text = sdr(0).ToString
+            While sdr.Read()       
+                    txtTipo_Detalle_Letra_Dimension.Text = sdr(0).ToString
             End While
         Catch ex As Exception
             Throw ex
@@ -82,7 +82,7 @@ Public Class Formulario_Insertar_Gestiones
     Protected Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
         Dim dts As New Entidad_Gestiones
         Dim func As New Datos_Gestiones
-        If rblTipo_Gestion.Text <> "" And txtNombre_Usuario.Text <> "" And txtFecha_Ingreso.Text <> "" And txtNombre_Funcionario.Text <> "" And ddlFuente_Generadora.Text <> "" And ddlTipo_Servicio.Text <> "" And ddlDescripcion_Unidad.Text <> "" And ddlLetra_Dimension.Text <> "" And ddlTipo_Usuario.Text <> "" And txtAsunto.Text <> "" Then
+        If rblTipo_Gestion.Text <> "" And txtNombre_Usuario.Text <> "" And txtFecha_Ingreso.Text <> "" And txtNombre_Funcionario.Text <> "" And ddlFuente_Generadora.Text <> "" And ddlTipo_Servicio.Text <> "" And ddlTipo_Usuario.Text <> "" And txtAsunto.Text <> "" Then
             Try
                 dts._tipoGestiones = rblTipo_Gestion.Text
                 If Not String.IsNullOrEmpty(txtCedula_Usuario.Text) Then
@@ -100,7 +100,14 @@ Public Class Formulario_Insertar_Gestiones
                 dts._nombreCentroEducativo = txtNombre_CE.Text
                 dts._idUnidad = ddlDescripcion_Unidad.Text
                 dts._numeroOficio = txtNumero_Oficio.Text
-                dts._idDimension = ddlLetra_Dimension.Text
+                '  dts._idDimension = ddlLetra_Dimension.Text
+
+                If ddlLetra_Dimension.Text = "" Then
+                    dts._idDimension = 1
+                Else
+                    dts._idDimension = ddlLetra_Dimension.Text
+                End If
+
                 dts._tipoUsuario = ddlTipo_Usuario.Text
                 dts._detalleGestiones = txtAsunto.Text
                 dts._respuestaGestiones = txtRespuesta.Text

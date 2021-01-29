@@ -96,11 +96,10 @@ Public Class Formulario_Insertar_Casos
                 dts._numeroOficio = txtNumero_Oficio.Text
 
                 If txtFecha_Oficio.Text = "" Then
-                    dts._fechaOficio = ("01/01/2000 00:00:00")
+                    dts._fechaOficio = Nothing
                 Else
                     dts._fechaOficio = txtFecha_Oficio.Text
                 End If
-                ' dts._fechaOficio = txtFecha_Oficio.Text
 
                 dts._condicionCasos = ddlCondicion_Caso.Text
                 dts._idUnidad = ddlDescripcion_Unidad.Text
@@ -112,18 +111,16 @@ Public Class Formulario_Insertar_Casos
                 dts._respuestaCasos = txtRespuesta.Text
 
                 If txtFecha_Respuesta_Casos.Text = "" Then
-                    dts._fechaRespuestaCasos = ("01/01/2000 00:00:00")
+                    dts._fechaRespuestaCasos = Nothing
                 Else
                     dts._fechaRespuestaCasos = txtFecha_Respuesta_Casos.Text
                 End If
 
                 If txtFecha_Cerrado_Casos.Text = "" Then
-                    dts._fechaCerradoCasos = ("01/01/2000 00:00:00")
+                    dts._fechaCerradoCasos = Nothing
                 Else
                     dts._fechaCerradoCasos = txtFecha_Cerrado_Casos.Text
                 End If
-               
-                'dts._fechaCerradoCasos = txtFecha_Cerrado_Casos.Text
 
                 If func.insertarCasos(dts) Then
                     ModalPopupExtender_Exito.Show()

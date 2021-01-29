@@ -30,13 +30,11 @@ Public Class Datos_Casos
             cmd.Parameters.AddWithValue("@intIdUnidad", dts._idUnidad)
             cmd.Parameters.AddWithValue("@vchNumeroOficio", dts._numeroOficio)
 
-            'If dts._fechaOficio Is Nothing Then
-            ' cmd.Parameters.AddWithValue("@dtiFechaOficio", DBNull.Value) ' Or DBNull.Value depending on the framework, I believe
-            ' Else
-            '  cmd.Parameters.AddWithValue("@dtiFechaOficio", DateTime.Parse(dts._fechaOficio))
-            '  End If
-
-            cmd.Parameters.AddWithValue("@dtiFechaOficio", dts._fechaOficio)
+            If dts._fechaOficio = "#12:00:00 AM#" Then
+                cmd.Parameters.AddWithValue("@dtiFechaOficio", System.DBNull.Value)
+            Else
+                cmd.Parameters.AddWithValue("@dtiFechaOficio", dts._fechaOficio)
+            End If
 
             cmd.Parameters.AddWithValue("@intIdDimension", dts._idDimension)
             cmd.Parameters.AddWithValue("@vchCondicionCasos", dts._condicionCasos)
@@ -46,22 +44,18 @@ Public Class Datos_Casos
             cmd.Parameters.AddWithValue("@vchVeredictoValoracionIngreso", dts._veredictoValoracionIngreso)
             cmd.Parameters.AddWithValue("@vchTrazabilidadCasos", dts._trazabilidadCasos)
 
-            '  If dts._fechaRespuestaCasos Is Nothing Then
-            'cmd.Parameters.AddWithValue("@dtiFechaRespuestaCasos", DBNull.Value) ' Or DBNull.Value depending on the framework, I believe
-            ' Else
-            ' cmd.Parameters.AddWithValue("@dtiFechaRespuestaCasos", DateTime.Parse(dts._fechaRespuestaCasos))
-            ' End If
+            If dts._fechaRespuestaCasos = "#12:00:00 AM#" Then
+                cmd.Parameters.AddWithValue("@dtiFechaRespuestaCasos", System.DBNull.Value)
+            Else
+                cmd.Parameters.AddWithValue("@dtiFechaRespuestaCasos", dts._fechaRespuestaCasos)
+            End If
 
-            cmd.Parameters.AddWithValue("@dtiFechaRespuestaCasos", dts._fechaRespuestaCasos)
+            If dts._fechaCerradoCasos = "#12:00:00 AM#" Then
+                cmd.Parameters.AddWithValue("@dtiFechaCerradoCasos", System.DBNull.Value)
+            Else
+                cmd.Parameters.AddWithValue("@dtiFechaCerradoCasos", dts._fechaCerradoCasos)
+            End If
 
-            ' If dts._fechaCerradoCasos Is Nothing Then
-            'cmd.Parameters.AddWithValue("@dtiFechaCerradoCasos", DBNull.Value) ' Or DBNull.Value depending on the framework, I believe
-            ' Else
-            ' cmd.Parameters.AddWithValue("@dtiFechaCerradoCasos", DateTime.Parse(dts._fechaCerradoCasos))
-            ' End If
-
-
-            cmd.Parameters.AddWithValue("@dtiFechaCerradoCasos", dts._fechaCerradoCasos)
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
@@ -157,7 +151,13 @@ Public Class Datos_Casos
             cmd.Parameters.AddWithValue("@vchNombreCentroEducativo", dts._nombreCentroEducativo)
             cmd.Parameters.AddWithValue("@intIdUnidad", dts._idUnidad)
             cmd.Parameters.AddWithValue("@vchNumeroOficio", dts._numeroOficio)
-            cmd.Parameters.AddWithValue("@dtiFechaOficio", dts._fechaOficio)
+
+            If dts._fechaOficio = "#12:00:00 AM#" Then
+                cmd.Parameters.AddWithValue("@dtiFechaOficio", System.DBNull.Value)
+            Else
+                cmd.Parameters.AddWithValue("@dtiFechaOficio", dts._fechaOficio)
+            End If
+
             cmd.Parameters.AddWithValue("@intIdDimension", dts._idDimension)
             cmd.Parameters.AddWithValue("@vchCondicionCasos", dts._condicionCasos)
             cmd.Parameters.AddWithValue("@vchDetalleInconformidadCasos", dts._detalleInconformidadCasos)
@@ -165,8 +165,18 @@ Public Class Datos_Casos
             cmd.Parameters.AddWithValue("@vchValoracionAdmisibilidad", dts._valoracionAdmisibilidad)
             cmd.Parameters.AddWithValue("@vchVeredictoValoracionIngreso", dts._veredictoValoracionIngreso)
             cmd.Parameters.AddWithValue("@vchTrazabilidadCasos", dts._trazabilidadCasos)
-            cmd.Parameters.AddWithValue("@dtiFechaRespuestaCasos", dts._fechaRespuestaCasos)
-            cmd.Parameters.AddWithValue("@dtiFechaCerradoCasos", dts._fechaCerradoCasos)
+
+            If dts._fechaRespuestaCasos = "#12:00:00 AM#" Then
+                cmd.Parameters.AddWithValue("@dtiFechaRespuestaCasos", System.DBNull.Value)
+            Else
+                cmd.Parameters.AddWithValue("@dtiFechaRespuestaCasos", dts._fechaRespuestaCasos)
+            End If
+
+            If dts._fechaCerradoCasos = "#12:00:00 AM#" Then
+                cmd.Parameters.AddWithValue("@dtiFechaCerradoCasos", System.DBNull.Value)
+            Else
+                cmd.Parameters.AddWithValue("@dtiFechaCerradoCasos", dts._fechaCerradoCasos)
+            End If
             If cmd.ExecuteNonQuery Then
                 Return True
             Else

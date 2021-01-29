@@ -76,7 +76,7 @@
             <div id="grdCharges" runat="server"  style="width: 1221px; overflow: auto; height: 450px">
 
                        <asp:GridView ID="gvwInforme" runat="server" CellPadding="10" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="2px" AutoGenerateColumns="False" DataKeyNames="intIdInforme" AllowPaging="True" AllowSorting="True" CellSpacing="10" HorizontalAlign="Center" style="margin-left: 9px" Width="1199px">
-                           <Columns>
+                            <Columns>
                                <asp:buttonfield buttontype="Button" commandname="Select" text="Detalle"/>
                                <asp:HyperLinkField Text="Modificar" DataNavigateUrlFields="intIdInforme" DataNavigateUrlFormatString="Modificar_Informes-SistemaRegistroGestiones.aspx?intIdInforme={0}" />
                                <asp:TemplateField>
@@ -87,7 +87,7 @@
                                         <asp:CheckBox ID="chkSeleccionar" runat="server" onclick="GridCheckOne(this)"></asp:CheckBox>
                                     </ItemTemplate>
                                 </asp:TemplateField> 
-                               <asp:BoundField DataField="intIdInforme" HeaderText="Codigo del Informe" ReadOnly="True" InsertVisible="False" ></asp:BoundField>
+                               <asp:BoundField DataField="intIdInforme" HeaderText="Código del Informe" ReadOnly="True" InsertVisible="False" ></asp:BoundField>
                                <asp:BoundField DataField="vchTituloInforme" HeaderText="Título del Informe" ></asp:BoundField>
                                <asp:BoundField DataField="vchNombreFuncionario" HeaderText="Funcionario que Tramita" ></asp:BoundField>
                                <asp:BoundField DataField="vchTipoInforme" HeaderText="Tipo de Informe" ></asp:BoundField>

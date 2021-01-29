@@ -49,19 +49,19 @@ Public Class Modificar_Informe
             dts._tipoInforme = ddlTipo_Informe.Text
 
             If txtFecha_Aprobacion.Text = "" Then
-                dts._fechaAprobacion = ("01/01/2000 00:00:00")
+                dts._fechaAprobacion = Nothing
             Else
                 dts._fechaAprobacion = txtFecha_Aprobacion.Text
             End If
 
             If txtFecha_Culminacion.Text = "" Then
-                dts._fechaCulminacion = ("01/01/2000 00:00:00")
+                dts._fechaCulminacion = Nothing
             Else
                 dts._fechaCulminacion = txtFecha_Culminacion.Text
             End If
 
             If txtFecha_Traslado.Text = "" Then
-                dts._fechaTraslado = ("01/01/2000 00:00:00")
+                dts._fechaTraslado = Nothing
             Else
                 dts._fechaTraslado = txtFecha_Traslado.Text
             End If
@@ -136,10 +136,8 @@ Public Class Modificar_Informe
             Me.txtId_Informe.Text = dr("intIdInforme").ToString()
             Me.txtTitulo_Informe.Text = dr("vchTituloInforme").ToString()
             Me.txtNombre_Funcionario.Text = dr("vchNombreFuncionario").ToString()
-            '' Me.intIdEmpleados.Text = dr("intIdEmpleados").ToString()
-            Me.txtTitulo_Informe.Text = dr("vchTipoInforme").ToString()
+            Me.ddlTipo_Informe.Text = dr("vchTipoInforme").ToString()
             Me.txtNumero_Oficio.Text = dr("vchNumeroOficio").ToString()
-            Me.txtTitulo_Informe.Text = dr("vchTipoInforme").ToString()
             Me.txtFecha_Aprobacion.Text = dr("dtiFechaAprobacion").ToString()
             Me.txtFecha_Culminacion.Text = dr("dtiFechaCulminacion").ToString()
             Me.txtFecha_Traslado.Text = dr("dtiFechaTraslado").ToString()

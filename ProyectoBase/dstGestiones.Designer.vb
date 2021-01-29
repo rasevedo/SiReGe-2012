@@ -321,7 +321,7 @@ Partial Public Class dstGestiones
         
         Private columnvchLetraDimension As Global.System.Data.DataColumn
         
-        Private columnvchDescripcionTipoDimension As Global.System.Data.DataColumn
+        Private columnvchDescripcionLetraDimension As Global.System.Data.DataColumn
         
         Private columnvchTipoUsuario As Global.System.Data.DataColumn
         
@@ -518,9 +518,9 @@ Partial Public Class dstGestiones
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property vchDescripcionTipoDimensionColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property vchDescripcionLetraDimensionColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnvchDescripcionTipoDimension
+                Return Me.columnvchDescripcionLetraDimension
             End Get
         End Property
         
@@ -604,12 +604,12 @@ Partial Public Class dstGestiones
                     ByVal vchNumeroOficio As String,  _
                     ByVal vchTipoDimension As String,  _
                     ByVal vchLetraDimension As String,  _
-                    ByVal vchDescripcionTipoDimension As String,  _
+                    ByVal vchDescripcionLetraDimension As String,  _
                     ByVal vchTipoUsuario As String,  _
                     ByVal vchDetalleGestiones As String,  _
                     ByVal vchRespuestaGestiones As String) As palMostrarGestionesRow
             Dim rowpalMostrarGestionesRow As palMostrarGestionesRow = CType(Me.NewRow,palMostrarGestionesRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, vchTipoGestiones, intCedulaUsuario, vchNombreUsuario, dtiFechaIngreso, vchNombreFuncionario, vchConfidencialidadGestiones, vchFuenteGeneradora, vchTipoServicio, vchDireccionRegional, vchSupervicionGestiones, vchNombreCentroEducativo, vchDescripcionUnidad, vchDescripcionDespacho, vchDescripcionDireccion, vchDescripcionDepartamento, vchNumeroOficio, vchTipoDimension, vchLetraDimension, vchDescripcionTipoDimension, vchTipoUsuario, vchDetalleGestiones, vchRespuestaGestiones}
+            Dim columnValuesArray() As Object = New Object() {Nothing, vchTipoGestiones, intCedulaUsuario, vchNombreUsuario, dtiFechaIngreso, vchNombreFuncionario, vchConfidencialidadGestiones, vchFuenteGeneradora, vchTipoServicio, vchDireccionRegional, vchSupervicionGestiones, vchNombreCentroEducativo, vchDescripcionUnidad, vchDescripcionDespacho, vchDescripcionDireccion, vchDescripcionDepartamento, vchNumeroOficio, vchTipoDimension, vchLetraDimension, vchDescripcionLetraDimension, vchTipoUsuario, vchDetalleGestiones, vchRespuestaGestiones}
             rowpalMostrarGestionesRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowpalMostrarGestionesRow)
             Return rowpalMostrarGestionesRow
@@ -657,7 +657,7 @@ Partial Public Class dstGestiones
             Me.columnvchNumeroOficio = MyBase.Columns("vchNumeroOficio")
             Me.columnvchTipoDimension = MyBase.Columns("vchTipoDimension")
             Me.columnvchLetraDimension = MyBase.Columns("vchLetraDimension")
-            Me.columnvchDescripcionTipoDimension = MyBase.Columns("vchDescripcionTipoDimension")
+            Me.columnvchDescripcionLetraDimension = MyBase.Columns("vchDescripcionLetraDimension")
             Me.columnvchTipoUsuario = MyBase.Columns("vchTipoUsuario")
             Me.columnvchDetalleGestiones = MyBase.Columns("vchDetalleGestiones")
             Me.columnvchRespuestaGestiones = MyBase.Columns("vchRespuestaGestiones")
@@ -704,8 +704,8 @@ Partial Public Class dstGestiones
             MyBase.Columns.Add(Me.columnvchTipoDimension)
             Me.columnvchLetraDimension = New Global.System.Data.DataColumn("vchLetraDimension", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnvchLetraDimension)
-            Me.columnvchDescripcionTipoDimension = New Global.System.Data.DataColumn("vchDescripcionTipoDimension", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnvchDescripcionTipoDimension)
+            Me.columnvchDescripcionLetraDimension = New Global.System.Data.DataColumn("vchDescripcionLetraDimension", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnvchDescripcionLetraDimension)
             Me.columnvchTipoUsuario = New Global.System.Data.DataColumn("vchTipoUsuario", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnvchTipoUsuario)
             Me.columnvchDetalleGestiones = New Global.System.Data.DataColumn("vchDetalleGestiones", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -735,12 +735,9 @@ Partial Public Class dstGestiones
             Me.columnvchDescripcionDireccion.MaxLength = 2147483647
             Me.columnvchDescripcionDepartamento.MaxLength = 2147483647
             Me.columnvchNumeroOficio.MaxLength = 50
-            Me.columnvchTipoDimension.AllowDBNull = false
-            Me.columnvchTipoDimension.MaxLength = 50
-            Me.columnvchLetraDimension.AllowDBNull = false
+            Me.columnvchTipoDimension.MaxLength = 100
             Me.columnvchLetraDimension.MaxLength = 5
-            Me.columnvchDescripcionTipoDimension.AllowDBNull = false
-            Me.columnvchDescripcionTipoDimension.MaxLength = 2147483647
+            Me.columnvchDescripcionLetraDimension.MaxLength = 2147483647
             Me.columnvchTipoUsuario.AllowDBNull = false
             Me.columnvchTipoUsuario.MaxLength = 50
             Me.columnvchDetalleGestiones.AllowDBNull = false
@@ -1140,7 +1137,12 @@ Partial Public Class dstGestiones
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property vchTipoDimension() As String
             Get
-                Return CType(Me(Me.tablepalMostrarGestiones.vchTipoDimensionColumn),String)
+                Try 
+                    Return CType(Me(Me.tablepalMostrarGestiones.vchTipoDimensionColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'vchTipoDimension' in table 'palMostrarGestiones' is DBNull."& _ 
+                            "", e)
+                End Try
             End Get
             Set
                 Me(Me.tablepalMostrarGestiones.vchTipoDimensionColumn) = value
@@ -1151,7 +1153,12 @@ Partial Public Class dstGestiones
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property vchLetraDimension() As String
             Get
-                Return CType(Me(Me.tablepalMostrarGestiones.vchLetraDimensionColumn),String)
+                Try 
+                    Return CType(Me(Me.tablepalMostrarGestiones.vchLetraDimensionColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'vchLetraDimension' in table 'palMostrarGestiones' is DBNull"& _ 
+                            ".", e)
+                End Try
             End Get
             Set
                 Me(Me.tablepalMostrarGestiones.vchLetraDimensionColumn) = value
@@ -1160,12 +1167,17 @@ Partial Public Class dstGestiones
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property vchDescripcionTipoDimension() As String
+        Public Property vchDescripcionLetraDimension() As String
             Get
-                Return CType(Me(Me.tablepalMostrarGestiones.vchDescripcionTipoDimensionColumn),String)
+                Try 
+                    Return CType(Me(Me.tablepalMostrarGestiones.vchDescripcionLetraDimensionColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'vchDescripcionLetraDimension' in table 'palMostrarGestiones"& _ 
+                            "' is DBNull.", e)
+                End Try
             End Get
             Set
-                Me(Me.tablepalMostrarGestiones.vchDescripcionTipoDimensionColumn) = value
+                Me(Me.tablepalMostrarGestiones.vchDescripcionLetraDimensionColumn) = value
             End Set
         End Property
         
@@ -1349,6 +1361,42 @@ Partial Public Class dstGestiones
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetvchNumeroOficioNull()
             Me(Me.tablepalMostrarGestiones.vchNumeroOficioColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsvchTipoDimensionNull() As Boolean
+            Return Me.IsNull(Me.tablepalMostrarGestiones.vchTipoDimensionColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetvchTipoDimensionNull()
+            Me(Me.tablepalMostrarGestiones.vchTipoDimensionColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsvchLetraDimensionNull() As Boolean
+            Return Me.IsNull(Me.tablepalMostrarGestiones.vchLetraDimensionColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetvchLetraDimensionNull()
+            Me(Me.tablepalMostrarGestiones.vchLetraDimensionColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsvchDescripcionLetraDimensionNull() As Boolean
+            Return Me.IsNull(Me.tablepalMostrarGestiones.vchDescripcionLetraDimensionColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetvchDescripcionLetraDimensionNull()
+            Me(Me.tablepalMostrarGestiones.vchDescripcionLetraDimensionColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1549,7 +1597,7 @@ Namespace dstGestionesTableAdapters
             tableMapping.ColumnMappings.Add("vchNumeroOficio", "vchNumeroOficio")
             tableMapping.ColumnMappings.Add("vchTipoDimension", "vchTipoDimension")
             tableMapping.ColumnMappings.Add("vchLetraDimension", "vchLetraDimension")
-            tableMapping.ColumnMappings.Add("vchDescripcionTipoDimension", "vchDescripcionTipoDimension")
+            tableMapping.ColumnMappings.Add("vchDescripcionLetraDimension", "vchDescripcionLetraDimension")
             tableMapping.ColumnMappings.Add("vchTipoUsuario", "vchTipoUsuario")
             tableMapping.ColumnMappings.Add("vchDetalleGestiones", "vchDetalleGestiones")
             tableMapping.ColumnMappings.Add("vchRespuestaGestiones", "vchRespuestaGestiones")

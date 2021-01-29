@@ -121,9 +121,17 @@ Public Class Modificar_Gestiones
             dts._direccionRegional = ddl_Direccion_Regional_Educacion.Text
             dts._supervicionGestiones = ddlSupervision.Text
             dts._nombreCentroEducativo = txtNombre_CE.Text
+
             dts._idUnidad = ddlDescripcion_Unidad.Text
+
             dts._numeroOficio = txtNumero_Oficio.Text
-            dts._idDimension = ddlLetra_Dimension.Text
+
+            If ddlLetra_Dimension.Text = "" Then
+                dts._idDimension = 1
+            Else
+                dts._idDimension = ddlLetra_Dimension.Text
+            End If
+
             dts._detalleGestiones = txtAsunto.Text
             dts._respuestaGestiones = txtRespuesta.Text
             If func.modificarGestiones(dts) Then
@@ -150,19 +158,25 @@ Public Class Modificar_Gestiones
     'RECIBE: Solo requiere de la llamada del procedimiento almacenado
     'DEVUELVE: Muestra el formulario de modificación con todos sus espacios escritos con la información actual presente en la fila del gridview
     Private Sub TomarGestion()
+
         Dim strQuery As String = "palAgarrarGestiones"
         Dim con As New SqlConnection(strConnString)
         Dim cmd As New SqlCommand()
-        cmd.Parameters.AddWithValue("@intIdGestiones", id)
+
         cmd.CommandType = CommandType.StoredProcedure
         cmd.CommandText = strQuery
         cmd.Connection = con
+
+        cmd.Parameters.AddWithValue("@intIdGestiones", id)
         Dim da As SqlDataAdapter = New SqlDataAdapter(cmd)
         Dim dt As DataTable = New DataTable()
+
+
         da.Fill(dt)
+
         For Each dr As DataRow In dt.Rows
             Me.txtId_Gestiones.Text = dr("intIdGestiones").ToString()
-            Me.txtNombre_Funcionario.Text = dr("vchNombreFuncionario").ToString()           
+            Me.txtNombre_Funcionario.Text = dr("vchNombreFuncionario").ToString()
             Me.rblTipo_Gestion.Text = dr("vchTipoGestiones").ToString()
             Me.txtCedula_Usuario.Text = dr("intCedulaUsuario").ToString()
             Me.txtNombre_Usuario.Text = dr("vchNombreUsuario").ToString()
@@ -175,19 +189,19 @@ Public Class Modificar_Gestiones
             Me.ddlSupervision.Text = dr("vchSupervicionGestiones").ToString()
             Me.txtNombre_CE.Text = dr("vchNombreCentroEducativo").ToString()
 
-            Me.ddlDescripcion_Unidad.Items.FindByValue(dr("vchDescripcionUnidad").ToString())
-            'If Me.ddlDescripcion_Unidad.Items.FindByValue(dr("vchDescripcionUnidad").ToString()) IsNot Nothing Then
-            'Me.ddlDescripcion_Unidad.SelectedIndex = dr("vchDescripcionUnidad").ToString()
-            '  End If
+            ' Me.ddlDescripcion_Unidad.SelectedValue = ddlDescripcion_Unidad.Items.FindByText(dr("vchDescripcionUnidad")).Value
 
-            ' Me.ddlDescripcion_Unidad.SelectedValue = dr("vchDescripcionUnidad")
             Me.txtDespacho.Text = dr("vchDescripcionDespacho").ToString()
             Me.txtDireccion.Text = dr("vchDescripcionDireccion").ToString()
             Me.txtDepartamento.Text = dr("vchdescripcionDepartamento").ToString()
             Me.txtNumero_Oficio.Text = dr("vchNumeroOficio").ToString()
-            ' Me.ddlTipo_Dimension.DataTextFormatString = dr("vchTipoDimension").ToString()
-            ' Me.ddlLetra_Dimension.DataTextFormatString = dr("vchLetraDimension").ToString()
-            Me.txtTipo_Detalle_Letra_Dimension.Text = dr("vchDescripcionTipoDimension").ToString()
+
+            Me.ddlTipo_Dimension.Text = dr("vchTipoDimension").ToString()
+
+            '  Me.ddlLetra_Dimension.Text = dr("vchLetraDimension").ToString()
+
+            Me.txtTipo_Detalle_Letra_Dimension.Text = dr("vchDescripcionLetraDimension").ToString()
+
             Me.txtAsunto.Text = dr("vchDetalleGestiones").ToString()
             Me.txtRespuesta.Text = dr("vchRespuestaGestiones").ToString()
         Next

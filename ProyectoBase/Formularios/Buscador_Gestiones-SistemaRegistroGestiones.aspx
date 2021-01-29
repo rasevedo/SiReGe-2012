@@ -176,7 +176,7 @@
             <div id="grdCharges" runat="server" style="width: 1209px; overflow: auto; height: 450px; margin-left: 8px;" >                                           
                            <asp:GridView ID="gvwGestiones" runat="server" CellPadding="10" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="2px" AutoGenerateColumns="False" DataKeyNames="intIdGestiones" AllowSorting="True" CellSpacing="10" HorizontalAlign="Center" Width="50%" >
                            <Columns>
-                               <asp:buttonfield buttontype="Button" commandname="Select" text="Detalle"/>
+                               <asp:buttonfield buttontype="Button" commandname="Select" text="Detalle" />
                                <asp:HyperLinkField Text="Modificar" DataNavigateUrlFields="intIdGestiones" DataNavigateUrlFormatString="Modificar_Gestiones-SistemaRegistroGestiones.aspx?intIdGestiones={0}" />
                                <asp:TemplateField>
                                     <HeaderTemplate>
@@ -186,18 +186,18 @@
                                         <asp:CheckBox ID="chkSelect" runat="server" onclick="GridCheckOne(this)"></asp:CheckBox>
                                     </ItemTemplate>
                                </asp:TemplateField>                                                            
-                               <asp:BoundField DataField="intIdGestiones" HeaderText="Codigo de Gestión"    >
+                               <asp:BoundField DataField="intIdGestiones" HeaderText="Código de Gestión"    >
                                    <HeaderStyle HorizontalAlign="Center" />
                                </asp:BoundField>
                                <asp:BoundField DataField="vchTipoGestiones" HeaderText="Tipo de Gestión"  >
                                    <ControlStyle Width="200px"></ControlStyle>
                                    <HeaderStyle Width="200px"></HeaderStyle>
                                </asp:BoundField>
-                               <asp:BoundField DataField="intCedulaUsuario" HeaderText="Cedula del Usuario"  >
+                               <asp:BoundField DataField="intCedulaUsuario" HeaderText="Cédula del Denunciante"  >
                                    <ControlStyle Width="200px"></ControlStyle>
                                    <HeaderStyle Width="200px"></HeaderStyle>
                                </asp:BoundField>
-                               <asp:BoundField DataField="vchNombreUsuario" HeaderText="Nombre del Usuario"  >
+                               <asp:BoundField DataField="vchNombreUsuario" HeaderText="Nombre del Denunciante"  >
                                    <ControlStyle Width="200px"></ControlStyle>
                                    <HeaderStyle Width="200px"></HeaderStyle>
                                </asp:BoundField>
@@ -210,7 +210,7 @@
                                <asp:BoundField DataField="vchFuenteGeneradora" HeaderText="Fuente Generadora"  HeaderStyle-Width="120px">
                                    <HeaderStyle Width="120px"></HeaderStyle>
                                </asp:BoundField>
-                               <asp:BoundField DataField="vchTipoServicio" HeaderText="Tipo de servicio"  HeaderStyle-Width="120px">
+                               <asp:BoundField DataField="vchTipoServicio" HeaderText="Tipo de Servicio"  HeaderStyle-Width="120px">
                                    <HeaderStyle Width="120px"></HeaderStyle>
                                </asp:BoundField>
                                <asp:BoundField DataField="vchNombreFuncionario" HeaderText="Funcionario que Tramita"  HeaderStyle-Width="120px">
@@ -225,7 +225,7 @@
                                <asp:BoundField DataField="vchNombreCentroEducativo" HeaderText="Nombre del Centro Educativo"  HeaderStyle-Width="120px">
                                    <HeaderStyle Width="120px"></HeaderStyle>
                                </asp:BoundField>
-                               <asp:BoundField DataField="vchDescripcionUnidad" HeaderText="Descripción Unidad"  HeaderStyle-Width="120px">
+                               <asp:BoundField DataField="vchDescripcionUnidad" HeaderText="Descripción Unidad"  HeaderStyle-Width="120px" ValidateRequestMode="Inherit">
                                    <HeaderStyle Width="120px"></HeaderStyle>
                                </asp:BoundField>
                                <asp:BoundField DataField="vchDescripcionDespacho" HeaderText="Descripción Despacho" HeaderStyle-Width="120px">
@@ -237,7 +237,7 @@
                                <asp:BoundField DataField="vchdescripcionDepartamento" HeaderText="Descripción Departamento" HeaderStyle-Width="120px">
                                    <HeaderStyle Width="120px"></HeaderStyle>
                                </asp:BoundField>
-                               <asp:BoundField DataField="vchNumeroOficio" HeaderText="Numero de Oficio"  HeaderStyle-Width="120px">
+                               <asp:BoundField DataField="vchNumeroOficio" HeaderText="Número de Oficio"  HeaderStyle-Width="120px">
                                    <HeaderStyle Width="120px"></HeaderStyle>
                                </asp:BoundField>
                                <asp:BoundField DataField="vchTipoDimension" HeaderText="Dimensión"  HeaderStyle-Width="120px">
@@ -246,7 +246,7 @@
                                <asp:BoundField DataField="vchLetraDimension" HeaderText="Letra Dimensión" HeaderStyle-Width="120px">
                                    <HeaderStyle Width="120px"></HeaderStyle>
                                </asp:BoundField>
-                               <asp:BoundField DataField="vchDescripcionTipoDimension" HeaderText="Detalle Dimensión"  HeaderStyle-Width="120px">
+                               <asp:BoundField DataField="vchDescripcionLetraDimension" HeaderText="Detalle de la Dimensión"  HeaderStyle-Width="120px">
                                    <HeaderStyle Width="120px"></HeaderStyle>
                                </asp:BoundField>
                                <asp:BoundField DataField="vchTipoUsuario" HeaderText="Tipo de Usuario" HeaderStyle-Width="120px">

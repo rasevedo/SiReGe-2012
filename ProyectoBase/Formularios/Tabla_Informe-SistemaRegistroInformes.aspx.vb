@@ -108,7 +108,7 @@ Public Class Tabla_Informes
 
             Dim rptviewer As New ReportViewer()
             rptviewer.ProcessingMode = ProcessingMode.Local
-            rptviewer.LocalReport.ReportPath = "C:\Users\Usuario01\Documents\Visual Studio 2012\Projects\SistemaRegistroGestiones\ProyectoBase\Formularios\Report_Informe.rdlc"
+            rptviewer.LocalReport.ReportPath = "C:\Users\Usuario01\Documents\Visual Studio 2012\Projects\SistemaRegistroGestiones\ProyectoBase\Formularios\Reporte_Informes.rdlc"
             rptviewer.LocalReport.DataSources.Add(datasource)
             Dim bytes As Byte() = rptviewer.LocalReport.Render("Excel", Nothing, MIMETYPE, encoding, extension, streams, warnings)
             Response.Buffer = True

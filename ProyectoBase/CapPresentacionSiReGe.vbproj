@@ -139,6 +139,7 @@
     <Content Include="Formularios\Modificar_Casos-SistemaRegistroGestiones.aspx" />
     <Content Include="Formularios\Modificar_Gestiones-SistemaRegistroGestiones.aspx" />
     <Content Include="Formularios\Modificar_Informes-SistemaRegistroGestiones.aspx" />
+    <Content Include="Formularios\WebForm1.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="MasterPage.Master" />
     <Content Include="Web.config">
@@ -148,15 +149,10 @@
   <ItemGroup>
     <Compile Include="Clases\Acceso_Datos.vb" />
     <Compile Include="Clases\Funciones.vb" />
-    <Compile Include="DataSet_Casos.Designer.vb">
+    <Compile Include="dstBitacora_Gestiones.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet_Casos.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="dstCasos.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>dstCasos.xsd</DependentUpon>
+      <DependentUpon>dstBitacora_Gestiones.xsd</DependentUpon>
     </Compile>
     <Compile Include="dstGestiones.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -266,6 +262,13 @@
       <DependentUpon>Modificar_Informes-SistemaRegistroGestiones.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
+    <Compile Include="Formularios\WebForm1.aspx.designer.vb">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\WebForm1.aspx.vb">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Login.aspx.designer.vb">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
@@ -303,9 +306,9 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Formularios\Bitacora_Gestion.rdlc" />
-    <EmbeddedResource Include="Formularios\Report_Caso.rdlc" />
-    <EmbeddedResource Include="Formularios\Report_Gestion.rdlc" />
-    <EmbeddedResource Include="Formularios\Report_Informe.rdlc" />
+    <EmbeddedResource Include="Formularios\Reporte_Casos.rdlc" />
+    <EmbeddedResource Include="Formularios\Reporte_Gestiones.rdlc" />
+    <EmbeddedResource Include="Formularios\Reporte_Informes.rdlc" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
@@ -317,27 +320,16 @@
     <Content Include="dstGestiones.xsc">
       <DependentUpon>dstGestiones.xsd</DependentUpon>
     </Content>
-    <Content Include="DataSet_Casos.xsc">
-      <DependentUpon>DataSet_Casos.xsd</DependentUpon>
+    <Content Include="dstBitacora_Gestiones.xsc">
+      <DependentUpon>dstBitacora_Gestiones.xsd</DependentUpon>
     </Content>
-    <None Include="DataSet_Casos.xsd">
+    <None Include="dstBitacora_Gestiones.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet_Casos.Designer.vb</LastGenOutput>
+      <LastGenOutput>dstBitacora_Gestiones.Designer.vb</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <Content Include="DataSet_Casos.xss">
-      <DependentUpon>DataSet_Casos.xsd</DependentUpon>
-    </Content>
-    <Content Include="dstCasos.xsc">
-      <DependentUpon>dstCasos.xsd</DependentUpon>
-    </Content>
-    <None Include="dstCasos.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dstCasos.Designer.vb</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <Content Include="dstCasos.xss">
-      <DependentUpon>dstCasos.xsd</DependentUpon>
+    <Content Include="dstBitacora_Gestiones.xss">
+      <DependentUpon>dstBitacora_Gestiones.xsd</DependentUpon>
     </Content>
     <None Include="dstGestiones.xsd">
       <Generator>MSDataSetGenerator</Generator>

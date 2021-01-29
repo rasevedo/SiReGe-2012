@@ -55,11 +55,47 @@ Public Class Tabla_Gestiones
 
     'Toda la informacion detro de este buton funcionan para la exportacion de datos
     Protected Sub btnExportar_Click(sender As Object, e As EventArgs) Handles btnExportar.Click
-        ExportarGestionesExcel("Gestiones_Tabla")
+
+        Dim isSelected As Boolean = False
+        For Each gvrow As GridViewRow In gvwGestiones.Rows
+            Dim chkRevisar As CheckBox = DirectCast(gvrow.FindControl("chkSelect"), CheckBox)
+
+            If chkRevisar IsNot Nothing AndAlso chkRevisar.Checked Then
+                isSelected = True
+                Exit For
+            End If
+        Next
+
+        If isSelected Then
+            Dim gvExport As GridView = gvwGestiones
+            gvExport.Columns(0).Visible = False
+
+            For Each i As GridViewRow In gvwGestiones.Rows
+                gvExport.Rows(i.RowIndex).Visible = False
+                Dim cb As CheckBox = CType(i.FindControl("chkSelect"), CheckBox)
+
+                If cb IsNot Nothing AndAlso cb.Checked Then
+                    gvExport.Rows(i.RowIndex).Visible = True
+                End If
+                ExportarGestionesExcel("Gestiones_Tabla")
+            Next
+
+            
+        End If
+
+
+        
+
+
     End Sub
 
     Protected Sub btnExportar_Word_Click(sender As Object, e As EventArgs) Handles btnExportar_Word.Click
-        ExportarWord("Bi")
+
+        ExportarWord("Bitacora")
+
+        ' Response.Redirect("WebForm1.aspx")
+        
+
     End Sub
 
 #Region "Exportar Panel a Word"
@@ -67,12 +103,12 @@ Public Class Tabla_Gestiones
     'RECIBE: El único parámetro que recibe es el panel pnlPopup para obtener la información que debe exportar
     'DEVUELVE: Devuelve un archivo .doc de Microsoft Word con la información del modal para su trabajo.
     Protected Sub ExportarWord(ByVal fileName As String)
-        Dim con As New SqlConnection(ConfigurationManager.ConnectionStrings("bda_SIREGE_Connection").ToString())
+Dim con As New SqlConnection(ConfigurationManager.ConnectionStrings("bda_SIREGE_Connection").ToString())
         Try
             Dim adp As New SqlDataAdapter("palMostrarGestiones", con)
             Dim ds As New dstGestiones()
             adp.Fill(ds, "palMostrarGestiones")
-            Dim datasource As New ReportDataSource("DataSet_Bitacora_Gestiones", ds.Tables(0))
+            Dim datasource As New ReportDataSource("DataSet_Gestiones", ds.Tables(0))
 
             Dim warnings As Warning()
             Dim streams As String()
@@ -84,7 +120,7 @@ Public Class Tabla_Gestiones
             rptviewer.ProcessingMode = ProcessingMode.Local
             rptviewer.LocalReport.ReportPath = "C:\Users\Usuario01\Documents\Visual Studio 2012\Projects\SistemaRegistroGestiones\ProyectoBase\Formularios\Bitacora_Gestion.rdlc"
             rptviewer.LocalReport.DataSources.Add(datasource)
-            Dim bytes As Byte() = rptviewer.LocalReport.Render("word", Nothing, MIMETYPE, encoding, extension, streams, warnings)
+            Dim bytes As Byte() = rptviewer.LocalReport.Render("Word", Nothing, MIMETYPE, encoding, extension, streams, warnings)
             Response.Buffer = True
             Response.Clear()
             Response.ContentType = MIMETYPE
@@ -151,7 +187,7 @@ Public Class Tabla_Gestiones
 
             Dim rptviewer As New ReportViewer()
             rptviewer.ProcessingMode = ProcessingMode.Local
-            rptviewer.LocalReport.ReportPath = "C:\Users\Usuario01\Documents\Visual Studio 2012\Projects\SistemaRegistroGestiones\ProyectoBase\Formularios\Report_Gestion.rdlc"
+            rptviewer.LocalReport.ReportPath = "C:\Users\Usuario01\Documents\Visual Studio 2012\Projects\SistemaRegistroGestiones\ProyectoBase\Formularios\Reporte_Gestiones.rdlc"
             rptviewer.LocalReport.DataSources.Add(datasource)
             Dim bytes As Byte() = rptviewer.LocalReport.Render("Excel", Nothing, MIMETYPE, encoding, extension, streams, warnings)
             Response.Buffer = True
@@ -165,7 +201,7 @@ Public Class Tabla_Gestiones
     End Sub
 #End Region
 
- 
+
 #Region "btnBorrar la fila seleccionada"
     'EFECTO:La función dentro del botón revisa antes de borrar cuales filas estan marcadas con un check
     'RECIBE:Todas las filas del gridview marcadas con un check
@@ -177,8 +213,8 @@ Public Class Tabla_Gestiones
                 Dim dts As New Entidad_Gestiones
                 For Each gvrow As GridViewRow In gvwGestiones.Rows
                     Dim chkdelete As CheckBox = DirectCast(gvrow.FindControl("chkSelect"), CheckBox)
-                    Dim gesid As Integer = Convert.ToInt32(gvwGestiones.DataKeys(gvrow.RowIndex).Value)
-                    If chkdelete.Checked Then                      
+                    If chkdelete.Checked Then
+                        Dim gesid As Integer = Convert.ToInt32(gvwGestiones.DataKeys(gvrow.RowIndex).Value)
                         Try
                             dts._idGestiones = gesid
                             If func.borrarGestiones(dts) Then
@@ -190,7 +226,8 @@ Public Class Tabla_Gestiones
                                 ' Response.Write("<script language=javascript>alert('No se ha eliminado el elemento.')</script>")
                                 ' MsgBox("No se ha eliminado el elemento.")
                                 '  gvwGestiones.DataBind()
-                            End If                           
+                            End If
+
                             MostrarTabla()
                         Catch ex As Exception
                             MsgBox("Hubo un problema en eliminar el elmento: " + ex.Message)
@@ -199,6 +236,7 @@ Public Class Tabla_Gestiones
                         'gvwGestiones.DataBind()
                     End If
                 Next
+
                 MostrarTabla()
                 ' gvwGestiones.DataBind()
             Catch ex As Exception
@@ -221,7 +259,7 @@ Public Class Tabla_Gestiones
     'RECIBE: Cada fila dentro de GridViewCasos
     'DEVUELVE: NO DEVUELVE
     Protected Sub GridViewGestiones_SelectedIndexChanged(sender As Object, e As EventArgs) Handles gvwGestiones.SelectedIndexChanged
-        txtPop_Id_Gestiones.Text = gvwGestiones.SelectedRow.Cells(3).Text
+        txtSPop_Id_Gestiones.Text = gvwGestiones.SelectedRow.Cells(3).Text
         txtPop_Tipo_Gestiones.Text = Page.Server.HtmlDecode(gvwGestiones.SelectedRow.Cells(4).Text)
         txtPop_Cedula_Usuario.Text = gvwGestiones.SelectedRow.Cells(5).Text
         txtPop_Nombre_Usuario.Text = gvwGestiones.SelectedRow.Cells(6).Text

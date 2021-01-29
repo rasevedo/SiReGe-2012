@@ -33,7 +33,14 @@ Public Class Datos_Gestiones
             cmd.Parameters.AddWithValue("@vchSupervicionGestiones", dts._supervicionGestiones)
             cmd.Parameters.AddWithValue("@vchNombreCentroEducativo", dts._nombreCentroEducativo)
             cmd.Parameters.AddWithValue("@intIdUnidad", dts._idUnidad)
-            cmd.Parameters.AddWithValue("@intIdDimension", dts._idDimension)
+            ' cmd.Parameters.AddWithValue("@intIdDimension", dts._idDimension)
+
+            If dts._idDimension Is Nothing Then
+                cmd.Parameters.AddWithValue("@intIdDimension", 1)
+            Else
+                cmd.Parameters.AddWithValue("@intIdDimension", dts._idDimension)
+            End If
+
             cmd.Parameters.AddWithValue("@vchNumeroOficio", dts._numeroOficio)
             cmd.Parameters.AddWithValue("@vchDetalleGestiones", dts._detalleGestiones)
             cmd.Parameters.AddWithValue("@vchRespuestaGestiones", dts._respuestaGestiones)
@@ -144,8 +151,20 @@ Public Class Datos_Gestiones
             cmd.Parameters.AddWithValue("@vchDireccionRegional", dts._direccionRegional)
             cmd.Parameters.AddWithValue("@vchSupervicionGestiones", dts._supervicionGestiones)
             cmd.Parameters.AddWithValue("@vchNombreCentroEducativo", dts._nombreCentroEducativo)
-            cmd.Parameters.AddWithValue("@intIdUnidad", dts._idUnidad)
-            cmd.Parameters.AddWithValue("@intIdDimension", dts._idDimension)
+
+            If dts._idUnidad = "" Then
+                cmd.Parameters.AddWithValue("@intIdUnidad", 1)
+            Else
+                cmd.Parameters.AddWithValue("@intIdUnidad", dts._idUnidad)
+            End If
+
+
+            If dts._idDimension Is Nothing Then
+                cmd.Parameters.AddWithValue("@intIdDimension", 1)
+            Else
+                cmd.Parameters.AddWithValue("@intIdDimension", dts._idDimension)
+            End If
+
             cmd.Parameters.AddWithValue("@vchNumeroOficio", dts._numeroOficio)
             cmd.Parameters.AddWithValue("@vchDetalleGestiones", dts._detalleGestiones)
             cmd.Parameters.AddWithValue("@vchRespuestaGestiones", dts._respuestaGestiones)

@@ -20,12 +20,12 @@ Option Explicit On
  Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
  Global.System.ComponentModel.ToolboxItem(true),  _
  Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema"),  _
- Global.System.Xml.Serialization.XmlRootAttribute("dstCasos"),  _
+ Global.System.Xml.Serialization.XmlRootAttribute("dstBitacora_Gestiones"),  _
  Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")>  _
-Partial Public Class dstCasos
+Partial Public Class dstBitacora_Gestiones
     Inherits Global.System.Data.DataSet
     
-    Private tablepalMostrarCasos As palMostrarCasosDataTable
+    Private tablepalMostrarGestiones As palMostrarGestionesDataTable
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -56,8 +56,8 @@ Partial Public Class dstCasos
         If (Me.DetermineSchemaSerializationMode(info, context) = Global.System.Data.SchemaSerializationMode.IncludeSchema) Then
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXmlSchema(New Global.System.Xml.XmlTextReader(New Global.System.IO.StringReader(strSchema)))
-            If (Not (ds.Tables("palMostrarCasos")) Is Nothing) Then
-                MyBase.Tables.Add(New palMostrarCasosDataTable(ds.Tables("palMostrarCasos")))
+            If (Not (ds.Tables("palMostrarGestiones")) Is Nothing) Then
+                MyBase.Tables.Add(New palMostrarGestionesDataTable(ds.Tables("palMostrarGestiones")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -80,9 +80,9 @@ Partial Public Class dstCasos
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
      Global.System.ComponentModel.Browsable(false),  _
      Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
-    Public ReadOnly Property palMostrarCasos() As palMostrarCasosDataTable
+    Public ReadOnly Property palMostrarGestiones() As palMostrarGestionesDataTable
         Get
-            Return Me.tablepalMostrarCasos
+            Return Me.tablepalMostrarGestiones
         End Get
     End Property
     
@@ -128,7 +128,7 @@ Partial Public Class dstCasos
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Overrides Function Clone() As Global.System.Data.DataSet
-        Dim cln As dstCasos = CType(MyBase.Clone,dstCasos)
+        Dim cln As dstBitacora_Gestiones = CType(MyBase.Clone,dstBitacora_Gestiones)
         cln.InitVars
         cln.SchemaSerializationMode = Me.SchemaSerializationMode
         Return cln
@@ -153,8 +153,8 @@ Partial Public Class dstCasos
             Me.Reset
             Dim ds As Global.System.Data.DataSet = New Global.System.Data.DataSet()
             ds.ReadXml(reader)
-            If (Not (ds.Tables("palMostrarCasos")) Is Nothing) Then
-                MyBase.Tables.Add(New palMostrarCasosDataTable(ds.Tables("palMostrarCasos")))
+            If (Not (ds.Tables("palMostrarGestiones")) Is Nothing) Then
+                MyBase.Tables.Add(New palMostrarGestionesDataTable(ds.Tables("palMostrarGestiones")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -188,10 +188,10 @@ Partial Public Class dstCasos
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Friend Overloads Sub InitVars(ByVal initTable As Boolean)
-        Me.tablepalMostrarCasos = CType(MyBase.Tables("palMostrarCasos"),palMostrarCasosDataTable)
+        Me.tablepalMostrarGestiones = CType(MyBase.Tables("palMostrarGestiones"),palMostrarGestionesDataTable)
         If (initTable = true) Then
-            If (Not (Me.tablepalMostrarCasos) Is Nothing) Then
-                Me.tablepalMostrarCasos.InitVars
+            If (Not (Me.tablepalMostrarGestiones) Is Nothing) Then
+                Me.tablepalMostrarGestiones.InitVars
             End If
         End If
     End Sub
@@ -199,18 +199,18 @@ Partial Public Class dstCasos
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Private Sub InitClass()
-        Me.DataSetName = "dstCasos"
+        Me.DataSetName = "dstBitacora_Gestiones"
         Me.Prefix = ""
-        Me.Namespace = "http://tempuri.org/dstCasos.xsd"
+        Me.Namespace = "http://tempuri.org/dstBitacora_Gestiones.xsd"
         Me.EnforceConstraints = true
         Me.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
-        Me.tablepalMostrarCasos = New palMostrarCasosDataTable()
-        MyBase.Tables.Add(Me.tablepalMostrarCasos)
+        Me.tablepalMostrarGestiones = New palMostrarGestionesDataTable()
+        MyBase.Tables.Add(Me.tablepalMostrarGestiones)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Private Function ShouldSerializepalMostrarCasos() As Boolean
+    Private Function ShouldSerializepalMostrarGestiones() As Boolean
         Return false
     End Function
     
@@ -225,7 +225,7 @@ Partial Public Class dstCasos
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Shared Function GetTypedDataSetSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
-        Dim ds As dstCasos = New dstCasos()
+        Dim ds As dstBitacora_Gestiones = New dstBitacora_Gestiones()
         Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
         Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
         Dim any As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
@@ -273,29 +273,37 @@ Partial Public Class dstCasos
     End Function
     
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Delegate Sub palMostrarCasosRowChangeEventHandler(ByVal sender As Object, ByVal e As palMostrarCasosRowChangeEvent)
+    Public Delegate Sub palMostrarGestionesRowChangeEventHandler(ByVal sender As Object, ByVal e As palMostrarGestionesRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
     '''</summary>
     <Global.System.Serializable(),  _
      Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
-    Partial Public Class palMostrarCasosDataTable
-        Inherits Global.System.Data.TypedTableBase(Of palMostrarCasosRow)
+    Partial Public Class palMostrarGestionesDataTable
+        Inherits Global.System.Data.TypedTableBase(Of palMostrarGestionesRow)
         
-        Private columnintIdCasos As Global.System.Data.DataColumn
+        Private columnintIdGestiones As Global.System.Data.DataColumn
         
-        Private columnvchNumeroCasos As Global.System.Data.DataColumn
+        Private columnvchTipoGestiones As Global.System.Data.DataColumn
         
-        Private columnvchEstadoCasos As Global.System.Data.DataColumn
+        Private columnintCedulaUsuario As Global.System.Data.DataColumn
         
-        Private columndtiFechaCasos As Global.System.Data.DataColumn
+        Private columnvchNombreUsuario As Global.System.Data.DataColumn
         
-        Private columnintCedulaDenuncianteCasos As Global.System.Data.DataColumn
-        
-        Private columnvchNombreDenucianteCasos As Global.System.Data.DataColumn
+        Private columndtiFechaIngreso As Global.System.Data.DataColumn
         
         Private columnvchNombreFuncionario As Global.System.Data.DataColumn
+        
+        Private columnvchConfidencialidadGestiones As Global.System.Data.DataColumn
+        
+        Private columnvchFuenteGeneradora As Global.System.Data.DataColumn
+        
+        Private columnvchTipoServicio As Global.System.Data.DataColumn
+        
+        Private columnvchDireccionRegional As Global.System.Data.DataColumn
+        
+        Private columnvchSupervicionGestiones As Global.System.Data.DataColumn
         
         Private columnvchNombreCentroEducativo As Global.System.Data.DataColumn
         
@@ -309,35 +317,23 @@ Partial Public Class dstCasos
         
         Private columnvchNumeroOficio As Global.System.Data.DataColumn
         
-        Private columndtiFechaOficio As Global.System.Data.DataColumn
-        
         Private columnvchTipoDimension As Global.System.Data.DataColumn
         
         Private columnvchLetraDimension As Global.System.Data.DataColumn
         
-        Private columnvchDescripcionTipoDimension As Global.System.Data.DataColumn
+        Private columnvchDescripcionLetraDimension As Global.System.Data.DataColumn
         
-        Private columnvchCondicionCasos As Global.System.Data.DataColumn
+        Private columnvchTipoUsuario As Global.System.Data.DataColumn
         
-        Private columnvchDetalleInconformidadCasos As Global.System.Data.DataColumn
+        Private columnvchDetalleGestiones As Global.System.Data.DataColumn
         
-        Private columnvchRespuestaCasos As Global.System.Data.DataColumn
-        
-        Private columnvchValoracionAdmisibilidad As Global.System.Data.DataColumn
-        
-        Private columnvchVeredictoValoracionIngreso As Global.System.Data.DataColumn
-        
-        Private columnvchTrazabilidadCasos As Global.System.Data.DataColumn
-        
-        Private columndtiFechaRespuestaCasos As Global.System.Data.DataColumn
-        
-        Private columndtiFechaCerradoCasos As Global.System.Data.DataColumn
+        Private columnvchRespuestaGestiones As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
             MyBase.New
-            Me.TableName = "palMostrarCasos"
+            Me.TableName = "palMostrarGestiones"
             Me.BeginInit
             Me.InitClass
             Me.EndInit
@@ -370,49 +366,41 @@ Partial Public Class dstCasos
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property intIdCasosColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property intIdGestionesColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnintIdCasos
+                Return Me.columnintIdGestiones
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property vchNumeroCasosColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property vchTipoGestionesColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnvchNumeroCasos
+                Return Me.columnvchTipoGestiones
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property vchEstadoCasosColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property intCedulaUsuarioColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnvchEstadoCasos
+                Return Me.columnintCedulaUsuario
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property dtiFechaCasosColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property vchNombreUsuarioColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columndtiFechaCasos
+                Return Me.columnvchNombreUsuario
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property intCedulaDenuncianteCasosColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property dtiFechaIngresoColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnintCedulaDenuncianteCasos
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property vchNombreDenucianteCasosColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnvchNombreDenucianteCasos
+                Return Me.columndtiFechaIngreso
             End Get
         End Property
         
@@ -421,6 +409,46 @@ Partial Public Class dstCasos
         Public ReadOnly Property vchNombreFuncionarioColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnvchNombreFuncionario
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property vchConfidencialidadGestionesColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnvchConfidencialidadGestiones
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property vchFuenteGeneradoraColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnvchFuenteGeneradora
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property vchTipoServicioColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnvchTipoServicio
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property vchDireccionRegionalColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnvchDireccionRegional
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property vchSupervicionGestionesColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnvchSupervicionGestiones
             End Get
         End Property
         
@@ -474,14 +502,6 @@ Partial Public Class dstCasos
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property dtiFechaOficioColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columndtiFechaOficio
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property vchTipoDimensionColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnvchTipoDimension
@@ -498,73 +518,33 @@ Partial Public Class dstCasos
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property vchDescripcionTipoDimensionColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property vchDescripcionLetraDimensionColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnvchDescripcionTipoDimension
+                Return Me.columnvchDescripcionLetraDimension
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property vchCondicionCasosColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property vchTipoUsuarioColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnvchCondicionCasos
+                Return Me.columnvchTipoUsuario
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property vchDetalleInconformidadCasosColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property vchDetalleGestionesColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnvchDetalleInconformidadCasos
+                Return Me.columnvchDetalleGestiones
             End Get
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property vchRespuestaCasosColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property vchRespuestaGestionesColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columnvchRespuestaCasos
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property vchValoracionAdmisibilidadColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnvchValoracionAdmisibilidad
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property vchVeredictoValoracionIngresoColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnvchVeredictoValoracionIngreso
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property vchTrazabilidadCasosColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnvchTrazabilidadCasos
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property dtiFechaRespuestaCasosColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columndtiFechaRespuestaCasos
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property dtiFechaCerradoCasosColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columndtiFechaCerradoCasos
+                Return Me.columnvchRespuestaGestiones
             End Get
         End Property
         
@@ -579,74 +559,72 @@ Partial Public Class dstCasos
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Default ReadOnly Property Item(ByVal index As Integer) As palMostrarCasosRow
+        Public Default ReadOnly Property Item(ByVal index As Integer) As palMostrarGestionesRow
             Get
-                Return CType(Me.Rows(index),palMostrarCasosRow)
+                Return CType(Me.Rows(index),palMostrarGestionesRow)
             End Get
         End Property
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event palMostrarCasosRowChanging As palMostrarCasosRowChangeEventHandler
+        Public Event palMostrarGestionesRowChanging As palMostrarGestionesRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event palMostrarCasosRowChanged As palMostrarCasosRowChangeEventHandler
+        Public Event palMostrarGestionesRowChanged As palMostrarGestionesRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event palMostrarCasosRowDeleting As palMostrarCasosRowChangeEventHandler
+        Public Event palMostrarGestionesRowDeleting As palMostrarGestionesRowChangeEventHandler
         
         <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Event palMostrarCasosRowDeleted As palMostrarCasosRowChangeEventHandler
+        Public Event palMostrarGestionesRowDeleted As palMostrarGestionesRowChangeEventHandler
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Sub AddpalMostrarCasosRow(ByVal row As palMostrarCasosRow)
+        Public Overloads Sub AddpalMostrarGestionesRow(ByVal row As palMostrarGestionesRow)
             Me.Rows.Add(row)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddpalMostrarCasosRow( _
-                    ByVal vchNumeroCasos As String,  _
-                    ByVal vchEstadoCasos As String,  _
-                    ByVal dtiFechaCasos As Date,  _
-                    ByVal intCedulaDenuncianteCasos As Integer,  _
-                    ByVal vchNombreDenucianteCasos As String,  _
+        Public Overloads Function AddpalMostrarGestionesRow( _
+                    ByVal vchTipoGestiones As String,  _
+                    ByVal intCedulaUsuario As Integer,  _
+                    ByVal vchNombreUsuario As String,  _
+                    ByVal dtiFechaIngreso As Date,  _
                     ByVal vchNombreFuncionario As String,  _
+                    ByVal vchConfidencialidadGestiones As String,  _
+                    ByVal vchFuenteGeneradora As String,  _
+                    ByVal vchTipoServicio As String,  _
+                    ByVal vchDireccionRegional As String,  _
+                    ByVal vchSupervicionGestiones As String,  _
                     ByVal vchNombreCentroEducativo As String,  _
                     ByVal vchDescripcionUnidad As String,  _
                     ByVal vchDescripcionDespacho As String,  _
                     ByVal vchDescripcionDireccion As String,  _
                     ByVal vchDescripcionDepartamento As String,  _
                     ByVal vchNumeroOficio As String,  _
-                    ByVal dtiFechaOficio As Date,  _
                     ByVal vchTipoDimension As String,  _
                     ByVal vchLetraDimension As String,  _
-                    ByVal vchDescripcionTipoDimension As String,  _
-                    ByVal vchCondicionCasos As String,  _
-                    ByVal vchDetalleInconformidadCasos As String,  _
-                    ByVal vchRespuestaCasos As String,  _
-                    ByVal vchValoracionAdmisibilidad As String,  _
-                    ByVal vchVeredictoValoracionIngreso As String,  _
-                    ByVal vchTrazabilidadCasos As String,  _
-                    ByVal dtiFechaRespuestaCasos As Date,  _
-                    ByVal dtiFechaCerradoCasos As Date) As palMostrarCasosRow
-            Dim rowpalMostrarCasosRow As palMostrarCasosRow = CType(Me.NewRow,palMostrarCasosRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, vchNumeroCasos, vchEstadoCasos, dtiFechaCasos, intCedulaDenuncianteCasos, vchNombreDenucianteCasos, vchNombreFuncionario, vchNombreCentroEducativo, vchDescripcionUnidad, vchDescripcionDespacho, vchDescripcionDireccion, vchDescripcionDepartamento, vchNumeroOficio, dtiFechaOficio, vchTipoDimension, vchLetraDimension, vchDescripcionTipoDimension, vchCondicionCasos, vchDetalleInconformidadCasos, vchRespuestaCasos, vchValoracionAdmisibilidad, vchVeredictoValoracionIngreso, vchTrazabilidadCasos, dtiFechaRespuestaCasos, dtiFechaCerradoCasos}
-            rowpalMostrarCasosRow.ItemArray = columnValuesArray
-            Me.Rows.Add(rowpalMostrarCasosRow)
-            Return rowpalMostrarCasosRow
+                    ByVal vchDescripcionLetraDimension As String,  _
+                    ByVal vchTipoUsuario As String,  _
+                    ByVal vchDetalleGestiones As String,  _
+                    ByVal vchRespuestaGestiones As String) As palMostrarGestionesRow
+            Dim rowpalMostrarGestionesRow As palMostrarGestionesRow = CType(Me.NewRow,palMostrarGestionesRow)
+            Dim columnValuesArray() As Object = New Object() {Nothing, vchTipoGestiones, intCedulaUsuario, vchNombreUsuario, dtiFechaIngreso, vchNombreFuncionario, vchConfidencialidadGestiones, vchFuenteGeneradora, vchTipoServicio, vchDireccionRegional, vchSupervicionGestiones, vchNombreCentroEducativo, vchDescripcionUnidad, vchDescripcionDespacho, vchDescripcionDireccion, vchDescripcionDepartamento, vchNumeroOficio, vchTipoDimension, vchLetraDimension, vchDescripcionLetraDimension, vchTipoUsuario, vchDetalleGestiones, vchRespuestaGestiones}
+            rowpalMostrarGestionesRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowpalMostrarGestionesRow)
+            Return rowpalMostrarGestionesRow
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function FindByintIdCasos(ByVal intIdCasos As Integer) As palMostrarCasosRow
-            Return CType(Me.Rows.Find(New Object() {intIdCasos}),palMostrarCasosRow)
+        Public Function FindByintIdGestiones(ByVal intIdGestiones As Integer) As palMostrarGestionesRow
+            Return CType(Me.Rows.Find(New Object() {intIdGestiones}),palMostrarGestionesRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Overrides Function Clone() As Global.System.Data.DataTable
-            Dim cln As palMostrarCasosDataTable = CType(MyBase.Clone,palMostrarCasosDataTable)
+            Dim cln As palMostrarGestionesDataTable = CType(MyBase.Clone,palMostrarGestionesDataTable)
             cln.InitVars
             Return cln
         End Function
@@ -654,56 +632,62 @@ Partial Public Class dstCasos
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
-            Return New palMostrarCasosDataTable()
+            Return New palMostrarGestionesDataTable()
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub InitVars()
-            Me.columnintIdCasos = MyBase.Columns("intIdCasos")
-            Me.columnvchNumeroCasos = MyBase.Columns("vchNumeroCasos")
-            Me.columnvchEstadoCasos = MyBase.Columns("vchEstadoCasos")
-            Me.columndtiFechaCasos = MyBase.Columns("dtiFechaCasos")
-            Me.columnintCedulaDenuncianteCasos = MyBase.Columns("intCedulaDenuncianteCasos")
-            Me.columnvchNombreDenucianteCasos = MyBase.Columns("vchNombreDenucianteCasos")
+            Me.columnintIdGestiones = MyBase.Columns("intIdGestiones")
+            Me.columnvchTipoGestiones = MyBase.Columns("vchTipoGestiones")
+            Me.columnintCedulaUsuario = MyBase.Columns("intCedulaUsuario")
+            Me.columnvchNombreUsuario = MyBase.Columns("vchNombreUsuario")
+            Me.columndtiFechaIngreso = MyBase.Columns("dtiFechaIngreso")
             Me.columnvchNombreFuncionario = MyBase.Columns("vchNombreFuncionario")
+            Me.columnvchConfidencialidadGestiones = MyBase.Columns("vchConfidencialidadGestiones")
+            Me.columnvchFuenteGeneradora = MyBase.Columns("vchFuenteGeneradora")
+            Me.columnvchTipoServicio = MyBase.Columns("vchTipoServicio")
+            Me.columnvchDireccionRegional = MyBase.Columns("vchDireccionRegional")
+            Me.columnvchSupervicionGestiones = MyBase.Columns("vchSupervicionGestiones")
             Me.columnvchNombreCentroEducativo = MyBase.Columns("vchNombreCentroEducativo")
             Me.columnvchDescripcionUnidad = MyBase.Columns("vchDescripcionUnidad")
             Me.columnvchDescripcionDespacho = MyBase.Columns("vchDescripcionDespacho")
             Me.columnvchDescripcionDireccion = MyBase.Columns("vchDescripcionDireccion")
             Me.columnvchDescripcionDepartamento = MyBase.Columns("vchDescripcionDepartamento")
             Me.columnvchNumeroOficio = MyBase.Columns("vchNumeroOficio")
-            Me.columndtiFechaOficio = MyBase.Columns("dtiFechaOficio")
             Me.columnvchTipoDimension = MyBase.Columns("vchTipoDimension")
             Me.columnvchLetraDimension = MyBase.Columns("vchLetraDimension")
-            Me.columnvchDescripcionTipoDimension = MyBase.Columns("vchDescripcionTipoDimension")
-            Me.columnvchCondicionCasos = MyBase.Columns("vchCondicionCasos")
-            Me.columnvchDetalleInconformidadCasos = MyBase.Columns("vchDetalleInconformidadCasos")
-            Me.columnvchRespuestaCasos = MyBase.Columns("vchRespuestaCasos")
-            Me.columnvchValoracionAdmisibilidad = MyBase.Columns("vchValoracionAdmisibilidad")
-            Me.columnvchVeredictoValoracionIngreso = MyBase.Columns("vchVeredictoValoracionIngreso")
-            Me.columnvchTrazabilidadCasos = MyBase.Columns("vchTrazabilidadCasos")
-            Me.columndtiFechaRespuestaCasos = MyBase.Columns("dtiFechaRespuestaCasos")
-            Me.columndtiFechaCerradoCasos = MyBase.Columns("dtiFechaCerradoCasos")
+            Me.columnvchDescripcionLetraDimension = MyBase.Columns("vchDescripcionLetraDimension")
+            Me.columnvchTipoUsuario = MyBase.Columns("vchTipoUsuario")
+            Me.columnvchDetalleGestiones = MyBase.Columns("vchDetalleGestiones")
+            Me.columnvchRespuestaGestiones = MyBase.Columns("vchRespuestaGestiones")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitClass()
-            Me.columnintIdCasos = New Global.System.Data.DataColumn("intIdCasos", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnintIdCasos)
-            Me.columnvchNumeroCasos = New Global.System.Data.DataColumn("vchNumeroCasos", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnvchNumeroCasos)
-            Me.columnvchEstadoCasos = New Global.System.Data.DataColumn("vchEstadoCasos", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnvchEstadoCasos)
-            Me.columndtiFechaCasos = New Global.System.Data.DataColumn("dtiFechaCasos", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columndtiFechaCasos)
-            Me.columnintCedulaDenuncianteCasos = New Global.System.Data.DataColumn("intCedulaDenuncianteCasos", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnintCedulaDenuncianteCasos)
-            Me.columnvchNombreDenucianteCasos = New Global.System.Data.DataColumn("vchNombreDenucianteCasos", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnvchNombreDenucianteCasos)
+            Me.columnintIdGestiones = New Global.System.Data.DataColumn("intIdGestiones", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnintIdGestiones)
+            Me.columnvchTipoGestiones = New Global.System.Data.DataColumn("vchTipoGestiones", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnvchTipoGestiones)
+            Me.columnintCedulaUsuario = New Global.System.Data.DataColumn("intCedulaUsuario", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnintCedulaUsuario)
+            Me.columnvchNombreUsuario = New Global.System.Data.DataColumn("vchNombreUsuario", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnvchNombreUsuario)
+            Me.columndtiFechaIngreso = New Global.System.Data.DataColumn("dtiFechaIngreso", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndtiFechaIngreso)
             Me.columnvchNombreFuncionario = New Global.System.Data.DataColumn("vchNombreFuncionario", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnvchNombreFuncionario)
+            Me.columnvchConfidencialidadGestiones = New Global.System.Data.DataColumn("vchConfidencialidadGestiones", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnvchConfidencialidadGestiones)
+            Me.columnvchFuenteGeneradora = New Global.System.Data.DataColumn("vchFuenteGeneradora", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnvchFuenteGeneradora)
+            Me.columnvchTipoServicio = New Global.System.Data.DataColumn("vchTipoServicio", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnvchTipoServicio)
+            Me.columnvchDireccionRegional = New Global.System.Data.DataColumn("vchDireccionRegional", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnvchDireccionRegional)
+            Me.columnvchSupervicionGestiones = New Global.System.Data.DataColumn("vchSupervicionGestiones", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnvchSupervicionGestiones)
             Me.columnvchNombreCentroEducativo = New Global.System.Data.DataColumn("vchNombreCentroEducativo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnvchNombreCentroEducativo)
             Me.columnvchDescripcionUnidad = New Global.System.Data.DataColumn("vchDescripcionUnidad", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -716,89 +700,75 @@ Partial Public Class dstCasos
             MyBase.Columns.Add(Me.columnvchDescripcionDepartamento)
             Me.columnvchNumeroOficio = New Global.System.Data.DataColumn("vchNumeroOficio", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnvchNumeroOficio)
-            Me.columndtiFechaOficio = New Global.System.Data.DataColumn("dtiFechaOficio", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columndtiFechaOficio)
             Me.columnvchTipoDimension = New Global.System.Data.DataColumn("vchTipoDimension", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnvchTipoDimension)
             Me.columnvchLetraDimension = New Global.System.Data.DataColumn("vchLetraDimension", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnvchLetraDimension)
-            Me.columnvchDescripcionTipoDimension = New Global.System.Data.DataColumn("vchDescripcionTipoDimension", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnvchDescripcionTipoDimension)
-            Me.columnvchCondicionCasos = New Global.System.Data.DataColumn("vchCondicionCasos", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnvchCondicionCasos)
-            Me.columnvchDetalleInconformidadCasos = New Global.System.Data.DataColumn("vchDetalleInconformidadCasos", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnvchDetalleInconformidadCasos)
-            Me.columnvchRespuestaCasos = New Global.System.Data.DataColumn("vchRespuestaCasos", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnvchRespuestaCasos)
-            Me.columnvchValoracionAdmisibilidad = New Global.System.Data.DataColumn("vchValoracionAdmisibilidad", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnvchValoracionAdmisibilidad)
-            Me.columnvchVeredictoValoracionIngreso = New Global.System.Data.DataColumn("vchVeredictoValoracionIngreso", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnvchVeredictoValoracionIngreso)
-            Me.columnvchTrazabilidadCasos = New Global.System.Data.DataColumn("vchTrazabilidadCasos", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnvchTrazabilidadCasos)
-            Me.columndtiFechaRespuestaCasos = New Global.System.Data.DataColumn("dtiFechaRespuestaCasos", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columndtiFechaRespuestaCasos)
-            Me.columndtiFechaCerradoCasos = New Global.System.Data.DataColumn("dtiFechaCerradoCasos", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columndtiFechaCerradoCasos)
-            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnintIdCasos}, true))
-            Me.columnintIdCasos.AutoIncrement = true
-            Me.columnintIdCasos.AllowDBNull = false
-            Me.columnintIdCasos.ReadOnly = true
-            Me.columnintIdCasos.Unique = true
-            Me.columnvchNumeroCasos.AllowDBNull = false
-            Me.columnvchNumeroCasos.MaxLength = 50
-            Me.columnvchEstadoCasos.AllowDBNull = false
-            Me.columnvchEstadoCasos.MaxLength = 50
-            Me.columnvchNombreDenucianteCasos.AllowDBNull = false
-            Me.columnvchNombreDenucianteCasos.MaxLength = 50
+            Me.columnvchDescripcionLetraDimension = New Global.System.Data.DataColumn("vchDescripcionLetraDimension", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnvchDescripcionLetraDimension)
+            Me.columnvchTipoUsuario = New Global.System.Data.DataColumn("vchTipoUsuario", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnvchTipoUsuario)
+            Me.columnvchDetalleGestiones = New Global.System.Data.DataColumn("vchDetalleGestiones", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnvchDetalleGestiones)
+            Me.columnvchRespuestaGestiones = New Global.System.Data.DataColumn("vchRespuestaGestiones", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnvchRespuestaGestiones)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnintIdGestiones}, true))
+            Me.columnintIdGestiones.AutoIncrement = true
+            Me.columnintIdGestiones.AllowDBNull = false
+            Me.columnintIdGestiones.ReadOnly = true
+            Me.columnintIdGestiones.Unique = true
+            Me.columnvchTipoGestiones.AllowDBNull = false
+            Me.columnvchTipoGestiones.MaxLength = 50
+            Me.columnvchNombreUsuario.MaxLength = 50
+            Me.columndtiFechaIngreso.AllowDBNull = false
             Me.columnvchNombreFuncionario.MaxLength = 250
+            Me.columnvchConfidencialidadGestiones.MaxLength = 50
+            Me.columnvchFuenteGeneradora.AllowDBNull = false
+            Me.columnvchFuenteGeneradora.MaxLength = 250
+            Me.columnvchTipoServicio.AllowDBNull = false
+            Me.columnvchTipoServicio.MaxLength = 250
+            Me.columnvchDireccionRegional.MaxLength = 2147483647
+            Me.columnvchSupervicionGestiones.MaxLength = 50
             Me.columnvchNombreCentroEducativo.MaxLength = 250
             Me.columnvchDescripcionUnidad.MaxLength = 2147483647
             Me.columnvchDescripcionDespacho.MaxLength = 2147483647
             Me.columnvchDescripcionDireccion.MaxLength = 2147483647
             Me.columnvchDescripcionDepartamento.MaxLength = 2147483647
             Me.columnvchNumeroOficio.MaxLength = 50
-            Me.columnvchTipoDimension.AllowDBNull = false
-            Me.columnvchTipoDimension.MaxLength = 50
-            Me.columnvchLetraDimension.AllowDBNull = false
+            Me.columnvchTipoDimension.MaxLength = 100
             Me.columnvchLetraDimension.MaxLength = 5
-            Me.columnvchDescripcionTipoDimension.AllowDBNull = false
-            Me.columnvchDescripcionTipoDimension.MaxLength = 2147483647
-            Me.columnvchCondicionCasos.AllowDBNull = false
-            Me.columnvchCondicionCasos.MaxLength = 50
-            Me.columnvchDetalleInconformidadCasos.AllowDBNull = false
-            Me.columnvchDetalleInconformidadCasos.MaxLength = 2147483647
-            Me.columnvchRespuestaCasos.MaxLength = 2147483647
-            Me.columnvchValoracionAdmisibilidad.AllowDBNull = false
-            Me.columnvchValoracionAdmisibilidad.MaxLength = 50
-            Me.columnvchVeredictoValoracionIngreso.MaxLength = 2147483647
-            Me.columnvchTrazabilidadCasos.MaxLength = 50
+            Me.columnvchDescripcionLetraDimension.MaxLength = 2147483647
+            Me.columnvchTipoUsuario.AllowDBNull = false
+            Me.columnvchTipoUsuario.MaxLength = 50
+            Me.columnvchDetalleGestiones.AllowDBNull = false
+            Me.columnvchDetalleGestiones.MaxLength = 2147483647
+            Me.columnvchRespuestaGestiones.MaxLength = 2147483647
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function NewpalMostrarCasosRow() As palMostrarCasosRow
-            Return CType(Me.NewRow,palMostrarCasosRow)
+        Public Function NewpalMostrarGestionesRow() As palMostrarGestionesRow
+            Return CType(Me.NewRow,palMostrarGestionesRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
-            Return New palMostrarCasosRow(builder)
+            Return New palMostrarGestionesRow(builder)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Function GetRowType() As Global.System.Type
-            Return GetType(palMostrarCasosRow)
+            Return GetType(palMostrarGestionesRow)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanged(e)
-            If (Not (Me.palMostrarCasosRowChangedEvent) Is Nothing) Then
-                RaiseEvent palMostrarCasosRowChanged(Me, New palMostrarCasosRowChangeEvent(CType(e.Row,palMostrarCasosRow), e.Action))
+            If (Not (Me.palMostrarGestionesRowChangedEvent) Is Nothing) Then
+                RaiseEvent palMostrarGestionesRowChanged(Me, New palMostrarGestionesRowChangeEvent(CType(e.Row,palMostrarGestionesRow), e.Action))
             End If
         End Sub
         
@@ -806,8 +776,8 @@ Partial Public Class dstCasos
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowChanging(e)
-            If (Not (Me.palMostrarCasosRowChangingEvent) Is Nothing) Then
-                RaiseEvent palMostrarCasosRowChanging(Me, New palMostrarCasosRowChangeEvent(CType(e.Row,palMostrarCasosRow), e.Action))
+            If (Not (Me.palMostrarGestionesRowChangingEvent) Is Nothing) Then
+                RaiseEvent palMostrarGestionesRowChanging(Me, New palMostrarGestionesRowChangeEvent(CType(e.Row,palMostrarGestionesRow), e.Action))
             End If
         End Sub
         
@@ -815,8 +785,8 @@ Partial Public Class dstCasos
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleted(e)
-            If (Not (Me.palMostrarCasosRowDeletedEvent) Is Nothing) Then
-                RaiseEvent palMostrarCasosRowDeleted(Me, New palMostrarCasosRowChangeEvent(CType(e.Row,palMostrarCasosRow), e.Action))
+            If (Not (Me.palMostrarGestionesRowDeletedEvent) Is Nothing) Then
+                RaiseEvent palMostrarGestionesRowDeleted(Me, New palMostrarGestionesRowChangeEvent(CType(e.Row,palMostrarGestionesRow), e.Action))
             End If
         End Sub
         
@@ -824,14 +794,14 @@ Partial Public Class dstCasos
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
             MyBase.OnRowDeleting(e)
-            If (Not (Me.palMostrarCasosRowDeletingEvent) Is Nothing) Then
-                RaiseEvent palMostrarCasosRowDeleting(Me, New palMostrarCasosRowChangeEvent(CType(e.Row,palMostrarCasosRow), e.Action))
+            If (Not (Me.palMostrarGestionesRowDeletingEvent) Is Nothing) Then
+                RaiseEvent palMostrarGestionesRowDeleting(Me, New palMostrarGestionesRowChangeEvent(CType(e.Row,palMostrarGestionesRow), e.Action))
             End If
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub RemovepalMostrarCasosRow(ByVal row As palMostrarCasosRow)
+        Public Sub RemovepalMostrarGestionesRow(ByVal row As palMostrarGestionesRow)
             Me.Rows.Remove(row)
         End Sub
         
@@ -840,7 +810,7 @@ Partial Public Class dstCasos
         Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
             Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
             Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
-            Dim ds As dstCasos = New dstCasos()
+            Dim ds As dstBitacora_Gestiones = New dstBitacora_Gestiones()
             Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
             any1.Namespace = "http://www.w3.org/2001/XMLSchema"
             any1.MinOccurs = New Decimal(0)
@@ -858,7 +828,7 @@ Partial Public Class dstCasos
             type.Attributes.Add(attribute1)
             Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
             attribute2.Name = "tableTypeName"
-            attribute2.FixedValue = "palMostrarCasosDataTable"
+            attribute2.FixedValue = "palMostrarGestionesDataTable"
             type.Attributes.Add(attribute2)
             type.Particle = sequence
             Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
@@ -905,90 +875,80 @@ Partial Public Class dstCasos
     '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
-    Partial Public Class palMostrarCasosRow
+    Partial Public Class palMostrarGestionesRow
         Inherits Global.System.Data.DataRow
         
-        Private tablepalMostrarCasos As palMostrarCasosDataTable
+        Private tablepalMostrarGestiones As palMostrarGestionesDataTable
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
             MyBase.New(rb)
-            Me.tablepalMostrarCasos = CType(Me.Table,palMostrarCasosDataTable)
+            Me.tablepalMostrarGestiones = CType(Me.Table,palMostrarGestionesDataTable)
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property intIdCasos() As Integer
+        Public Property intIdGestiones() As Integer
             Get
-                Return CType(Me(Me.tablepalMostrarCasos.intIdCasosColumn),Integer)
+                Return CType(Me(Me.tablepalMostrarGestiones.intIdGestionesColumn),Integer)
             End Get
             Set
-                Me(Me.tablepalMostrarCasos.intIdCasosColumn) = value
+                Me(Me.tablepalMostrarGestiones.intIdGestionesColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property vchNumeroCasos() As String
+        Public Property vchTipoGestiones() As String
             Get
-                Return CType(Me(Me.tablepalMostrarCasos.vchNumeroCasosColumn),String)
+                Return CType(Me(Me.tablepalMostrarGestiones.vchTipoGestionesColumn),String)
             End Get
             Set
-                Me(Me.tablepalMostrarCasos.vchNumeroCasosColumn) = value
+                Me(Me.tablepalMostrarGestiones.vchTipoGestionesColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property vchEstadoCasos() As String
-            Get
-                Return CType(Me(Me.tablepalMostrarCasos.vchEstadoCasosColumn),String)
-            End Get
-            Set
-                Me(Me.tablepalMostrarCasos.vchEstadoCasosColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property dtiFechaCasos() As Date
+        Public Property intCedulaUsuario() As Integer
             Get
                 Try 
-                    Return CType(Me(Me.tablepalMostrarCasos.dtiFechaCasosColumn),Date)
+                    Return CType(Me(Me.tablepalMostrarGestiones.intCedulaUsuarioColumn),Integer)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'dtiFechaCasos' in table 'palMostrarCasos' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'intCedulaUsuario' in table 'palMostrarGestiones' is DBNull."& _ 
+                            "", e)
                 End Try
             End Get
             Set
-                Me(Me.tablepalMostrarCasos.dtiFechaCasosColumn) = value
+                Me(Me.tablepalMostrarGestiones.intCedulaUsuarioColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property intCedulaDenuncianteCasos() As Integer
+        Public Property vchNombreUsuario() As String
             Get
                 Try 
-                    Return CType(Me(Me.tablepalMostrarCasos.intCedulaDenuncianteCasosColumn),Integer)
+                    Return CType(Me(Me.tablepalMostrarGestiones.vchNombreUsuarioColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'intCedulaDenuncianteCasos' in table 'palMostrarCasos' is DB"& _ 
-                            "Null.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'vchNombreUsuario' in table 'palMostrarGestiones' is DBNull."& _ 
+                            "", e)
                 End Try
             End Get
             Set
-                Me(Me.tablepalMostrarCasos.intCedulaDenuncianteCasosColumn) = value
+                Me(Me.tablepalMostrarGestiones.vchNombreUsuarioColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property vchNombreDenucianteCasos() As String
+        Public Property dtiFechaIngreso() As Date
             Get
-                Return CType(Me(Me.tablepalMostrarCasos.vchNombreDenucianteCasosColumn),String)
+                Return CType(Me(Me.tablepalMostrarGestiones.dtiFechaIngresoColumn),Date)
             End Get
             Set
-                Me(Me.tablepalMostrarCasos.vchNombreDenucianteCasosColumn) = value
+                Me(Me.tablepalMostrarGestiones.dtiFechaIngresoColumn) = value
             End Set
         End Property
         
@@ -997,14 +957,84 @@ Partial Public Class dstCasos
         Public Property vchNombreFuncionario() As String
             Get
                 Try 
-                    Return CType(Me(Me.tablepalMostrarCasos.vchNombreFuncionarioColumn),String)
+                    Return CType(Me(Me.tablepalMostrarGestiones.vchNombreFuncionarioColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'vchNombreFuncionario' in table 'palMostrarCasos' is DBNull."& _ 
-                            "", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'vchNombreFuncionario' in table 'palMostrarGestiones' is DBN"& _ 
+                            "ull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablepalMostrarCasos.vchNombreFuncionarioColumn) = value
+                Me(Me.tablepalMostrarGestiones.vchNombreFuncionarioColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property vchConfidencialidadGestiones() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablepalMostrarGestiones.vchConfidencialidadGestionesColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'vchConfidencialidadGestiones' in table 'palMostrarGestiones"& _ 
+                            "' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablepalMostrarGestiones.vchConfidencialidadGestionesColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property vchFuenteGeneradora() As String
+            Get
+                Return CType(Me(Me.tablepalMostrarGestiones.vchFuenteGeneradoraColumn),String)
+            End Get
+            Set
+                Me(Me.tablepalMostrarGestiones.vchFuenteGeneradoraColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property vchTipoServicio() As String
+            Get
+                Return CType(Me(Me.tablepalMostrarGestiones.vchTipoServicioColumn),String)
+            End Get
+            Set
+                Me(Me.tablepalMostrarGestiones.vchTipoServicioColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property vchDireccionRegional() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablepalMostrarGestiones.vchDireccionRegionalColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'vchDireccionRegional' in table 'palMostrarGestiones' is DBN"& _ 
+                            "ull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablepalMostrarGestiones.vchDireccionRegionalColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property vchSupervicionGestiones() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablepalMostrarGestiones.vchSupervicionGestionesColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'vchSupervicionGestiones' in table 'palMostrarGestiones' is "& _ 
+                            "DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablepalMostrarGestiones.vchSupervicionGestionesColumn) = value
             End Set
         End Property
         
@@ -1013,14 +1043,14 @@ Partial Public Class dstCasos
         Public Property vchNombreCentroEducativo() As String
             Get
                 Try 
-                    Return CType(Me(Me.tablepalMostrarCasos.vchNombreCentroEducativoColumn),String)
+                    Return CType(Me(Me.tablepalMostrarGestiones.vchNombreCentroEducativoColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'vchNombreCentroEducativo' in table 'palMostrarCasos' is DBN"& _ 
-                            "ull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'vchNombreCentroEducativo' in table 'palMostrarGestiones' is"& _ 
+                            " DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablepalMostrarCasos.vchNombreCentroEducativoColumn) = value
+                Me(Me.tablepalMostrarGestiones.vchNombreCentroEducativoColumn) = value
             End Set
         End Property
         
@@ -1029,14 +1059,14 @@ Partial Public Class dstCasos
         Public Property vchDescripcionUnidad() As String
             Get
                 Try 
-                    Return CType(Me(Me.tablepalMostrarCasos.vchDescripcionUnidadColumn),String)
+                    Return CType(Me(Me.tablepalMostrarGestiones.vchDescripcionUnidadColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'vchDescripcionUnidad' in table 'palMostrarCasos' is DBNull."& _ 
-                            "", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'vchDescripcionUnidad' in table 'palMostrarGestiones' is DBN"& _ 
+                            "ull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablepalMostrarCasos.vchDescripcionUnidadColumn) = value
+                Me(Me.tablepalMostrarGestiones.vchDescripcionUnidadColumn) = value
             End Set
         End Property
         
@@ -1045,14 +1075,14 @@ Partial Public Class dstCasos
         Public Property vchDescripcionDespacho() As String
             Get
                 Try 
-                    Return CType(Me(Me.tablepalMostrarCasos.vchDescripcionDespachoColumn),String)
+                    Return CType(Me(Me.tablepalMostrarGestiones.vchDescripcionDespachoColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'vchDescripcionDespacho' in table 'palMostrarCasos' is DBNul"& _ 
-                            "l.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'vchDescripcionDespacho' in table 'palMostrarGestiones' is D"& _ 
+                            "BNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablepalMostrarCasos.vchDescripcionDespachoColumn) = value
+                Me(Me.tablepalMostrarGestiones.vchDescripcionDespachoColumn) = value
             End Set
         End Property
         
@@ -1061,14 +1091,14 @@ Partial Public Class dstCasos
         Public Property vchDescripcionDireccion() As String
             Get
                 Try 
-                    Return CType(Me(Me.tablepalMostrarCasos.vchDescripcionDireccionColumn),String)
+                    Return CType(Me(Me.tablepalMostrarGestiones.vchDescripcionDireccionColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'vchDescripcionDireccion' in table 'palMostrarCasos' is DBNu"& _ 
-                            "ll.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'vchDescripcionDireccion' in table 'palMostrarGestiones' is "& _ 
+                            "DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablepalMostrarCasos.vchDescripcionDireccionColumn) = value
+                Me(Me.tablepalMostrarGestiones.vchDescripcionDireccionColumn) = value
             End Set
         End Property
         
@@ -1077,14 +1107,14 @@ Partial Public Class dstCasos
         Public Property vchDescripcionDepartamento() As String
             Get
                 Try 
-                    Return CType(Me(Me.tablepalMostrarCasos.vchDescripcionDepartamentoColumn),String)
+                    Return CType(Me(Me.tablepalMostrarGestiones.vchDescripcionDepartamentoColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'vchDescripcionDepartamento' in table 'palMostrarCasos' is D"& _ 
-                            "BNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'vchDescripcionDepartamento' in table 'palMostrarGestiones' "& _ 
+                            "is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablepalMostrarCasos.vchDescripcionDepartamentoColumn) = value
+                Me(Me.tablepalMostrarGestiones.vchDescripcionDepartamentoColumn) = value
             End Set
         End Property
         
@@ -1093,28 +1123,13 @@ Partial Public Class dstCasos
         Public Property vchNumeroOficio() As String
             Get
                 Try 
-                    Return CType(Me(Me.tablepalMostrarCasos.vchNumeroOficioColumn),String)
+                    Return CType(Me(Me.tablepalMostrarGestiones.vchNumeroOficioColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'vchNumeroOficio' in table 'palMostrarCasos' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'vchNumeroOficio' in table 'palMostrarGestiones' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablepalMostrarCasos.vchNumeroOficioColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property dtiFechaOficio() As Date
-            Get
-                Try 
-                    Return CType(Me(Me.tablepalMostrarCasos.dtiFechaOficioColumn),Date)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'dtiFechaOficio' in table 'palMostrarCasos' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablepalMostrarCasos.dtiFechaOficioColumn) = value
+                Me(Me.tablepalMostrarGestiones.vchNumeroOficioColumn) = value
             End Set
         End Property
         
@@ -1122,10 +1137,15 @@ Partial Public Class dstCasos
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property vchTipoDimension() As String
             Get
-                Return CType(Me(Me.tablepalMostrarCasos.vchTipoDimensionColumn),String)
+                Try 
+                    Return CType(Me(Me.tablepalMostrarGestiones.vchTipoDimensionColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'vchTipoDimension' in table 'palMostrarGestiones' is DBNull."& _ 
+                            "", e)
+                End Try
             End Get
             Set
-                Me(Me.tablepalMostrarCasos.vchTipoDimensionColumn) = value
+                Me(Me.tablepalMostrarGestiones.vchTipoDimensionColumn) = value
             End Set
         End Property
         
@@ -1133,314 +1153,262 @@ Partial Public Class dstCasos
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property vchLetraDimension() As String
             Get
-                Return CType(Me(Me.tablepalMostrarCasos.vchLetraDimensionColumn),String)
-            End Get
-            Set
-                Me(Me.tablepalMostrarCasos.vchLetraDimensionColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property vchDescripcionTipoDimension() As String
-            Get
-                Return CType(Me(Me.tablepalMostrarCasos.vchDescripcionTipoDimensionColumn),String)
-            End Get
-            Set
-                Me(Me.tablepalMostrarCasos.vchDescripcionTipoDimensionColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property vchCondicionCasos() As String
-            Get
-                Return CType(Me(Me.tablepalMostrarCasos.vchCondicionCasosColumn),String)
-            End Get
-            Set
-                Me(Me.tablepalMostrarCasos.vchCondicionCasosColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property vchDetalleInconformidadCasos() As String
-            Get
-                Return CType(Me(Me.tablepalMostrarCasos.vchDetalleInconformidadCasosColumn),String)
-            End Get
-            Set
-                Me(Me.tablepalMostrarCasos.vchDetalleInconformidadCasosColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property vchRespuestaCasos() As String
-            Get
                 Try 
-                    Return CType(Me(Me.tablepalMostrarCasos.vchRespuestaCasosColumn),String)
+                    Return CType(Me(Me.tablepalMostrarGestiones.vchLetraDimensionColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'vchRespuestaCasos' in table 'palMostrarCasos' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'vchLetraDimension' in table 'palMostrarGestiones' is DBNull"& _ 
+                            ".", e)
                 End Try
             End Get
             Set
-                Me(Me.tablepalMostrarCasos.vchRespuestaCasosColumn) = value
+                Me(Me.tablepalMostrarGestiones.vchLetraDimensionColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property vchValoracionAdmisibilidad() As String
-            Get
-                Return CType(Me(Me.tablepalMostrarCasos.vchValoracionAdmisibilidadColumn),String)
-            End Get
-            Set
-                Me(Me.tablepalMostrarCasos.vchValoracionAdmisibilidadColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property vchVeredictoValoracionIngreso() As String
+        Public Property vchDescripcionLetraDimension() As String
             Get
                 Try 
-                    Return CType(Me(Me.tablepalMostrarCasos.vchVeredictoValoracionIngresoColumn),String)
+                    Return CType(Me(Me.tablepalMostrarGestiones.vchDescripcionLetraDimensionColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'vchVeredictoValoracionIngreso' in table 'palMostrarCasos' i"& _ 
-                            "s DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'vchDescripcionLetraDimension' in table 'palMostrarGestiones"& _ 
+                            "' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablepalMostrarCasos.vchVeredictoValoracionIngresoColumn) = value
+                Me(Me.tablepalMostrarGestiones.vchDescripcionLetraDimensionColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property vchTrazabilidadCasos() As String
+        Public Property vchTipoUsuario() As String
+            Get
+                Return CType(Me(Me.tablepalMostrarGestiones.vchTipoUsuarioColumn),String)
+            End Get
+            Set
+                Me(Me.tablepalMostrarGestiones.vchTipoUsuarioColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property vchDetalleGestiones() As String
+            Get
+                Return CType(Me(Me.tablepalMostrarGestiones.vchDetalleGestionesColumn),String)
+            End Get
+            Set
+                Me(Me.tablepalMostrarGestiones.vchDetalleGestionesColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property vchRespuestaGestiones() As String
             Get
                 Try 
-                    Return CType(Me(Me.tablepalMostrarCasos.vchTrazabilidadCasosColumn),String)
+                    Return CType(Me(Me.tablepalMostrarGestiones.vchRespuestaGestionesColumn),String)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'vchTrazabilidadCasos' in table 'palMostrarCasos' is DBNull."& _ 
-                            "", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'vchRespuestaGestiones' in table 'palMostrarGestiones' is DB"& _ 
+                            "Null.", e)
                 End Try
             End Get
             Set
-                Me(Me.tablepalMostrarCasos.vchTrazabilidadCasosColumn) = value
+                Me(Me.tablepalMostrarGestiones.vchRespuestaGestionesColumn) = value
             End Set
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property dtiFechaRespuestaCasos() As Date
-            Get
-                Try 
-                    Return CType(Me(Me.tablepalMostrarCasos.dtiFechaRespuestaCasosColumn),Date)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'dtiFechaRespuestaCasos' in table 'palMostrarCasos' is DBNul"& _ 
-                            "l.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablepalMostrarCasos.dtiFechaRespuestaCasosColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property dtiFechaCerradoCasos() As Date
-            Get
-                Try 
-                    Return CType(Me(Me.tablepalMostrarCasos.dtiFechaCerradoCasosColumn),Date)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'dtiFechaCerradoCasos' in table 'palMostrarCasos' is DBNull."& _ 
-                            "", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tablepalMostrarCasos.dtiFechaCerradoCasosColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsdtiFechaCasosNull() As Boolean
-            Return Me.IsNull(Me.tablepalMostrarCasos.dtiFechaCasosColumn)
+        Public Function IsintCedulaUsuarioNull() As Boolean
+            Return Me.IsNull(Me.tablepalMostrarGestiones.intCedulaUsuarioColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetdtiFechaCasosNull()
-            Me(Me.tablepalMostrarCasos.dtiFechaCasosColumn) = Global.System.Convert.DBNull
+        Public Sub SetintCedulaUsuarioNull()
+            Me(Me.tablepalMostrarGestiones.intCedulaUsuarioColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsintCedulaDenuncianteCasosNull() As Boolean
-            Return Me.IsNull(Me.tablepalMostrarCasos.intCedulaDenuncianteCasosColumn)
+        Public Function IsvchNombreUsuarioNull() As Boolean
+            Return Me.IsNull(Me.tablepalMostrarGestiones.vchNombreUsuarioColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetintCedulaDenuncianteCasosNull()
-            Me(Me.tablepalMostrarCasos.intCedulaDenuncianteCasosColumn) = Global.System.Convert.DBNull
+        Public Sub SetvchNombreUsuarioNull()
+            Me(Me.tablepalMostrarGestiones.vchNombreUsuarioColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsvchNombreFuncionarioNull() As Boolean
-            Return Me.IsNull(Me.tablepalMostrarCasos.vchNombreFuncionarioColumn)
+            Return Me.IsNull(Me.tablepalMostrarGestiones.vchNombreFuncionarioColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetvchNombreFuncionarioNull()
-            Me(Me.tablepalMostrarCasos.vchNombreFuncionarioColumn) = Global.System.Convert.DBNull
+            Me(Me.tablepalMostrarGestiones.vchNombreFuncionarioColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsvchConfidencialidadGestionesNull() As Boolean
+            Return Me.IsNull(Me.tablepalMostrarGestiones.vchConfidencialidadGestionesColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetvchConfidencialidadGestionesNull()
+            Me(Me.tablepalMostrarGestiones.vchConfidencialidadGestionesColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsvchDireccionRegionalNull() As Boolean
+            Return Me.IsNull(Me.tablepalMostrarGestiones.vchDireccionRegionalColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetvchDireccionRegionalNull()
+            Me(Me.tablepalMostrarGestiones.vchDireccionRegionalColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsvchSupervicionGestionesNull() As Boolean
+            Return Me.IsNull(Me.tablepalMostrarGestiones.vchSupervicionGestionesColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetvchSupervicionGestionesNull()
+            Me(Me.tablepalMostrarGestiones.vchSupervicionGestionesColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsvchNombreCentroEducativoNull() As Boolean
-            Return Me.IsNull(Me.tablepalMostrarCasos.vchNombreCentroEducativoColumn)
+            Return Me.IsNull(Me.tablepalMostrarGestiones.vchNombreCentroEducativoColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetvchNombreCentroEducativoNull()
-            Me(Me.tablepalMostrarCasos.vchNombreCentroEducativoColumn) = Global.System.Convert.DBNull
+            Me(Me.tablepalMostrarGestiones.vchNombreCentroEducativoColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsvchDescripcionUnidadNull() As Boolean
-            Return Me.IsNull(Me.tablepalMostrarCasos.vchDescripcionUnidadColumn)
+            Return Me.IsNull(Me.tablepalMostrarGestiones.vchDescripcionUnidadColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetvchDescripcionUnidadNull()
-            Me(Me.tablepalMostrarCasos.vchDescripcionUnidadColumn) = Global.System.Convert.DBNull
+            Me(Me.tablepalMostrarGestiones.vchDescripcionUnidadColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsvchDescripcionDespachoNull() As Boolean
-            Return Me.IsNull(Me.tablepalMostrarCasos.vchDescripcionDespachoColumn)
+            Return Me.IsNull(Me.tablepalMostrarGestiones.vchDescripcionDespachoColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetvchDescripcionDespachoNull()
-            Me(Me.tablepalMostrarCasos.vchDescripcionDespachoColumn) = Global.System.Convert.DBNull
+            Me(Me.tablepalMostrarGestiones.vchDescripcionDespachoColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsvchDescripcionDireccionNull() As Boolean
-            Return Me.IsNull(Me.tablepalMostrarCasos.vchDescripcionDireccionColumn)
+            Return Me.IsNull(Me.tablepalMostrarGestiones.vchDescripcionDireccionColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetvchDescripcionDireccionNull()
-            Me(Me.tablepalMostrarCasos.vchDescripcionDireccionColumn) = Global.System.Convert.DBNull
+            Me(Me.tablepalMostrarGestiones.vchDescripcionDireccionColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsvchDescripcionDepartamentoNull() As Boolean
-            Return Me.IsNull(Me.tablepalMostrarCasos.vchDescripcionDepartamentoColumn)
+            Return Me.IsNull(Me.tablepalMostrarGestiones.vchDescripcionDepartamentoColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetvchDescripcionDepartamentoNull()
-            Me(Me.tablepalMostrarCasos.vchDescripcionDepartamentoColumn) = Global.System.Convert.DBNull
+            Me(Me.tablepalMostrarGestiones.vchDescripcionDepartamentoColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsvchNumeroOficioNull() As Boolean
-            Return Me.IsNull(Me.tablepalMostrarCasos.vchNumeroOficioColumn)
+            Return Me.IsNull(Me.tablepalMostrarGestiones.vchNumeroOficioColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetvchNumeroOficioNull()
-            Me(Me.tablepalMostrarCasos.vchNumeroOficioColumn) = Global.System.Convert.DBNull
+            Me(Me.tablepalMostrarGestiones.vchNumeroOficioColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsdtiFechaOficioNull() As Boolean
-            Return Me.IsNull(Me.tablepalMostrarCasos.dtiFechaOficioColumn)
+        Public Function IsvchTipoDimensionNull() As Boolean
+            Return Me.IsNull(Me.tablepalMostrarGestiones.vchTipoDimensionColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetdtiFechaOficioNull()
-            Me(Me.tablepalMostrarCasos.dtiFechaOficioColumn) = Global.System.Convert.DBNull
+        Public Sub SetvchTipoDimensionNull()
+            Me(Me.tablepalMostrarGestiones.vchTipoDimensionColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsvchRespuestaCasosNull() As Boolean
-            Return Me.IsNull(Me.tablepalMostrarCasos.vchRespuestaCasosColumn)
+        Public Function IsvchLetraDimensionNull() As Boolean
+            Return Me.IsNull(Me.tablepalMostrarGestiones.vchLetraDimensionColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetvchRespuestaCasosNull()
-            Me(Me.tablepalMostrarCasos.vchRespuestaCasosColumn) = Global.System.Convert.DBNull
+        Public Sub SetvchLetraDimensionNull()
+            Me(Me.tablepalMostrarGestiones.vchLetraDimensionColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsvchVeredictoValoracionIngresoNull() As Boolean
-            Return Me.IsNull(Me.tablepalMostrarCasos.vchVeredictoValoracionIngresoColumn)
+        Public Function IsvchDescripcionLetraDimensionNull() As Boolean
+            Return Me.IsNull(Me.tablepalMostrarGestiones.vchDescripcionLetraDimensionColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetvchVeredictoValoracionIngresoNull()
-            Me(Me.tablepalMostrarCasos.vchVeredictoValoracionIngresoColumn) = Global.System.Convert.DBNull
+        Public Sub SetvchDescripcionLetraDimensionNull()
+            Me(Me.tablepalMostrarGestiones.vchDescripcionLetraDimensionColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsvchTrazabilidadCasosNull() As Boolean
-            Return Me.IsNull(Me.tablepalMostrarCasos.vchTrazabilidadCasosColumn)
+        Public Function IsvchRespuestaGestionesNull() As Boolean
+            Return Me.IsNull(Me.tablepalMostrarGestiones.vchRespuestaGestionesColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetvchTrazabilidadCasosNull()
-            Me(Me.tablepalMostrarCasos.vchTrazabilidadCasosColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsdtiFechaRespuestaCasosNull() As Boolean
-            Return Me.IsNull(Me.tablepalMostrarCasos.dtiFechaRespuestaCasosColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetdtiFechaRespuestaCasosNull()
-            Me(Me.tablepalMostrarCasos.dtiFechaRespuestaCasosColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsdtiFechaCerradoCasosNull() As Boolean
-            Return Me.IsNull(Me.tablepalMostrarCasos.dtiFechaCerradoCasosColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetdtiFechaCerradoCasosNull()
-            Me(Me.tablepalMostrarCasos.dtiFechaCerradoCasosColumn) = Global.System.Convert.DBNull
+        Public Sub SetvchRespuestaGestionesNull()
+            Me(Me.tablepalMostrarGestiones.vchRespuestaGestionesColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -1448,16 +1416,16 @@ Partial Public Class dstCasos
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-    Public Class palMostrarCasosRowChangeEvent
+    Public Class palMostrarGestionesRowChangeEvent
         Inherits Global.System.EventArgs
         
-        Private eventRow As palMostrarCasosRow
+        Private eventRow As palMostrarGestionesRow
         
         Private eventAction As Global.System.Data.DataRowAction
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub New(ByVal row As palMostrarCasosRow, ByVal action As Global.System.Data.DataRowAction)
+        Public Sub New(ByVal row As palMostrarGestionesRow, ByVal action As Global.System.Data.DataRowAction)
             MyBase.New
             Me.eventRow = row
             Me.eventAction = action
@@ -1465,7 +1433,7 @@ Partial Public Class dstCasos
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property Row() As palMostrarCasosRow
+        Public ReadOnly Property Row() As palMostrarGestionesRow
             Get
                 Return Me.eventRow
             End Get
@@ -1481,7 +1449,7 @@ Partial Public Class dstCasos
     End Class
 End Class
 
-Namespace dstCasosTableAdapters
+Namespace dstBitacora_GestionesTableAdapters
     
     '''<summary>
     '''Represents the connection and commands used to retrieve and save data.
@@ -1492,7 +1460,7 @@ Namespace dstCasosTableAdapters
      Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
      Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
-    Partial Public Class palMostrarCasosTableAdapter
+    Partial Public Class palMostrarGestionesTableAdapter
         Inherits Global.System.ComponentModel.Component
         
         Private WithEvents _adapter As Global.System.Data.SqlClient.SqlDataAdapter
@@ -1609,32 +1577,30 @@ Namespace dstCasosTableAdapters
             Me._adapter = New Global.System.Data.SqlClient.SqlDataAdapter()
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
             tableMapping.SourceTable = "Table"
-            tableMapping.DataSetTable = "palMostrarCasos"
-            tableMapping.ColumnMappings.Add("intIdCasos", "intIdCasos")
-            tableMapping.ColumnMappings.Add("vchNumeroCasos", "vchNumeroCasos")
-            tableMapping.ColumnMappings.Add("vchEstadoCasos", "vchEstadoCasos")
-            tableMapping.ColumnMappings.Add("dtiFechaCasos", "dtiFechaCasos")
-            tableMapping.ColumnMappings.Add("intCedulaDenuncianteCasos", "intCedulaDenuncianteCasos")
-            tableMapping.ColumnMappings.Add("vchNombreDenucianteCasos", "vchNombreDenucianteCasos")
+            tableMapping.DataSetTable = "palMostrarGestiones"
+            tableMapping.ColumnMappings.Add("intIdGestiones", "intIdGestiones")
+            tableMapping.ColumnMappings.Add("vchTipoGestiones", "vchTipoGestiones")
+            tableMapping.ColumnMappings.Add("intCedulaUsuario", "intCedulaUsuario")
+            tableMapping.ColumnMappings.Add("vchNombreUsuario", "vchNombreUsuario")
+            tableMapping.ColumnMappings.Add("dtiFechaIngreso", "dtiFechaIngreso")
             tableMapping.ColumnMappings.Add("vchNombreFuncionario", "vchNombreFuncionario")
+            tableMapping.ColumnMappings.Add("vchConfidencialidadGestiones", "vchConfidencialidadGestiones")
+            tableMapping.ColumnMappings.Add("vchFuenteGeneradora", "vchFuenteGeneradora")
+            tableMapping.ColumnMappings.Add("vchTipoServicio", "vchTipoServicio")
+            tableMapping.ColumnMappings.Add("vchDireccionRegional", "vchDireccionRegional")
+            tableMapping.ColumnMappings.Add("vchSupervicionGestiones", "vchSupervicionGestiones")
             tableMapping.ColumnMappings.Add("vchNombreCentroEducativo", "vchNombreCentroEducativo")
             tableMapping.ColumnMappings.Add("vchDescripcionUnidad", "vchDescripcionUnidad")
             tableMapping.ColumnMappings.Add("vchDescripcionDespacho", "vchDescripcionDespacho")
             tableMapping.ColumnMappings.Add("vchDescripcionDireccion", "vchDescripcionDireccion")
             tableMapping.ColumnMappings.Add("vchDescripcionDepartamento", "vchDescripcionDepartamento")
             tableMapping.ColumnMappings.Add("vchNumeroOficio", "vchNumeroOficio")
-            tableMapping.ColumnMappings.Add("dtiFechaOficio", "dtiFechaOficio")
             tableMapping.ColumnMappings.Add("vchTipoDimension", "vchTipoDimension")
             tableMapping.ColumnMappings.Add("vchLetraDimension", "vchLetraDimension")
-            tableMapping.ColumnMappings.Add("vchDescripcionTipoDimension", "vchDescripcionTipoDimension")
-            tableMapping.ColumnMappings.Add("vchCondicionCasos", "vchCondicionCasos")
-            tableMapping.ColumnMappings.Add("vchDetalleInconformidadCasos", "vchDetalleInconformidadCasos")
-            tableMapping.ColumnMappings.Add("vchRespuestaCasos", "vchRespuestaCasos")
-            tableMapping.ColumnMappings.Add("vchValoracionAdmisibilidad", "vchValoracionAdmisibilidad")
-            tableMapping.ColumnMappings.Add("vchVeredictoValoracionIngreso", "vchVeredictoValoracionIngreso")
-            tableMapping.ColumnMappings.Add("vchTrazabilidadCasos", "vchTrazabilidadCasos")
-            tableMapping.ColumnMappings.Add("dtiFechaRespuestaCasos", "dtiFechaRespuestaCasos")
-            tableMapping.ColumnMappings.Add("dtiFechaCerradoCasos", "dtiFechaCerradoCasos")
+            tableMapping.ColumnMappings.Add("vchDescripcionLetraDimension", "vchDescripcionLetraDimension")
+            tableMapping.ColumnMappings.Add("vchTipoUsuario", "vchTipoUsuario")
+            tableMapping.ColumnMappings.Add("vchDetalleGestiones", "vchDetalleGestiones")
+            tableMapping.ColumnMappings.Add("vchRespuestaGestiones", "vchRespuestaGestiones")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -1651,7 +1617,7 @@ Namespace dstCasosTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(0) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "dbo.palMostrarCasos"
+            Me._commandCollection(0).CommandText = "dbo.palMostrarGestiones"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.StoredProcedure
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@RETURN_VALUE", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.ReturnValue, 10, 0, Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
@@ -1660,7 +1626,7 @@ Namespace dstCasosTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
-        Public Overloads Overridable Function Fill(ByVal dataTable As dstCasos.palMostrarCasosDataTable) As Integer
+        Public Overloads Overridable Function Fill(ByVal dataTable As dstBitacora_Gestiones.palMostrarGestionesDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -1673,9 +1639,9 @@ Namespace dstCasosTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
-        Public Overloads Overridable Function GetData() As dstCasos.palMostrarCasosDataTable
+        Public Overloads Overridable Function GetData() As dstBitacora_Gestiones.palMostrarGestionesDataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(0)
-            Dim dataTable As dstCasos.palMostrarCasosDataTable = New dstCasos.palMostrarCasosDataTable()
+            Dim dataTable As dstBitacora_Gestiones.palMostrarGestionesDataTable = New dstBitacora_Gestiones.palMostrarGestionesDataTable()
             Me.Adapter.Fill(dataTable)
             Return dataTable
         End Function
@@ -1750,7 +1716,7 @@ Namespace dstCasosTableAdapters
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Private Function UpdateUpdatedRows(ByVal dataSet As dstCasos, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
+        Private Function UpdateUpdatedRows(ByVal dataSet As dstBitacora_Gestiones, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow), ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
             Return result
         End Function
@@ -1760,7 +1726,7 @@ Namespace dstCasosTableAdapters
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Private Function UpdateInsertedRows(ByVal dataSet As dstCasos, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
+        Private Function UpdateInsertedRows(ByVal dataSet As dstBitacora_Gestiones, ByVal allAddedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
             Return result
         End Function
@@ -1770,7 +1736,7 @@ Namespace dstCasosTableAdapters
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Private Function UpdateDeletedRows(ByVal dataSet As dstCasos, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
+        Private Function UpdateDeletedRows(ByVal dataSet As dstBitacora_Gestiones, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
             Return result
         End Function
@@ -1806,7 +1772,7 @@ Namespace dstCasosTableAdapters
         '''</summary>
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overridable Function UpdateAll(ByVal dataSet As dstCasos) As Integer
+        Public Overridable Function UpdateAll(ByVal dataSet As dstBitacora_Gestiones) As Integer
             If (dataSet Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("dataSet")
             End If

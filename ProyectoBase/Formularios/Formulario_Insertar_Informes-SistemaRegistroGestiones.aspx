@@ -11,9 +11,6 @@
         .auto-style3 {
             width: 516px;
         }
-        .auto-style5 {
-            width: 52px;
-        }
         .Combobox {}
         .auto-style6 {
             width: 882px;
@@ -27,8 +24,9 @@
         .auto-style11 {
             width: 239px;
         }
+        .input-sm {}
         .auto-style12 {
-            width: 11px;
+            width: 256px;
         }
     </style>
 </asp:Content>
@@ -93,7 +91,7 @@
                                             <tr>
                                                 <td class="auto-style10">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtNumero_Oficio" runat="server"  Enabled="true" CssClass="form-control input-sm" Height="25px" Width="273px" /></td>
 
-                                                <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Aprobacion" runat="server"  Enabled="true" CssClass="form-control input-sm" Height="25px" Width="279px"   /></td>
+                                                <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Aprobacion" runat="server" TextMode="DateTimeLocal"  Enabled="true" CssClass="form-control input-sm" Height="25px" Width="279px"   /></td>
                                             </tr>                                            
                                         </table> 
                                         <div class="col-md-3 col-md-offset-1">
@@ -115,9 +113,9 @@
                                                 <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="lblFecha_Traslado" Text="Fecha de Traslado" runat="server"/></td>
                                             </tr>
                                             <tr>
-                                                <td class="auto-style11">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Culminacion" runat="server"  Enabled="true" CssClass="form-control input-sm" Height="25px" Width="279px"  /></td>
+                                                <td class="auto-style11">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Culminacion" runat="server" TextMode="DateTimeLocal"  Enabled="true" CssClass="form-control input-sm" Height="25px" Width="279px"  /></td>
 
-                                                <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtFecha_Traslado" runat="server"  Enabled="true" CssClass="form-control input-sm" Height="25px" Width="279px"  /></td>
+                                                <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:TextBox ID="txtFecha_Traslado" runat="server" TextMode="DateTimeLocal"  Enabled="true" CssClass="form-control input-sm" Height="25px" Width="279px"  /></td>
                                             </tr>
                                         </table>
                                         <div class="col-md-3 col-md-offset-1">
@@ -150,17 +148,18 @@
 
                                                 <td class="auto-style12"></td>
 
-                                                <td class="auto-style5">&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblAvance" Text="Avance" runat="server"/>  </td>
+                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="lblAvance" Text="Avance" runat="server"/>  </td>
                                             </tr>
                                             <tr>
 
                                                 <td class="auto-style12"></td>
 
-                                                <td> <asp:CheckBoxList ID="ddlAvance_Informe" runat="server" Height="25px" Width="155px" CellPadding="5" CssClass="centrar" >
+                                                <td> <asp:CheckBoxList ID="ddlAvance_Informe" runat="server" Height="25px" Width="266px" CellPadding="5" CssClass="centrar" >
                                                     <asp:ListItem Text="1° etapa" Value="1° etapa"  />
                                                     <asp:ListItem Text="2° etapa" Value="2° etapa"  />
                                                     <asp:ListItem Text="3° etapa" Value="3° etapa"  />
                                                     <asp:ListItem Text="4° etapa" Value="4° etapa"  />
+                                                    <asp:ListItem Text="Seguimiento" Value="Seguimiento"  />
                                                 </asp:CheckBoxList> </td>                                             
                                             </tr>
                                         </table>
@@ -181,7 +180,7 @@
                                                 <td class="auto-style10">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblRemitido" Text="Remitido A " runat="server"/></td>                                              
                                             </tr>
                                             <tr>
-                                                <td class="auto-style10">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtRemitido" runat="server"  Enabled="true" CssClass="form-control input-sm" Height="25px" Width="273px" /></td>                                             
+                                                <td class="auto-style10">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtRemitido" runat="server"  Enabled="true" CssClass="form-control input-sm" Height="25px" Width="743px" /></td>                                             
                                             </tr>                                            
                                         </table> 
                                         <div class="col-md-3 col-md-offset-1">
