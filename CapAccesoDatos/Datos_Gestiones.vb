@@ -100,7 +100,7 @@ Public Class Datos_Gestiones
             Conx.ConnectionString = CnnString
 
             cmd = New SqlCommand("palEliminarGestiones")
-
+            cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = Conx
 
             cmd.Connection.Open()

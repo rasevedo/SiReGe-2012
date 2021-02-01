@@ -68,6 +68,15 @@ Partial Public Class Tabla_Casos
     Protected WithEvents grdCharges As Global.System.Web.UI.HtmlControls.HtmlGenericControl
 
     '''<summary>
+    '''UpdatePanelTabla control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UpdatePanelTabla As Global.System.Web.UI.UpdatePanel
+
+    '''<summary>
     '''gvwCasos control.
     '''</summary>
     '''<remarks>

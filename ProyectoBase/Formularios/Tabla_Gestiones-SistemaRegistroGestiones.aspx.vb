@@ -215,32 +215,21 @@ Dim con As New SqlConnection(ConfigurationManager.ConnectionStrings("bda_SIREGE_
                     Dim chkdelete As CheckBox = DirectCast(gvrow.FindControl("chkSelect"), CheckBox)
                     If chkdelete.Checked Then
                         Dim gesid As Integer = Convert.ToInt32(gvwGestiones.DataKeys(gvrow.RowIndex).Value)
-                        Try
-                            dts._idGestiones = gesid
-                            If func.borrarGestiones(dts) Then
-                                'Response.Write("<script language=javascript>alert('El elemento ha sido eliminado de forma exitosa')</script>")
-                                MsgBox("El elemento ha sido eliminado de forma exitosa")
-                                ' Me.MostrarTabla()
-                                'gvwGestiones.DataBind()
-                            Else
-                                ' Response.Write("<script language=javascript>alert('No se ha eliminado el elemento.')</script>")
-                                ' MsgBox("No se ha eliminado el elemento.")
-                                '  gvwGestiones.DataBind()
-                            End If
-
-                            MostrarTabla()
-                        Catch ex As Exception
-                            MsgBox("Hubo un problema en eliminar el elmento: " + ex.Message)
-                        End Try
-                        MostrarTabla()
-                        'gvwGestiones.DataBind()
+                        dts._idGestiones = gesid
+                        If func.borrarGestiones(dts) Then
+                            Response.Write("<script language=javascript>alert('El elemento ha sido eliminado de forma exitosa')</script>")
+                            'MsgBox("El elemento ha sido eliminado de forma exitosa")                           
+                        Else
+                            ' Response.Write("<script language=javascript>alert('No se ha eliminado el elemento.')</script>")
+                            ' MsgBox("No se ha eliminado el elemento.")
+                        End If
                     End If
+                    MostrarTabla()
                 Next
-
                 MostrarTabla()
-                ' gvwGestiones.DataBind()
             Catch ex As Exception
-                MsgBox(ex.Message)
+                Response.Write("<script language=javascript>alert('Hubo un problema en eliminar el elemento')</script>")
+                ' MsgBox("Hubo un problema en eliminar el elmento" + ex.Message)
             End Try
         Else
             Response.Write("<script language=javascript>alert('El usuario no posee permiso para seleccionar el botón de borrar')</script>")

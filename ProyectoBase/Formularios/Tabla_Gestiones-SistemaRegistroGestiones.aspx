@@ -30,6 +30,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">  
     <link href="Estilo.css" rel="stylesheet" />
    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    
+    
+    
     <div class="row">
 
         <div class="auto-style2">
@@ -39,6 +42,8 @@
                 </div>
             </header>
         </div>
+
+
 
         <div class="panel-body">
 
@@ -64,8 +69,9 @@
                              </div> 
 
                    
-                   <div id="grdCharges" runat="server" style="width: 1209px; overflow: auto; height: 450px; margin-left: 8px;" > 
-                                           
+                   <div id="grdCharges" runat="server" style="width: 1209px; overflow: auto; height: 450px; margin-left: 8px;" >                                     
+                           <asp:UpdatePanel runat="server" id="UpdatePanelTabla" updatemode="Conditional">  
+                           <ContentTemplate>
                            <asp:GridView ID="gvwGestiones" runat="server" CellPadding="10" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="2px" AutoGenerateColumns="False" DataKeyNames="intIdGestiones" AllowSorting="True" CellSpacing="10" HorizontalAlign="Center" Width="50%" >
                            <Columns>
                                <asp:buttonfield buttontype="Button" runat="server" commandname="Select" text="Detalle" />
@@ -159,8 +165,9 @@
                             <EditRowStyle BackColor="#999999" />
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                        </asp:GridView>                     
-                       <asp:SqlDataSource runat="server" ID="sdsGridView_Gestiones" ConnectionString='<%$ ConnectionStrings:bda_SIREGE_Connection %>' SelectCommand="mostrarGestiones" SelectCommandType="StoredProcedure" ></asp:SqlDataSource>
-                     
+                       <asp:SqlDataSource runat="server" ID="sdsGridView_Gestiones" ConnectionString='<%$ ConnectionStrings:bda_SIREGE_Connection %>' SelectCommand="mostrarGestiones" SelectCommandType="StoredProcedure" ></asp:SqlDataSource>                  
+                        </ContentTemplate>
+                    </asp:UpdatePanel>
                       <script type = "text/javascript">
                           function chkTodo(objRef) {
                               var GridView = objRef.parentNode.parentNode.parentNode;
@@ -475,6 +482,7 @@
                        </asp:Panel>
 
                    </div>
+                    
                  </div>
               </div>                                              
              

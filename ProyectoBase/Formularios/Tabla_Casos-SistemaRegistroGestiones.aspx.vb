@@ -139,8 +139,7 @@ Public Class Tabla_Casos
                         Dim gesid As Integer = Convert.ToInt32(gvwCasos.DataKeys(gvrow.RowIndex).Value)
                         dts._idCasos = gesid
                         If func.borrarCasos(dts) Then
-                            Response.Write("<script language=javascript>alert('El elemento ha sido eliminado de forma exitosa')</script>")
-                            gvwCasos.DataBind()
+                            Response.Write("<script language=javascript>alert('El elemento ha sido eliminado de forma exitosa')</script>")                          
                             'MsgBox("El elemento ha sido eliminado de forma exitosa")
                         Else
                             Response.Write("<script language=javascript>alert('No se ha eliminado el elemento.')</script>")

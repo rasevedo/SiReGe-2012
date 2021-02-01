@@ -43,7 +43,8 @@
                            
                 
                    <div id="grdCharges" runat="server"  style="width: 1209px; overflow: auto; height: 450px">
-
+                       <asp:UpdatePanel runat="server" id="UpdatePanelTabla" updatemode="Conditional">  
+                           <ContentTemplate>
                        <asp:GridView ID="gvwCasos" runat="server" CellPadding="10" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="2px" AutoGenerateColumns="False" DataKeyNames="intIdCasos" AllowPaging="False" AllowSorting="True" CellSpacing="10" HorizontalAlign="Center" style="margin-left: 14px" Width="2422px">
                            <Columns>
                                <asp:buttonfield buttontype="Button" commandname="Select" text="Detalle"/>
@@ -92,7 +93,8 @@
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                        
                        </asp:GridView>
-
+                    </ContentTemplate>
+                    </asp:UpdatePanel>
                        <asp:SqlDataSource runat="server" ID="sdsGridView_Casos" ConnectionString='<%$ ConnectionStrings:bda_SIREGE_Connection %>' SelectCommand="mostrarCasos" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
                    
                        <script type = "text/javascript">

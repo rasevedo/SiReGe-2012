@@ -43,6 +43,8 @@
                              </div> 
            
                    <div id="grdCharges" runat="server"  style="width: 1221px; overflow: auto; height: 450px">
+                       <asp:UpdatePanel runat="server" id="UpdatePanelTabla" updatemode="Conditional">  
+                       <ContentTemplate>
                        <asp:GridView ID="gvwInforme" runat="server" CellPadding="10" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="2px" AutoGenerateColumns="False" DataKeyNames="intIdInforme" AllowPaging="True" AllowSorting="True" CellSpacing="10" HorizontalAlign="Center" style="margin-left: 9px" Width="1199px">
                            <Columns>
                                <asp:buttonfield buttontype="Button" commandname="Select" text="Detalle"/>
@@ -79,10 +81,10 @@
                             <HeaderStyle BackColor="#00A0e3" ForeColor="White" HorizontalAlign="Center" />
                             <EditRowStyle BackColor="#999999" />
                             <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-
-                            
-
+                         
                        </asp:GridView>
+                       </ContentTemplate>
+                        </asp:UpdatePanel>
 
                        <asp:SqlDataSource runat="server" ID="sdsGridview_Informes" ConnectionString='<%$ ConnectionStrings:bda_SIREGE_Connection %>' SelectCommand="mostrarInforme" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
                   

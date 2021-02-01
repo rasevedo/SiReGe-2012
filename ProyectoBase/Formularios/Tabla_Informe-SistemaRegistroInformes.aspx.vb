@@ -138,10 +138,7 @@ Public Class Tabla_Informes
                         dts._idInforme = gesid
                         If func.borrarInforme(dts) Then
                             ' Response.Write("<script language=javascript>alert('El elemento ha sido eliminado de forma exitosa')</script>")
-
                             MsgBox("El elemento ha sido eliminado de forma exitosa")
-                            gvwInforme.DataBind()
-
                         Else
                             'Response.Write("<script language=javascript>alert('No se ha eliminado el elemento.')</script>")
                             'MsgBox("No se ha eliminado el elemento.")
