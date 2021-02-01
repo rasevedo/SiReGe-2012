@@ -74,7 +74,7 @@ Public Class Buscador_Informes_SistemaRegistroGestiones
         Dim conx As New SqlConnection()
         conx.ConnectionString = strConnString
         Dim cmd As New SqlCommand()
-        'cmd = New SqlCommand("palBuscadorInformes")
+        cmd = New SqlCommand("palBuscadorInformes")
         cmd.CommandType = CommandType.StoredProcedure
         cmd.CommandText = Query
 

@@ -230,22 +230,13 @@ Partial Public Class Modificar_Casos
     Protected WithEvents ddlCondicion_Caso As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
-    '''ddlDescripcion_Unidad control.
+    '''txtDescripcion_Unidad control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ddlDescripcion_Unidad As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''sdsDescripcion_Unidad control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents sdsDescripcion_Unidad As Global.System.Web.UI.WebControls.SqlDataSource
+    Protected WithEvents txtDescripcion_Unidad As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''lblDescripcion_Despacho control.
@@ -338,40 +329,22 @@ Partial Public Class Modificar_Casos
     Protected WithEvents lblDetalle_Dimension As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''ddlTipo_Dimension control.
+    '''txtTipo_Dimension control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ddlTipo_Dimension As Global.System.Web.UI.WebControls.DropDownList
+    Protected WithEvents txtTipo_Dimension As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''sdsTipo_Dimensiones control.
+    '''txtLetra_Dimension control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents sdsTipo_Dimensiones As Global.System.Web.UI.WebControls.SqlDataSource
-
-    '''<summary>
-    '''ddlLetra_Dimension control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ddlLetra_Dimension As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
-    '''sdsLetra_Dimension control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents sdsLetra_Dimension As Global.System.Web.UI.WebControls.SqlDataSource
+    Protected WithEvents txtLetra_Dimension As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''txtTipo_Detalle_Letra_Dimension control.

@@ -221,7 +221,7 @@ Dim con As New SqlConnection(ConfigurationManager.ConnectionStrings("bda_SIREGE_
                                 'Response.Write("<script language=javascript>alert('El elemento ha sido eliminado de forma exitosa')</script>")
                                 MsgBox("El elemento ha sido eliminado de forma exitosa")
                                 ' Me.MostrarTabla()
-                                gvwGestiones.DataBind()
+                                'gvwGestiones.DataBind()
                             Else
                                 ' Response.Write("<script language=javascript>alert('No se ha eliminado el elemento.')</script>")
                                 ' MsgBox("No se ha eliminado el elemento.")

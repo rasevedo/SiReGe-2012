@@ -32,7 +32,7 @@ Public Class Modificar_Casos
         Dim strQuery As String = "palSeleccionarUnidades"
         Dim con As New SqlConnection(strConnString)
         Dim cmd As New SqlCommand()
-        cmd.Parameters.AddWithValue("@intIdUnidad", ddlDescripcion_Unidad.SelectedItem.Value)
+        'cmd.Parameters.AddWithValue("@intIdUnidad", ddlDescripcion_Unidad.SelectedItem.Value)
         cmd.CommandType = CommandType.StoredProcedure
         cmd.CommandText = strQuery
         cmd.Connection = con
@@ -63,7 +63,7 @@ Public Class Modificar_Casos
         Dim strQuery As String = "palSeleccionarDimensiones"
         Dim con As New SqlConnection(strConnString)
         Dim cmd As New SqlCommand()
-        cmd.Parameters.AddWithValue("@intIdDimension", ddlLetra_Dimension.SelectedItem.Value)
+        ' cmd.Parameters.AddWithValue("@intIdDimension", ddlLetra_Dimension.SelectedItem.Value)
         cmd.CommandType = CommandType.StoredProcedure
         cmd.CommandText = strQuery
         cmd.Connection = con
@@ -116,7 +116,7 @@ Public Class Modificar_Casos
             dts._nombreDenuncianteCasos = txtNombre_Usuario.Text
             dts._nombreFuncionario = txtNombre_Funcionario.Text
             dts._nombreCentroEducativo = txtNombre_CE.Text
-            dts._idUnidad = ddlDescripcion_Unidad.Text
+            ' dts._idUnidad = ddlDescripcion_Unidad.Text
             dts._numeroOficio = txtNumero_Oficio.Text
 
             If txtFecha_Oficio.Text = "" Then
@@ -125,7 +125,7 @@ Public Class Modificar_Casos
                 dts._fechaOficio = txtFecha_Oficio.Text
             End If
 
-            dts._idDimension = ddlLetra_Dimension.Text
+            ' dts._idDimension = ddlLetra_Dimension.Text
             dts._condicionCasos = ddlCondicion_Caso.Text
             dts._detalleInconformidadCasos = txtAsunto.Text
             dts._respuestaCasos = txtRespuesta.Text
@@ -190,14 +190,14 @@ Public Class Modificar_Casos
             Me.txtNombre_Funcionario.Text = dr("vchNombreFuncionario").ToString()
             ' Me.intIdEmpleados.Text = dr("intIdEmpleados").ToString()
             Me.txtNombre_CE.Text = dr("vchNombreCentroEducativo").ToString()
-            ' Me.ddlDescripcion_Unidad.Text = dr("intIdUnidad").ToString()
+            Me.txtDescripcion_Unidad.Text = dr("vchDescripcionUnidad").ToString()
             Me.txtDespacho.Text = dr("vchDescripcionDespacho").ToString()
             Me.txtDireccion.Text = dr("vchDescripcionDireccion").ToString()
             Me.txtDepartamento.Text = dr("vchdescripcionDepartamento").ToString()
             Me.txtNumero_Oficio.Text = dr("vchNumeroOficio").ToString()
             Me.txtFecha_Oficio.Text = dr("dtiFechaOficio").ToString()
-            ' Me.ddlTipo_Dimension.DataTextFormatString = dr("vchTipoDimension").ToString()
-            ' Me.ddlLetra_Dimension.DataTextFormatString = dr("vchLetraDimension").ToString()
+            Me.txtTipo_Dimension.Text = dr("vchTipoDimension").ToString()
+            Me.txtLetra_Dimension.Text = dr("vchLetraDimension").ToString()
             Me.txtTipo_Detalle_Letra_Dimension.Text = dr("vchDescripcionTipoDimension").ToString()
             Me.ddlCondicion_Caso.Text = dr("vchCondicionCasos").ToString()
             Me.txtAsunto.Text = dr("vchDetalleInconformidadCasos").ToString()

@@ -137,22 +137,24 @@ Public Class Tabla_Informes
                         Dim gesid As Integer = Convert.ToInt32(gvwInforme.DataKeys(gvrow.RowIndex).Value)
                         dts._idInforme = gesid
                         If func.borrarInforme(dts) Then
-                            Response.Write("<script language=javascript>alert('El elemento ha sido eliminado de forma exitosa')</script>")
+                            ' Response.Write("<script language=javascript>alert('El elemento ha sido eliminado de forma exitosa')</script>")
+
+                            MsgBox("El elemento ha sido eliminado de forma exitosa")
                             gvwInforme.DataBind()
-                            'MsgBox("El elemento ha sido eliminado de forma exitosa")
+
                         Else
-                            Response.Write("<script language=javascript>alert('No se ha eliminado el elemento.')</script>")
+                            'Response.Write("<script language=javascript>alert('No se ha eliminado el elemento.')</script>")
                             'MsgBox("No se ha eliminado el elemento.")
                         End If
                     End If
                 Next
                 MostrarTabla()
             Catch ex As Exception
-                Response.Write("<script language=javascript>alert('Hubo un problema en eliminar el elemento')</script>")
-                MsgBox("Hubo un problema en eliminar el elmento" + ex.Message)
+                ' Response.Write("<script language=javascript>alert('Hubo un problema en eliminar el elemento')</script>")
+                MsgBox("Hubo un problema en eliminar el elmento: " + ex.Message)
             End Try
         Else
-            Response.Write("<script language=javascript>alert('El usuario no posee permiso para seleccionar el botón de borrar')</script>")
+            ' Response.Write("<script language=javascript>alert('El usuario no posee permiso para seleccionar el botón de borrar')</script>")
         End If
     End Sub
 #End Region

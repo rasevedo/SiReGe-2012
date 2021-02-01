@@ -52,7 +52,7 @@
                                         <asp:CheckBox ID="chkTodo" runat="server" onclick = "checkTodo(this);" />
                                     </HeaderTemplate>
                                     <ItemTemplate>
-                                        <asp:CheckBox ID="chkSeleccionar" runat="server" onclick="GridCheckOne(this)"></asp:CheckBox>
+                                        <asp:CheckBox ID="chkSeleccionar" runat="server"></asp:CheckBox>
                                     </ItemTemplate>
                                 </asp:TemplateField> 
                                <asp:BoundField DataField="intIdInforme" HeaderText="Código del Informe" ReadOnly="True" InsertVisible="False" ></asp:BoundField>
@@ -100,8 +100,6 @@
                                        }
                                        else {
                                            //If the header checkbox is checked uncheck all checkboxes and change rowcolor back to original
-                                           if (row.rowIndex % 2 == 0) {
-                                           }
                                            inputList[i].checked = false;
                                        }
                                    }

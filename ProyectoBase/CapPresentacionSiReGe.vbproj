@@ -139,7 +139,6 @@
     <Content Include="Formularios\Modificar_Casos-SistemaRegistroGestiones.aspx" />
     <Content Include="Formularios\Modificar_Gestiones-SistemaRegistroGestiones.aspx" />
     <Content Include="Formularios\Modificar_Informes-SistemaRegistroGestiones.aspx" />
-    <Content Include="Formularios\WebForm1.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="MasterPage.Master" />
     <Content Include="Web.config">
@@ -260,13 +259,6 @@
     </Compile>
     <Compile Include="Formularios\Modificar_Informes-SistemaRegistroGestiones.aspx.vb">
       <DependentUpon>Modificar_Informes-SistemaRegistroGestiones.aspx</DependentUpon>
-      <SubType>ASPXCodebehind</SubType>
-    </Compile>
-    <Compile Include="Formularios\WebForm1.aspx.designer.vb">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\WebForm1.aspx.vb">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
     </Compile>
     <Compile Include="Login.aspx.designer.vb">

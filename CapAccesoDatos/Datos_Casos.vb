@@ -149,7 +149,7 @@ Public Class Datos_Casos
             cmd.Parameters.AddWithValue("@vchNombreDenucianteCasos", dts._nombreDenuncianteCasos)
             cmd.Parameters.AddWithValue("@vchNombreFuncionario", dts._nombreFuncionario)
             cmd.Parameters.AddWithValue("@vchNombreCentroEducativo", dts._nombreCentroEducativo)
-            cmd.Parameters.AddWithValue("@intIdUnidad", dts._idUnidad)
+            ' cmd.Parameters.AddWithValue("@intIdUnidad", dts._idUnidad)
             cmd.Parameters.AddWithValue("@vchNumeroOficio", dts._numeroOficio)
 
             If dts._fechaOficio = "#12:00:00 AM#" Then
@@ -158,7 +158,7 @@ Public Class Datos_Casos
                 cmd.Parameters.AddWithValue("@dtiFechaOficio", dts._fechaOficio)
             End If
 
-            cmd.Parameters.AddWithValue("@intIdDimension", dts._idDimension)
+            ' cmd.Parameters.AddWithValue("@intIdDimension", dts._idDimension)
             cmd.Parameters.AddWithValue("@vchCondicionCasos", dts._condicionCasos)
             cmd.Parameters.AddWithValue("@vchDetalleInconformidadCasos", dts._detalleInconformidadCasos)
             cmd.Parameters.AddWithValue("@vchRespuestaCasos", dts._respuestaCasos)

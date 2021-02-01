@@ -101,8 +101,11 @@ Public Class Datos_Informe
             cmd = New SqlCommand("palEliminarInforme")
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Connection = Conx
+
             cmd.Connection.Open()
+
             cmd.Parameters.AddWithValue("@intIdInforme", dts._idInforme)
+
             If cmd.ExecuteNonQuery Then
                 Return True
             Else

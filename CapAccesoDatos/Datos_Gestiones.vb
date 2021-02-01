@@ -102,7 +102,7 @@ Public Class Datos_Gestiones
             cmd = New SqlCommand("palEliminarGestiones")
 
             cmd.Connection = Conx
-            cmd.CommandType = CommandType.StoredProcedure
+
             cmd.Connection.Open()
 
             cmd.Parameters.AddWithValue("@intIdGestiones", dts._idGestiones)

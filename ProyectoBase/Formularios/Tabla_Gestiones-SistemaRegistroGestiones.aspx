@@ -75,7 +75,7 @@
                                         <asp:CheckBox ID="chkTodo" runat="server" onclick = "chkTodo(this);" />
                                     </HeaderTemplate>
                                     <ItemTemplate>
-                                        <asp:CheckBox ID="chkSelect" runat="server" onclick="GridCheckOne(this)"></asp:CheckBox>
+                                        <asp:CheckBox ID="chkSelect" runat="server"></asp:CheckBox>
                                     </ItemTemplate>
                                </asp:TemplateField>                                                            
                                <asp:BoundField DataField="intIdGestiones" HeaderText="Código de Gestión"    >

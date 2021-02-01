@@ -36,9 +36,9 @@
                                     <tr>
                                         <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="lblGestion_Servicio" Text="Atención de Gestiones del Servicio" runat="server" CssClass="Label" Font-Bold="True" Font-Size="Small" /></td>
 
-                                        <td class="auto-style2"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="lblAtencion_Usuario" Text="Departamento de Atención al Usuario" runat="server" CssClass="Label" Font-Bold="True" Font-Size="Small" /></td>
+                                        <td class="auto-style2"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblAtencion_Usuario" Text="Departamento de Atención al Usuario" runat="server" CssClass="Label" Font-Bold="True" Font-Size="Small" /></td>
 
-                                        <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="lblMejora_Continua" Text="Departamento de Mejora Continua" runat="server" CssClass="Label" Font-Bold="True" Font-Size="Small" /></td>
+                                        <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="lblMejora_Continua" Text="Departamento de Mejora Continua" runat="server" CssClass="Label" Font-Bold="True" Font-Size="Small" /></td>
                                     </tr>
                                 </table>
                             </div>

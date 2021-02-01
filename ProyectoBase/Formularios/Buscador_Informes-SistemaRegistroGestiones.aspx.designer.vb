@@ -14,6 +14,15 @@ Option Explicit On
 Partial Public Class Buscador_Informes_SistemaRegistroGestiones
 
     '''<summary>
+    '''UpdatePanelBuscador control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UpdatePanelBuscador As Global.System.Web.UI.UpdatePanel
+
+    '''<summary>
     '''lblTitulo_Informe control.
     '''</summary>
     '''<remarks>

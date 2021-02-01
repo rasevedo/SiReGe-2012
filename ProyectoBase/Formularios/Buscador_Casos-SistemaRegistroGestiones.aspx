@@ -44,28 +44,25 @@
                                     <div class="form-group">
                                         <table style="width: 100%;">
                                             <tr>
-                                                <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblEstado_Casos" Text="Estado de Casos" runat="server"/></td>
+                                                <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblNumero_Caso" Text="Número de Caso" runat="server" /></td>
                                                 
-                                                <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblNombre_Funcionario" Text="Nombre de Funcionario" runat="server" /></td>
+                                                <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblEstado_Casos" Text="Estado de Casos" runat="server"/></td>
                                                 
-                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblCondicion_Casos" Text="Usuario" runat="server" /></td>
+                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblNombre_Funcionario" Text="Nombre de Funcionario" runat="server" /></td>
                                             </tr>
                                             <tr>
-                                                <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:DropDownList ID="ddlEstado_Caso" runat="server" CssClass="form-control input-sm" Height="30px" Width="288px"  >
-                                                        <asp:ListItem Text=" " Value=" "></asp:ListItem>
-                                                        <asp:ListItem Text="ABIERTO" Value="ABIERTO"></asp:ListItem>
-                                                        <asp:ListItem Text="CERRADO" Value="CERRADO"></asp:ListItem>
-                                                    </asp:DropDownList></td>
+                                                <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtNumero_Caso" runat="server" Enabled="true" CssClass="form-control input-sm" Height="25px" Width="273px"  /></td>
+                                                        
                                                     
                                                 
-                                                <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtNombre_Funcionario" runat="server" CssClass="form-control input-sm" Height="25px" Width="277px" /></td>
-                                                        
+                                                <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:DropDownList ID="ddlEstado_Caso" runat="server" CssClass="form-control input-sm" Height="30px" Width="288px"  >
+                                                            <asp:ListItem Text=" " Value=" "></asp:ListItem>
+                                                            <asp:ListItem Text="ABIERTO" Value="ABIERTO"></asp:ListItem>
+                                                            <asp:ListItem Text="CERRADO" Value="CERRADO"></asp:ListItem>
+                                                     </asp:DropDownList></td>    
                                                 
-                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:DropDownList ID="ddlCondicion_Caso" runat="server" CssClass="form-control input-sm" Height="29px" Width="283px" >
-                                                        <asp:ListItem Text=" " Value=" "></asp:ListItem>
-                                                        <asp:ListItem Text="EXTERNO " Value="EXTERNO"></asp:ListItem>
-                                                        <asp:ListItem Text="INTERNO " Value="INTERNO"></asp:ListItem>
-                                                    </asp:DropDownList></td>
+                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtNombre_Funcionario" runat="server" CssClass="form-control input-sm" Height="25px" Width="277px" /></td>
+                                                        
                                             </tr>  
                                         </table>
                                     </div>
@@ -79,21 +76,25 @@
                                     <div class="form-group">
                                         <table style="width: 100%;">
                                             <tr>
-                                                <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblNombre_Denunciante" Text="Nombre del Denunciante" runat="server"/></td>
+                                                <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblCondicion_Casos" Text="Usuario" runat="server" /></td>
                                                 
-                                                <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblDescripcion_Unidad" Text="Descripción Unidad" runat="server" /></td>
+                                                <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblNombre_Denunciante" Text="Nombre del Denunciante" runat="server"/></td>
                                                 
-                                                <td>&nbsp;</td>
+                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblDescripcion_Unidad" Text="Descripción Unidad" runat="server" /></td>
                                             </tr>
                                             <tr>
-                                                <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtNombre_Denunciante" runat="server"  CssClass="form-control input-sm" Height="25px" Width="279px"  /></td>
-                                                       
+                                                <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:DropDownList ID="ddlCondicion_Caso" runat="server" CssClass="form-control input-sm" Height="29px" Width="283px" >
+                                                            <asp:ListItem Text=" " Value=" "></asp:ListItem>
+                                                            <asp:ListItem Text="EXTERNO " Value="EXTERNO"></asp:ListItem>
+                                                            <asp:ListItem Text="INTERNO " Value="INTERNO"></asp:ListItem>
+                                                        </asp:DropDownList></td>      
                                                                                                    
-                                                <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:DropDownList ID="ddlDescripcion_Unidad" runat="server" CssClass="form-control input-sm" Height="29px" Width="283px" AutoPostBack="True" OnSelectedIndexChanged="ddlDescripcion_Unidad_SelectedIndexChanged" DataSourceID="sdsDescripcion_Unidad" DataTextField="vchDescripcionUnidad" DataValueField="intIdUnidad"></asp:DropDownList >
-                                                            <asp:SqlDataSource runat="server" ID="sdsDescripcion_Unidad" ConnectionString='<%$ ConnectionStrings:bda_SIREGE_Connection %>' SelectCommand="palConsultarUnidades" SelectCommandType="StoredProcedure"></asp:SqlDataSource></td>
+                                                <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtNombre_Denunciante" runat="server"  CssClass="form-control input-sm" Height="25px" Width="279px"  /></td>
+                                                           
                                                            
                                                 
-                                                <td>&nbsp;</td>
+                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:DropDownList ID="ddlDescripcion_Unidad" runat="server" CssClass="form-control input-sm" Height="29px" Width="283px" AutoPostBack="True" OnSelectedIndexChanged="ddlDescripcion_Unidad_SelectedIndexChanged" DataSourceID="sdsDescripcion_Unidad" DataTextField="vchDescripcionUnidad" DataValueField="intIdUnidad"></asp:DropDownList >
+                                                             <asp:SqlDataSource runat="server" ID="sdsDescripcion_Unidad" ConnectionString='<%$ ConnectionStrings:bda_SIREGE_Connection %>' SelectCommand="palConsultarUnidades" SelectCommandType="StoredProcedure"></asp:SqlDataSource></td>
                                             </tr>  
                                         </table>
                                     </div>
@@ -126,7 +127,7 @@
                                     </ItemTemplate>
                                </asp:TemplateField>    
                                <asp:BoundField DataField="intIdCasos" HeaderText="Codigo Casos" ReadOnly="True" InsertVisible="False" ></asp:BoundField>
-                               <asp:BoundField DataField="vchNumeroCasos" HeaderText="Numero de Caso"></asp:BoundField>
+                               <asp:BoundField DataField="vchNumeroCasos" HeaderText="Número de Caso"></asp:BoundField>
                                <asp:BoundField DataField="vchEstadoCasos" HeaderText="Estado de los Casos" ></asp:BoundField>
                                <asp:BoundField DataField="dtiFechaCasos" HeaderText="Fecha Caso" ></asp:BoundField>
                                <asp:BoundField DataField="intCedulaDenuncianteCasos" HeaderText="Cédula del Usuario" ></asp:BoundField>
@@ -141,7 +142,7 @@
                                <asp:BoundField DataField="dtiFechaOficio" HeaderText="Fecha del Oficio" ></asp:BoundField>
                                <asp:BoundField DataField="vchTipoDimension" HeaderText="Dimension" ></asp:BoundField>
                                <asp:BoundField DataField="vchLetraDimension" HeaderText="Letra Dimension" ></asp:BoundField>
-                               <asp:BoundField DataField="vchDescripcionTipoDimension" HeaderText="Detalle Dimension" ></asp:BoundField>
+                               <asp:BoundField DataField="vchDescripcionLetraDimension" HeaderText="Detalle Dimension" ></asp:BoundField>
                                <asp:BoundField DataField="vchCondicionCasos" HeaderText="Condición Casos" ></asp:BoundField>
                                <asp:BoundField DataField="vchDetalleInconformidadCasos" HeaderText="Detalle de Inconformidad" ></asp:BoundField>
                                <asp:BoundField DataField="vchRespuestaCasos" HeaderText="Respuesta" ></asp:BoundField>

@@ -78,13 +78,6 @@ Public Class Buscador_Gestiones_SistemaRegistroGestiones
 
     Private Sub MostrarTablaFiltro()
         lblmsg.Visible = False
-        ' Dim func As New Datos_Gestiones
-        ' Dim ds As DataSet = New DataSet()
-        ' Dim strConnString As String = ConfigurationManager.ConnectionStrings("bda_SIREGE_Connection").ConnectionString
-        'Dim con As SqlConnection = New SqlConnection(strConnString)
-        'Dim sda As SqlDataAdapter = New SqlDataAdapter()
-        ' Dim cmd As SqlCommand = New SqlCommand("palBuscadorGestiones")
-        ' cmd.CommandType = CommandType.StoredProcedure
 
         Dim strConnString As String = ConfigurationManager _
              .ConnectionStrings("bda_SIREGE_Connection").ConnectionString

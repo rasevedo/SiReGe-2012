@@ -47,6 +47,7 @@
         .auto-style23 {
             width: 996px;
         }
+        .input-sm {}
     </style>
 </asp:Content>
 
@@ -91,7 +92,7 @@
                                                         <asp:ListItem Text="CERRADO" Value="CERRADO"></asp:ListItem>
                                                     </asp:DropDownList></td>
 
-                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Caso" runat="server" TextMode="DateTimeLocal" Enabled="true" CssClass="form-control input-sm" Height="25px" Width="279px" /></td>
+                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Caso" runat="server" Enabled="true" CssClass="form-control input-sm" Height="25px" Width="279px" /></td>
                                             </tr>    
                                         </table>
                                         <div class="col-md-3 col-md-offset-1">
@@ -178,8 +179,8 @@
                                                         <asp:ListItem Text="INTERNO " Value="INTERNO"></asp:ListItem>
                                                     </asp:DropDownList></td>
 
-                                                <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:DropDownList ID="ddlDescripcion_Unidad" runat="server" CssClass="form-control input-sm" AutoPostBack="True" OnSelectedIndexChanged="ddlDescripcion_Unidad_SelectedIndexChanged" DataSourceID="sdsDescripcion_Unidad" DataTextField="vchDescripcionUnidad" DataValueField="intIdUnidad" Height="30px" Width="279px"></asp:DropDownList>
-                                                    <asp:SqlDataSource runat="server" ID="sdsDescripcion_Unidad" ConnectionString='<%$ ConnectionStrings:bda_SIREGE_Connection %>' SelectCommand="palConsultarUnidades" SelectCommandType="StoredProcedure"></asp:SqlDataSource></td>                                           
+                                                <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtDescripcion_Unidad" runat="server" Enabled="false" CssClass="form-control input-sm" Height="25px" Width="272px"/></td>
+                                                                                               
                                             </tr>                                           
                                         </table> 
                                         <div class="col-md-3 col-md-offset-1">
@@ -235,15 +236,11 @@
                                                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblDetalle_Dimension" Text="Detalle Dimensión*" runat="server"/></td>
                                             </tr>
                                             <tr>
-                                                <td class="auto-style18">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:DropDownList ID="ddlTipo_Dimension" runat="server" CssClass="form-control input-sm" DataSourceID="sdsTipo_Dimensiones" DataTextField="vchTipoDimension" DataValueField="vchTipoDimension" AutoPostBack="True" Height="30px" Width="279px"></asp:DropDownList>
-                                                    <asp:SqlDataSource runat="server" ID="sdsTipo_Dimensiones" ConnectionString='<%$ ConnectionStrings:bda_SIREGE_Connection %>' SelectCommand="palAgruparTipoDimensiones" SelectCommandType="StoredProcedure"></asp:SqlDataSource></td>
+                                                <td class="auto-style18">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtTipo_Dimension" runat="server" Enabled="false" CssClass="form-control input-sm" Height="25px" Width="271px"></asp:TextBox>
+                                                    
 
-                                                <td class="auto-style22">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:DropDownList ID="ddlLetra_Dimension" runat="server" CssClass="form-control input-sm" DataSourceID="sdsLetra_Dimension" DataTextField="vchLetraDimension" DataValueField="intIdDimension" AutoPostBack="True" OnSelectedIndexChanged="ddlLetra_Dimension_SelectedIndexChanged" Height="30px" Width="279px"></asp:DropDownList>
-                                                    <asp:SqlDataSource runat="server" ID="sdsLetra_Dimension" ConnectionString='<%$ ConnectionStrings:bda_SIREGE_Connection %>' SelectCommand="palSeleccionarLetraDimensiones" SelectCommandType="StoredProcedure">
-                                                        <SelectParameters>
-                                                            <asp:ControlParameter ControlID="ddlTipo_Dimension" PropertyName="SelectedValue" Name="vchTipoDimension" Type="String" DefaultValue="0"></asp:ControlParameter>
-                                                        </SelectParameters>
-                                                    </asp:SqlDataSource></td>
+                                                <td class="auto-style22">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtLetra_Dimension" runat="server" Enabled="false" CssClass="form-control input-sm" Height="25px" Width="270px"></asp:TextBox>
+                                                    
 
                                                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtTipo_Detalle_Letra_Dimension" runat="server" Enabled="false" CssClass="form-control input-sm" Height="25px" Width="273px" ></asp:TextBox></td>
                                             </tr>                                          

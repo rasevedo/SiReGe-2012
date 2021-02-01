@@ -23,6 +23,15 @@ Partial Public Class Buscador_Casos_SistemaRegistroGestiones
     Protected WithEvents UpdatePanelBuscador As Global.System.Web.UI.UpdatePanel
 
     '''<summary>
+    '''lblNumero_Caso control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblNumero_Caso As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''lblEstado_Casos control.
     '''</summary>
     '''<remarks>
@@ -41,13 +50,13 @@ Partial Public Class Buscador_Casos_SistemaRegistroGestiones
     Protected WithEvents lblNombre_Funcionario As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''lblCondicion_Casos control.
+    '''txtNumero_Caso control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblCondicion_Casos As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents txtNumero_Caso As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''ddlEstado_Caso control.
@@ -68,15 +77,6 @@ Partial Public Class Buscador_Casos_SistemaRegistroGestiones
     Protected WithEvents txtNombre_Funcionario As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''ddlCondicion_Caso control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents ddlCondicion_Caso As Global.System.Web.UI.WebControls.DropDownList
-
-    '''<summary>
     '''UpdatePanel1 control.
     '''</summary>
     '''<remarks>
@@ -84,6 +84,15 @@ Partial Public Class Buscador_Casos_SistemaRegistroGestiones
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents UpdatePanel1 As Global.System.Web.UI.UpdatePanel
+
+    '''<summary>
+    '''lblCondicion_Casos control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblCondicion_Casos As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''lblNombre_Denunciante control.
@@ -102,6 +111,15 @@ Partial Public Class Buscador_Casos_SistemaRegistroGestiones
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblDescripcion_Unidad As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''ddlCondicion_Caso control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ddlCondicion_Caso As Global.System.Web.UI.WebControls.DropDownList
 
     '''<summary>
     '''txtNombre_Denunciante control.

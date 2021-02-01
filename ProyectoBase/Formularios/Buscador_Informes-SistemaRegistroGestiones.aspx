@@ -25,6 +25,8 @@
     <link href="Estilo.css" rel="stylesheet" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
+     <asp:UpdatePanel runat="server" id="UpdatePanelBuscador" updatemode="Conditional">  
+    <ContentTemplate>
     <div class="row">
 
         <div class="auto-style2">
@@ -285,5 +287,7 @@
         </div>
 
     </div>
+    </ContentTemplate>
+    </asp:UpdatePanel>
     
 </asp:Content>

@@ -86,13 +86,6 @@ Public Class Buscador_Casos_SistemaRegistroGestiones
 
     Private Sub MostrarTablaFiltro()
         lblmsg.Visible = False
-        ' Dim func As New Datos_Gestiones
-        ' Dim ds As DataSet = New DataSet()
-        ' Dim strConnString As String = ConfigurationManager.ConnectionStrings("bda_SIREGE_Connection").ConnectionString
-        'Dim con As SqlConnection = New SqlConnection(strConnString)
-        'Dim sda As SqlDataAdapter = New SqlDataAdapter()
-        ' Dim cmd As SqlCommand = New SqlCommand("palBuscadorGestiones")
-        ' cmd.CommandType = CommandType.StoredProcedure
 
         Dim strConnString As String = ConfigurationManager _
              .ConnectionStrings("bda_SIREGE_Connection").ConnectionString
@@ -102,9 +95,13 @@ Public Class Buscador_Casos_SistemaRegistroGestiones
         Dim conx As New SqlConnection()
         conx.ConnectionString = strConnString
         Dim cmd As New SqlCommand()
-        'cmd = New SqlCommand("palBuscadorCasos")
+        cmd = New SqlCommand("palBuscadorCasos")
         cmd.CommandType = CommandType.StoredProcedure
         cmd.CommandText = Query
+
+        If txtNumero_Caso.Text.Trim() <> "" Then
+            cmd.Parameters.AddWithValue("@vchNumeroCasos", SqlDbType.VarChar).Value = txtNumero_Caso.Text.Trim()
+        End If
 
         If txtNombre_Funcionario.Text.Trim() <> "" Then
             cmd.Parameters.AddWithValue("@vchNombreFuncionario", SqlDbType.VarChar).Value = txtNombre_Funcionario.Text.Trim()
