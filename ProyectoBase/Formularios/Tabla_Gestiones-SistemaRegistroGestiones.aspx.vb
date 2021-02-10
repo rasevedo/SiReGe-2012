@@ -48,156 +48,163 @@ Public Class Tabla_Gestiones
     End Sub
 #End Region
 
+
     'Boton dirige a la inserción de formularios
     Protected Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
         Response.Redirect("Formulario_Insertar_Gestiones-SistemaRegistroGestiones.aspx")
     End Sub
 
-    'Toda la informacion detro de este buton funcionan para la exportacion de datos
+
+    'Toda la informacion detro de este buton funcionan para la exportacion de datos a Excel
     Protected Sub btnExportar_Click(sender As Object, e As EventArgs) Handles btnExportar.Click
+        ExportarGestionesExcel("Gestiones_Tabla")
+    End Sub
 
-        Dim isSelected As Boolean = False
+
+    'Toda la informacion detro de este buton funcionan para la exportacion de datos a Word
+    Protected Sub btnBitacora_Click(sender As Object, e As EventArgs) Handles btnBitacora.Click
+        ExportarBitacora("Bitacora_Gestiones")
+    End Sub
+
+
+    'Boton dirige al espacio de búsqueda por gestión
+    Protected Sub btnBuscar_TipoGestion_Click(sender As Object, e As EventArgs) Handles btnBuscar_TipoGestion.Click
+        Response.Redirect("Buscador_Gestiones-SistemaRegistroGestiones.aspx")
+    End Sub
+
+
+    'Boton dirige devuelta al Menú
+    Protected Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
+        Response.Redirect("Menu_Principal-SistemaRegistroGestiones.aspx")
+    End Sub
+
+
+#Region "Exportar a Word"
+    'EFECTO: Función que se útiliza para exportar la información presente a un report para exportar a archivo de tipo Word
+    'RECIBE: Recibe como parametros una de las filas seleccionada con un check en el gridview.
+    'DEVUELVE: Devuelve un archivo .docx de Microsoft Word con la información del modal para su trabajo.
+    Private Sub ExportarBitacora(ByVal fileName As String)
+        Dim con As New SqlConnection(ConfigurationManager.ConnectionStrings("bda_SIREGE_Connection").ToString())
+        Dim ds As New dstBitacora_Gestiones()
         For Each gvrow As GridViewRow In gvwGestiones.Rows
-            Dim chkRevisar As CheckBox = DirectCast(gvrow.FindControl("chkSelect"), CheckBox)
+            If TryCast(gvrow.FindControl("chkSelect"), CheckBox).Checked Then
+                Dim intIdGestiones As Integer = gvrow.Cells(3).Text
+                Dim vchTipoGestiones As String = Page.Server.HtmlDecode(gvrow.Cells(4).Text)
+                Dim intCedulaUsuario As Integer = gvrow.Cells(5).Text
+                Dim vchNombreUsuario As String = Page.Server.HtmlDecode(gvrow.Cells(6).Text)
+                Dim dtiFechaIngreso As DateTime = Page.Server.HtmlDecode(gvrow.Cells(7).Text)
+                Dim vchConfidencialidadGestiones As String = Page.Server.HtmlDecode(gvrow.Cells(8).Text)
+                Dim vchFuenteGeneradora As String = Page.Server.HtmlDecode(gvrow.Cells(9).Text)
+                Dim vchTipoServicio As String = Page.Server.HtmlDecode(gvrow.Cells(10).Text)
+                Dim vchNombreFuncionario As String = Page.Server.HtmlDecode(gvrow.Cells(11).Text)
+                Dim vchDireccionRegional As String = Page.Server.HtmlDecode(gvrow.Cells(12).Text)
+                Dim vchSupervicionGestiones As String = Page.Server.HtmlDecode(gvrow.Cells(13).Text)
+                Dim vchNombreCentroEducativo As String = Page.Server.HtmlDecode(gvrow.Cells(14).Text)
+                Dim vchDescripcionUnidad As String = Page.Server.HtmlDecode(gvrow.Cells(15).Text)
+                Dim vchDescripcionDespacho As String = Page.Server.HtmlDecode(gvrow.Cells(16).Text)
+                Dim vchDescripcionDireccion As String = Page.Server.HtmlDecode(gvrow.Cells(17).Text)
+                Dim vchdescripcionDepartamento As String = Page.Server.HtmlDecode(gvrow.Cells(18).Text)
+                Dim vchNumeroOficio As String = Page.Server.HtmlDecode(gvrow.Cells(19).Text)
+                Dim vchTipoDimension As String = Page.Server.HtmlDecode(gvrow.Cells(20).Text)
+                Dim vchLetraDimension As String = Page.Server.HtmlDecode(gvrow.Cells(21).Text)
+                Dim vchDescripcionLetraDimension As String = Page.Server.HtmlDecode(gvrow.Cells(22).Text)
+                Dim vchTipoUsuario As String = Page.Server.HtmlDecode(gvrow.Cells(23).Text)
+                Dim vchDetalleGestiones As String = Page.Server.HtmlDecode(gvrow.Cells(24).Text)
+                Dim vchRespuestaGestiones As String = Page.Server.HtmlDecode(gvrow.Cells(25).Text)
 
-            If chkRevisar IsNot Nothing AndAlso chkRevisar.Checked Then
-                isSelected = True
-                Exit For
+                ds.Tables(0).Rows.Add(gvrow.Cells(3).Text, Page.Server.HtmlDecode(gvrow.Cells(4).Text), Page.Server.HtmlDecode(gvrow.Cells(5).Text), Page.Server.HtmlDecode(gvrow.Cells(6).Text), Page.Server.HtmlDecode(gvrow.Cells(7).Text), Page.Server.HtmlDecode(gvrow.Cells(8).Text), Page.Server.HtmlDecode(gvrow.Cells(9).Text), Page.Server.HtmlDecode(gvrow.Cells(10).Text), Page.Server.HtmlDecode(gvrow.Cells(11).Text), Page.Server.HtmlDecode(gvrow.Cells(12).Text), Page.Server.HtmlDecode(gvrow.Cells(13).Text), Page.Server.HtmlDecode(gvrow.Cells(14).Text), Page.Server.HtmlDecode(gvrow.Cells(15).Text), Page.Server.HtmlDecode(gvrow.Cells(16).Text), Page.Server.HtmlDecode(gvrow.Cells(17).Text), Page.Server.HtmlDecode(gvrow.Cells(18).Text), Page.Server.HtmlDecode(gvrow.Cells(19).Text), Page.Server.HtmlDecode(gvrow.Cells(20).Text), Page.Server.HtmlDecode(gvrow.Cells(21).Text), Page.Server.HtmlDecode(gvrow.Cells(22).Text), Page.Server.HtmlDecode(gvrow.Cells(23).Text), Page.Server.HtmlDecode(gvrow.Cells(24).Text), Page.Server.HtmlDecode(gvrow.Cells(25).Text))
+
             End If
         Next
 
-        If isSelected Then
-            Dim gvExport As GridView = gvwGestiones
-            gvExport.Columns(0).Visible = False
-
-            For Each i As GridViewRow In gvwGestiones.Rows
-                gvExport.Rows(i.RowIndex).Visible = False
-                Dim cb As CheckBox = CType(i.FindControl("chkSelect"), CheckBox)
-
-                If cb IsNot Nothing AndAlso cb.Checked Then
-                    gvExport.Rows(i.RowIndex).Visible = True
-                End If
-                ExportarGestionesExcel("Gestiones_Tabla")
-            Next
-
-            
-        End If
+        Dim warnings As Warning()
+        Dim streams As String()
+        Dim MIMETYPE As String = String.Empty
+        Dim encoding As String = String.Empty
+        Dim extension As String = String.Empty
 
 
-        
+        Dim rptviewer As New ReportViewer()
+        rptviewer.ProcessingMode = ProcessingMode.Local
+        rptviewer.LocalReport.ReportPath = "C:\Users\Usuario01\Documents\Visual Studio 2012\Projects\SistemaRegistroGestiones\ProyectoBase\Formularios\Bitacora_Gestion.rdlc"
 
+        Dim datasource As New ReportDataSource("DataSet_Bitacora_Gestion", ds.Tables(0))
 
-    End Sub
+        rptviewer.LocalReport.DataSources.Clear()
+        rptviewer.LocalReport.DataSources.Add(datasource)
+        Dim bytes As Byte() = rptviewer.LocalReport.Render("Word", Nothing, MIMETYPE, encoding, extension, streams, warnings)
+        Response.Buffer = True
+        Response.Clear()
+        Response.ContentType = MIMETYPE
+        Response.AddHeader("content-disposition", "attachment; filename=" & fileName & "." & extension)
+        Response.BinaryWrite(bytes)
+        Response.Flush()
 
-    Protected Sub btnExportar_Word_Click(sender As Object, e As EventArgs) Handles btnExportar_Word.Click
-
-        ExportarWord("Bitacora")
-
-        ' Response.Redirect("WebForm1.aspx")
-        
-
-    End Sub
-
-#Region "Exportar Panel a Word"
-    'EFECTO: Función que se útiliza para exportar la información presente a word. Durante este build se utilizará este metodo se espera en el siguiente prototipo resolverlo por medio de ReportViewer 11
-    'RECIBE: El único parámetro que recibe es el panel pnlPopup para obtener la información que debe exportar
-    'DEVUELVE: Devuelve un archivo .doc de Microsoft Word con la información del modal para su trabajo.
-    Protected Sub ExportarWord(ByVal fileName As String)
-Dim con As New SqlConnection(ConfigurationManager.ConnectionStrings("bda_SIREGE_Connection").ToString())
-        Try
-            Dim adp As New SqlDataAdapter("palMostrarGestiones", con)
-            Dim ds As New dstGestiones()
-            adp.Fill(ds, "palMostrarGestiones")
-            Dim datasource As New ReportDataSource("DataSet_Gestiones", ds.Tables(0))
-
-            Dim warnings As Warning()
-            Dim streams As String()
-            Dim MIMETYPE As String = String.Empty
-            Dim encoding As String = String.Empty
-            Dim extension As String = String.Empty
-
-            Dim rptviewer As New ReportViewer()
-            rptviewer.ProcessingMode = ProcessingMode.Local
-            rptviewer.LocalReport.ReportPath = "C:\Users\Usuario01\Documents\Visual Studio 2012\Projects\SistemaRegistroGestiones\ProyectoBase\Formularios\Bitacora_Gestion.rdlc"
-            rptviewer.LocalReport.DataSources.Add(datasource)
-            Dim bytes As Byte() = rptviewer.LocalReport.Render("Word", Nothing, MIMETYPE, encoding, extension, streams, warnings)
-            Response.Buffer = True
-            Response.Clear()
-            Response.ContentType = MIMETYPE
-            Response.AddHeader("content-disposition", "attachment; filename=" & fileName & "." & extension)
-            Response.BinaryWrite(bytes)
-            Response.Flush()
-        Catch ex As Exception
-        End Try
-    End Sub
-#End Region
-
-#Region "Reporte"
-    Sub Reporte()
-        'Dim dsGestiones As New GestionesReport()
-        For Each row As GridViewRow In gvwGestiones.Rows
-            If TryCast(row.FindControl("chkSeleccionar"), CheckBox).Checked Then
-                Dim idGestiones As String = row.Cells(1).Text
-                Dim tipoGestiones As String = row.Cells(2).Text
-                Dim cedulaUsuario As String = row.Cells(3).Text
-                Dim nombreUsuario As String = row.Cells(4).Text
-                Dim fechaIngreso As String = row.Cells(5).Text
-                Dim confidencialidadGestiones As String = row.Cells(6).Text
-                Dim fuenteGeneradora As String = row.Cells(7).Text
-                Dim tipoServicio As String = row.Cells(8).Text
-                Dim nombreEmpleados As String = row.Cells(9).Text
-                Dim direccionRegional As String = row.Cells(10).Text
-                Dim supervicionGestiones As String = row.Cells(11).Text
-                Dim nombreCentroEducativo As String = row.Cells(12).Text
-                Dim descripcionUnidad As String = row.Cells(13).Text
-                Dim descripcionDespacho As String = row.Cells(14).Text
-                Dim descripcionDireccion As String = row.Cells(15).Text
-                Dim descripcionDepartamento As String = row.Cells(16).Text
-                Dim numeroOficio As String = row.Cells(17).Text
-                Dim tipoDimension As String = row.Cells(18).Text
-                Dim letraDimension As String = row.Cells(19).Text
-                Dim descripcionTipoDimension As String = row.Cells(20).Text
-                Dim tipoUsuario As String = row.Cells(21).Text
-                Dim detalleGestiones As String = row.Cells(22).Text
-                Dim respuestaGestiones As String = row.Cells(23).Text
-                Dim categoriaGestiones As String = row.Cells(24).Text
-            End If
-        Next
     End Sub
 #End Region
 
 
 #Region "Exportar a Excel"
-    'EFECTO: Función que se útiliza para exportar la información presente a word. Durante este build se utilizará este metodo se espera en el siguiente prototipo resolverlo por medio de ReportViewer 11
+    'EFECTO: Función que se útiliza para exportar la información presente a un report para exportar a archivo de tipo Excel
     'RECIBE: Recibe como parametros todas las filas seleccionadas con un check en el gridview
     'DEVUELVE: Un archivo .xls el cual contiene todas las filas del gridview seleccionadas
     Private Sub ExportarGestionesExcel(ByVal fileName As String)
         Dim con As New SqlConnection(ConfigurationManager.ConnectionStrings("bda_SIREGE_Connection").ToString())
-        Try
-            Dim adp As New SqlDataAdapter("palMostrarGestiones", con)
-            Dim ds As New dstGestiones()
-            adp.Fill(ds, "palMostrarGestiones")
-            Dim datasource As New ReportDataSource("DataSet_Gestiones", ds.Tables(0))
+        Dim ds As New dstGestiones()
+        For Each gvrow As GridViewRow In gvwGestiones.Rows
+            If TryCast(gvrow.FindControl("chkSelect"), CheckBox).Checked Then
+                Dim intIdGestiones As Integer = gvrow.Cells(3).Text
+                Dim vchTipoGestiones As String = Page.Server.HtmlDecode(gvrow.Cells(4).Text)
+                Dim intCedulaUsuario As Integer = gvrow.Cells(5).Text
+                Dim vchNombreUsuario As String = Page.Server.HtmlDecode(gvrow.Cells(6).Text)
+                Dim dtiFechaIngreso As DateTime = Page.Server.HtmlDecode(gvrow.Cells(7).Text)
+                Dim vchConfidencialidadGestiones As String = Page.Server.HtmlDecode(gvrow.Cells(8).Text)
+                Dim vchFuenteGeneradora As String = Page.Server.HtmlDecode(gvrow.Cells(9).Text)
+                Dim vchTipoServicio As String = Page.Server.HtmlDecode(gvrow.Cells(10).Text)
+                Dim vchNombreFuncionario As String = Page.Server.HtmlDecode(gvrow.Cells(11).Text)
+                Dim vchDireccionRegional As String = Page.Server.HtmlDecode(gvrow.Cells(12).Text)
+                Dim vchSupervicionGestiones As String = Page.Server.HtmlDecode(gvrow.Cells(13).Text)
+                Dim vchNombreCentroEducativo As String = Page.Server.HtmlDecode(gvrow.Cells(14).Text)
+                Dim vchDescripcionUnidad As String = Page.Server.HtmlDecode(gvrow.Cells(15).Text)
+                Dim vchDescripcionDespacho As String = Page.Server.HtmlDecode(gvrow.Cells(16).Text)
+                Dim vchDescripcionDireccion As String = Page.Server.HtmlDecode(gvrow.Cells(17).Text)
+                Dim vchdescripcionDepartamento As String = Page.Server.HtmlDecode(gvrow.Cells(18).Text)
+                Dim vchNumeroOficio As String = Page.Server.HtmlDecode(gvrow.Cells(19).Text)
+                Dim vchTipoDimension As String = Page.Server.HtmlDecode(gvrow.Cells(20).Text)
+                Dim vchLetraDimension As String = Page.Server.HtmlDecode(gvrow.Cells(21).Text)
+                Dim vchDescripcionLetraDimension As String = Page.Server.HtmlDecode(gvrow.Cells(22).Text)
+                Dim vchTipoUsuario As String = Page.Server.HtmlDecode(gvrow.Cells(23).Text)
+                Dim vchDetalleGestiones As String = Page.Server.HtmlDecode(gvrow.Cells(24).Text)
+                Dim vchRespuestaGestiones As String = Page.Server.HtmlDecode(gvrow.Cells(25).Text)
 
-            Dim warnings As Warning()
-            Dim streams As String()
-            Dim MIMETYPE As String = String.Empty
-            Dim encoding As String = String.Empty
-            Dim extension As String = String.Empty
+                ds.Tables(0).Rows.Add(gvrow.Cells(3).Text, Page.Server.HtmlDecode(gvrow.Cells(4).Text), Page.Server.HtmlDecode(gvrow.Cells(5).Text), Page.Server.HtmlDecode(gvrow.Cells(6).Text), Page.Server.HtmlDecode(gvrow.Cells(7).Text), Page.Server.HtmlDecode(gvrow.Cells(8).Text), Page.Server.HtmlDecode(gvrow.Cells(9).Text), Page.Server.HtmlDecode(gvrow.Cells(10).Text), Page.Server.HtmlDecode(gvrow.Cells(11).Text), Page.Server.HtmlDecode(gvrow.Cells(12).Text), Page.Server.HtmlDecode(gvrow.Cells(13).Text), Page.Server.HtmlDecode(gvrow.Cells(14).Text), Page.Server.HtmlDecode(gvrow.Cells(15).Text), Page.Server.HtmlDecode(gvrow.Cells(16).Text), Page.Server.HtmlDecode(gvrow.Cells(17).Text), Page.Server.HtmlDecode(gvrow.Cells(18).Text), Page.Server.HtmlDecode(gvrow.Cells(19).Text), Page.Server.HtmlDecode(gvrow.Cells(20).Text), Page.Server.HtmlDecode(gvrow.Cells(21).Text), Page.Server.HtmlDecode(gvrow.Cells(22).Text), Page.Server.HtmlDecode(gvrow.Cells(23).Text), Page.Server.HtmlDecode(gvrow.Cells(24).Text), Page.Server.HtmlDecode(gvrow.Cells(25).Text))
 
-            Dim rptviewer As New ReportViewer()
-            rptviewer.ProcessingMode = ProcessingMode.Local
-            rptviewer.LocalReport.ReportPath = "C:\Users\Usuario01\Documents\Visual Studio 2012\Projects\SistemaRegistroGestiones\ProyectoBase\Formularios\Reporte_Gestiones.rdlc"
-            rptviewer.LocalReport.DataSources.Add(datasource)
-            Dim bytes As Byte() = rptviewer.LocalReport.Render("Excel", Nothing, MIMETYPE, encoding, extension, streams, warnings)
-            Response.Buffer = True
-            Response.Clear()
-            Response.ContentType = MIMETYPE
-            Response.AddHeader("content-disposition", "attachment; filename=" & fileName & "." & extension)
-            Response.BinaryWrite(bytes)
-            Response.Flush()
-        Catch ex As Exception
-        End Try
+            End If
+        Next
+
+        Dim warnings As Warning()
+        Dim streams As String()
+        Dim MIMETYPE As String = String.Empty
+        Dim encoding As String = String.Empty
+        Dim extension As String = String.Empty
+
+
+        Dim rptviewer As New ReportViewer()
+        rptviewer.ProcessingMode = ProcessingMode.Local
+        rptviewer.LocalReport.ReportPath = "C:\Users\Usuario01\Documents\Visual Studio 2012\Projects\SistemaRegistroGestiones\ProyectoBase\Formularios\Reporte_Gestiones.rdlc"
+
+        Dim datasource As New ReportDataSource("DataSet_Gestiones", ds.Tables(0))
+
+        rptviewer.LocalReport.DataSources.Clear()
+        rptviewer.LocalReport.DataSources.Add(datasource)
+        Dim bytes As Byte() = rptviewer.LocalReport.Render("Excel", Nothing, MIMETYPE, encoding, extension, streams, warnings)
+        Response.Buffer = True
+        Response.Clear()
+        Response.ContentType = MIMETYPE
+        Response.AddHeader("content-disposition", "attachment; filename=" & fileName & "." & extension)
+        Response.BinaryWrite(bytes)
+        Response.Flush()
+
     End Sub
 #End Region
 
@@ -217,16 +224,16 @@ Dim con As New SqlConnection(ConfigurationManager.ConnectionStrings("bda_SIREGE_
                         Dim gesid As Integer = Convert.ToInt32(gvwGestiones.DataKeys(gvrow.RowIndex).Value)
                         dts._idGestiones = gesid
                         If func.borrarGestiones(dts) Then
-                            Response.Write("<script language=javascript>alert('El elemento ha sido eliminado de forma exitosa')</script>")
-                            'MsgBox("El elemento ha sido eliminado de forma exitosa")                           
+                            ' Response.Write("<script language=javascript>alert('El elemento ha sido eliminado de forma exitosa')</script>")
+                            'MsgBox("El elemento ha sido eliminado de forma exitosa") 
                         Else
                             ' Response.Write("<script language=javascript>alert('No se ha eliminado el elemento.')</script>")
                             ' MsgBox("No se ha eliminado el elemento.")
                         End If
                     End If
-                    MostrarTabla()
                 Next
                 MostrarTabla()
+                Response.Redirect("Tabla_Gestiones-SistemaRegistroGestiones.aspx")
             Catch ex As Exception
                 Response.Write("<script language=javascript>alert('Hubo un problema en eliminar el elemento')</script>")
                 ' MsgBox("Hubo un problema en eliminar el elmento" + ex.Message)
@@ -238,20 +245,15 @@ Dim con As New SqlConnection(ConfigurationManager.ConnectionStrings("bda_SIREGE_
 #End Region
 
 
-    Protected Sub btnVolver_Click(sender As Object, e As EventArgs) Handles btnVolver.Click
-        Response.Redirect("Menu_Principal-SistemaRegistroGestiones.aspx")
-    End Sub
-
-
 #Region "Seleccionar Filas Popup Detalle"
     'EFECTO: Función que selecciona las filas para poder mapear el reporte para su creación.
     'RECIBE: Cada fila dentro de GridViewCasos
-    'DEVUELVE: NO DEVUELVE
+    'DEVUELVE: Información de cada fila detallada en un panel.
     Protected Sub GridViewGestiones_SelectedIndexChanged(sender As Object, e As EventArgs) Handles gvwGestiones.SelectedIndexChanged
         txtSPop_Id_Gestiones.Text = gvwGestiones.SelectedRow.Cells(3).Text
         txtPop_Tipo_Gestiones.Text = Page.Server.HtmlDecode(gvwGestiones.SelectedRow.Cells(4).Text)
         txtPop_Cedula_Usuario.Text = gvwGestiones.SelectedRow.Cells(5).Text
-        txtPop_Nombre_Usuario.Text = gvwGestiones.SelectedRow.Cells(6).Text
+        txtPop_Nombre_Usuario.Text = Page.Server.HtmlDecode(gvwGestiones.SelectedRow.Cells(6).Text)
         txtPop_Fecha_Ingreso.Text = gvwGestiones.SelectedRow.Cells(7).Text
         txtPop_Confidencialida.Text = Page.Server.HtmlDecode(gvwGestiones.SelectedRow.Cells(8).Text)
         txtPop_Fuente_Generadora.Text = Page.Server.HtmlDecode(gvwGestiones.SelectedRow.Cells(9).Text)
@@ -275,11 +277,5 @@ Dim con As New SqlConnection(ConfigurationManager.ConnectionStrings("bda_SIREGE_
     End Sub
 #End Region
 
-#Region "btnBuscar_TipoGestion Buscador para filtrar Gestiones"
-    Protected Sub btnBuscar_TipoGestion_Click(sender As Object, e As EventArgs) Handles btnBuscar_TipoGestion.Click
-        Response.Redirect("Buscador_Gestiones-SistemaRegistroGestiones.aspx")
-
-    End Sub
-#End Region
 
 End Class

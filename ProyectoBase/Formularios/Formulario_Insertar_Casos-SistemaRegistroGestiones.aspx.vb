@@ -170,7 +170,7 @@ Public Class Formulario_Insertar_Casos
         ddlTipo_Dimension.SelectedIndex = -1
         ddlLetra_Dimension.SelectedIndex = -1
         txtTipo_Detalle_Letra_Dimension.Text = String.Empty
-        ddlVeredicto_Valoracion.SelectedIndex = -1
+        ddlValoracion_Admisibilidad.SelectedIndex = -1
         ddlVeredicto_Valoracion.SelectedIndex = -1
         ddlTrazabilidad_Casos.SelectedIndex = -1
         txtAsunto.Text = String.Empty

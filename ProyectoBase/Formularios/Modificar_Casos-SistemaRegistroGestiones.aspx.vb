@@ -14,11 +14,17 @@ Public Class Modificar_Casos
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not Me.IsPostBack Then
+            Me.MostrarTablaAvances()
+
             txtNombre_Funcionario.Text = Session("NombreUsuario")
             Me.TomarCaso()
-            AvancePanel.Visible = False
-            Me.MostrarAvanceGridview()
-            Me.FiltrarPorCaso()
+            Me.MostrarTablaFiltrada()
+            AvancePanel1.Visible = False
+            AvancePanel2.Visible = False
+            AvancePanel3.Visible = False
+            AvancePanel4.Visible = False
+            ' Me.MostrarAvanceGridview()
+            ' Me.FiltrarPorCaso()
         End If
     End Sub
 
@@ -144,6 +150,35 @@ Public Class Modificar_Casos
             Else
                 dts._fechaCerradoCasos = txtFecha_Cerrado_Casos.Text
             End If
+            '-----------------------------------------------------------------------------------'
+            dts._detalleCasoAvance1 = txtDetalle_Avance1.Text
+            If txtFecha_Avance1.Text = "" Then
+                dts._fechaCasoAvance1 = Nothing
+            Else
+                dts._fechaCasoAvance1 = txtFecha_Avance1.Text
+            End If
+
+            dts._detalleCasoAvance2 = txtDetalle_Avance2.Text
+            If txtFecha_Avance2.Text = "" Then
+                dts._fechaCasoAvance2 = Nothing
+            Else
+                dts._fechaCasoAvance2 = txtFecha_Avance2.Text
+            End If
+
+            dts._detalleCasoAvance3 = txtDetalle_Avance3.Text
+            If txtFecha_Avance3.Text = "" Then
+                dts._fechaCasoAvance3 = Nothing
+            Else
+                dts._fechaCasoAvance3 = txtFecha_Avance3.Text
+            End If
+
+            dts._detalleCasoAvance4 = txtDetalle_Avance4.Text
+            If txtFecha_Avance4.Text = "" Then
+                dts._fechaCasoAvance4 = Nothing
+            Else
+                dts._fechaCasoAvance4 = txtFecha_Avance4.Text
+            End If
+
 
             If func.modificarCasos(dts) Then
                 ModalPopupExtender_Exito.Show()
@@ -207,68 +242,404 @@ Public Class Modificar_Casos
             Me.ddlTrazabilidad_Casos.Text = dr("vchTrazabilidadCasos").ToString()
             Me.txtFecha_Respuesta_Casos.Text = dr("dtiFechaRespuestaCasos").ToString()
             Me.txtFecha_Cerrado_Casos.Text = dr("dtiFechaCerradoCasos").ToString()
+            Me.txtFecha_Avance1.Text = dr("dtiCasoAvanceFecha1").ToString()
+            Me.txtDetalle_Avance1.Text = dr("vchCasoAvance1").ToString()
+            Me.txtFecha_Avance2.Text = dr("dtiCasoAvanceFecha2").ToString()
+            Me.txtDetalle_Avance2.Text = dr("vchCasoAvance2").ToString()
+            Me.txtFecha_Avance3.Text = dr("dtiCasoAvanceFecha3").ToString()
+            Me.txtDetalle_Avance3.Text = dr("vchCasoAvance3").ToString()
+            Me.txtFecha_Avance4.Text = dr("dtiCasoAvanceFecha4").ToString()
+            Me.txtDetalle_Avance4.Text = dr("vchCasoAvance4").ToString()
         Next
     End Sub
 #End Region
 
-    Protected Sub btnAgregarAvance_Click(sender As Object, e As EventArgs) Handles btnAgregarAvance.Click
-        AvancePanel.Visible = True
-        btnAgregarAvance.Enabled = False
+    Protected Sub btnAgregarAvance1_Click(sender As Object, e As EventArgs) Handles btnAgregarAvance1.Click
+        AvancePanel1.Visible = True
+        btnAgregarAvance1.Enabled = False
     End Sub
 
-#Region "btnInsertarAvance Insertar el Avance/Seguimiento del Caso respectivo"
-    'EFECTO: La función de este botón es para realizar la inserción de datos del avance la cual se insertará en su propio gridview
+    Protected Sub btnAgregarAvance2_Click(sender As Object, e As EventArgs) Handles btnAgregarAvance2.Click
+        AvancePanel2.Visible = True
+        btnAgregarAvance2.Enabled = False
+    End Sub
+
+    Protected Sub btnAgregarAvance3_Click(sender As Object, e As EventArgs) Handles btnAgregarAvance3.Click
+        AvancePanel3.Visible = True
+        btnAgregarAvance3.Enabled = False
+    End Sub
+
+    Protected Sub btnAgregarAvance4_Click(sender As Object, e As EventArgs) Handles btnAgregarAvance4.Click
+        AvancePanel4.Visible = True
+        btnAgregarAvance4.Enabled = False
+    End Sub
+
+#Region "btnInsertarAvance Insertar el Avance/Seguimiento1 del Caso respectivo"
+    'EFECTO: La función de este botón es para realizar la inserción de datos del avance1 la cual se insertará en su propio gridview
     'RECIBE: Requiere del llamado de su entidad y datos.
-    'DEVUELVE: Guarda los datos en la tabla tblCasoAvances
-    Protected Sub btnInsertar_Avance_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnInsertar_Avance.Click
-        Dim dts As New Entidad_AvanceCasos
-        Dim func As New Datos_AvanceCasos
-        If txtDetalle_Avance.Text <> "" And txtFecha_Avance.Text <> "" Then
-            Try
-                dts._idCasos = txtId_Casos.Text
-                dts._detalleAvance = txtDetalle_Avance.Text
-
-                If txtFecha_Avance.Text = "" Then
-                    dts._fechaAvance = ("01/01/2000 00:00:00")
-                Else
-                    dts._fechaAvance = txtFecha_Avance.Text
-                End If
-
-                If func.insertarAvancesCasos(dts) Then
-                    ModalPopupExtender_AvanceExito.Show()                   
-                    Me.MostrarAvanceGridview()
-                    Me.FiltrarPorCaso()
-                    Me.AvanceLimpiar()
-                    AvancePanel.Visible = False
-                    btnAgregarAvance.Enabled = True
-                    ' Response.Write("<script language=javascript>alert('El avance del caso ha sido registrado exitosamente')</script>")               
-                    ' MsgBox("Exito")
-                Else
-                    ModalPopupExtender_AvanceError.Show()
-                    ' Response.Write("<script language=javascript>alert('Hubo un problema en agregar el avance. Porfavor revisar que esta ingresando la información correcta.')</script>")
-                    'MsgBox("Fracaso")
-                End If
-            Catch ex As Exception
+    'DEVUELVE: Guarda los datos en su propio campo
+    Protected Sub btnInsertar_Avance1_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnInsertar_Avance1.Click
+        Try
+            Dim dts As New Entidad_Casos 'instanciamos a la clase atributos de la tabla trabajador
+            Dim func As New Datos_Casos 'instanciamos a la clase funciones de la tabla trabajador
+            dts._idCasos = txtId_Casos.Text
+            dts._numeroCasos = txtNumero_Caso.Text
+            dts._estadoCasos = ddlEstado_Caso.Text
+            dts._fechaCasos = txtFecha_Caso.Text
+            If Not String.IsNullOrEmpty(txtCedula_Usuario.Text) Then
+                dts._cedulaDenuncianteCasos = Integer.Parse(txtCedula_Usuario.Text)
+            End If
+            dts._nombreDenuncianteCasos = txtNombre_Usuario.Text
+            dts._nombreFuncionario = txtNombre_Funcionario.Text
+            dts._nombreCentroEducativo = txtNombre_CE.Text           
+            dts._numeroOficio = txtNumero_Oficio.Text
+            If txtFecha_Oficio.Text = "" Then
+                dts._fechaOficio = Nothing
+            Else
+                dts._fechaOficio = txtFecha_Oficio.Text
+            End If
+            dts._condicionCasos = ddlCondicion_Caso.Text
+            dts._detalleInconformidadCasos = txtAsunto.Text
+            dts._respuestaCasos = txtRespuesta.Text
+            dts._valoracionAdmisibilidad = ddlValoracion_Admisibilidad.Text
+            dts._veredictoValoracionIngreso = ddlVeredicto_Valoracion.Text
+            dts._trazabilidadCasos = ddlTrazabilidad_Casos.Text
+            If txtFecha_Respuesta_Casos.Text = "" Then
+                dts._fechaRespuestaCasos = Nothing
+            Else
+                dts._fechaRespuestaCasos = txtFecha_Respuesta_Casos.Text
+            End If
+            If txtFecha_Cerrado_Casos.Text = "" Then
+                dts._fechaCerradoCasos = Nothing
+            Else
+                dts._fechaCerradoCasos = txtFecha_Cerrado_Casos.Text
+            End If
+            '-----------------------------------------------------------------------------------'
+            dts._detalleCasoAvance1 = txtDetalle_Avance1.Text
+            If txtFecha_Avance1.Text = "" Then
+                dts._fechaCasoAvance1 = Nothing
+            Else
+                dts._fechaCasoAvance1 = txtFecha_Avance1.Text
+            End If
+            '-----------------------------------------------------------------------------------'
+            dts._detalleCasoAvance2 = txtDetalle_Avance2.Text
+            If txtFecha_Avance2.Text = "" Then
+                dts._fechaCasoAvance2 = Nothing
+            Else
+                dts._fechaCasoAvance2 = txtFecha_Avance2.Text
+            End If
+            dts._detalleCasoAvance3 = txtDetalle_Avance3.Text
+            If txtFecha_Avance3.Text = "" Then
+                dts._fechaCasoAvance3 = Nothing
+            Else
+                dts._fechaCasoAvance3 = txtFecha_Avance3.Text
+            End If
+            dts._detalleCasoAvance4 = txtDetalle_Avance4.Text
+            If txtFecha_Avance4.Text = "" Then
+                dts._fechaCasoAvance4 = Nothing
+            Else
+                dts._fechaCasoAvance4 = txtFecha_Avance4.Text
+            End If
+            If func.modificarCasos(dts) Then
+                ModalPopupExtender_AvanceExito.Show()
+                AvancePanel1.Visible = False
+                btnAgregarAvance1.Enabled = True
+                Me.MostrarTablaAvances()
+                Me.MostrarTablaFiltrada()
+                'Response.Write("<script language=javascript>alert('El elemento se ha modificado exitosamente')</script>")
+                'MsgBox("Exito")
+            Else
                 ModalPopupExtender_AvanceError.Show()
-                'Response.Write("<script language=javascript>alert('Hubo un problema en agregar el avance. Porfavor revisar que esta ingresando la información correcta.')</script>")
-                'MsgBox(ex.Message)
-            End Try
-        Else
+                'Response.Write("<script language=javascript>alert('Se ha modificado un elemento erroneamente')</script>")
+                ' MsgBox("Fracaso")
+            End If
+        Catch ex As Exception
             ModalPopupExtender_AvanceError.Show()
-        End If       
+            'Response.Write("<script language=javascript>alert('Hubo un problema en modificar el elemento. Porfavor revisar formulario. Porfavor rellenar de nuevo los espacios de fechas y dimensiones')</script>")
+            'MsgBox(ex.Message)
+        End Try
     End Sub
 #End Region
 
-#Region "Mostrar el Gridview del Avance de los Casos"
-    'EFECTO: Leer los datos de la tabla tblCasoAvances para imprimirlos en el gridview
-    'RECIBE: Solo recibe los datos para su escaneo
-    'DEVUELVE: La tabla gridview con todos los datos de la tabla tblCasoAvances
-    Sub MostrarAvanceGridview()
+
+#Region "btnInsertarAvance Insertar el Avance/Seguimiento2 del Caso respectivo"
+    'EFECTO: La función de este botón es para realizar la inserción de datos del avance2 la cual se insertará en su propio gridview
+    'RECIBE: Requiere del llamado de su entidad y datos.
+    'DEVUELVE: Guarda los datos en su propio campo.
+    Protected Sub btnInsertar_Avance2_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnInsertar_Avance2.Click
         Try
-            Dim func As New Datos_AvanceCasos
-            dt = func.mostrarAvanceCasos
+            Dim dts As New Entidad_Casos 'instanciamos a la clase atributos de la tabla trabajador
+            Dim func As New Datos_Casos 'instanciamos a la clase funciones de la tabla trabajador
+            dts._idCasos = txtId_Casos.Text
+            dts._numeroCasos = txtNumero_Caso.Text
+            dts._estadoCasos = ddlEstado_Caso.Text
+            dts._fechaCasos = txtFecha_Caso.Text
+            If Not String.IsNullOrEmpty(txtCedula_Usuario.Text) Then
+                dts._cedulaDenuncianteCasos = Integer.Parse(txtCedula_Usuario.Text)
+            End If
+            dts._nombreDenuncianteCasos = txtNombre_Usuario.Text
+            dts._nombreFuncionario = txtNombre_Funcionario.Text
+            dts._nombreCentroEducativo = txtNombre_CE.Text
+            dts._numeroOficio = txtNumero_Oficio.Text
+            If txtFecha_Oficio.Text = "" Then
+                dts._fechaOficio = Nothing
+            Else
+                dts._fechaOficio = txtFecha_Oficio.Text
+            End If
+            dts._condicionCasos = ddlCondicion_Caso.Text
+            dts._detalleInconformidadCasos = txtAsunto.Text
+            dts._respuestaCasos = txtRespuesta.Text
+            dts._valoracionAdmisibilidad = ddlValoracion_Admisibilidad.Text
+            dts._veredictoValoracionIngreso = ddlVeredicto_Valoracion.Text
+            dts._trazabilidadCasos = ddlTrazabilidad_Casos.Text
+            If txtFecha_Respuesta_Casos.Text = "" Then
+                dts._fechaRespuestaCasos = Nothing
+            Else
+                dts._fechaRespuestaCasos = txtFecha_Respuesta_Casos.Text
+            End If
+            If txtFecha_Cerrado_Casos.Text = "" Then
+                dts._fechaCerradoCasos = Nothing
+            Else
+                dts._fechaCerradoCasos = txtFecha_Cerrado_Casos.Text
+            End If            
+            dts._detalleCasoAvance1 = txtDetalle_Avance1.Text
+            If txtFecha_Avance1.Text = "" Then
+                dts._fechaCasoAvance1 = Nothing
+            Else
+                dts._fechaCasoAvance1 = txtFecha_Avance1.Text
+            End If
+            '-----------------------------------------------------------------------------------'
+            dts._detalleCasoAvance2 = txtDetalle_Avance2.Text
+            If txtFecha_Avance2.Text = "" Then
+                dts._fechaCasoAvance2 = Nothing
+            Else
+                dts._fechaCasoAvance2 = txtFecha_Avance2.Text
+            End If
+            '-----------------------------------------------------------------------------------'
+            dts._detalleCasoAvance3 = txtDetalle_Avance3.Text
+            If txtFecha_Avance3.Text = "" Then
+                dts._fechaCasoAvance3 = Nothing
+            Else
+                dts._fechaCasoAvance3 = txtFecha_Avance3.Text
+            End If
+            dts._detalleCasoAvance4 = txtDetalle_Avance4.Text
+            If txtFecha_Avance4.Text = "" Then
+                dts._fechaCasoAvance4 = Nothing
+            Else
+                dts._fechaCasoAvance4 = txtFecha_Avance4.Text
+            End If
+            If func.modificarCasos(dts) Then
+                ModalPopupExtender_AvanceExito.Show()
+                AvancePanel1.Visible = False
+                btnAgregarAvance1.Enabled = True
+                Me.MostrarTablaAvances()
+                Me.MostrarTablaFiltrada()
+                'Response.Write("<script language=javascript>alert('El elemento se ha modificado exitosamente')</script>")
+                'MsgBox("Exito")
+            Else
+                ModalPopupExtender_AvanceError.Show()
+                'Response.Write("<script language=javascript>alert('Se ha modificado un elemento erroneamente')</script>")
+                ' MsgBox("Fracaso")
+            End If
+        Catch ex As Exception
+            ModalPopupExtender_AvanceError.Show()
+            'Response.Write("<script language=javascript>alert('Hubo un problema en modificar el elemento. Porfavor revisar formulario. Porfavor rellenar de nuevo los espacios de fechas y dimensiones')</script>")
+            'MsgBox(ex.Message)
+        End Try
+    End Sub
+#End Region
+
+
+#Region "btnInsertarAvance Insertar el Avance/Seguimiento3 del Caso respectivo"
+    'EFECTO: La función de este botón es para realizar la inserción de datos del avance 3 la cual se insertará en su propio gridview
+    'RECIBE: Requiere del llamado de su entidad y datos.
+    'DEVUELVE: Guarda los datos en su propio campo
+    Protected Sub btnInsertar_Avance3_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnInsertar_Avance3.Click
+        Try
+            Dim dts As New Entidad_Casos 'instanciamos a la clase atributos de la tabla trabajador
+            Dim func As New Datos_Casos 'instanciamos a la clase funciones de la tabla trabajador
+            dts._idCasos = txtId_Casos.Text
+            dts._numeroCasos = txtNumero_Caso.Text
+            dts._estadoCasos = ddlEstado_Caso.Text
+            dts._fechaCasos = txtFecha_Caso.Text
+            If Not String.IsNullOrEmpty(txtCedula_Usuario.Text) Then
+                dts._cedulaDenuncianteCasos = Integer.Parse(txtCedula_Usuario.Text)
+            End If
+            dts._nombreDenuncianteCasos = txtNombre_Usuario.Text
+            dts._nombreFuncionario = txtNombre_Funcionario.Text
+            dts._nombreCentroEducativo = txtNombre_CE.Text
+            dts._numeroOficio = txtNumero_Oficio.Text
+            If txtFecha_Oficio.Text = "" Then
+                dts._fechaOficio = Nothing
+            Else
+                dts._fechaOficio = txtFecha_Oficio.Text
+            End If
+            dts._condicionCasos = ddlCondicion_Caso.Text
+            dts._detalleInconformidadCasos = txtAsunto.Text
+            dts._respuestaCasos = txtRespuesta.Text
+            dts._valoracionAdmisibilidad = ddlValoracion_Admisibilidad.Text
+            dts._veredictoValoracionIngreso = ddlVeredicto_Valoracion.Text
+            dts._trazabilidadCasos = ddlTrazabilidad_Casos.Text
+            If txtFecha_Respuesta_Casos.Text = "" Then
+                dts._fechaRespuestaCasos = Nothing
+            Else
+                dts._fechaRespuestaCasos = txtFecha_Respuesta_Casos.Text
+            End If
+            If txtFecha_Cerrado_Casos.Text = "" Then
+                dts._fechaCerradoCasos = Nothing
+            Else
+                dts._fechaCerradoCasos = txtFecha_Cerrado_Casos.Text
+            End If
+            dts._detalleCasoAvance1 = txtDetalle_Avance1.Text
+            If txtFecha_Avance1.Text = "" Then
+                dts._fechaCasoAvance1 = Nothing
+            Else
+                dts._fechaCasoAvance1 = txtFecha_Avance1.Text
+            End If
+
+            dts._detalleCasoAvance2 = txtDetalle_Avance2.Text
+            If txtFecha_Avance2.Text = "" Then
+                dts._fechaCasoAvance2 = Nothing
+            Else
+                dts._fechaCasoAvance2 = txtFecha_Avance2.Text
+            End If
+            '-----------------------------------------------------------------------------------'
+            dts._detalleCasoAvance3 = txtDetalle_Avance3.Text
+            If txtFecha_Avance3.Text = "" Then
+                dts._fechaCasoAvance3 = Nothing
+            Else
+                dts._fechaCasoAvance3 = txtFecha_Avance3.Text
+            End If
+            '-----------------------------------------------------------------------------------'
+            dts._detalleCasoAvance4 = txtDetalle_Avance4.Text
+            If txtFecha_Avance4.Text = "" Then
+                dts._fechaCasoAvance4 = Nothing
+            Else
+                dts._fechaCasoAvance4 = txtFecha_Avance4.Text
+            End If
+            If func.modificarCasos(dts) Then
+                ModalPopupExtender_AvanceExito.Show()
+                AvancePanel1.Visible = False
+                btnAgregarAvance1.Enabled = True
+                Me.MostrarTablaAvances()
+                Me.MostrarTablaFiltrada()
+                'Response.Write("<script language=javascript>alert('El elemento se ha modificado exitosamente')</script>")
+                'MsgBox("Exito")
+            Else
+                ModalPopupExtender_AvanceError.Show()
+                'Response.Write("<script language=javascript>alert('Se ha modificado un elemento erroneamente')</script>")
+                ' MsgBox("Fracaso")
+            End If
+        Catch ex As Exception
+            ModalPopupExtender_AvanceError.Show()
+            'Response.Write("<script language=javascript>alert('Hubo un problema en modificar el elemento. Porfavor revisar formulario. Porfavor rellenar de nuevo los espacios de fechas y dimensiones')</script>")
+            'MsgBox(ex.Message)
+        End Try
+    End Sub
+#End Region
+
+
+#Region "btnInsertarAvance Insertar el Avance/Seguimiento4 del Caso respectivo"
+    'EFECTO: La función de este botón es para realizar la inserción de datos del avance la cual se insertará en su propio gridview
+    'RECIBE: Requiere del llamado de su entidad y datos.
+    'DEVUELVE: Guarda los datos en la tabla tblCasoAvances
+    Protected Sub btnInsertar_Avance4_Click(ByVal sender As Object, ByVal e As EventArgs) Handles btnInsertar_Avance4.Click
+        Try
+            Dim dts As New Entidad_Casos 'instanciamos a la clase atributos de la tabla trabajador
+            Dim func As New Datos_Casos 'instanciamos a la clase funciones de la tabla trabajador
+            dts._idCasos = txtId_Casos.Text
+            dts._numeroCasos = txtNumero_Caso.Text
+            dts._estadoCasos = ddlEstado_Caso.Text
+            dts._fechaCasos = txtFecha_Caso.Text
+            If Not String.IsNullOrEmpty(txtCedula_Usuario.Text) Then
+                dts._cedulaDenuncianteCasos = Integer.Parse(txtCedula_Usuario.Text)
+            End If
+            dts._nombreDenuncianteCasos = txtNombre_Usuario.Text
+            dts._nombreFuncionario = txtNombre_Funcionario.Text
+            dts._nombreCentroEducativo = txtNombre_CE.Text
+            dts._numeroOficio = txtNumero_Oficio.Text
+            If txtFecha_Oficio.Text = "" Then
+                dts._fechaOficio = Nothing
+            Else
+                dts._fechaOficio = txtFecha_Oficio.Text
+            End If
+            dts._condicionCasos = ddlCondicion_Caso.Text
+            dts._detalleInconformidadCasos = txtAsunto.Text
+            dts._respuestaCasos = txtRespuesta.Text
+            dts._valoracionAdmisibilidad = ddlValoracion_Admisibilidad.Text
+            dts._veredictoValoracionIngreso = ddlVeredicto_Valoracion.Text
+            dts._trazabilidadCasos = ddlTrazabilidad_Casos.Text
+            If txtFecha_Respuesta_Casos.Text = "" Then
+                dts._fechaRespuestaCasos = Nothing
+            Else
+                dts._fechaRespuestaCasos = txtFecha_Respuesta_Casos.Text
+            End If
+            If txtFecha_Cerrado_Casos.Text = "" Then
+                dts._fechaCerradoCasos = Nothing
+            Else
+                dts._fechaCerradoCasos = txtFecha_Cerrado_Casos.Text
+            End If
+            dts._detalleCasoAvance1 = txtDetalle_Avance1.Text
+            If txtFecha_Avance1.Text = "" Then
+                dts._fechaCasoAvance1 = Nothing
+            Else
+                dts._fechaCasoAvance1 = txtFecha_Avance1.Text
+            End If
+
+            dts._detalleCasoAvance2 = txtDetalle_Avance2.Text
+            If txtFecha_Avance2.Text = "" Then
+                dts._fechaCasoAvance2 = Nothing
+            Else
+                dts._fechaCasoAvance2 = txtFecha_Avance2.Text
+            End If
+
+            dts._detalleCasoAvance3 = txtDetalle_Avance3.Text
+            If txtFecha_Avance3.Text = "" Then
+                dts._fechaCasoAvance3 = Nothing
+            Else
+                dts._fechaCasoAvance3 = txtFecha_Avance3.Text
+            End If
+            '-----------------------------------------------------------------------------------'
+            dts._detalleCasoAvance4 = txtDetalle_Avance4.Text
+            If txtFecha_Avance4.Text = "" Then
+                dts._fechaCasoAvance4 = Nothing
+            Else
+                dts._fechaCasoAvance4 = txtFecha_Avance4.Text
+            End If
+            '-----------------------------------------------------------------------------------'
+            If func.modificarCasos(dts) Then
+                ModalPopupExtender_AvanceExito.Show()
+                AvancePanel1.Visible = False
+                btnAgregarAvance1.Enabled = True
+                Me.MostrarTablaAvances()
+                Me.MostrarTablaFiltrada()
+                'Response.Write("<script language=javascript>alert('El elemento se ha modificado exitosamente')</script>")
+                'MsgBox("Exito")
+            Else
+                ModalPopupExtender_AvanceError.Show()
+                'Response.Write("<script language=javascript>alert('Se ha modificado un elemento erroneamente')</script>")
+                ' MsgBox("Fracaso")
+            End If
+        Catch ex As Exception
+            ModalPopupExtender_AvanceError.Show()
+            'Response.Write("<script language=javascript>alert('Hubo un problema en modificar el elemento. Porfavor revisar formulario. Porfavor rellenar de nuevo los espacios de fechas y dimensiones')</script>")
+            'MsgBox(ex.Message)
+        End Try
+    End Sub
+#End Region
+
+
+
+
+#Region "Mostrar Tabla de los Avances"
+    'EFECTO: Esta función es la que ayuda para llenar los datos del gridview tomados de la tabla de tblCasos de la base de datos.
+    'RECIBE: No depende de un parametro. Y se guarda la función en func para luego ir llenando fila por fila el gridview. 
+    'DEVUELVE:Gridview con los datos de tblCasos.
+    Sub MostrarTablaAvances()
+        Try
+            Dim func As New Datos_Casos
+            dt = func.mostrarAvancesCaso
             If dt.Rows.Count <> 0 Then
-                Dim dView As DataView = New DataView(dt)
                 gvwAvance.DataSource = dt
                 gvwAvance.DataBind()
             Else
@@ -280,35 +651,38 @@ Public Class Modificar_Casos
     End Sub
 #End Region
 
-#Region "Filtrar Avances por id del Caso"
-    'EFECTO: Filtrar la tabla GridviewAvance por el caso correspondiente de la fila del GridviewCaso
-    'RECIBE: El intIdCasos actual de la fila
-    'DEVUELVE: La tabla GridviewAvance filtrada para que solo muestre los avances relacionados a dicho id del Caso
-    Sub FiltrarPorCaso()
-        Dim strQuery As String = "palFiltrarCasoAvances"
-        Dim con As New SqlConnection(strConnString)
-        Dim cmd As New SqlCommand()
+
+#Region "Filtrar Tabla Avance"
+    'EFECTO: Esta función causa la ejecución de filtros al gridview para que se actualize con los datos seleccionados
+    'RECIBE: Cualquiera de los parametros mostrados en la interfaz para que filtre el gridview
+    'DEVUELVE:Gridview actualizado con los datos filtrados
+    Private Sub MostrarTablaFiltrada()
+        Dim strConnString As String = ConfigurationManager _
+             .ConnectionStrings("bda_SIREGE_Connection").ConnectionString
+        ' Dim Conx.ConnectionString = strQuery
+        Dim Query As String = "palFiltrarAvanceCasos"
+        Dim conx As New SqlConnection()
+        conx.ConnectionString = strConnString
+        Dim cmd As New SqlCommand
+        cmd = New SqlCommand("palFiltrarAvanceCasos")
         cmd.CommandType = CommandType.StoredProcedure
-        cmd.CommandText = strQuery
-        cmd.Parameters.AddWithValue("@intIdCasos", SqlDbType.VarChar).Value = txtId_Casos.Text.Trim()
-        cmd.Connection = con
+        cmd.CommandText = Query
+
+        If Me.txtId_Casos.Text.Trim() <> "" Then
+            cmd.Parameters.AddWithValue("@intIdCasos", SqlDbType.VarChar).Value = txtId_Casos.Text.Trim()
+        End If
+
+        cmd.Connection = conx
         Dim da As SqlDataAdapter = New SqlDataAdapter(cmd)
         Dim ds As DataSet = New DataSet()
         da.Fill(ds)
         gvwAvance.DataSource = ds
         gvwAvance.DataBind()
+
     End Sub
 #End Region
 
-#Region "Limpiar Avance"
-    'EFECTO: Función que se utiliza para limpiar todos los textboxes del avance
-    'RECIBE: No recibe parametros
-    'DEVUELVE: Hace vacio todos los textboxes
-    Sub AvanceLimpiar()
-        txtFecha_Avance.Text = String.Empty
-        txtDetalle_Avance.Text = String.Empty
-    End Sub
-#End Region
+
 
 
 

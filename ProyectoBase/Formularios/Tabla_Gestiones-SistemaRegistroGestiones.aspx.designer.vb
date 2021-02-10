@@ -50,6 +50,15 @@ Partial Public Class Tabla_Gestiones
     Protected WithEvents btnBuscar_TipoGestion As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
+    '''btnBitacora control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnBitacora As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
     '''btnExportar control.
     '''</summary>
     '''<remarks>
@@ -59,6 +68,15 @@ Partial Public Class Tabla_Gestiones
     Protected WithEvents btnExportar As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
+    '''UpdatePanel1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UpdatePanel1 As Global.System.Web.UI.UpdatePanel
+
+    '''<summary>
     '''grdCharges control.
     '''</summary>
     '''<remarks>
@@ -66,15 +84,6 @@ Partial Public Class Tabla_Gestiones
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents grdCharges As Global.System.Web.UI.HtmlControls.HtmlGenericControl
-
-    '''<summary>
-    '''UpdatePanelTabla control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents UpdatePanelTabla As Global.System.Web.UI.UpdatePanel
 
     '''<summary>
     '''gvwGestiones control.
@@ -336,15 +345,6 @@ Partial Public Class Tabla_Gestiones
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents txtPop_Respuesta_Gestion As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''btnExportar_Word control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents btnExportar_Word As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''btnCerrar_Modal control.

@@ -82,7 +82,7 @@ Public Class Formulario_Insertar_Gestiones
     Protected Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
         Dim dts As New Entidad_Gestiones
         Dim func As New Datos_Gestiones
-        If rblTipo_Gestion.Text <> "" And txtNombre_Usuario.Text <> "" And txtFecha_Ingreso.Text <> "" And txtNombre_Funcionario.Text <> "" And ddlFuente_Generadora.Text <> "" And ddlTipo_Servicio.Text <> "" And ddlTipo_Usuario.Text <> "" And txtAsunto.Text <> "" Then
+        If rblTipo_Gestion.Text <> "" And txtNombre_Usuario.Text <> "" And txtFecha_Ingreso.Text <> "" And txtNombre_Funcionario.Text <> "" And ddlFuente_Generadora.Text <> "" And ddlTipo_Servicio.Text <> "" And txtAsunto.Text <> "" Then
             Try
                 dts._tipoGestiones = rblTipo_Gestion.Text
                 If Not String.IsNullOrEmpty(txtCedula_Usuario.Text) Then
@@ -113,9 +113,7 @@ Public Class Formulario_Insertar_Gestiones
                 dts._respuestaGestiones = txtRespuesta.Text
 
 
-
                 If func.insertarGestiones(dts) Then
-                    '         Dim intIdGestiones As String = cmd.Parameters("@intIdGestiones").Value.ToString()
                     txtPop_Id_Gestiones.Text = dts._idGestiones
                     ModalPopupExtender_Exito.Show()
                     ' Response.Write("<script language=javascript>alert('El elemento se ha agregado exitosamente')</script>")
@@ -128,8 +126,7 @@ Public Class Formulario_Insertar_Gestiones
             Catch ex As Exception
                 ModalPopupExtender_Error.Show()
                 'Response.Write("<script language=javascript>alert('Hubo un problema en agregar el elemento. Porfavor revisar formulario.')</script>")
-
-                MsgBox("Hubo un problema en agregar el elemento" + ex.Message)
+                '  MsgBox("Hubo un problema en agregar el elemento" + ex.Message)
             End Try
         Else
             ModalPopupExtender_Incompleto.Show()

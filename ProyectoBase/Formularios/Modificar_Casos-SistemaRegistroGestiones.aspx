@@ -377,24 +377,24 @@
                                  <div class="col-md-3 col-md-offset-1">
                                     <div class="form-group">
                                          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                         <asp:Button ID="btnAgregarAvance" runat="server" CssClass="btn btn-primary" Width="120px" Height="45px" Text="Agregar Avance" OnClick="btnAgregarAvance_Click" />
+                                         <asp:Button ID="btnAgregarAvance1" runat="server" CssClass="btn btn-primary" Width="120px" Height="45px" Text="Agregar Avance 1" OnClick="btnAgregarAvance1_Click" />
                                     </div>
                                 </div>                                                            
                              </div>
                              <br/>
                             
-                            <asp:UpdatePanel ID="AvancePanel" runat="server" updatemode="Conditional">                              
+                            <asp:UpdatePanel ID="AvancePanel1" runat="server" updatemode="Conditional">                              
                                 <ContentTemplate>
-                                    
+                                   
                                     <div class="row">
                                         <div class="col-md-3 col-md-offset-1">
                                             <div class="form-group">
                                                 <table style="width: 100%;" border="0">
                                                     <tr>
-                                                        <td class="auto-style19">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblFecha_Avance" Text="Fecha del Avance" runat="server"/></td>
+                                                        <td class="auto-style19">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblFecha_Avance1" Text="Fecha del Avance 1" runat="server"/></td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="auto-style19">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Avance" runat="server" TextMode="DateTimeLocal"  Height="25px" Width="279px" Enabled="true" CssClass="form-control input-sm"  /></td>
+                                                        <td class="auto-style19">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Avance1" runat="server" TextMode="DateTimeLocal"  Height="25px" Width="279px" Enabled="true" CssClass="form-control input-sm"  /></td>
                                                     </tr>
                                                 </table>
                                                 <div class="col-md-3 col-md-offset-1">
@@ -411,10 +411,10 @@
                                             <div class="form-group">
                                                 <table style="width: 100%;" border="0">
                                                     <tr>
-                                                        <td class="auto-style19">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblDetalle_Avance" Text="Detalle del Avance" runat="server" /></td>
+                                                        <td class="auto-style19">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblDetalle_Avance1" Text="Detalle del Avance 1" runat="server" /></td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox runat="server" ID="txtDetalle_Avance" TextMode="Multiline" Enabled="true" CssClass="form-control input-lg" Rows="2" Cols="12" Width="739px" style="resize:none;" Height="56px" /></td>
+                                                        <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox runat="server" ID="txtDetalle_Avance1" TextMode="Multiline" Enabled="true" CssClass="form-control input-lg" Rows="2" Cols="12" Width="739px" style="resize:none;" Height="56px" /></td>
                                                     </tr>
                                                 </table>
                                                 <div class="col-md-3 col-md-offset-1">
@@ -429,42 +429,275 @@
                                     <div class="row">
                                         <div class="col-md-3 col-md-offset-1">
                                             <div class="form-group">                                                
-                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Button ID="btnInsertar_Avance" runat="server" Text="Insertar Avance" CssClass="btn btn-primary" Width="120px" Height="45px" OnClick="btnInsertar_Avance_Click"  />
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Button ID="btnInsertar_Avance1" runat="server" Text="Insertar Avance" CssClass="btn btn-primary" Width="120px" Height="45px" OnClick="btnInsertar_Avance1_Click"  />
                                             </div>
                                         </div>                                                                      
                                     </div> 
-                                    
-                                            
+                   
                                 </ContentTemplate>
                                 <Triggers>
-                                    <asp:PostBackTrigger controlid="btnInsertar_Avance"  />
+                                    <asp:PostBackTrigger controlid="btnInsertar_Avance1"  />
                                 </Triggers>
                           </asp:UpdatePanel>
+
                         </ContentTemplate>
                        </asp:UpdatePanel>
                         <br/>
+                        <br/>
+                        <br/>
 
-                        <div id="grdAvancePanel" runat="server"  style="width: 800px; overflow: auto;">
+                        <asp:UpdatePanel runat="server" id="UpdatePanel6" updatemode="Conditional">  
+                            <ContentTemplate>
+                            <div class="row">
+                                 <div class="col-md-3 col-md-offset-1">
+                                    <div class="form-group">
+                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                         <asp:Button ID="btnAgregarAvance2" runat="server" CssClass="btn btn-primary" Width="120px" Height="45px" Text="Agregar Avance 2" OnClick="btnAgregarAvance2_Click" />
+                                    </div>
+                                </div>                                                            
+                             </div>
+                             <br/>
+                            
+                            <asp:UpdatePanel ID="AvancePanel2" runat="server" updatemode="Conditional">                              
+                                <ContentTemplate>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-3 col-md-offset-1">
+                                            <div class="form-group">
+                                                <table style="width: 100%;" border="0">
+                                                    <tr>
+                                                        <td class="auto-style19">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblFecha_Avance2" Text="Fecha del Avance 2" runat="server"/></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="auto-style19">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Avance2" runat="server" TextMode="DateTimeLocal"  Height="25px" Width="279px" Enabled="true" CssClass="form-control input-sm"  /></td>
+                                                    </tr>
+                                                </table>
+                                                <div class="col-md-3 col-md-offset-1">
+                                                    <div class="form-group">
+                                                        <br />                                                               
+                                                    </div>
+                                                </div>                                     
+                                            </div>
+                                        </div>                                                                
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-3 col-md-offset-1">
+                                            <div class="form-group">
+                                                <table style="width: 100%;" border="0">
+                                                    <tr>
+                                                        <td class="auto-style19">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblDetalle_Avance2" Text="Detalle del Avance 2" runat="server" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox runat="server" ID="txtDetalle_Avance2" TextMode="Multiline" Enabled="true" CssClass="form-control input-lg" Rows="2" Cols="12" Width="739px" style="resize:none;" Height="56px" /></td>
+                                                    </tr>
+                                                </table>
+                                                <div class="col-md-3 col-md-offset-1">
+                                                    <div class="form-group">
+                                                        <br />                                                               
+                                                    </div>
+                                                </div>                                     
+                                            </div>
+                                        </div>                                                                
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-3 col-md-offset-1">
+                                            <div class="form-group">                                                
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Button ID="btnInsertar_Avance2" runat="server" Text="Insertar Avance" CssClass="btn btn-primary" Width="120px" Height="45px" OnClick="btnInsertar_Avance2_Click"  />
+                                            </div>
+                                        </div>                                                                      
+                                    </div> 
+                                         
+                                </ContentTemplate>
+                                <Triggers>
+                                    <asp:PostBackTrigger controlid="btnInsertar_Avance2"  />
+                                </Triggers>
+                          </asp:UpdatePanel>
+
+                        </ContentTemplate>
+                       </asp:UpdatePanel>
+                        <br/>
+                        <br/>
+                        <br/>
+
+                        <asp:UpdatePanel runat="server" id="UpdatePanel7" updatemode="Conditional">  
+                            <ContentTemplate>
+                            <div class="row">
+                                 <div class="col-md-3 col-md-offset-1">
+                                    <div class="form-group">
+                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                         <asp:Button ID="btnAgregarAvance3" runat="server" CssClass="btn btn-primary" Width="120px" Height="45px" Text="Agregar Avance 3" OnClick="btnAgregarAvance3_Click" />
+                                    </div>
+                                </div>                                                            
+                             </div>
+                             <br/>
+                            
+                            <asp:UpdatePanel ID="AvancePanel3" runat="server" updatemode="Conditional">                              
+                                <ContentTemplate>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-3 col-md-offset-1">
+                                            <div class="form-group">
+                                                <table style="width: 100%;" border="0">
+                                                    <tr>
+                                                        <td class="auto-style19">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblFecha_Avance3" Text="Fecha del Avance 3" runat="server"/></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="auto-style19">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Avance3" runat="server" TextMode="DateTimeLocal"  Height="25px" Width="279px" Enabled="true" CssClass="form-control input-sm"  /></td>
+                                                    </tr>
+                                                </table>
+                                                <div class="col-md-3 col-md-offset-1">
+                                                    <div class="form-group">
+                                                        <br />                                                               
+                                                    </div>
+                                                </div>                                     
+                                            </div>
+                                        </div>                                                                
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-3 col-md-offset-1">
+                                            <div class="form-group">
+                                                <table style="width: 100%;" border="0">
+                                                    <tr>
+                                                        <td class="auto-style19">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblDetalle_Avance3" Text="Detalle del Avance 3" runat="server" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox runat="server" ID="txtDetalle_Avance3" TextMode="Multiline" Enabled="true" CssClass="form-control input-lg" Rows="2" Cols="12" Width="739px" style="resize:none;" Height="56px" /></td>
+                                                    </tr>
+                                                </table>
+                                                <div class="col-md-3 col-md-offset-1">
+                                                    <div class="form-group">
+                                                        <br />                                                               
+                                                    </div>
+                                                </div>                                     
+                                            </div>
+                                        </div>                                                                
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-3 col-md-offset-1">
+                                            <div class="form-group">                                                
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Button ID="btnInsertar_Avance3" runat="server" Text="Insertar Avance" CssClass="btn btn-primary" Width="120px" Height="45px" OnClick="btnInsertar_Avance3_Click"  />
+                                            </div>
+                                        </div>                                                                      
+                                    </div> 
+                                         
+                                </ContentTemplate>
+                                <Triggers>
+                                    <asp:PostBackTrigger controlid="btnInsertar_Avance3"  />
+                                </Triggers>
+                          </asp:UpdatePanel>
+
+                        </ContentTemplate>
+                       </asp:UpdatePanel>
+                        <br/>
+                        <br/>
+                        <br/>
+
+
+                        <asp:UpdatePanel runat="server" id="UpdatePanel8" updatemode="Conditional">  
+                            <ContentTemplate>
+                            <div class="row">
+                                 <div class="col-md-3 col-md-offset-1">
+                                    <div class="form-group">
+                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                         <asp:Button ID="btnAgregarAvance4" runat="server" CssClass="btn btn-primary" Width="120px" Height="45px" Text="Agregar Avance 4" OnClick="btnAgregarAvance4_Click" />
+                                    </div>
+                                </div>                                                            
+                             </div>
+                             <br/>
+                            
+                            <asp:UpdatePanel ID="AvancePanel4" runat="server" updatemode="Conditional">                              
+                                <ContentTemplate>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-3 col-md-offset-1">
+                                            <div class="form-group">
+                                                <table style="width: 100%;" border="0">
+                                                    <tr>
+                                                        <td class="auto-style19">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblFecha_Avance4" Text="Fecha del Avance 4" runat="server"/></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="auto-style19">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Avance4" runat="server" TextMode="DateTimeLocal"  Height="25px" Width="279px" Enabled="true" CssClass="form-control input-sm"  /></td>
+                                                    </tr>
+                                                </table>
+                                                <div class="col-md-3 col-md-offset-1">
+                                                    <div class="form-group">
+                                                        <br />                                                               
+                                                    </div>
+                                                </div>                                     
+                                            </div>
+                                        </div>                                                                
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-3 col-md-offset-1">
+                                            <div class="form-group">
+                                                <table style="width: 100%;" border="0">
+                                                    <tr>
+                                                        <td class="auto-style19">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblDetalle_Avance4" Text="Detalle del Avance 4" runat="server" /></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox runat="server" ID="txtDetalle_Avance4" TextMode="Multiline" Enabled="true" CssClass="form-control input-lg" Rows="2" Cols="12" Width="739px" style="resize:none;" Height="56px" /></td>
+                                                    </tr>
+                                                </table>
+                                                <div class="col-md-3 col-md-offset-1">
+                                                    <div class="form-group">
+                                                        <br />                                                               
+                                                    </div>
+                                                </div>                                     
+                                            </div>
+                                        </div>                                                                
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-3 col-md-offset-1">
+                                            <div class="form-group">                                                
+                                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Button ID="btnInsertar_Avance4" runat="server" Text="Insertar Avance" CssClass="btn btn-primary" Width="120px" Height="45px" OnClick="btnInsertar_Avance4_Click"  />
+                                            </div>
+                                        </div>                                                                      
+                                    </div> 
+                                         
+                                </ContentTemplate>
+                                <Triggers>
+                                    <asp:PostBackTrigger controlid="btnInsertar_Avance4"  />
+                                </Triggers>
+                          </asp:UpdatePanel>
+
+                        </ContentTemplate>
+                       </asp:UpdatePanel>
+                        <br/>
+                        <br/>
+
+
+
+                        <div id="grdAvancePanel" runat="server"  style="width: 1200px;">
                             <asp:UpdatePanel runat="server" id="UpdatePanel4" updatemode="Conditional">  
                             <ContentTemplate>                       
-                            <asp:GridView ID="gvwAvance" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" AutoGenerateColumns="False" DataKeyNames="intIdAvanceCasos,intIdCasos" style="margin-left: 47px" >
-                                        <Columns>
-                                            <asp:BoundField DataField="intIdAvanceCasos" HeaderText="Codigo de Avance(General)" ReadOnly="True" InsertVisible="False" SortExpression="intIdAvanceCasos" Visible="False"></asp:BoundField>
-                                            <asp:BoundField DataField="intIdCasos" HeaderText="Codigo de Caso" SortExpression="intIdCasos" InsertVisible="False" ReadOnly="True" Visible="False"></asp:BoundField>
-                                            <asp:BoundField DataField="vchDetalleAvance" HeaderText="Detalle del Avance" SortExpression="vchDetalleAvance"></asp:BoundField>
-                                            <asp:BoundField DataField="dtiFechaAvance" HeaderText="Fecha del Avance" SortExpression="dtiFechaAvance"></asp:BoundField>
-                                        </Columns>
-                                        <FooterStyle BackColor="White" ForeColor="#000066"></FooterStyle>
-                                        <HeaderStyle BackColor="#006699" Font-Bold="True" ForeColor="White"></HeaderStyle>
-                                        <PagerStyle HorizontalAlign="Left" BackColor="White" ForeColor="#000066"></PagerStyle>
-                                        <RowStyle ForeColor="#000066"></RowStyle>
-                                        <SelectedRowStyle BackColor="#669999" Font-Bold="True" ForeColor="White"></SelectedRowStyle>
-                                        <SortedAscendingCellStyle BackColor="#F1F1F1"></SortedAscendingCellStyle>
-                                        <SortedAscendingHeaderStyle BackColor="#007DBB"></SortedAscendingHeaderStyle>
-                                        <SortedDescendingCellStyle BackColor="#CAC9C9"></SortedDescendingCellStyle>
-                                        <SortedDescendingHeaderStyle BackColor="#00547E"></SortedDescendingHeaderStyle>
-                                    </asp:GridView>                                                                                                                        
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;<asp:SqlDataSource runat="server" ID="sdsMostrarAvances" ConnectionString='<%$ ConnectionStrings:bda_SIREGE_Connection %>' SelectCommand="palMostrarCasoAvances" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
+                                <asp:GridView ID="gvwAvance" runat="server" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="3" AutoGenerateColumns="False" Style="margin-left: 47px; margin-right: 282px;" Width="1134px" DataKeyNames="intIdCasos" AllowSorting="True" Height="154px">
+                                    <Columns>
+                                        <asp:BoundField DataField="intIdCasos" HeaderText="Código de caso" ReadOnly="True" InsertVisible="False" Visible="False"></asp:BoundField>
+                                        <asp:BoundField DataField="dtiCasoAvanceFecha1" HeaderText="Fecha del avance 1"></asp:BoundField>
+                                        <asp:BoundField DataField="vchCasoAvance1" HeaderText="Detalle del avance 1" ></asp:BoundField>
+                                        <asp:BoundField DataField="dtiCasoAvanceFecha2" HeaderText="Fecha del avance 2" ></asp:BoundField>
+                                        <asp:BoundField DataField="vchCasoAvance2" HeaderText="Detalle del avance 2" ></asp:BoundField>
+                                        <asp:BoundField DataField="dtiCasoAvanceFecha3" HeaderText="Fecha del avance 3"></asp:BoundField>
+                                        <asp:BoundField DataField="vchCasoAvance3" HeaderText="Detalle del avance 3" ></asp:BoundField>
+                                        <asp:BoundField DataField="dtiCasoAvanceFecha4" HeaderText="Fecha del avance 4" ></asp:BoundField>
+                                        <asp:BoundField DataField="vchCasoAvance4" HeaderText="Detalle del avance 4"></asp:BoundField>
+                                    </Columns>
+                                    <RowStyle Width="250px" BackColor="#F7F6F3" ForeColor="#333333" HorizontalAlign="Center" />
+                                    <FooterStyle BackColor="#00A0E3" ForeColor="White" />
+                                    <PagerStyle BackColor="#00A0e3" ForeColor="White" HorizontalAlign="Center" />
+                                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                                    <HeaderStyle BackColor="#00A0e3" ForeColor="White" HorizontalAlign="Center" Width="250px" Wrap="False" />
+                                    <EditRowStyle BackColor="#999999" />
+                                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />   
+                                </asp:GridView>
+                                &nbsp;
+                                <asp:SqlDataSource runat="server" ID="sdsMostrarAvances" ConnectionString='<%$ ConnectionStrings:bda_SIREGE_Connection %>' SelectCommand="palMostrarAvanceCasos" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
                             </ContentTemplate>
                        </asp:UpdatePanel>
                      </div>
@@ -477,7 +710,7 @@
                                             <tr>
                                                 <td class="auto-style23">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Button ID="btnUpdate" runat="server" Text="Actualizar" CssClass="btn btn-primary" Width="85px" Height="45px" OnClick="btnUpdate_Click" /></td>
 
-                                                <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Button Text="Cancelar" ID="btnCancelar" CssClass="btn btn-primary" Width="85px" Height="45px" runat="server" OnClick="btnCancel_Click" /></td>
+                                                <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Button Text="Cancelar" ID="btnCancelar" CssClass="btn btn-primary" Width="85px" Height="45px" runat="server" OnClick="btnCancel_Click" /></td>
                                             </tr>
                                         </table>                                       
                                     </div>

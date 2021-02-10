@@ -177,6 +177,42 @@ Public Class Datos_Casos
             Else
                 cmd.Parameters.AddWithValue("@dtiFechaCerradoCasos", dts._fechaCerradoCasos)
             End If
+
+            '------------------------------------------------------------------------------------'
+
+            If dts._fechaCasoAvance1 = "#12:00:00 AM#" Then
+                cmd.Parameters.AddWithValue("@dtiCasoAvanceFecha1", System.DBNull.Value)
+            Else
+                cmd.Parameters.AddWithValue("@dtiCasoAvanceFecha1", dts._fechaCasoAvance1)
+            End If
+
+            cmd.Parameters.AddWithValue("@vchCasoAvance1", dts._detalleCasoAvance1)
+
+            If dts._fechaCasoAvance2 = "#12:00:00 AM#" Then
+                cmd.Parameters.AddWithValue("@dtiCasoAvanceFecha2", System.DBNull.Value)
+            Else
+                cmd.Parameters.AddWithValue("@dtiCasoAvanceFecha2", dts._fechaCasoAvance2)
+            End If
+
+            cmd.Parameters.AddWithValue("@vchCasoAvance2", dts._detalleCasoAvance2)
+
+            If dts._fechaCasoAvance3 = "#12:00:00 AM#" Then
+                cmd.Parameters.AddWithValue("@dtiCasoAvanceFecha3", System.DBNull.Value)
+            Else
+                cmd.Parameters.AddWithValue("@dtiCasoAvanceFecha3", dts._fechaCasoAvance3)
+            End If
+
+            cmd.Parameters.AddWithValue("@vchCasoAvance3", dts._detalleCasoAvance3)
+
+            If dts._fechaCasoAvance4 = "#12:00:00 AM#" Then
+                cmd.Parameters.AddWithValue("@dtiCasoAvanceFecha4", System.DBNull.Value)
+            Else
+                cmd.Parameters.AddWithValue("@dtiCasoAvanceFecha4", dts._fechaCasoAvance4)
+            End If
+
+            cmd.Parameters.AddWithValue("@vchCasoAvance4", dts._detalleCasoAvance4)
+
+
             If cmd.ExecuteNonQuery Then
                 Return True
             Else
@@ -185,6 +221,36 @@ Public Class Datos_Casos
         Catch ex As Exception
             MsgBox(ex.Message)
             Return False
+        Finally
+            cmd.Connection.Close()
+        End Try
+    End Function
+#End Region
+
+
+#Region "Mostrar los datos de avance en tabla"
+    'EFECTO: Esta función muestra los datos de la tabla tblCasos
+    'RECIBE: No require de parámetros
+    'DEVUELVE: Devuelve los datos de la tabla tblCasos
+    Public Function mostrarAvancesCaso() As DataTable
+        Try
+            Conx.ConnectionString = CnnString
+            cmd = New SqlCommand("palMostrarAvanceCasos")
+            cmd.CommandType = CommandType.StoredProcedure
+            cmd.Connection = Conx
+            cmd.Connection.Open()
+            If cmd.ExecuteNonQuery Then
+                Dim dt As New DataTable
+                Dim da As New SqlDataAdapter(cmd)
+                da.Fill(dt)
+                Return dt
+            Else
+                Return Nothing
+            End If
+        Catch ex As Exception
+            MsgBox(ex.Message)
+            cmd.Connection.Close()
+            Return Nothing
         Finally
             cmd.Connection.Close()
         End Try

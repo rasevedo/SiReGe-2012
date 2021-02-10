@@ -14,15 +14,6 @@ Option Explicit On
 Partial Public Class Buscador_Gestiones_SistemaRegistroGestiones
 
     '''<summary>
-    '''UpdatePanelBuscador control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents UpdatePanelBuscador As Global.System.Web.UI.UpdatePanel
-
-    '''<summary>
     '''lblTipo_Gestiones control.
     '''</summary>
     '''<remarks>
@@ -194,6 +185,51 @@ Partial Public Class Buscador_Gestiones_SistemaRegistroGestiones
     Protected WithEvents btnVolver As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
+    '''btnBorrar control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnBorrar As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''btnBitacora control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnBitacora As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''btnExportar control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnExportar As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''UpdatePanelBuscador control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UpdatePanelBuscador As Global.System.Web.UI.UpdatePanel
+
+    '''<summary>
+    '''lblmsg control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblmsg As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
     '''grdCharges control.
     '''</summary>
     '''<remarks>
@@ -219,15 +255,6 @@ Partial Public Class Buscador_Gestiones_SistemaRegistroGestiones
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents sdsGridView_Gestiones As Global.System.Web.UI.WebControls.SqlDataSource
-
-    '''<summary>
-    '''lblmsg control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblmsg As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
     '''lnkFalso control.
@@ -266,13 +293,13 @@ Partial Public Class Buscador_Gestiones_SistemaRegistroGestiones
     Protected WithEvents lblPop_Id_Gestiones As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''txtPop_Id_Gestiones control.
+    '''txtSPop_Id_Gestiones control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtPop_Id_Gestiones As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtSPop_Id_Gestiones As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''txtPop_Tipo_Gestiones control.

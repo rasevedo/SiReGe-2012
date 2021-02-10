@@ -116,6 +116,7 @@
     <Content Include="Contenido\Imagenes\DMC_OFF.png" />
     <Content Include="Contenido\Imagenes\DMC_ON.png" />
     <Content Include="Contenido\Imagenes\EncabezadoSistema.jpg" />
+    <Content Include="Contenido\Imagenes\Encabezado_Bitacora.png" />
     <Content Include="Contenido\Imagenes\expand_blue.jpg" />
     <Content Include="Contenido\Imagenes\Fondo.jpg" />
     <Content Include="Contenido\Imagenes\Fondo.png" />
@@ -153,6 +154,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dstBitacora_Gestiones.xsd</DependentUpon>
     </Compile>
+    <Compile Include="dstCasos.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dstCasos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dstGestiones.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -161,6 +167,9 @@
     <Compile Include="dstInformes.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
+      <DependentUpon>dstInformes.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dstInformes.vb">
       <DependentUpon>dstInformes.xsd</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Buscador_Casos-SistemaRegistroGestiones.aspx.designer.vb">
@@ -297,9 +306,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Formularios\Bitacora_Casos.rdlc" />
     <EmbeddedResource Include="Formularios\Bitacora_Gestion.rdlc" />
-    <EmbeddedResource Include="Formularios\Reporte_Casos.rdlc" />
-    <EmbeddedResource Include="Formularios\Reporte_Gestiones.rdlc" />
+    <EmbeddedResource Include="Formularios\Bitacora_Informe.rdlc" />
     <EmbeddedResource Include="Formularios\Reporte_Informes.rdlc" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -307,11 +316,10 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reporte_Gestiones.rdlc" />
+    <EmbeddedResource Include="Formularios\Reporte_Casos.rdlc" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="dstGestiones.xsc">
-      <DependentUpon>dstGestiones.xsd</DependentUpon>
-    </Content>
     <Content Include="dstBitacora_Gestiones.xsc">
       <DependentUpon>dstBitacora_Gestiones.xsd</DependentUpon>
     </Content>
@@ -323,6 +331,23 @@
     <Content Include="dstBitacora_Gestiones.xss">
       <DependentUpon>dstBitacora_Gestiones.xsd</DependentUpon>
     </Content>
+    <Content Include="dstInformes.xsc">
+      <DependentUpon>dstInformes.xsd</DependentUpon>
+    </Content>
+    <Content Include="dstGestiones.xsc">
+      <DependentUpon>dstGestiones.xsd</DependentUpon>
+    </Content>
+    <Content Include="dstCasos.xsc">
+      <DependentUpon>dstCasos.xsd</DependentUpon>
+    </Content>
+    <None Include="dstCasos.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dstCasos.Designer.vb</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="dstCasos.xss">
+      <DependentUpon>dstCasos.xsd</DependentUpon>
+    </Content>
     <None Include="dstGestiones.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>dstGestiones.Designer.vb</LastGenOutput>
@@ -330,9 +355,6 @@
     </None>
     <Content Include="dstGestiones.xss">
       <DependentUpon>dstGestiones.xsd</DependentUpon>
-    </Content>
-    <Content Include="dstInformes.xsc">
-      <DependentUpon>dstInformes.xsd</DependentUpon>
     </Content>
     <None Include="dstInformes.xsd">
       <Generator>MSDataSetGenerator</Generator>

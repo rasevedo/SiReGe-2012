@@ -491,67 +491,283 @@ Partial Public Class Modificar_Casos
     Protected WithEvents UpdatePanel3 As Global.System.Web.UI.UpdatePanel
 
     '''<summary>
-    '''btnAgregarAvance control.
+    '''btnAgregarAvance1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btnAgregarAvance As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnAgregarAvance1 As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
-    '''AvancePanel control.
+    '''AvancePanel1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents AvancePanel As Global.System.Web.UI.UpdatePanel
+    Protected WithEvents AvancePanel1 As Global.System.Web.UI.UpdatePanel
 
     '''<summary>
-    '''lblFecha_Avance control.
+    '''lblFecha_Avance1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblFecha_Avance As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblFecha_Avance1 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''txtFecha_Avance control.
+    '''txtFecha_Avance1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtFecha_Avance As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtFecha_Avance1 As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''lblDetalle_Avance control.
+    '''lblDetalle_Avance1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents lblDetalle_Avance As Global.System.Web.UI.WebControls.Label
+    Protected WithEvents lblDetalle_Avance1 As Global.System.Web.UI.WebControls.Label
 
     '''<summary>
-    '''txtDetalle_Avance control.
+    '''txtDetalle_Avance1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents txtDetalle_Avance As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents txtDetalle_Avance1 As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''btnInsertar_Avance control.
+    '''btnInsertar_Avance1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents btnInsertar_Avance As Global.System.Web.UI.WebControls.Button
+    Protected WithEvents btnInsertar_Avance1 As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''UpdatePanel6 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UpdatePanel6 As Global.System.Web.UI.UpdatePanel
+
+    '''<summary>
+    '''btnAgregarAvance2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnAgregarAvance2 As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''AvancePanel2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents AvancePanel2 As Global.System.Web.UI.UpdatePanel
+
+    '''<summary>
+    '''lblFecha_Avance2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblFecha_Avance2 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtFecha_Avance2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtFecha_Avance2 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''lblDetalle_Avance2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblDetalle_Avance2 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtDetalle_Avance2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtDetalle_Avance2 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''btnInsertar_Avance2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnInsertar_Avance2 As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''UpdatePanel7 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UpdatePanel7 As Global.System.Web.UI.UpdatePanel
+
+    '''<summary>
+    '''btnAgregarAvance3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnAgregarAvance3 As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''AvancePanel3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents AvancePanel3 As Global.System.Web.UI.UpdatePanel
+
+    '''<summary>
+    '''lblFecha_Avance3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblFecha_Avance3 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtFecha_Avance3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtFecha_Avance3 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''lblDetalle_Avance3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblDetalle_Avance3 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtDetalle_Avance3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtDetalle_Avance3 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''btnInsertar_Avance3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnInsertar_Avance3 As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''UpdatePanel8 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents UpdatePanel8 As Global.System.Web.UI.UpdatePanel
+
+    '''<summary>
+    '''btnAgregarAvance4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnAgregarAvance4 As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''AvancePanel4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents AvancePanel4 As Global.System.Web.UI.UpdatePanel
+
+    '''<summary>
+    '''lblFecha_Avance4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblFecha_Avance4 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtFecha_Avance4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtFecha_Avance4 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''lblDetalle_Avance4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblDetalle_Avance4 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtDetalle_Avance4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtDetalle_Avance4 As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''btnInsertar_Avance4 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnInsertar_Avance4 As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
     '''grdAvancePanel control.

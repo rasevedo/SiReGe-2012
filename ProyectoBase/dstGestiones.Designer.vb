@@ -722,7 +722,7 @@ Partial Public Class dstGestiones
             Me.columnvchNombreUsuario.MaxLength = 50
             Me.columndtiFechaIngreso.AllowDBNull = false
             Me.columnvchNombreFuncionario.MaxLength = 250
-            Me.columnvchConfidencialidadGestiones.MaxLength = 50
+            Me.columnvchConfidencialidadGestiones.MaxLength = 100
             Me.columnvchFuenteGeneradora.AllowDBNull = false
             Me.columnvchFuenteGeneradora.MaxLength = 250
             Me.columnvchTipoServicio.AllowDBNull = false
@@ -736,7 +736,7 @@ Partial Public Class dstGestiones
             Me.columnvchDescripcionDepartamento.MaxLength = 2147483647
             Me.columnvchNumeroOficio.MaxLength = 50
             Me.columnvchTipoDimension.MaxLength = 100
-            Me.columnvchLetraDimension.MaxLength = 5
+            Me.columnvchLetraDimension.MaxLength = 50
             Me.columnvchDescripcionLetraDimension.MaxLength = 2147483647
             Me.columnvchTipoUsuario.AllowDBNull = false
             Me.columnvchTipoUsuario.MaxLength = 50
