@@ -168,7 +168,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Código de Gestión:</Value>
+                <Value>Número de Gestión:</Value>
                 <Style>
                   <FontSize>12pt</FontSize>
                 </Style>
@@ -181,7 +181,7 @@
         <Top>0.28223cm</Top>
         <Left>0.96701cm</Left>
         <Height>0.6cm</Height>
-        <Width>3.79554cm</Width>
+        <Width>3.97665cm</Width>
         <ZIndex>5</ZIndex>
         <Style>
           <Border>
@@ -902,7 +902,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox14</rd:DefaultName>
         <Top>0.28223cm</Top>
-        <Left>4.76255cm</Left>
+        <Left>4.94366cm</Left>
         <Height>0.6cm</Height>
         <Width>6.68013cm</Width>
         <ZIndex>27</ZIndex>

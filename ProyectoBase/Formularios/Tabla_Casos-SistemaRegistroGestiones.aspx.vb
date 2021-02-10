@@ -383,11 +383,13 @@ Public Class Tabla_Casos
                 MostrarTabla()
                 Response.Redirect("Tabla_Casos-SistemaRegistroGestiones.aspx")
             Catch ex As Exception
-                Response.Write("<script language=javascript>alert('Hubo un problema en eliminar el elemento')</script>")
+                ModalPopupExtender_Error.Show()
+                'Response.Write("<script language=javascript>alert('Hubo un problema en eliminar el elemento')</script>")
                 ' MsgBox("Hubo un problema en eliminar el elmento" + ex.Message)
             End Try
         Else
-            Response.Write("<script language=javascript>alert('El usuario no posee permiso para seleccionar el botón de borrar')</script>")
+            ModalPopupExtender_Borrar_No_Permiso.Show()
+            'Response.Write("<script language=javascript>alert('El usuario no posee permiso para seleccionar el botón de borrar')</script>")
         End If
     End Sub
 #End Region
@@ -423,6 +425,14 @@ Public Class Tabla_Casos
         txtPop_Trazabilidad.Text = Page.Server.HtmlDecode(gvwCasos.SelectedRow.Cells(25).Text)
         txtPop_Fecha_Respuesta.Text = Page.Server.HtmlDecode(gvwCasos.SelectedRow.Cells(26).Text)
         txtPop_Fecha_Cerrado.Text = Page.Server.HtmlDecode(gvwCasos.SelectedRow.Cells(27).Text)
+        txtPop_Fecha_Avance1.Text = Page.Server.HtmlDecode(gvwCasos.SelectedRow.Cells(28).Text)
+        txtPop_Detalle_Avance1.Text = Page.Server.HtmlDecode(gvwCasos.SelectedRow.Cells(29).Text)
+        txtPop_Fecha_Avance2.Text = Page.Server.HtmlDecode(gvwCasos.SelectedRow.Cells(30).Text)
+        txtPop_Detalle_Avance2.Text = Page.Server.HtmlDecode(gvwCasos.SelectedRow.Cells(31).Text)
+        txtPop_Fecha_Avance3.Text = Page.Server.HtmlDecode(gvwCasos.SelectedRow.Cells(32).Text)
+        txtPop_Detalle_Avance3.Text = Page.Server.HtmlDecode(gvwCasos.SelectedRow.Cells(33).Text)
+        txtPop_Fecha_Avance4.Text = Page.Server.HtmlDecode(gvwCasos.SelectedRow.Cells(34).Text)
+        txtPop_Detalle_Avance4.Text = Page.Server.HtmlDecode(gvwCasos.SelectedRow.Cells(35).Text)
         mpeDetalles.Show()
     End Sub
 #End Region

@@ -265,11 +265,13 @@ Public Class Tabla_Informes
                 MostrarTabla()
                 Response.Redirect("Tabla_Informe-SistemaRegistroInformes.aspx")
             Catch ex As Exception
-                Response.Write("<script language=javascript>alert('Hubo un problema en eliminar el elemento')</script>")
+                ModalPopupExtender_Error.Show()
+                ' Response.Write("<script language=javascript>alert('Hubo un problema en eliminar el elemento')</script>")
                 ' MsgBox("Hubo un problema en eliminar el elmento: " + ex.Message)
             End Try
         Else
-            Response.Write("<script language=javascript>alert('El usuario no posee permiso para seleccionar el botón de borrar')</script>")
+            ModalPopupExtender_Borrar_No_Permiso.Show()
+            'Response.Write("<script language=javascript>alert('El usuario no posee permiso para seleccionar el botón de borrar')</script>")
         End If
     End Sub
 #End Region
