@@ -95,7 +95,11 @@
                            <asp:GridView ID="gvwGestiones" runat="server" CellPadding="10" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="2px" AutoGenerateColumns="False" DataKeyNames="intIdGestiones" AllowSorting="True" CellSpacing="10" HorizontalAlign="Center" Width="50%" >
                            <Columns>
                                <asp:buttonfield buttontype="Button" runat="server" commandname="Select" text="Detalle" />
-                               <asp:HyperLinkField Text="Modificar" DataNavigateUrlFields="intIdGestiones" DataNavigateUrlFormatString="Modificar_Gestiones-SistemaRegistroGestiones.aspx?intIdGestiones={0}" />
+                               <asp:TemplateField>
+                                   <ItemTemplate>
+                                        <asp:HyperLinkField Text="Modificar" runat="server" DataNavigateUrlFields="intIdGestiones" DataNavigateUrlFormatString="Modificar_Gestiones-SistemaRegistroGestiones.aspx?intIdGestiones='<%# Eval("intIdGestiones") %>'" />
+                                    </ItemTemplate>
+                               </asp:TemplateField> 
                                <asp:TemplateField>
                                     <HeaderTemplate>
                                         <asp:CheckBox ID="chkTodo" runat="server" onclick = "chkTodo(this);" />

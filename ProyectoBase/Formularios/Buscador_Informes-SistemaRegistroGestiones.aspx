@@ -114,7 +114,7 @@
                                <asp:HyperLinkField Text="Modificar" DataNavigateUrlFields="intIdInforme" DataNavigateUrlFormatString="Modificar_Informes-SistemaRegistroGestiones.aspx?intIdInforme={0}" />
                                <asp:TemplateField>
                                    <HeaderTemplate>
-                                        <asp:CheckBox ID="chkTodo" runat="server" onclick = "checkTodo(this);" />
+                                        <asp:CheckBox ID="chkTodo" runat="server" onclick = "chkTodo(this);" />
                                     </HeaderTemplate>
                                     <ItemTemplate>
                                         <asp:CheckBox ID="chkSeleccionar" runat="server" onclick="GridCheckOne(this)"></asp:CheckBox>

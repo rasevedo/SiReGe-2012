@@ -325,7 +325,7 @@ Public Class Buscador_Informes_SistemaRegistroGestiones
                     End If
                 Next
                 MostrarTabla()
-                Response.Redirect("Buscador_Informes-SistemaRegistroInformes.aspx")
+                Response.Redirect("Buscador_Informes-SistemaRegistroGestiones.aspx")
             Catch ex As Exception
                 ModalPopupExtender_Error.Show()
                 'Response.Write("<script language=javascript>alert('Hubo un problema en eliminar el elemento')</script>")
