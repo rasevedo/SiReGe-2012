@@ -110,21 +110,28 @@
             <div id="grdCharges" runat="server"  style="width: 1221px; overflow: auto; height: 450px">
                        <asp:GridView ID="gvwInforme" runat="server" CellPadding="10" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="2px" AutoGenerateColumns="False" DataKeyNames="intIdInforme" AllowPaging="True" AllowSorting="True" CellSpacing="10" HorizontalAlign="Center" style="margin-left: 9px" Width="1199px">
                             <Columns>
-                               <asp:buttonfield buttontype="Button" commandname="Select" text="Detalle"/>
-                               <asp:HyperLinkField Text="Modificar" DataNavigateUrlFields="intIdInforme" DataNavigateUrlFormatString="Modificar_Informes-SistemaRegistroGestiones.aspx?intIdInforme={0}" />
                                <asp:TemplateField>
-                                   <HeaderTemplate>
+                                    <HeaderTemplate>
                                         <asp:CheckBox ID="chkTodo" runat="server" onclick = "chkTodo(this);" />
                                     </HeaderTemplate>
                                     <ItemTemplate>
-                                        <asp:CheckBox ID="chkSeleccionar" runat="server" onclick="GridCheckOne(this)"></asp:CheckBox>
+                                        <asp:CheckBox ID="chkSelect" runat="server"></asp:CheckBox>
                                     </ItemTemplate>
-                                </asp:TemplateField> 
+                               </asp:TemplateField>  
+                               <asp:buttonfield buttontype="Button" runat="server" commandname="Select" text="Detalle" HeaderText="Detalle" />
+                               <asp:TemplateField>
+                                   <HeaderTemplate>
+                                        <asp:Label ID="lblModificar" runat="server" text="Modificar" />
+                                   </HeaderTemplate>
+                                   <ItemTemplate>
+                                        <asp:Button ID="btnEditar" runat="server" Text="Modificar" OnClick="btnEditar_Click" CommandArgument='<%#Eval("intIdInforme")%>' />
+                                   </ItemTemplate>
+                               </asp:TemplateField>
                                <asp:BoundField DataField="intIdInforme" HeaderText="Número del informe" ReadOnly="True" InsertVisible="False" ></asp:BoundField>
                                <asp:BoundField DataField="vchTituloInforme" HeaderText="Título del informe" ></asp:BoundField>
                                <asp:BoundField DataField="vchNombreFuncionario" HeaderText="Funcionario que tramita" ></asp:BoundField>
                                <asp:BoundField DataField="vchTipoInforme" HeaderText="Tipo de informe" ></asp:BoundField>
-                               <asp:BoundField DataField="vchNumeroOficio" HeaderText="Número del oficio" ></asp:BoundField>
+                               <asp:BoundField DataField="vchNumeroOficio" HeaderText="Número del estudio" ></asp:BoundField>
                                <asp:BoundField DataField="dtiFechaAprobacion" HeaderText="Fecha de aprobación" ></asp:BoundField>
                                <asp:BoundField DataField="dtiFechaCulminacion" HeaderText="Fecha de culminación" ></asp:BoundField>
                                <asp:BoundField DataField="dtiFechaTraslado" HeaderText="Fecha de traslado" ></asp:BoundField>
@@ -228,7 +235,7 @@
                                <table border="0" style="width:100%">
                                    <tr>
                                        <td> 
-                                          <b>Número de oficio: </b>
+                                          <b>Número de estudio: </b>
                                        </td>
                                         <td>               
                                            <asp:TextBox ID="txtPop_Num_Oficio_Informe" runat="server" Enabled="false" size="72" style="text-align: left" />

@@ -222,7 +222,7 @@ Public Class Modificar_Casos
             Me.txtFecha_Caso.Text = dr("dtiFechaCasos").ToString()
             Me.txtCedula_Usuario.Text = dr("intCedulaDenuncianteCasos").ToString()
             Me.txtNombre_Usuario.Text = dr("vchNombreDenucianteCasos").ToString()
-            Me.txtNombre_Funcionario.Text = dr("vchNombreFuncionario").ToString()
+            'Me.txtNombre_Funcionario.Text = dr("vchNombreFuncionario").ToString()
             ' Me.intIdEmpleados.Text = dr("intIdEmpleados").ToString()
             Me.txtNombre_CE.Text = dr("vchNombreCentroEducativo").ToString()
             Me.txtDescripcion_Unidad.Text = dr("vchDescripcionUnidad").ToString()

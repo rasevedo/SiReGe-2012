@@ -1,8 +1,19 @@
 ﻿Imports CapAccesoDatosSiReGe
 Imports CapEntidadesSiReGe
-Imports System.Data.SqlClient
 Imports System.Data
+Imports System.Data.SqlClient
 Imports System.Configuration
+Imports Microsoft.Reporting.WebForms
+Imports System.Collections
+Imports AjaxControlToolkit
+Imports System.Web
+Imports System.Web.Security
+Imports System.Web.UI
+Imports System.Web.UI.WebControls
+Imports System.Web.UI.WebControls.WebParts
+Imports System.Web.UI.HtmlControls
+Imports System.Text
+Imports System.IO
 
 Public Class Modificar_Gestiones
     Inherits System.Web.UI.Page
@@ -138,8 +149,8 @@ Public Class Modificar_Gestiones
                 ModalPopupExtender_Exito.Show()
                 ' Response.Write("<script language=javascript>alert('El elemento se ha modificado exitosamente')</script>")
                 '  MsgBox("Exito")
-                Response.Redirect(Request.Url.AbsoluteUri, False)
-                Response.Redirect("~/Formularios/Tabla_Gestiones-SistemaRegistroGestiones.aspx")
+                ' Response.Redirect(Request.Url.AbsoluteUri, False)
+                ' Response.Redirect("~/Formularios/Tabla_Gestiones-SistemaRegistroGestiones.aspx")
             Else
                 ModalPopupExtender_Incompleto.Show()
                 'Response.Write("<script language=javascript>alert('Se ha modificado un elemento erroneamente')</script>")
@@ -176,7 +187,7 @@ Public Class Modificar_Gestiones
 
         For Each dr As DataRow In dt.Rows
             Me.txtId_Gestiones.Text = dr("intIdGestiones").ToString()
-            Me.txtNombre_Funcionario.Text = dr("vchNombreFuncionario").ToString()
+            'Me.txtNombre_Funcionario.Text = dr("vchNombreFuncionario").ToString()
             Me.rblTipo_Gestion.Text = dr("vchTipoGestiones").ToString()
             Me.txtCedula_Usuario.Text = dr("intCedulaUsuario").ToString()
             Me.txtNombre_Usuario.Text = dr("vchNombreUsuario").ToString()
@@ -189,7 +200,7 @@ Public Class Modificar_Gestiones
             Me.ddlSupervision.Text = dr("vchSupervicionGestiones").ToString()
             Me.txtNombre_CE.Text = dr("vchNombreCentroEducativo").ToString()
 
-            ' Me.ddlDescripcion_Unidad.SelectedValue = ddlDescripcion_Unidad.Items.FindByText(dr("vchDescripcionUnidad")).Value
+            ' Me.ddlDescripcion_Unidad.Text = dr("vchDescripcionUnidad").ToString()
 
             Me.txtDespacho.Text = dr("vchDescripcionDespacho").ToString()
             Me.txtDireccion.Text = dr("vchDescripcionDireccion").ToString()

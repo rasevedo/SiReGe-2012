@@ -90,16 +90,9 @@
 
                   <asp:UpdatePanel runat="server" id="UpdatePanel1" updatemode="Conditional">  
                     <ContentTemplate> 
-                   <div id="grdCharges" runat="server" style="width: 1209px; overflow: auto; height: 450px; margin-left: 8px;" >                                     
-                           
+                   <div id="grdCharges" runat="server" style="width: 1209px; overflow: auto; height: 450px; margin-left: 8px;" >                                                               
                            <asp:GridView ID="gvwGestiones" runat="server" CellPadding="10" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="2px" AutoGenerateColumns="False" DataKeyNames="intIdGestiones" AllowSorting="True" CellSpacing="10" HorizontalAlign="Center" Width="50%" >
                            <Columns>
-                               <asp:buttonfield buttontype="Button" runat="server" commandname="Select" text="Detalle" />
-                               <asp:TemplateField>
-                                   <ItemTemplate>
-                                        <asp:HyperLinkField Text="Modificar" runat="server" DataNavigateUrlFields="intIdGestiones" DataNavigateUrlFormatString="Modificar_Gestiones-SistemaRegistroGestiones.aspx?intIdGestiones='<%# Eval("intIdGestiones") %>'" />
-                                    </ItemTemplate>
-                               </asp:TemplateField> 
                                <asp:TemplateField>
                                     <HeaderTemplate>
                                         <asp:CheckBox ID="chkTodo" runat="server" onclick = "chkTodo(this);" />
@@ -107,7 +100,16 @@
                                     <ItemTemplate>
                                         <asp:CheckBox ID="chkSelect" runat="server"></asp:CheckBox>
                                     </ItemTemplate>
-                               </asp:TemplateField>                                                            
+                               </asp:TemplateField>  
+                               <asp:buttonfield buttontype="Button" runat="server" commandname="Select" text="Detalle" HeaderText="Detalle" />
+                               <asp:TemplateField>
+                                   <HeaderTemplate>
+                                        <asp:Label ID="lblModificar" runat="server" text="Modificar" />
+                                   </HeaderTemplate>
+                                   <ItemTemplate>
+                                        <asp:Button ID="btnEditar" runat="server" Text="Modificar" OnClick="btnEditar_Click" CommandArgument='<%#Eval("intIdGestiones")%>' />
+                                   </ItemTemplate>
+                               </asp:TemplateField>                                                                                   
                                <asp:BoundField DataField="intIdGestiones" HeaderText="Número de gestión"    >
                                    <HeaderStyle HorizontalAlign="Center" />
                                </asp:BoundField>

@@ -71,12 +71,13 @@ Public Class Modificar_Informe
             dts._hallazgo = txtHallazgo.Text
             dts._recomendaciones = txtRecomendaciones.Text
             dts._observaciones = txtObservaciones.Text
+
             If func.modificarInforme(dts) Then
                 ModalPopupExtender_Exito.Show()
                 'Response.Write("<script language=javascript>alert('El elemento se ha modificado exitosamente')</script>")
                 ' MsgBox("Exito")
-                Response.Redirect(Request.Url.AbsoluteUri, False)
-                Response.Redirect("~/Formularios/Tabla_Informe-SistemaRegistroInformes.aspx")
+                '  Response.Redirect(Request.Url.AbsoluteUri, False)
+                ' Response.Redirect("~/Formularios/Tabla_Informe-SistemaRegistroInformes.aspx")
             Else
                 ModalPopupExtender_Incompleto.Show()
                 ' Response.Write("<script language=javascript>alert('Se ha modificado un elemento erroneamente')</script>")
@@ -135,7 +136,7 @@ Public Class Modificar_Informe
         For Each dr As DataRow In dt.Rows
             Me.txtId_Informe.Text = dr("intIdInforme").ToString()
             Me.txtTitulo_Informe.Text = dr("vchTituloInforme").ToString()
-            Me.txtNombre_Funcionario.Text = dr("vchNombreFuncionario").ToString()
+            'Me.txtNombre_Funcionario.Text = dr("vchNombreFuncionario").ToString()
             Me.ddlTipo_Informe.Text = dr("vchTipoInforme").ToString()
             Me.txtNumero_Oficio.Text = dr("vchNumeroOficio").ToString()
             Me.txtFecha_Aprobacion.Text = dr("dtiFechaAprobacion").ToString()

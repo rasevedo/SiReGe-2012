@@ -90,7 +90,7 @@
                 <table id="tablapiepagina">
                     <tr>
                         <td style="text-align:center; width:350px;"><asp:Label ID="lblVersion" runat="server" Text="Versión del Sistema:"></asp:Label></td>
-                        <td style="text-align:center; width:650px;"> © 2018, Ministerio de Educación Pública de Costa Rica. Todos los derechos reservados.</td>
+                        <td style="text-align:center; width:650px;"> © 2021, Ministerio de Educación Pública de Costa Rica. Todos los derechos reservados.</td>
                     </tr>
                 </table>
             </div>

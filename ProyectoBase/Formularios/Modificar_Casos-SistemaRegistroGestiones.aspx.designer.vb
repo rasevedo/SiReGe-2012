@@ -14,15 +14,6 @@ Option Explicit On
 Partial Public Class Modificar_Casos
 
     '''<summary>
-    '''lblCodigo_Caso control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblCodigo_Caso As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
     '''txtId_Casos control.
     '''</summary>
     '''<remarks>
@@ -428,60 +419,6 @@ Partial Public Class Modificar_Casos
     Protected WithEvents txtAsunto As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
-    '''lblRespuesta_Caso control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblRespuesta_Caso As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''txtRespuesta control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtRespuesta As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''lblFecha_Respuesta control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblFecha_Respuesta As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''lblFecha_Cierre control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents lblFecha_Cierre As Global.System.Web.UI.WebControls.Label
-
-    '''<summary>
-    '''txtFecha_Respuesta_Casos control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtFecha_Respuesta_Casos As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
-    '''txtFecha_Cerrado_Casos control.
-    '''</summary>
-    '''<remarks>
-    '''Auto-generated field.
-    '''To modify move field declaration from designer file to code-behind file.
-    '''</remarks>
-    Protected WithEvents txtFecha_Cerrado_Casos As Global.System.Web.UI.WebControls.TextBox
-
-    '''<summary>
     '''UpdatePanel3 control.
     '''</summary>
     '''<remarks>
@@ -804,6 +741,60 @@ Partial Public Class Modificar_Casos
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents sdsMostrarAvances As Global.System.Web.UI.WebControls.SqlDataSource
+
+    '''<summary>
+    '''lblRespuesta_Caso control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblRespuesta_Caso As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtRespuesta control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtRespuesta As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''lblFecha_Respuesta control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblFecha_Respuesta As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''lblFecha_Cierre control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents lblFecha_Cierre As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''txtFecha_Respuesta_Casos control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtFecha_Respuesta_Casos As Global.System.Web.UI.WebControls.TextBox
+
+    '''<summary>
+    '''txtFecha_Cerrado_Casos control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents txtFecha_Cerrado_Casos As Global.System.Web.UI.WebControls.TextBox
 
     '''<summary>
     '''btnUpdate control.

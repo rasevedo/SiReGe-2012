@@ -210,7 +210,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Número del oficio</Value>
+                              <Value>Número del estudio</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>

@@ -52,6 +52,12 @@ Public Class Tabla_Casos
 #End Region
 
 
+    Protected Sub btnEditar_Click(sender As Object, e As EventArgs)
+        Dim Id As Integer = (TryCast(sender, Button)).CommandArgument
+        Response.Redirect("Modificar_Casos-SistemaRegistroGestiones.aspx?intIdCasos=" & Id)
+    End Sub
+
+
     'Boton dirige a la inserción de formularios
     Protected Sub btnAgregar_Click(sender As Object, e As EventArgs) Handles btnAgregar.Click
         Response.Redirect("Formulario_Insertar_Casos-SistemaRegistroGestiones.aspx")

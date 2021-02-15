@@ -32,6 +32,12 @@ Public Class Buscador_Casos_SistemaRegistroGestiones
     End Sub
 
 
+    Protected Sub btnEditar_Click(sender As Object, e As EventArgs)
+        Dim Id As Integer = (TryCast(sender, Button)).CommandArgument
+        Response.Redirect("Modificar_Casos-SistemaRegistroGestiones.aspx?intIdCasos=" & Id)
+    End Sub
+
+
     'Button que ejecuta la función de filtrar las tablas del gridview
     Protected Sub btnBuscar_Casos_Click(sender As Object, e As EventArgs) Handles btnBuscar_Casos.Click
         MostrarTablaFiltro()

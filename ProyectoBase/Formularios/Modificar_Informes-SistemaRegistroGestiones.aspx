@@ -91,7 +91,7 @@
                                     <div class="form-group">
                                         <table style="width: 100%;">
                                             <tr>
-                                                <td class="auto-style10">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblNumero_Oficio" Text="Número de oficio " runat="server"/></td>
+                                                <td class="auto-style10">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblNumero_Estudio" Text="Número de estudio " runat="server"/></td>
 
                                                 <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblFecha_Aprobacion" Text="Fecha de aprobación" runat="server"/></td>
 
@@ -99,7 +99,7 @@
                                             <tr>
                                                 <td class="auto-style10">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtNumero_Oficio" runat="server"  Enabled="true" CssClass="form-control input-sm" Height="25px" Width="273px" /></td>
 
-                                                <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Aprobacion" runat="server" Enabled="true" CssClass="form-control input-sm" Height="25px" Width="279px"   /></td>
+                                                <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Aprobacion" runat="server" Enabled="true" CssClass="form-control input-sm" Height="25px" Width="279px" placeholder="00/00/0000 00:00:00"  /></td>
                                             </tr>                                            
                                         </table> 
                                         <div class="col-md-3 col-md-offset-1">
@@ -121,9 +121,9 @@
                                                 <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblFecha_Traslado" Text="Fecha de traslado" runat="server"/></td>
                                             </tr>
                                             <tr>
-                                                <td class="auto-style11">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Culminacion" runat="server"  Enabled="true" CssClass="form-control input-sm" Height="25px" Width="279px"  /></td>
+                                                <td class="auto-style11">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Culminacion" runat="server"  Enabled="true" CssClass="form-control input-sm" Height="25px" Width="279px" placeholder="00/00/0000 00:00:00" /></td>
 
-                                                <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Traslado" runat="server" Enabled="true" CssClass="form-control input-sm" Height="25px" Width="279px"  /></td>
+                                                <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Traslado" runat="server" Enabled="true" CssClass="form-control input-sm" Height="25px" Width="279px" placeholder="00/00/0000 00:00:00" /></td>
                                             </tr>
                                         </table>
                                         <div class="col-md-3 col-md-offset-1">

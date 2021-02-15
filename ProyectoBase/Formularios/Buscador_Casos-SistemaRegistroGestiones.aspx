@@ -142,15 +142,22 @@
            <div id="grdCharges" runat="server"  style="width: 1209px; overflow: auto; height: 450px">
                        <asp:GridView ID="gvwCasos" runat="server" CellPadding="10" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="2px" AutoGenerateColumns="False" AllowSorting="True" CellSpacing="10" HorizontalAlign="Center" Style="margin-left: 14px" Width="2422px" DataKeyNames="intIdCasos" >
                            <Columns>
-                               <asp:buttonfield buttontype="Button" commandname="Select" text="Detalle"/>
-                               <asp:HyperLinkField Text="Modificar" DataNavigateUrlFields="intIdCasos" DataNavigateUrlFormatString="Modificar_Casos-SistemaRegistroGestiones.aspx?intIdCasos={0}" />
                                <asp:TemplateField>
-                                   <HeaderTemplate>
+                                    <HeaderTemplate>
                                         <asp:CheckBox ID="chkTodo" runat="server" onclick = "chkTodo(this);" />
                                     </HeaderTemplate>
                                     <ItemTemplate>
-                                        <asp:CheckBox ID="chkSeleccionar" runat="server" onclick="GridCheckOne(this)"></asp:CheckBox>
+                                        <asp:CheckBox ID="chkSelect" runat="server"></asp:CheckBox>
                                     </ItemTemplate>
+                               </asp:TemplateField>  
+                               <asp:buttonfield buttontype="Button" runat="server" commandname="Select" text="Detalle" HeaderText="Detalle" />
+                               <asp:TemplateField>
+                                   <HeaderTemplate>
+                                        <asp:Label ID="lblModificar" runat="server" text="Modificar" />
+                                   </HeaderTemplate>
+                                   <ItemTemplate>
+                                        <asp:Button ID="btnEditar" runat="server" Text="Modificar" OnClick="btnEditar_Click" CommandArgument='<%#Eval("intIdCasos") %>' />
+                                   </ItemTemplate>
                                </asp:TemplateField>  
                                <asp:BoundField DataField="intIdCasos" HeaderText="Código de caso" ReadOnly="True" InsertVisible="False" Visible="True" ></asp:BoundField>
                                <asp:BoundField DataField="vchNumeroCasos" HeaderText="Número de caso" ></asp:BoundField>

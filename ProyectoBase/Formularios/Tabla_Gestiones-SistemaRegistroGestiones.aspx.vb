@@ -79,6 +79,12 @@ Public Class Tabla_Gestiones
     End Sub
 
 
+    Protected Sub btnEditar_Click(sender As Object, e As EventArgs)
+        Dim Id As Integer = (TryCast(sender, Button)).CommandArgument
+        Response.Redirect("Modificar_Gestiones-SistemaRegistroGestiones.aspx?intIdGestiones=" & Id)
+    End Sub
+
+
 #Region "Exportar a Word"
     'EFECTO: Función que se útiliza para exportar la información presente a un report para exportar a archivo de tipo Word
     'RECIBE: Recibe como parametros una de las filas seleccionada con un check en el gridview.

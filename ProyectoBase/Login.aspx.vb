@@ -36,11 +36,11 @@
                 End If
 
             Else
-                Session("NombreUsuario") = "Katherine Navarro"
-                Session("CedulaUsuario") = "114280672"
-                Session("Usuario") = "knavarrob"
-                Session("Perfil") = "AD"
-                Response.Redirect(ResolveUrl("~/Formularios/Menu_Principal-SistemaRegistroGestiones.aspx"))
+                'Session("NombreUsuario") = "Katherine Navarro"
+                'Session("CedulaUsuario") = "114280672"
+                'Session("Usuario") = "knavarro"
+                'Session("Perfil") = "AD"
+                'Response.Redirect(ResolveUrl("~/Formularios/Menu_Principal-SistemaRegistroGestiones.aspx"))
             End If
 
         Catch ex As Exception

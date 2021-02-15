@@ -1,5 +1,6 @@
 ﻿<%@ Page Title="Menu_Principal-SistemaRegistroGestiones" Language="vb" AutoEventWireup="false" MasterPageFile="~/MasterPage.Master"  CodeBehind="Menu_Principal-SistemaRegistroGestiones.aspx.vb" Inherits="CapPresentacionSiReGe.Menu_Principal" %>
 
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %> 
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
     <title>Menu_Principal-SistemaRegistroGestiones</title>
@@ -48,6 +49,39 @@
                      </div>
 
                 </div>
+                       <asp:LinkButton Text="" ID = "dummylink1" runat="server" />
+                       <asp:ModalPopupExtender ID="ModalPopupExtender_No_Permiso_DAT" BehaviorID="ModalPopupExtender_No_Permiso_DAT" runat="server"
+                                PopupControlID="pnlPopup_NoPermiso1" TargetControlID="dummylink1" BackgroundCssClass="modalBackground"
+                                CancelControlID="btnCerrar_NoPermiso">
+                            </asp:ModalPopupExtender>
+                            <asp:Panel ID="pnlPopup_NoPermiso1" runat="server" CssClass="modalPopup" Style="display: none">
+                                <div class="header">
+                                    Mensaje de Error
+                                </div>
+                                <div class="body">
+                                    <asp:Label ID="Label1" runat="server" Text="El usuario no posee permiso para ingresar a la siguiente página"></asp:Label>
+                                    <br />
+                                    <asp:Button ID="btnCerrar_NoPermiso" runat="server" Text="Cerrar" />
+                                </div>
+                            </asp:Panel>
+
+                       <asp:LinkButton Text="" ID = "dummylink2" runat="server" />
+                       <asp:ModalPopupExtender ID="ModalPopupExtender_No_Permiso_DMC" BehaviorID="ModalPopupExtender_No_Permiso_DMC" runat="server"
+                                PopupControlID="pnlPopup_NoPermiso2" TargetControlID="dummylink1" BackgroundCssClass="modalBackground"
+                                CancelControlID="btnCerrar_NoPermiso2">
+                            </asp:ModalPopupExtender>
+                            <asp:Panel ID="pnlPopup_NoPermiso2" runat="server" CssClass="modalPopup" Style="display: none">
+                                <div class="header">
+                                    Mensaje de Error
+                                </div>
+                                <div class="body">
+                                    <asp:Label ID="Label2" runat="server" Text="El usuario no posee permiso para ingresar a la siguiente página"></asp:Label>
+                                    <br />
+                                    <asp:Button ID="btnCerrar_NoPermiso2" runat="server" Text="Cerrar" />
+                                </div>
+                            </asp:Panel>
+
+
              
         </div>
     </div>                     

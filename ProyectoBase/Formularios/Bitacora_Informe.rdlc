@@ -236,7 +236,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Número del oficio:</Value>
+                    <Value>Número del estudio:</Value>
                     <Style>
                       <FontSize>12pt</FontSize>
                     </Style>
@@ -249,7 +249,7 @@
             <Top>5.42396cm</Top>
             <Left>0.13229cm</Left>
             <Height>0.6cm</Height>
-            <Width>3.61125cm</Width>
+            <Width>4.00813cm</Width>
             <ZIndex>7</ZIndex>
             <Style>
               <Border>
@@ -311,7 +311,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox10</rd:DefaultName>
             <Top>5.42396cm</Top>
-            <Left>3.74354cm</Left>
+            <Left>4.14042cm</Left>
             <Height>0.6cm</Height>
             <Width>11.11187cm</Width>
             <ZIndex>9</ZIndex>

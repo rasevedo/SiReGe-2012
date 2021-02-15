@@ -65,8 +65,8 @@
                             <div class="row">
                                 <div class="col-md-3 col-md-offset-1">
                                     <div class="form-group">
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblCodigo_Caso" Text="Código de Caso" runat="server" />
-                                        &nbsp;<asp:TextBox ID="txtId_Casos" runat="server" Enabled="false" CssClass="form-control input-sm" Width="44px"  />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        &nbsp;<asp:TextBox ID="txtId_Casos" runat="server" Enabled="false" CssClass="form-control input-sm" Width="44px" Visible="false" />
                                     </div>
                                 </div>                            
                             </div>
@@ -149,7 +149,7 @@
 
                                                 <td class="auto-style21">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtNumero_Oficio" runat="server"  Enabled="true" CssClass="form-control input-sm" Height="25px" Width="273px" /></td>
 
-                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Oficio" runat="server" Enabled="true" CssClass="form-control input-sm" Height="25px" Width="279px" /></td>
+                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Oficio" runat="server" Enabled="true" CssClass="form-control input-sm" placeholder="00/00/0000 00:00:00" Height="25px" Width="279px" /></td>
                                             </tr>
                                         </table>
                                         <div class="col-md-3 col-md-offset-1">
@@ -303,7 +303,6 @@
                                 </div>
                             </div>
 
-
                             <div class="row">
                                 <div class="col-md-3 col-md-offset-1">
                                     <div class="form-group">
@@ -324,52 +323,7 @@
                                     </div>
                                 </div>                                                                
                             </div>
-
-                            <div class="row">
-                                <div class="col-md-3 col-md-offset-1">
-                                    <div class="form-group">
-                                        <table style="width: 100%;">
-                                            <tr>
-                                                <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblRespuesta_Caso" Text="Respuesta del Caso" runat="server"/> </td>
-
-                                            </tr>
-                                            <tr>
-                                                <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox runat="server" ID="txtRespuesta" TextMode="Multiline" Enabled="true" CssClass="form-control input-lg" Name="S2" Rows="5" Cols="12" Width="1125px" style="resize:none;" /></td>
-                                            </tr>
-                                        </table>
-                                        <div class="col-md-3 col-md-offset-1">
-                                            <div class="form-group">
-                                                <br />                                                               
-                                            </div>
-                                        </div>                                     
-                                    </div>
-                                </div>                                                                
-                            </div>
-
-                             
-                           <div class="row">
-                                <div class="col-md-3 col-md-offset-1">
-                                    <div class="form-group">
-                                        <table style="width: 100%;">
-                                            <tr>
-                                                <td class="auto-style19">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblFecha_Respuesta" Text="Fecha de Respuesta" runat="server"/></td>
-
-                                                <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblFecha_Cierre" Text="Fecha de Cierre" runat="server"/></td>                                                
-                                            </tr>
-                                            <tr>
-                                                <td class="auto-style19">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Respuesta_Casos" runat="server"  Enabled="true" CssClass="form-control input-sm" Height="25px" Width="279px" /></td>
-
-                                                <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Cerrado_Casos" runat="server"  Enabled="true" CssClass="form-control input-sm" Height="25px" Width="279px" /></td>           
-                                            </tr>
-                                        </table>
-                                        <div class="col-md-3 col-md-offset-1">
-                                            <div class="form-group">
-                                                <br />                                                               
-                                            </div>
-                                        </div>                                       
-                                    </div>
-                                </div>                                                                                                                                              
-                            </div> 
+                                                     
 
                             <asp:UpdatePanel runat="server" id="UpdatePanel3" updatemode="Conditional">  
                             <ContentTemplate>
@@ -394,7 +348,7 @@
                                                         <td class="auto-style19">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblFecha_Avance1" Text="Fecha del Avance 1" runat="server"/></td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="auto-style19">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Avance1" runat="server" Height="25px" Width="279px" Enabled="true" CssClass="form-control input-sm"  /></td>
+                                                        <td class="auto-style19">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Avance1" runat="server" Height="25px" Width="279px" Enabled="true" CssClass="form-control input-sm" placeholder="00/00/0000 00:00:00"  /></td>
                                                     </tr>
                                                 </table>
                                                 <div class="col-md-3 col-md-offset-1">
@@ -469,7 +423,7 @@
                                                         <td class="auto-style19">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblFecha_Avance2" Text="Fecha del Avance 2" runat="server"/></td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="auto-style19">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Avance2" runat="server" Height="25px" Width="279px" Enabled="true" CssClass="form-control input-sm"  /></td>
+                                                        <td class="auto-style19">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Avance2" runat="server" Height="25px" Width="279px" Enabled="true" CssClass="form-control input-sm" placeholder="00/00/0000 00:00:00"  /></td>
                                                     </tr>
                                                 </table>
                                                 <div class="col-md-3 col-md-offset-1">
@@ -544,7 +498,7 @@
                                                         <td class="auto-style19">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblFecha_Avance3" Text="Fecha del Avance 3" runat="server"/></td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="auto-style19">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Avance3" runat="server" Height="25px" Width="279px" Enabled="true" CssClass="form-control input-sm"  /></td>
+                                                        <td class="auto-style19">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Avance3" runat="server" Height="25px" Width="279px" Enabled="true" CssClass="form-control input-sm" placeholder="00/00/0000 00:00:00" /></td>
                                                     </tr>
                                                 </table>
                                                 <div class="col-md-3 col-md-offset-1">
@@ -620,7 +574,7 @@
                                                         <td class="auto-style19">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblFecha_Avance4" Text="Fecha del Avance 4" runat="server"/></td>
                                                     </tr>
                                                     <tr>
-                                                        <td class="auto-style19">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Avance4" runat="server"  Height="25px" Width="279px" Enabled="true" CssClass="form-control input-sm"  /></td>
+                                                        <td class="auto-style19">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Avance4" runat="server"  Height="25px" Width="279px" Enabled="true" CssClass="form-control input-sm" placeholder="00/00/0000 00:00:00"  /></td>
                                                     </tr>
                                                 </table>
                                                 <div class="col-md-3 col-md-offset-1">
@@ -671,8 +625,6 @@
                         <br/>
                         <br/>
 
-
-
                         <div id="grdAvancePanel" runat="server"  style="width: 1200px;">
                             <asp:UpdatePanel runat="server" id="UpdatePanel4" updatemode="Conditional">  
                             <ContentTemplate>                       
@@ -701,7 +653,56 @@
                             </ContentTemplate>
                        </asp:UpdatePanel>
                      </div>
-                    <br/>
+                    <br/>                        
+
+                            <div class="row">
+                                <div class="col-md-3 col-md-offset-1">
+                                    <div class="form-group">
+                                        <table style="width: 100%;">
+                                            <tr>
+                                                <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblRespuesta_Caso" Text="Respuesta del Caso" runat="server"/> </td>
+
+                                            </tr>
+                                            <tr>
+                                                <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox runat="server" ID="txtRespuesta" TextMode="Multiline" Enabled="true" CssClass="form-control input-lg" Name="S2" Rows="5" Cols="12" Width="1125px" style="resize:none;" /></td>
+                                            </tr>
+                                        </table>
+                                        <div class="col-md-3 col-md-offset-1">
+                                            <div class="form-group">
+                                                <br />                                                               
+                                            </div>
+                                        </div>                                     
+                                    </div>
+                                </div>                                                                
+                            </div>
+
+                             
+                           <div class="row">
+                                <div class="col-md-3 col-md-offset-1">
+                                    <div class="form-group">
+                                        <table style="width: 100%;">
+                                            <tr>
+                                                <td class="auto-style19">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblFecha_Respuesta" Text="Fecha de Respuesta" runat="server"/></td>
+
+                                                <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblFecha_Cierre" Text="Fecha de Cierre" runat="server"/></td>                                                
+                                            </tr>
+                                            <tr>
+                                                <td class="auto-style19">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Respuesta_Casos" runat="server"  Enabled="true" CssClass="form-control input-sm" Height="25px" Width="279px" /></td>
+
+                                                <td class="auto-style3">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtFecha_Cerrado_Casos" runat="server"  Enabled="true" CssClass="form-control input-sm" Height="25px" Width="279px" /></td>           
+                                            </tr>
+                                        </table>
+                                        <div class="col-md-3 col-md-offset-1">
+                                            <div class="form-group">
+                                                <br />                                                               
+                                            </div>
+                                        </div>                                       
+                                    </div>
+                                </div>                                                                                                                                              
+                            </div> 
+
+
+                        
 
                             <div class="row">
                                 <div class="col-md-3 col-md-offset-1">

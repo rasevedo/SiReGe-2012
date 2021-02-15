@@ -45,7 +45,7 @@
             Dim Inicio As New MenuItem
             Inicio.Text = "Inicio"
             Inicio.Value = "0"
-            Inicio.NavigateUrl = String.Empty
+            Inicio.NavigateUrl = "~/Formularios/Menu_Principal-SistemaRegistroGestiones.aspx"
             Menu1.Items.Add(Inicio)
 
             For Each row As DataRow In dtRow

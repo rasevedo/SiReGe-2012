@@ -152,17 +152,17 @@ Public Class Datos_Gestiones
             cmd.Parameters.AddWithValue("@vchSupervicionGestiones", dts._supervicionGestiones)
             cmd.Parameters.AddWithValue("@vchNombreCentroEducativo", dts._nombreCentroEducativo)
 
-            If dts._idUnidad = "" Then
-                cmd.Parameters.AddWithValue("@intIdUnidad", 1)
+            If dts._idUnidad = 0 Then
+                cmd.Parameters.AddWithValue("@intIdUnidad", Convert.ToDouble(1))
             Else
-                cmd.Parameters.AddWithValue("@intIdUnidad", dts._idUnidad)
+                cmd.Parameters.AddWithValue("@intIdUnidad", Convert.ToDouble(dts._idUnidad))
             End If
 
 
-            If dts._idDimension Is Nothing Then
-                cmd.Parameters.AddWithValue("@intIdDimension", 1)
+            If dts._idDimension = 0 Then
+                cmd.Parameters.AddWithValue("@intIdDimension", Convert.ToDouble(1))
             Else
-                cmd.Parameters.AddWithValue("@intIdDimension", dts._idDimension)
+                cmd.Parameters.AddWithValue("@intIdDimension", Convert.ToDouble(dts._idDimension))
             End If
 
             cmd.Parameters.AddWithValue("@vchNumeroOficio", dts._numeroOficio)

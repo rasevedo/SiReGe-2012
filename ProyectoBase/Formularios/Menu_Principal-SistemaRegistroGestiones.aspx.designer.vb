@@ -66,4 +66,94 @@ Partial Public Class Menu_Principal
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents lblMejora_Continua As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''dummylink1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents dummylink1 As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''ModalPopupExtender_No_Permiso_DAT control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ModalPopupExtender_No_Permiso_DAT As Global.AjaxControlToolkit.ModalPopupExtender
+
+    '''<summary>
+    '''pnlPopup_NoPermiso1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnlPopup_NoPermiso1 As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''Label1 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Label1 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''btnCerrar_NoPermiso control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnCerrar_NoPermiso As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''dummylink2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents dummylink2 As Global.System.Web.UI.WebControls.LinkButton
+
+    '''<summary>
+    '''ModalPopupExtender_No_Permiso_DMC control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ModalPopupExtender_No_Permiso_DMC As Global.AjaxControlToolkit.ModalPopupExtender
+
+    '''<summary>
+    '''pnlPopup_NoPermiso2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents pnlPopup_NoPermiso2 As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''Label2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents Label2 As Global.System.Web.UI.WebControls.Label
+
+    '''<summary>
+    '''btnCerrar_NoPermiso2 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnCerrar_NoPermiso2 As Global.System.Web.UI.WebControls.Button
 End Class

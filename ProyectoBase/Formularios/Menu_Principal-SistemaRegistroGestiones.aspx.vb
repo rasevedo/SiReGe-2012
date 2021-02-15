@@ -35,7 +35,8 @@
         ElseIf Session("Perfil") = "DT" Then
             Response.Redirect("Tabla_Casos-SistemaRegistroGestiones.aspx")
         Else
-            Response.Write("<script language=javascript>alert('El usuario no posee permisos para acceder la siguiente pantalla')</script>")
+            ModalPopupExtender_No_Permiso_DAT.Show()
+            'Response.Write("<script language=javascript>alert('El usuario no posee permisos para acceder la siguiente pantalla')</script>")
         End If
     End Sub
 
@@ -46,7 +47,8 @@
         ElseIf Session("Perfil") = "DC" Then
             Response.Redirect("Tabla_Informe-SistemaRegistroInformes.aspx")
         Else
-            Response.Write("<script language=javascript>alert('El usuario no posee permisos para acceder la siguiente pantalla')</script>")
+            ModalPopupExtender_No_Permiso_DMC.Show()
+            'Response.Write("<script language=javascript>alert('El usuario no posee permisos para acceder la siguiente pantalla')</script>")
         End If
     End Sub
 

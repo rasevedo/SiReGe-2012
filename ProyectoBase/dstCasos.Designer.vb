@@ -686,7 +686,7 @@ Partial Public Class dstCasos
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Public Overloads Function AddpalMostrarCasosRow( _
-                    ByVal intIdCasos As Integer, _
+                    ByVal intIdCasos As Object, _
                     ByVal vchNumeroCasos As String, _
                     ByVal vchEstadoCasos As String, _
                     ByVal dtiFechaCasos As Object, _
@@ -728,7 +728,7 @@ Partial Public Class dstCasos
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Function FindByintIdCasos(ByVal intIdCasos As Integer) As palMostrarCasosRow
+        Public Function FindByintIdCasos(ByVal intIdCasos As Object) As palMostrarCasosRow
             Return CType(Me.Rows.Find(New Object() {intIdCasos}), palMostrarCasosRow)
         End Function
 
@@ -787,7 +787,7 @@ Partial Public Class dstCasos
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
         Private Sub InitClass()
-            Me.columnintIdCasos = New Global.System.Data.DataColumn("intIdCasos", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            Me.columnintIdCasos = New Global.System.Data.DataColumn("intIdCasos", GetType(Object), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnintIdCasos)
             Me.columnvchNumeroCasos = New Global.System.Data.DataColumn("vchNumeroCasos", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnvchNumeroCasos)
@@ -1032,11 +1032,11 @@ Partial Public Class dstCasos
 
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(), _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")> _
-        Public Property intIdCasos() As Integer
+        Public Property intIdCasos() As Object
             Get
-                Return CType(Me(Me.tablepalMostrarCasos.intIdCasosColumn), Integer)
+                Return CType(Me(Me.tablepalMostrarCasos.intIdCasosColumn), Object)
             End Get
-            Set(value As Integer)
+            Set(value As Object)
                 Me(Me.tablepalMostrarCasos.intIdCasosColumn) = value
             End Set
         End Property

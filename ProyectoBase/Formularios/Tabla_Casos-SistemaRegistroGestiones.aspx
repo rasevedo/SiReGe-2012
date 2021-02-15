@@ -66,17 +66,24 @@
                        
                        <asp:GridView ID="gvwCasos" runat="server" CellPadding="10" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="2px" AutoGenerateColumns="False" AllowSorting="True" CellSpacing="10" HorizontalAlign="Center" Style="margin-left: 14px" Width="2422px" DataKeyNames="intIdCasos" >
                            <Columns>
-                               <asp:buttonfield buttontype="Button" commandname="Select" text="Detalle"/>
-                               <asp:HyperLinkField Text="Modificar" DataNavigateUrlFields="intIdCasos" DataNavigateUrlFormatString="Modificar_Casos-SistemaRegistroGestiones.aspx?intIdCasos={0}" />
                                <asp:TemplateField>
-                                   <HeaderTemplate>
+                                    <HeaderTemplate>
                                         <asp:CheckBox ID="chkTodo" runat="server" onclick = "chkTodo(this);" />
                                     </HeaderTemplate>
                                     <ItemTemplate>
-                                        <asp:CheckBox ID="chkSeleccionar" runat="server" onclick="GridCheckOne(this)"></asp:CheckBox>
+                                        <asp:CheckBox ID="chkSeleccionar" runat="server"></asp:CheckBox>
                                     </ItemTemplate>
                                </asp:TemplateField>  
-                               <asp:BoundField DataField="intIdCasos" HeaderText="Código de caso" ReadOnly="True" InsertVisible="False" Visible="True" ></asp:BoundField>
+                               <asp:buttonfield buttontype="Button" runat="server" commandname="Select" text="Detalle" HeaderText="Detalle" />
+                               <asp:TemplateField>
+                                   <HeaderTemplate>
+                                        <asp:Label ID="lblModificar" runat="server" text="Modificar" />
+                                   </HeaderTemplate>
+                                   <ItemTemplate>
+                                        <asp:Button ID="btnEditar" runat="server" Text="Modificar" OnClick="btnEditar_Click" CommandArgument='<%#Eval("intIdCasos") %>' />
+                                   </ItemTemplate>
+                               </asp:TemplateField>    
+                               <asp:BoundField DataField="intIdCasos" HeaderText="" ReadOnly="True" InsertVisible="True" Visible="False" ></asp:BoundField>
                                <asp:BoundField DataField="vchNumeroCasos" HeaderText="Número de caso" ></asp:BoundField>
                                <asp:BoundField DataField="vchEstadoCasos" HeaderText="Estado del caso" ></asp:BoundField>
                                <asp:BoundField DataField="dtiFechaCasos" HeaderText="Fecha de ingreso" ></asp:BoundField>
@@ -524,7 +531,7 @@
                                     Mensaje de Error
                                 </div>
                                 <div class="body">
-                                    <asp:Label ID="Label1" runat="server" Text="El usuario no posee permiso para seleccionar el botón de borrar"></asp:Label>
+                                    <asp:Label ID="Label1" runat="server" Text="El usuario no posee permiso para borrar"></asp:Label>
                                     <br />
                                     <asp:Button ID="btnCerrar_NoPermiso" runat="server" Text="Cerrar" />
                                 </div>

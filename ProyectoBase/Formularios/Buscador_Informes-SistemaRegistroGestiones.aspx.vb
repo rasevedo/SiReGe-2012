@@ -55,6 +55,11 @@ Public Class Buscador_Informes_SistemaRegistroGestiones
 #End Region
 
 
+    Protected Sub btnEditar_Click(sender As Object, e As EventArgs)
+        Dim Id As Integer = (TryCast(sender, Button)).CommandArgument
+        Response.Redirect("Modificar_Informes-SistemaRegistroGestiones.aspx?intIdInforme=" & Id)
+    End Sub
+
     'Button que ejecuta la función de filtrar las tablas del gridview
     Protected Sub btnBuscar_Informe_Click(sender As Object, e As EventArgs) Handles btnBuscar_Informe.Click
         MostrarTablaFiltro()
