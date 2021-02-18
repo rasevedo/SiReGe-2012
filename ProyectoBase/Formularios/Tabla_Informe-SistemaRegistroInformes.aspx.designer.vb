@@ -113,6 +113,51 @@ Partial Public Class Tabla_Informes
     Protected WithEvents btnNo As Global.System.Web.UI.WebControls.Button
 
     '''<summary>
+    '''cbeConfirmacion_Bitacora control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents cbeConfirmacion_Bitacora As Global.AjaxControlToolkit.ConfirmButtonExtender
+
+    '''<summary>
+    '''mpeConfirmacion_Bitacora control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents mpeConfirmacion_Bitacora As Global.AjaxControlToolkit.ModalPopupExtender
+
+    '''<summary>
+    '''PanelConfirmacion_Bitacora control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents PanelConfirmacion_Bitacora As Global.System.Web.UI.WebControls.Panel
+
+    '''<summary>
+    '''btnConfirmar control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnConfirmar As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
+    '''btnCancelar control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents btnCancelar As Global.System.Web.UI.WebControls.Button
+
+    '''<summary>
     '''UpdatePanelTabla control.
     '''</summary>
     '''<remarks>

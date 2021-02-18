@@ -200,6 +200,10 @@ Public Class Modificar_Gestiones
             Me.ddlSupervision.Text = dr("vchSupervicionGestiones").ToString()
             Me.txtNombre_CE.Text = dr("vchNombreCentroEducativo").ToString()
 
+            '  Me.ddlDescripcion_Unidad.DataBind()
+            Dim Unidad As DropDownList = ddlDescripcion_Unidad
+            Unidad.DataBind()
+            Unidad.Text = dr("vchDescripcionUnidad").ToString()
             ' Me.ddlDescripcion_Unidad.Text = dr("vchDescripcionUnidad").ToString()
 
             Me.txtDespacho.Text = dr("vchDescripcionDespacho").ToString()

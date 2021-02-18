@@ -59,6 +59,26 @@
                             <asp:Button ID="btnNo" runat="server" Text="Cancelar" />
                         </div>
                     </asp:Panel>
+
+                <asp:ConfirmButtonExtender ID="cbeConfirmacion_Bitacora" runat="server" DisplayModalPopupID="mpeConfirmacion_Bitacora" TargetControlID="btnBitacora">
+                    </asp:ConfirmButtonExtender>
+                    <asp:ModalPopupExtender ID="mpeConfirmacion_Bitacora" runat="server" PopupControlID="PanelConfirmacion_Bitacora" TargetControlID="btnBitacora" OkControlID = "btnConfirmar"
+                        CancelControlID="btnCancelar" BackgroundCssClass="modalBackground">
+                    </asp:ModalPopupExtender>
+                    <asp:Panel ID="PanelConfirmacion_Bitacora" runat="server" CssClass="modalPopup" Style="display: none">
+                        <div class="header">
+                            Confirmación
+                        </div>
+                        <div class="body">
+                            Solo la primer selección de la tabla se exportará a la bitácora
+                        </div>
+                        <div class="footer" align="center">
+                            <asp:Button ID="btnConfirmar" runat="server" Text="Confirmar" />
+                            <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" />
+                        </div>
+                </asp:Panel>
+
+
                            
                 <asp:UpdatePanel runat="server" id="UpdatePanelTabla" updatemode="Conditional">  
                  <ContentTemplate>
