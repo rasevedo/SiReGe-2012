@@ -182,6 +182,16 @@ Public Class Modificar_Gestiones
         Dim da As SqlDataAdapter = New SqlDataAdapter(cmd)
         Dim dt As DataTable = New DataTable()
 
+        Dim Unidad As DropDownList = ddlDescripcion_Unidad
+        Unidad.DataBind()
+
+        Dim TipoDimen As DropDownList = ddlTipo_Dimension
+        TipoDimen.DataBind()
+
+        Dim LetraDimen As DropDownList = ddlLetra_Dimension
+        LetraDimen.DataBind()
+
+
 
         da.Fill(dt)
 
@@ -199,24 +209,14 @@ Public Class Modificar_Gestiones
             Me.ddl_Direccion_Regional_Educacion.Text = dr("vchDireccionRegional").ToString()
             Me.ddlSupervision.Text = dr("vchSupervicionGestiones").ToString()
             Me.txtNombre_CE.Text = dr("vchNombreCentroEducativo").ToString()
-
-            '  Me.ddlDescripcion_Unidad.DataBind()
-            Dim Unidad As DropDownList = ddlDescripcion_Unidad
-            Unidad.DataBind()
-            Unidad.Text = dr("vchDescripcionUnidad").ToString()
-            ' Me.ddlDescripcion_Unidad.Text = dr("vchDescripcionUnidad").ToString()
-
+            Unidad.SelectedValue = ddlDescripcion_Unidad.Items.FindByText(dr("vchDescripcionUnidad")).Value
             Me.txtDespacho.Text = dr("vchDescripcionDespacho").ToString()
             Me.txtDireccion.Text = dr("vchDescripcionDireccion").ToString()
             Me.txtDepartamento.Text = dr("vchdescripcionDepartamento").ToString()
             Me.txtNumero_Oficio.Text = dr("vchNumeroOficio").ToString()
-
-            Me.ddlTipo_Dimension.Text = dr("vchTipoDimension").ToString()
-
-            '  Me.ddlLetra_Dimension.Text = dr("vchLetraDimension").ToString()
-
-            Me.txtTipo_Detalle_Letra_Dimension.Text = dr("vchDescripcionLetraDimension").ToString()
-
+            TipoDimen.SelectedValue = ddlTipo_Dimension.Items.FindByText(dr("vchTipoDimension")).Value
+            ' LetraDimen.SelectedValue = ddlLetra_Dimension.Items.FindByText(dr("vchLetraDimension")).Value
+            'Me.txtTipo_Detalle_Letra_Dimension.Text = dr("vchDescripcionLetraDimension").ToString()
             Me.txtAsunto.Text = dr("vchDetalleGestiones").ToString()
             Me.txtRespuesta.Text = dr("vchRespuestaGestiones").ToString()
         Next
