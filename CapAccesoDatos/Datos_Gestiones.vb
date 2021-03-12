@@ -106,7 +106,7 @@ Public Class Datos_Gestiones
             cmd.Connection.Open()
 
             cmd.Parameters.AddWithValue("@intIdGestiones", dts._idGestiones)
-
+            
             If cmd.ExecuteNonQuery Then
                 Return True
                 MsgBox("Exito")               

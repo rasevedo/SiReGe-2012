@@ -229,7 +229,9 @@ Public Class Tabla_Gestiones
                     If chkdelete.Checked Then
                         Dim gesid As Integer = Convert.ToInt32(gvwGestiones.DataKeys(gvrow.RowIndex).Value)
                         dts._idGestiones = gesid
+                        
                         If func.borrarGestiones(dts) Then
+
                             ' Response.Write("<script language=javascript>alert('El elemento ha sido eliminado de forma exitosa')</script>")
                             'MsgBox("El elemento ha sido eliminado de forma exitosa") 
                         Else
