@@ -100,6 +100,24 @@
                     </div>
                 </asp:Panel>
 
+             <asp:ConfirmButtonExtender ID="cbeConfirmacion_Bitacora" runat="server" DisplayModalPopupID="mpeConfirmacion_Bitacora" TargetControlID="btnBitacora">
+                        </asp:ConfirmButtonExtender>
+                        <asp:ModalPopupExtender ID="mpeConfirmacion_Bitacora" runat="server" PopupControlID="PanelConfirmacion_Bitacora" TargetControlID="btnBitacora" OkControlID = "btnConfirmar"
+                            CancelControlID="btnCancelar" BackgroundCssClass="modalBackground">
+                        </asp:ModalPopupExtender>
+                        <asp:Panel ID="PanelConfirmacion_Bitacora" runat="server" CssClass="modalPopup" Style="display: none">
+                            <div class="header">
+                                Confirmación
+                            </div>
+                            <div class="body">
+                                Solo la primer selección de la tabla se exportará a la bitácora
+                            </div>
+                            <div class="footer" align="center">
+                                <asp:Button ID="btnConfirmar" runat="server" Text="Confirmar" />
+                                <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" />
+                            </div>
+                    </asp:Panel>
+
 
                             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Label ID="lblmsg" runat="server" Visible="false"></asp:Label>
@@ -115,7 +133,7 @@
                                         <asp:CheckBox ID="chkTodo" runat="server" onclick = "chkTodo(this);" />
                                     </HeaderTemplate>
                                     <ItemTemplate>
-                                        <asp:CheckBox ID="chkSelect" runat="server"></asp:CheckBox>
+                                        <asp:CheckBox ID="chkSeleccionar" runat="server"></asp:CheckBox>
                                     </ItemTemplate>
                                </asp:TemplateField>  
                                <asp:buttonfield buttontype="Button" runat="server" commandname="Select" text="Detalle" HeaderText="Detalle" />
@@ -127,10 +145,10 @@
                                         <asp:Button ID="btnEditar" runat="server" Text="Modificar" OnClick="btnEditar_Click" CommandArgument='<%#Eval("intIdInforme")%>' />
                                    </ItemTemplate>
                                </asp:TemplateField>
-                               <asp:BoundField DataField="intIdInforme" HeaderText="Número del informe" ReadOnly="True" InsertVisible="False" ></asp:BoundField>
-                               <asp:BoundField DataField="vchTituloInforme" HeaderText="Título del informe" ></asp:BoundField>
+                               <asp:BoundField DataField="intIdInforme" HeaderText="Número" ReadOnly="True" InsertVisible="False" ></asp:BoundField>
+                               <asp:BoundField DataField="vchTituloInforme" HeaderText="Título" ></asp:BoundField>
                                <asp:BoundField DataField="vchNombreFuncionario" HeaderText="Funcionario que tramita" ></asp:BoundField>
-                               <asp:BoundField DataField="vchTipoInforme" HeaderText="Tipo de informe" ></asp:BoundField>
+                               <asp:BoundField DataField="vchTipoInforme" HeaderText="Tipo" ></asp:BoundField>
                                <asp:BoundField DataField="vchNumeroOficio" HeaderText="Número del estudio" ></asp:BoundField>
                                <asp:BoundField DataField="dtiFechaAprobacion" HeaderText="Fecha de aprobación" ></asp:BoundField>
                                <asp:BoundField DataField="dtiFechaCulminacion" HeaderText="Fecha de culminación" ></asp:BoundField>
@@ -191,10 +209,10 @@
                                <table border="0" style="width:100%">
                                    <tr>
                                        <td> 
-                                          <asp:Label ID="lblPop_Id_Informe" runat="server" Text="Número de informe:"></asp:Label> 
+                                          <asp:Label ID="lblPop_Id_Informe" runat="server" Text="Número:"></asp:Label> 
                                        </td>
                                         <td>               
-                                           <asp:TextBox ID="txtPop_Id_Informe" runat="server" Enabled="false" size="70" style="text-align: left"/>
+                                           <asp:TextBox ID="txtPop_Id_Informe" runat="server" Enabled="false" size="82" style="text-align: left"/>
                                         </td>
                                     </tr>
                                    </table>
@@ -202,10 +220,10 @@
                                <table border="0" style="width:100%">
                                    <tr>
                                        <td> 
-                                          <b>Título del informe: </b>
+                                          <b>Título: </b>
                                        </td>
                                         <td>               
-                                           <asp:TextBox ID="txtPop_Titulo_Informe" runat="server" Enabled="false" size="72" style="text-align: left"  />
+                                           <asp:TextBox ID="txtPop_Titulo_Informe" runat="server" Enabled="false" size="84" style="text-align: left"  />
                                         </td>
                                     </tr>
                                    </table>
@@ -224,10 +242,10 @@
                                <table border="0" style="width:100%">
                                    <tr>
                                        <td> 
-                                          <b>Tipo de informe: </b>
+                                          <b>Tipo: </b>
                                        </td>
                                         <td>               
-                                           <asp:TextBox ID="txtPop_Tipo_Informe" runat="server" Enabled="false" size="73" style="text-align: left" />
+                                           <asp:TextBox ID="txtPop_Tipo_Informe" runat="server" Enabled="false" size="85" style="text-align: left" />
                                         </td>
                                     </tr>
                                    </table>

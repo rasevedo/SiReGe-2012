@@ -44,7 +44,7 @@
                             <div class="row">
                                 <div class="col-md-3 col-md-offset-1">
                                     <div class="form-group">
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblCodigo_Informe" Text="Número del informe" runat="server" />
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblCodigo_Informe" Text="Número" runat="server" />
                                         &nbsp;<asp:TextBox ID="txtId_Informe" runat="server" Enabled="false" CssClass="form-control input-sm" Width="44px"  />
                                     </div>
                                 </div>                            
@@ -56,11 +56,11 @@
                                     <div class="form-group">
                                         <table style="width: 100%;">
                                             <tr>
-                                                <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblTitulo_Informe" Text="Título del informe*" runat="server" /></td>
+                                                <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblTitulo_Informe" Text="Título*" runat="server" /></td>
 
                                                 <td class="auto-style8">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblFuncionario_Tramita" Text="Funcionario que tramita*" runat="server"/></td>
 
-                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblTipo_Informe" Text="Tipo de informe*" runat="server"/></td>
+                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="lblTipo_Informe" Text="Tipo*" runat="server"/></td>
                                             </tr>
                                             <tr>
                                                 <td class="auto-style2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:TextBox ID="txtTitulo_Informe" runat="server" Enabled="true" CssClass="form-control input-sm" Height="25px" Width="273px"  /></td>
@@ -69,10 +69,14 @@
                                                     
 
                                                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:DropDownList ID="ddlTipo_Informe" runat="server" CssClass="form-control input-sm" Height="30px" Width="279px" >
-                                                        <asp:ListItem Text=" " Value=" "></asp:ListItem>    
+                                                        <asp:ListItem Text=" " Value=" "></asp:ListItem>
                                                         <asp:ListItem Text="Informe" Value="Informe"></asp:ListItem>
                                                         <asp:ListItem Text="Estudio" Value="Estudio"></asp:ListItem>
                                                         <asp:ListItem Text="Capacitación" Value="Capacitación"></asp:ListItem>
+                                                        <asp:ListItem Text="Elaboración y/o Revisión de Manuales" Value="Elaboración y/o Revisión de Manuales"></asp:ListItem>
+                                                        <asp:ListItem Text="Procedimientos" Value="Procedimientos"></asp:ListItem>
+                                                        <asp:ListItem Text="Instructivos" Value="Instructivos"></asp:ListItem>
+                                                        <asp:ListItem Text="Otros" Value="Otros"></asp:ListItem>
                                                     </asp:DropDownList></td>
                                             </tr>                                            
                                         </table>
@@ -272,7 +276,7 @@
                                             <tr>
                                                 <td class="auto-style6">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Button ID="btnUpdate" runat="server" Text="Actualizar" CssClass="btn btn-primary" Width="85px" Height="45px" OnClick="btnUpdate_Click" /></td>
 
-                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Button Text="Cancelar" ID="btnCancelar" CssClass="btn btn-primary" Width="85px" Height="45px" runat="server" OnClick="btnCancel_Click" /></td>
+                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Button Text="Volver" ID="btnCancelar" CssClass="btn btn-primary" Width="85px" Height="45px" runat="server" OnClick="btnCancel_Click" /></td>
                                             </tr>                                        
                                         </table>                                                                   
                                     </div>

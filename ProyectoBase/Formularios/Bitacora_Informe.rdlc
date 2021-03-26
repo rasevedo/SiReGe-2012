@@ -11,7 +11,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Número del informe:</Value>
+                    <Value>Número:</Value>
                     <Style>
                       <FontSize>12pt</FontSize>
                     </Style>
@@ -24,7 +24,7 @@
             <Top>0.13229cm</Top>
             <Left>0.13229cm</Left>
             <Height>0.6cm</Height>
-            <Width>4.16688cm</Width>
+            <Width>1.78563cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -55,7 +55,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox2</rd:DefaultName>
             <Top>0.13229cm</Top>
-            <Left>4.29917cm</Left>
+            <Left>1.91792cm</Left>
             <Height>0.6cm</Height>
             <Width>6.20417cm</Width>
             <ZIndex>1</ZIndex>
@@ -76,7 +76,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Título del informe:</Value>
+                    <Value>Título:</Value>
                     <Style>
                       <FontSize>12pt</FontSize>
                     </Style>
@@ -89,7 +89,7 @@
             <Top>1.42875cm</Top>
             <Left>0.13229cm</Left>
             <Height>0.6cm</Height>
-            <Width>3.61125cm</Width>
+            <Width>1.28292cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -119,7 +119,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox4</rd:DefaultName>
             <Top>1.42875cm</Top>
-            <Left>3.74354cm</Left>
+            <Left>1.41521cm</Left>
             <Height>0.6cm</Height>
             <Width>13.34792cm</Width>
             <ZIndex>3</ZIndex>
@@ -204,7 +204,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Tipo de informe:</Value>
+                    <Value>Tipo:</Value>
                     <Style>
                       <FontSize>12pt</FontSize>
                     </Style>
@@ -217,7 +217,7 @@
             <Top>4.1275cm</Top>
             <Left>0.13229cm</Left>
             <Height>0.6cm</Height>
-            <Width>3.24083cm</Width>
+            <Width>1.10653cm</Width>
             <ZIndex>6</ZIndex>
             <Style>
               <Border>
@@ -279,7 +279,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox9</rd:DefaultName>
             <Top>4.1275cm</Top>
-            <Left>3.37313cm</Left>
+            <Left>1.23882cm</Left>
             <Height>0.6cm</Height>
             <Width>11.48229cm</Width>
             <ZIndex>8</ZIndex>
@@ -486,7 +486,7 @@
             <Top>2.80458cm</Top>
             <Left>0.07938cm</Left>
             <Height>0.6cm</Height>
-            <Width>3.90229cm</Width>
+            <Width>3.7259cm</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
@@ -516,7 +516,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox16</rd:DefaultName>
             <Top>2.80458cm</Top>
-            <Left>3.98167cm</Left>
+            <Left>3.80528cm</Left>
             <Height>0.6cm</Height>
             <Width>8.13563cm</Width>
             <ZIndex>5</ZIndex>
@@ -533,7 +533,7 @@
         </ReportItems>
         <KeepTogether>true</KeepTogether>
         <Top>6.69078cm</Top>
-        <Left>0.86995cm</Left>
+        <Left>0.86994cm</Left>
         <Height>3.56333cm</Height>
         <Width>14.85542cm</Width>
         <ZIndex>1</ZIndex>

@@ -116,7 +116,7 @@
                                         <asp:CheckBox ID="chkTodo" runat="server" onclick = "chkTodo(this);" />
                                     </HeaderTemplate>
                                     <ItemTemplate>
-                                        <asp:CheckBox ID="chkSelect" runat="server"></asp:CheckBox>
+                                        <asp:CheckBox ID="chkSeleccionar" runat="server"></asp:CheckBox>
                                     </ItemTemplate>
                                </asp:TemplateField>  
                                <asp:buttonfield buttontype="Button" runat="server" commandname="Select" text="Detalle" HeaderText="Detalle" />

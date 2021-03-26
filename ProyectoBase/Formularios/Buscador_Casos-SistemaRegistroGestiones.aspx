@@ -135,6 +135,24 @@
                     </div>
                 </asp:Panel>
 
+            <asp:ConfirmButtonExtender ID="cbeConfirmacion_Bitacora" runat="server" DisplayModalPopupID="mpeConfirmacion_Bitacora" TargetControlID="btnBitacora">
+                    </asp:ConfirmButtonExtender>
+                    <asp:ModalPopupExtender ID="mpeConfirmacion_Bitacora" runat="server" PopupControlID="PanelConfirmacion_Bitacora" TargetControlID="btnBitacora" OkControlID = "btnConfirmar"
+                        CancelControlID="btnCancelar" BackgroundCssClass="modalBackground">
+                    </asp:ModalPopupExtender>
+                    <asp:Panel ID="PanelConfirmacion_Bitacora" runat="server" CssClass="modalPopup" Style="display: none">
+                        <div class="header">
+                            Confirmación
+                        </div>
+                        <div class="body">
+                            Solo la primer selección de la tabla se exportará a la bitácora
+                        </div>
+                        <div class="footer" align="center">
+                            <asp:Button ID="btnConfirmar" runat="server" Text="Confirmar" />
+                            <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" />
+                        </div>
+                </asp:Panel>
+
              
                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
              
@@ -147,7 +165,7 @@
                                         <asp:CheckBox ID="chkTodo" runat="server" onclick = "chkTodo(this);" />
                                     </HeaderTemplate>
                                     <ItemTemplate>
-                                        <asp:CheckBox ID="chkSelect" runat="server"></asp:CheckBox>
+                                        <asp:CheckBox ID="chkSeleccionar" runat="server"></asp:CheckBox>
                                     </ItemTemplate>
                                </asp:TemplateField>  
                                <asp:buttonfield buttontype="Button" runat="server" commandname="Select" text="Detalle" HeaderText="Detalle" />
@@ -159,9 +177,9 @@
                                         <asp:Button ID="btnEditar" runat="server" Text="Modificar" OnClick="btnEditar_Click" CommandArgument='<%#Eval("intIdCasos") %>' />
                                    </ItemTemplate>
                                </asp:TemplateField>  
-                               <asp:BoundField DataField="intIdCasos" HeaderText="Código de caso" ReadOnly="True" InsertVisible="False" Visible="True" ></asp:BoundField>
-                               <asp:BoundField DataField="vchNumeroCasos" HeaderText="Número de caso" ></asp:BoundField>
-                               <asp:BoundField DataField="vchEstadoCasos" HeaderText="Estado del caso" ></asp:BoundField>
+                               <asp:BoundField DataField="intIdCasos" HeaderText="" ReadOnly="True" InsertVisible="True" Visible="False" ></asp:BoundField>
+                               <asp:BoundField DataField="vchNumeroCasos" HeaderText="Número de expediente" ></asp:BoundField>
+                               <asp:BoundField DataField="vchEstadoCasos" HeaderText="Estado del expediente" ></asp:BoundField>
                                <asp:BoundField DataField="dtiFechaCasos" HeaderText="Fecha de ingreso" ></asp:BoundField>
                                <asp:BoundField DataField="intCedulaDenuncianteCasos" HeaderText="Cédula del denunciante" ></asp:BoundField>
                                <asp:BoundField DataField="vchNombreDenucianteCasos" HeaderText="Nombre del denuciante" ></asp:BoundField>
@@ -177,21 +195,21 @@
                                <asp:BoundField DataField="vchLetraDimension" HeaderText="Letra dimensión" ></asp:BoundField>
                                <asp:BoundField DataField="vchDescripcionLetraDimension" HeaderText="Descripcion de la dimensión"></asp:BoundField>
                                <asp:BoundField DataField="vchCondicionCasos" HeaderText="Usuario" ></asp:BoundField>
-                               <asp:BoundField DataField="vchDetalleInconformidadCasos" HeaderText="Detalle de inconformidad del caso" ></asp:BoundField>
-                               <asp:BoundField DataField="vchRespuestaCasos" HeaderText="Respuesta del caso" ></asp:BoundField>
+                               <asp:BoundField DataField="vchDetalleInconformidadCasos" HeaderText="Detalle de inconformidad del expediente" ></asp:BoundField>
+                               <asp:BoundField DataField="vchRespuestaCasos" HeaderText="Respuesta del expediente" ></asp:BoundField>
                                <asp:BoundField DataField="vchValoracionAdmisibilidad" HeaderText="Valoración de admisibilidad" ></asp:BoundField>
-                               <asp:BoundField DataField="vchVeredictoValoracionIngreso" HeaderText="Veredicto de Valoración de ingreso" ></asp:BoundField>
+                               <asp:BoundField DataField="vchVeredictoValoracionIngreso" HeaderText="Veredicto de valoración de ingreso" ></asp:BoundField>
                                <asp:BoundField DataField="vchTrazabilidadCasos" HeaderText="Trazabilidad" ></asp:BoundField>
                                <asp:BoundField DataField="dtiFechaRespuestaCasos" HeaderText="Fecha de respuesta del caso" ></asp:BoundField>
                                <asp:BoundField DataField="dtiFechaCerradoCasos" HeaderText="Fecha de cerrado" ></asp:BoundField>
-                               <asp:BoundField DataField="dtiCasoAvanceFecha1" HeaderText="Fecha del avance 1" ></asp:BoundField>
-                               <asp:BoundField DataField="vchCasoAvance1" HeaderText="Detalle del avance 1" ></asp:BoundField>
-                               <asp:BoundField DataField="dtiCasoAvanceFecha2" HeaderText="Fecha del avance 2" ></asp:BoundField>
-                               <asp:BoundField DataField="vchCasoAvance2" HeaderText="Detalle del avance 2" ></asp:BoundField>
-                               <asp:BoundField DataField="dtiCasoAvanceFecha3" HeaderText="Fecha del avance 3" ></asp:BoundField>
-                               <asp:BoundField DataField="vchCasoAvance3" HeaderText="Detalle del avance 3" ></asp:BoundField>
-                               <asp:BoundField DataField="dtiCasoAvanceFecha4" HeaderText="Fecha del avance 4" ></asp:BoundField>
-                               <asp:BoundField DataField="vchCasoAvance4" HeaderText="Detalle del avance 4" ></asp:BoundField>
+                               <asp:BoundField DataField="dtiCasoAvanceFecha1" HeaderText="Fecha del seguimiento 1" ></asp:BoundField>
+                               <asp:BoundField DataField="vchCasoAvance1" HeaderText="Detalle del seguimiento 1" ></asp:BoundField>
+                               <asp:BoundField DataField="dtiCasoAvanceFecha2" HeaderText="Fecha del seguimiento 2" ></asp:BoundField>
+                               <asp:BoundField DataField="vchCasoAvance2" HeaderText="Detalle del seguimiento 2" ></asp:BoundField>
+                               <asp:BoundField DataField="dtiCasoAvanceFecha3" HeaderText="Fecha del seguimiento 3" ></asp:BoundField>
+                               <asp:BoundField DataField="vchCasoAvance3" HeaderText="Detalle del seguimiento 3" ></asp:BoundField>
+                               <asp:BoundField DataField="dtiCasoAvanceFecha4" HeaderText="Fecha del seguimiento 4" ></asp:BoundField>
+                               <asp:BoundField DataField="vchCasoAvance4" HeaderText="Detalle del seguimiento 4" ></asp:BoundField>
                            </Columns>
                             <RowStyle Width="250px" BackColor="#F7F6F3" ForeColor="#333333" HorizontalAlign="Center" />
                             <FooterStyle BackColor="#00A0E3" ForeColor="White" />
@@ -239,15 +257,15 @@
                            <div class="header">
                                Detalles del Caso
                            </div>
-                           <div class="body">                              
+                           <div class="body">
 
                                <table border="0" style="width:100%">
                                     <tr>
                                        <td> 
-                                           <b>Número de Caso: </b>                                           
+                                           <b>Número del expediente: </b>                                           
                                        </td>
                                         <td>
-                                           <asp:TextBox ID="txtPop_Num_Caso" runat="server" Enabled="false" size="73" style="text-align: left" /> 
+                                           <asp:TextBox ID="txtPop_Num_Caso" runat="server" Enabled="false" size="66" style="text-align: left" /> 
                                         </td>                                      
                                     </tr>
                                    </table>
@@ -255,10 +273,10 @@
                                <table border="0" style="width:100%">
                                    <tr>
                                        <td> 
-                                           <b>Estado del Caso: </b>                                           
+                                           <b>Estado del expediente: </b>                                           
                                        </td>
                                         <td>
-                                           <asp:TextBox ID="txtPop_Estado_Caso" runat="server" Enabled="false" size="74" style="text-align: left"/>
+                                           <asp:TextBox ID="txtPop_Estado_Caso" runat="server" Enabled="false" size="68" style="text-align: left"/>
                                         </td>                                      
                                     </tr>
                                    </table>
@@ -266,10 +284,10 @@
                                <table border="0" style="width:100%">
                                    <tr>
                                        <td> 
-                                           <b>Fecha del Caso: </b>                                           
+                                           <b>Fecha de ingreso: </b>                                           
                                        </td>
                                         <td>
-                                           <asp:TextBox ID="txtPop_Fecha_Caso" runat="server" Enabled="false" size="74" style="text-align: left" />
+                                           <asp:TextBox ID="txtPop_Fecha_Caso" runat="server" Enabled="false" size="72" style="text-align: left" />
                                         </td>                                      
                                     </tr>
                                    </table>
@@ -277,7 +295,7 @@
                                <table border="0" style="width:100%">
                                    <tr>
                                        <td> 
-                                           <b>Cédula del Denunciante: </b>                                           
+                                           <b>Cédula del denunciante: </b>                                           
                                        </td>
                                         <td>
                                            <asp:TextBox ID="txtPop_Cedula_Usuario" runat="server" Enabled="false" size="66" style="text-align: left" />
@@ -288,7 +306,7 @@
                                <table border="0" style="width:100%">
                                    <tr>
                                        <td> 
-                                           <b>Nombre del Denunciante: </b>                                          
+                                           <b>Nombre del denunciante: </b>                                          
                                        </td>
                                         <td>
                                            <asp:TextBox ID="txtPop_Nombre_Usuario" runat="server" Enabled="false" size="64" style="text-align: left"/>
@@ -310,7 +328,7 @@
                                <table border="0" style="width:100%">                               
                                    <tr>
                                        <td> 
-                                           <b>Nombre del Centro Educativo: </b>                                          
+                                           <b>Nombre del centro educativo: </b>                                          
                                        </td>
                                         <td>
                                            <asp:TextBox ID="txtPop_CE" runat="server" Enabled="false" size="61" style="text-align: left" />
@@ -321,7 +339,7 @@
                                   <table border="0" style="width:100%">
                                    <tr>
                                        <td> 
-                                           <b>Descripción de Unidad: </b>                                          
+                                           <b>Descripción de unidad: </b>                                          
                                        </td>
                                         <td>
                                            <asp:TextBox ID="txtPop_Unidad" runat="server" Enabled="false" size="67" style="text-align: left" />
@@ -332,7 +350,7 @@
                                <table border="0" style="width:100%">
                                    <tr>
                                        <td> 
-                                           <b>Descripción de Despacho: </b>                                          
+                                           <b>Descripción de despacho: </b>                                          
                                        </td>
                                         <td>
                                            <asp:TextBox ID="txtPop_Despacho" runat="server" Enabled="false" size="65" style="text-align: left" />
@@ -343,7 +361,7 @@
                                <table border="0" style="width:100%">
                                    <tr>
                                        <td> 
-                                           <b>Descripción de Dirección: </b>                                          
+                                           <b>Descripción de dirección: </b>                                          
                                        </td>
                                         <td>
                                            <asp:TextBox ID="txtPop_Direccion" runat="server" Enabled="false" size="65" style="text-align: left" />
@@ -354,7 +372,7 @@
                                <table border="0" style="width:100%">
                                    <tr>
                                        <td> 
-                                           <b>Descripción de Departamento: </b>                                          
+                                           <b>Descripción de departamento: </b>                                          
                                        </td>
                                         <td>
                                            <asp:TextBox ID="txtPop_Departamento" runat="server" Enabled="false" size="60" style="text-align: left" />
@@ -376,7 +394,7 @@
                                <table border="0" style="width:100%">
                                    <tr>
                                        <td> 
-                                           <b>Letra de Dimensión: </b>                                          
+                                           <b>Letra de dimensión: </b>                                          
                                        </td>
                                         <td>
                                            <asp:TextBox ID="txtPop_Letra_Dimension" runat="server" Enabled="false" size="70" style="text-align: left" />
@@ -387,7 +405,7 @@
                                  <table border="0" style="width:100%">
                                    <tr>
                                        <td> 
-                                           <b>Detalle de la Dimensión: </b>                                          
+                                           <b>Detalle de la dimensión: </b>                                          
                                        </td>
                                         <td>
                                            <asp:TextBox ID="txtPop_Detalle_Dimension" runat="server" Enabled="false" TextMode="MultiLine" Width="490px" Height="80px" style="text-align: left; resize:none;" /> 
@@ -398,7 +416,7 @@
                                <table border="0" style="width:100%">
                                    <tr>
                                        <td> 
-                                           <b>Número de Oficio: </b>                                          
+                                           <b>Número del oficio: </b>                                          
                                        </td>
                                         <td>
                                            <asp:TextBox ID="txtPop_Num_Oficio" runat="server" Enabled="false" size="71" style="text-align: left"/>
@@ -409,7 +427,7 @@
                                <table border="0" style="width:100%">
                                    <tr>
                                        <td> 
-                                           <b>Fecha del Oficio: </b>                                          
+                                           <b>Fecha del oficio: </b>                                          
                                        </td>
                                         <td>
                                            <asp:TextBox ID="txtPop_Fecha_Oficio" runat="server" Enabled="false" size="73" style="text-align: left" />
@@ -431,7 +449,7 @@
                                   <table border="0" style="width:100%">
                                    <tr>
                                         <td>
-                                             <b>Detalle de Inconformidad: </b>                                           
+                                             <b>Detalle de inconformidad: </b>                                           
                                         </td>
                                        <td>
                                             <asp:TextBox ID="txtPop_Detalle_Inconformidad" runat="server" Enabled="false" TextMode="MultiLine" Width="480px" Height="80px" style="text-align: left; resize:none;" />                                         
@@ -442,10 +460,10 @@
                                <table border="0" style="width:100%">
                                    <tr>   
                                         <td>
-                                            <b>Respuesta del Caso: </b>  
+                                            <b>Respuesta del expediente: </b>  
                                         </td>                                         
                                        <td> 
-                                            <asp:TextBox ID="txtPop_Respuesta_Caso" runat="server" Enabled="false" TextMode="MultiLine" Width="520px" Height="80px" style="text-align: left; resize:none;" /> 
+                                            <asp:TextBox ID="txtPop_Respuesta_Caso" runat="server" Enabled="false" TextMode="MultiLine" Width="480px" Height="80px" style="text-align: left; resize:none;" /> 
                                         </td> 
                                     </tr>                                
                                </table>
@@ -453,7 +471,7 @@
                                <table border="0" style="width:100%">
                                    <tr>
                                        <td> 
-                                           <b>Fecha de Respuesta: </b>                                          
+                                           <b>Fecha de respuesta: </b>                                          
                                        </td>
                                         <td>
                                            <asp:TextBox ID="txtPop_Fecha_Respuesta" runat="server" Enabled="false" size="70" style="text-align: left" />
@@ -464,7 +482,7 @@
                                <table border="0" style="width:100%">
                                    <tr>
                                        <td> 
-                                           <b>Valoración de Admisibilidad: </b>                                         
+                                           <b>Valoración de admisibilidad: </b>                                         
                                        </td>
                                         <td>
                                            <asp:TextBox ID="txtPop_Valoracion_Admisibilidad" runat="server" Enabled="false" size="62" style="text-align: left" />
@@ -475,7 +493,7 @@
                                <table border="0" style="width:100%">
                                    <tr>
                                        <td> 
-                                           <b>Veredicto de Valoración de Ingreso: </b>                                         
+                                           <b>Veredicto de valoración de ingreso: </b>                                         
                                        </td>
                                         <td>
                                            <asp:TextBox ID="txtPop_Veredicto" runat="server" Enabled="false" size="56" style="text-align: left" />
@@ -497,7 +515,7 @@
                                <table border="0" style="width:100%">
                                    <tr>
                                        <td> 
-                                           <b>Fecha de Cerrado: </b>                                         
+                                           <b>Fecha de cerrado: </b>                                         
                                        </td>
                                         <td>
                                            <asp:TextBox ID="txtPop_Fecha_Cerrado" runat="server" Enabled="false" size="72" style="text-align: left" />
@@ -508,10 +526,10 @@
                                <table border="0" style="width:100%">
                                    <tr>
                                        <td> 
-                                           <b>Fecha del avance 1: </b>                                         
+                                           <b>Fecha del seguimiento 1: </b>                                         
                                        </td>
                                         <td>
-                                           <asp:TextBox ID="txtPop_Fecha_Avance1" runat="server" Enabled="false" size="70" style="text-align: left" />
+                                           <asp:TextBox ID="txtPop_Fecha_Avance1" runat="server" Enabled="false" size="65" style="text-align: left" />
                                         </td>                                      
                                     </tr>                                                                                                     
                                 </table>
@@ -519,10 +537,10 @@
                                <table border="0" style="width:100%">
                                    <tr>
                                         <td>
-                                             <b>Detalle del avance 1: </b>                                           
+                                             <b>Detalle del seguimiento 1: </b>                                           
                                         </td>
                                        <td>
-                                            <asp:TextBox ID="txtPop_Detalle_Avance1" runat="server" Enabled="false" TextMode="MultiLine" Width="510px" Height="80px" style="text-align: left; resize:none;" />                                         
+                                            <asp:TextBox ID="txtPop_Detalle_Avance1" runat="server" Enabled="false" TextMode="MultiLine" Width="480px" Height="80px" style="text-align: left; resize:none;" />                                         
                                        </td>
                                     </tr>
                                </table>
@@ -530,10 +548,10 @@
                                <table border="0" style="width:100%">
                                    <tr>
                                        <td> 
-                                           <b>Fecha del avance 2: </b>                                         
+                                           <b>Fecha del seguimiento 2: </b>                                         
                                        </td>
                                         <td>
-                                           <asp:TextBox ID="txtPop_Fecha_Avance2" runat="server" Enabled="false" size="70" style="text-align: left" />
+                                           <asp:TextBox ID="txtPop_Fecha_Avance2" runat="server" Enabled="false" size="65" style="text-align: left" />
                                         </td>                                      
                                     </tr>                                                                                                     
                                 </table>
@@ -541,10 +559,10 @@
                                <table border="0" style="width:100%">
                                    <tr>
                                         <td>
-                                             <b>Detalle del avance 2: </b>                                           
+                                             <b>Detalle del seguimiento 2: </b>                                           
                                         </td>
                                        <td>
-                                            <asp:TextBox ID="txtPop_Detalle_Avance2" runat="server" Enabled="false" TextMode="MultiLine" Width="510px" Height="80px" style="text-align: left; resize:none;" />                                         
+                                            <asp:TextBox ID="txtPop_Detalle_Avance2" runat="server" Enabled="false" TextMode="MultiLine" Width="480px" Height="80px" style="text-align: left; resize:none;" />                                         
                                        </td>
                                     </tr>
                                </table>
@@ -552,10 +570,10 @@
                                <table border="0" style="width:100%">
                                    <tr>
                                        <td> 
-                                           <b>Fecha del avance 3: </b>                                         
+                                           <b>Fecha del seguimiento 3: </b>                                         
                                        </td>
                                         <td>
-                                           <asp:TextBox ID="txtPop_Fecha_Avance3" runat="server" Enabled="false" size="70" style="text-align: left" />
+                                           <asp:TextBox ID="txtPop_Fecha_Avance3" runat="server" Enabled="false" size="65" style="text-align: left" />
                                         </td>                                      
                                     </tr>                                                                                                     
                                 </table>
@@ -563,10 +581,10 @@
                                <table border="0" style="width:100%">
                                    <tr>
                                         <td>
-                                             <b>Detalle del avance 3: </b>                                           
+                                             <b>Detalle del seguimiento 3: </b>                                           
                                         </td>
                                        <td>
-                                            <asp:TextBox ID="txtPop_Detalle_Avance3" runat="server" Enabled="false" TextMode="MultiLine" Width="510px" Height="80px" style="text-align: left; resize:none;" />                                         
+                                            <asp:TextBox ID="txtPop_Detalle_Avance3" runat="server" Enabled="false" TextMode="MultiLine" Width="480px" Height="80px" style="text-align: left; resize:none;" />                                         
                                        </td>
                                     </tr>
                                </table>
@@ -574,10 +592,10 @@
                                <table border="0" style="width:100%">
                                    <tr>
                                        <td> 
-                                           <b>Fecha del avance 4: </b>                                         
+                                           <b>Fecha del seguimiento 4: </b>                                         
                                        </td>
                                         <td>
-                                           <asp:TextBox ID="txtPop_Fecha_Avance4" runat="server" Enabled="false" size="70" style="text-align: left" />
+                                           <asp:TextBox ID="txtPop_Fecha_Avance4" runat="server" Enabled="false" size="65" style="text-align: left" />
                                         </td>                                      
                                     </tr>                                                                                                     
                                 </table>
@@ -585,17 +603,17 @@
                                <table border="0" style="width:100%">
                                    <tr>
                                         <td>
-                                             <b>Detalle del avance 4: </b>                                           
+                                             <b>Detalle del seguimiento 4: </b>                                           
                                         </td>
                                        <td>
-                                            <asp:TextBox ID="txtPop_Detalle_Avance4" runat="server" Enabled="false" TextMode="MultiLine" Width="510px" Height="80px" style="text-align: left; resize:none;" />                                         
+                                            <asp:TextBox ID="txtPop_Detalle_Avance4" runat="server" Enabled="false" TextMode="MultiLine" Width="480px" Height="80px" style="text-align: left; resize:none;" />                                         
                                        </td>
                                     </tr>
                                </table>
 
                            </div>
                            
-                           <div class="footer" style="float: right">                           
+                           <div class="footer" style="float: right">                          
                                <asp:Button ID="btnCerrar_Modal" runat="server" Text="Cerrar" CssClass="button"/>
                            </div>
                        </asp:Panel>

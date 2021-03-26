@@ -30,9 +30,9 @@
 
 
     Protected Sub imbBtn_DAU_Click(sender As Object, e As ImageClickEventArgs) Handles imbBtn_DAU.Click
-        If Session("Perfil") = "AD" Then
+        If Session("Perfil") = "A" Then
             Response.Redirect("Tabla_Casos-SistemaRegistroGestiones.aspx")
-        ElseIf Session("Perfil") = "DT" Then
+        ElseIf Session("Perfil") = "DU" Then
             Response.Redirect("Tabla_Casos-SistemaRegistroGestiones.aspx")
         Else
             ModalPopupExtender_No_Permiso_DAT.Show()
@@ -42,7 +42,7 @@
 
 
     Protected Sub imbBtn_DMC_Click(sender As Object, e As ImageClickEventArgs) Handles imbBtn_DMC.Click
-        If Session("Perfil") = "AD" Then
+        If Session("Perfil") = "A" Then
             Response.Redirect("Tabla_Informe-SistemaRegistroInformes.aspx")
         ElseIf Session("Perfil") = "DC" Then
             Response.Redirect("Tabla_Informe-SistemaRegistroInformes.aspx")

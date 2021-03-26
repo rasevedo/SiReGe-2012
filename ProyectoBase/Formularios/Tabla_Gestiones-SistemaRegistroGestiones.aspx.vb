@@ -93,7 +93,7 @@ Public Class Tabla_Gestiones
         Dim con As New SqlConnection(ConfigurationManager.ConnectionStrings("bda_SIREGE_Connection").ToString())
         Dim ds As New dstBitacora_Gestiones()
         For Each gvrow As GridViewRow In gvwGestiones.Rows
-            If TryCast(gvrow.FindControl("chkSelect"), CheckBox).Checked Then
+            If TryCast(gvrow.FindControl("chkSeleccionar"), CheckBox).Checked Then
                 Dim intIdGestiones As Integer = gvrow.Cells(3).Text
                 Dim vchTipoGestiones As String = Page.Server.HtmlDecode(gvrow.Cells(4).Text)
                 Dim intCedulaUsuario As Integer = gvrow.Cells(5).Text
@@ -158,7 +158,7 @@ Public Class Tabla_Gestiones
         Dim con As New SqlConnection(ConfigurationManager.ConnectionStrings("bda_SIREGE_Connection").ToString())
         Dim ds As New dstGestiones()
         For Each gvrow As GridViewRow In gvwGestiones.Rows
-            If TryCast(gvrow.FindControl("chkSelect"), CheckBox).Checked Then
+            If TryCast(gvrow.FindControl("chkSeleccionar"), CheckBox).Checked Then
                 Dim intIdGestiones As Integer = gvrow.Cells(3).Text
                 Dim vchTipoGestiones As String = Page.Server.HtmlDecode(gvrow.Cells(4).Text)
                 Dim intCedulaUsuario As Integer = gvrow.Cells(5).Text
@@ -220,18 +220,16 @@ Public Class Tabla_Gestiones
     'RECIBE:Todas las filas del gridview marcadas con un check
     'DEVUELVE:El borrado de la fila y la tabla del gridview actualizada
     Protected Sub btnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click
-        If Session("Perfil") = "AD" Then
+        If Session("Perfil") = "A" Then
             Try
                 Dim func As New Datos_Gestiones
                 Dim dts As New Entidad_Gestiones
                 For Each gvrow As GridViewRow In gvwGestiones.Rows
-                    Dim chkdelete As CheckBox = DirectCast(gvrow.FindControl("chkSelect"), CheckBox)
+                    Dim chkdelete As CheckBox = DirectCast(gvrow.FindControl("chkSeleccionar"), CheckBox)
                     If chkdelete.Checked Then
                         Dim gesid As Integer = Convert.ToInt32(gvwGestiones.DataKeys(gvrow.RowIndex).Value)
                         dts._idGestiones = gesid
-                        
                         If func.borrarGestiones(dts) Then
-
                             ' Response.Write("<script language=javascript>alert('El elemento ha sido eliminado de forma exitosa')</script>")
                             'MsgBox("El elemento ha sido eliminado de forma exitosa") 
                         Else

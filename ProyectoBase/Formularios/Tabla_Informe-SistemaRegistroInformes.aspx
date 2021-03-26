@@ -109,10 +109,10 @@
                                    </ItemTemplate>
                                </asp:TemplateField> 
                                <asp:BoundField DataField="intIdInforme" HeaderText="Número del informe" ReadOnly="True" InsertVisible="False" ></asp:BoundField>
-                               <asp:BoundField DataField="vchTituloInforme" HeaderText="Título del informe" ></asp:BoundField>
+                               <asp:BoundField DataField="vchTituloInforme" HeaderText="Título" ></asp:BoundField>
                                <asp:BoundField DataField="vchNombreFuncionario" HeaderText="Funcionario que tramita" ></asp:BoundField>
-                               <asp:BoundField DataField="vchTipoInforme" HeaderText="Tipo de informe" ></asp:BoundField>
-                               <asp:BoundField DataField="vchNumeroOficio" HeaderText="Número del estudio" ></asp:BoundField>
+                               <asp:BoundField DataField="vchTipoInforme" HeaderText="Tipo" ></asp:BoundField>
+                               <asp:BoundField DataField="vchNumeroOficio" HeaderText="Número" ></asp:BoundField>
                                <asp:BoundField DataField="dtiFechaAprobacion" HeaderText="Fecha de aprobación" ></asp:BoundField>
                                <asp:BoundField DataField="dtiFechaCulminacion" HeaderText="Fecha de culminación" ></asp:BoundField>
                                <asp:BoundField DataField="dtiFechaTraslado" HeaderText="Fecha de traslado" ></asp:BoundField>
@@ -168,10 +168,10 @@
                                <table border="0" style="width:100%">
                                    <tr>
                                        <td> 
-                                          <asp:Label ID="lblPop_Id_Informe" runat="server" Text="Número de informe:"></asp:Label> 
+                                          <asp:Label ID="lblPop_Id_Informe" runat="server" Text="Número:"></asp:Label> 
                                        </td>
                                         <td>               
-                                           <asp:TextBox ID="txtPop_Id_Informe" runat="server" Enabled="false" size="70" style="text-align: left"/>
+                                           <asp:TextBox ID="txtPop_Id_Informe" runat="server" Enabled="false" size="82" style="text-align: left"/>
                                         </td>
                                     </tr>
                                    </table>
@@ -179,10 +179,10 @@
                                <table border="0" style="width:100%">
                                    <tr>
                                        <td> 
-                                          <b>Título del informe: </b>
+                                          <b>Título: </b>
                                        </td>
                                         <td>               
-                                           <asp:TextBox ID="txtPop_Titulo_Informe" runat="server" Enabled="false" size="72" style="text-align: left"  />
+                                           <asp:TextBox ID="txtPop_Titulo_Informe" runat="server" Enabled="false" size="84" style="text-align: left"  />
                                         </td>
                                     </tr>
                                    </table>
@@ -201,10 +201,10 @@
                                <table border="0" style="width:100%">
                                    <tr>
                                        <td> 
-                                          <b>Tipo de informe: </b>
+                                          <b>Tipo: </b>
                                        </td>
                                         <td>               
-                                           <asp:TextBox ID="txtPop_Tipo_Informe" runat="server" Enabled="false" size="73" style="text-align: left" />
+                                           <asp:TextBox ID="txtPop_Tipo_Informe" runat="server" Enabled="false" size="85" style="text-align: left" />
                                         </td>
                                     </tr>
                                    </table>

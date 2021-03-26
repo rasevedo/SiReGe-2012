@@ -136,7 +136,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Respuesta del caso:</Value>
+                <Value>Respuesta del expediente:</Value>
                 <Style>
                   <FontSize>12pt</FontSize>
                 </Style>
@@ -147,9 +147,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox40</rd:DefaultName>
         <Top>23.48794cm</Top>
-        <Left>1.00224cm</Left>
+        <Left>1.00226cm</Left>
         <Height>0.6cm</Height>
-        <Width>4.14042cm</Width>
+        <Width>5.23874cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -179,9 +179,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox41</rd:DefaultName>
         <Top>23.48794cm</Top>
-        <Left>5.14266cm</Left>
+        <Left>6.241cm</Left>
         <Height>0.6cm</Height>
-        <Width>16.80104cm</Width>
+        <Width>14.76785cm</Width>
         <ZIndex>5</ZIndex>
         <Style>
           <Border>
@@ -522,7 +522,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Número de caso:</Value>
+                    <Value>Número de expediente:</Value>
                     <Style>
                       <FontSize>12pt</FontSize>
                     </Style>
@@ -535,7 +535,7 @@
             <Top>0.23812cm</Top>
             <Left>0.21167cm</Left>
             <Height>0.6cm</Height>
-            <Width>3.47896cm</Width>
+            <Width>4.61257cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -553,7 +553,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Estado del caso:</Value>
+                    <Value>Estado del expediente:</Value>
                     <Style>
                       <FontSize>12pt</FontSize>
                     </Style>
@@ -566,7 +566,7 @@
             <Top>1.5875cm</Top>
             <Left>0.21167cm</Left>
             <Height>0.6cm</Height>
-            <Width>3.47896cm</Width>
+            <Width>4.61257cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -596,7 +596,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox7</rd:DefaultName>
             <Top>1.5875cm</Top>
-            <Left>3.69062cm</Left>
+            <Left>4.82424cm</Left>
             <Height>0.6cm</Height>
             <Width>9.28688cm</Width>
             <ZIndex>2</ZIndex>
@@ -692,7 +692,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
             <Top>0.23812cm</Top>
-            <Left>3.69062cm</Left>
+            <Left>4.82424cm</Left>
             <Height>0.6cm</Height>
             <Width>9.28688cm</Width>
             <ZIndex>5</ZIndex>
@@ -1410,7 +1410,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Fecha del avance 1:</Value>
+                    <Value>Fecha del seguimiento 1:</Value>
                     <Style>
                       <FontSize>12pt</FontSize>
                     </Style>
@@ -1423,7 +1423,7 @@
             <Top>0.21167cm</Top>
             <Left>0.42333cm</Left>
             <Height>0.6cm</Height>
-            <Width>4.03458cm</Width>
+            <Width>4.91244cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1452,9 +1452,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox53</rd:DefaultName>
             <Top>0.21167cm</Top>
-            <Left>4.45792cm</Left>
+            <Left>5.33577cm</Left>
             <Height>0.6cm</Height>
-            <Width>13.00396cm</Width>
+            <Width>13.2591cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -1473,7 +1473,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Detalle del avance 1:</Value>
+                    <Value>Detalle del seguimiento 1:</Value>
                     <Style>
                       <FontSize>12pt</FontSize>
                     </Style>
@@ -1486,7 +1486,7 @@
             <Top>1.48167cm</Top>
             <Left>0.42333cm</Left>
             <Height>0.6cm</Height>
-            <Width>4.14042cm</Width>
+            <Width>5.08883cm</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
@@ -1516,9 +1516,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox55</rd:DefaultName>
             <Top>1.48167cm</Top>
-            <Left>4.56375cm</Left>
+            <Left>5.51216cm</Left>
             <Height>0.6cm</Height>
-            <Width>16.80104cm</Width>
+            <Width>15.85263cm</Width>
             <ZIndex>3</ZIndex>
             <Style>
               <Border>
@@ -1537,7 +1537,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Fecha del avance 2:</Value>
+                    <Value>Fecha del seguimiento 2:</Value>
                     <Style>
                       <FontSize>12pt</FontSize>
                     </Style>
@@ -1550,7 +1550,7 @@
             <Top>2.98979cm</Top>
             <Left>0.42333cm</Left>
             <Height>0.6cm</Height>
-            <Width>4.03458cm</Width>
+            <Width>4.91244cm</Width>
             <ZIndex>4</ZIndex>
             <Style>
               <Border>
@@ -1580,9 +1580,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox57</rd:DefaultName>
             <Top>2.98979cm</Top>
-            <Left>4.45792cm</Left>
+            <Left>5.33577cm</Left>
             <Height>0.6cm</Height>
-            <Width>13.00396cm</Width>
+            <Width>13.2591cm</Width>
             <ZIndex>5</ZIndex>
             <Style>
               <Border>
@@ -1601,7 +1601,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Detalle del avance 2:</Value>
+                    <Value>Detalle del seguimiento 2:</Value>
                     <Style>
                       <FontSize>12pt</FontSize>
                     </Style>
@@ -1614,7 +1614,7 @@
             <Top>4.36562cm</Top>
             <Left>0.42333cm</Left>
             <Height>0.6cm</Height>
-            <Width>4.14042cm</Width>
+            <Width>5.08883cm</Width>
             <ZIndex>6</ZIndex>
             <Style>
               <Border>
@@ -1644,9 +1644,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox59</rd:DefaultName>
             <Top>4.36562cm</Top>
-            <Left>4.59083cm</Left>
+            <Left>5.51216cm</Left>
             <Height>0.6cm</Height>
-            <Width>16.77396cm</Width>
+            <Width>15.85263cm</Width>
             <ZIndex>7</ZIndex>
             <Style>
               <Border>
@@ -1665,7 +1665,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Fecha del avance 3:</Value>
+                    <Value>Fecha del seguimiento 3:</Value>
                     <Style>
                       <FontSize>12pt</FontSize>
                     </Style>
@@ -1678,7 +1678,7 @@
             <Top>5.715cm</Top>
             <Left>0.42333cm</Left>
             <Height>0.6cm</Height>
-            <Width>3.95583cm</Width>
+            <Width>5.08883cm</Width>
             <ZIndex>8</ZIndex>
             <Style>
               <Border>
@@ -1708,7 +1708,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox61</rd:DefaultName>
             <Top>5.715cm</Top>
-            <Left>4.37917cm</Left>
+            <Left>5.51216cm</Left>
             <Height>0.6cm</Height>
             <Width>13.08271cm</Width>
             <ZIndex>9</ZIndex>
@@ -1729,7 +1729,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Detalle del avance 3:</Value>
+                    <Value>Detalle del seguimiento 3:</Value>
                     <Style>
                       <FontSize>12pt</FontSize>
                     </Style>
@@ -1742,7 +1742,7 @@
             <Top>7.14375cm</Top>
             <Left>0.42333cm</Left>
             <Height>0.6cm</Height>
-            <Width>4.14042cm</Width>
+            <Width>5.08883cm</Width>
             <ZIndex>10</ZIndex>
             <Style>
               <Border>
@@ -1772,9 +1772,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox63</rd:DefaultName>
             <Top>7.14375cm</Top>
-            <Left>4.56375cm</Left>
+            <Left>5.51216cm</Left>
             <Height>0.6cm</Height>
-            <Width>16.80104cm</Width>
+            <Width>15.85263cm</Width>
             <ZIndex>11</ZIndex>
             <Style>
               <Border>
@@ -1793,7 +1793,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Fecha del avance 4:</Value>
+                    <Value>Fecha del seguimiento 4:</Value>
                     <Style>
                       <FontSize>12pt</FontSize>
                     </Style>
@@ -1806,7 +1806,7 @@
             <Top>8.54604cm</Top>
             <Left>0.42333cm</Left>
             <Height>0.6cm</Height>
-            <Width>3.95583cm</Width>
+            <Width>5.08883cm</Width>
             <ZIndex>12</ZIndex>
             <Style>
               <Border>
@@ -1836,7 +1836,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox65</rd:DefaultName>
             <Top>8.54604cm</Top>
-            <Left>4.37917cm</Left>
+            <Left>5.51216cm</Left>
             <Height>0.6cm</Height>
             <Width>13.08271cm</Width>
             <ZIndex>13</ZIndex>
@@ -1857,7 +1857,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Detalle del avance 4:</Value>
+                    <Value>Detalle del seguimiento 4:</Value>
                     <Style>
                       <FontSize>12pt</FontSize>
                     </Style>
@@ -1870,7 +1870,7 @@
             <Top>9.94833cm</Top>
             <Left>0.42333cm</Left>
             <Height>0.6cm</Height>
-            <Width>4.14042cm</Width>
+            <Width>5.08883cm</Width>
             <ZIndex>14</ZIndex>
             <Style>
               <Border>
@@ -1900,9 +1900,9 @@
             </Paragraphs>
             <rd:DefaultName>Textbox67</rd:DefaultName>
             <Top>9.94833cm</Top>
-            <Left>4.56375cm</Left>
+            <Left>5.51216cm</Left>
             <Height>0.6cm</Height>
-            <Width>16.80104cm</Width>
+            <Width>15.85263cm</Width>
             <ZIndex>15</ZIndex>
             <Style>
               <Border>

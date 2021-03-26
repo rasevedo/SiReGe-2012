@@ -495,7 +495,7 @@ Public Class Buscador_Casos_SistemaRegistroGestiones
     'RECIBE:Todas las filas del gridview marcadas con un check
     'DEVUELVE:El borrado de la fila y la tabla del gridview actualizada
     Protected Sub btnBorrar_Click(sender As Object, e As EventArgs) Handles btnBorrar.Click
-        If Session("Perfil") = "AD" Then
+        If Session("Perfil") = "A" Then
             Try
                 Dim func As New Datos_Casos
                 Dim dts As New Entidad_Casos

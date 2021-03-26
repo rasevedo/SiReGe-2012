@@ -6,10 +6,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>3.32021cm</Width>
+              <Width>4.82834cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.77cm</Width>
+              <Width>5.06646cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>4.37854cm</Width>
@@ -78,7 +78,7 @@
               <Width>6.38938cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.37854cm</Width>
+              <Width>5.14583cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>10.4375cm</Width>
@@ -90,7 +90,7 @@
               <Width>11.65458cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.66958cm</Width>
+              <Width>5.04cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>10.01417cm</Width>
@@ -115,7 +115,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Número de caso</Value>
+                              <Value>Número de expediente</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -153,7 +153,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Estado del caso</Value>
+                              <Value>Estado del expediente</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -761,7 +761,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Detalle de inconformidad del caso</Value>
+                              <Value>Detalle de inconformidad del expediente</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -799,7 +799,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Respuesta del caso</Value>
+                              <Value>Respuesta del expediente</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -875,7 +875,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Veredicto de Valoración de ingreso</Value>
+                              <Value>Veredicto de valoración de ingreso</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -951,7 +951,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Fecha de respuesta del caso</Value>
+                              <Value>Fecha de respuesta del expediente</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -1027,7 +1027,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Fecha del avance 1</Value>
+                              <Value>Fecha del seguimiento 1</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -1065,7 +1065,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Detalle del avance 1</Value>
+                              <Value>Detalle del seguimiento 1</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -1103,7 +1103,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Fecha del avance 2</Value>
+                              <Value>Fecha del seguimiento 2</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -1141,7 +1141,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Detalle del avance 2</Value>
+                              <Value>Detalle del seguimiento 2</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -1179,7 +1179,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Fecha del avance 3</Value>
+                              <Value>Fecha del seguimiento 3</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -1217,7 +1217,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Detalle del avance 3</Value>
+                              <Value>Detalle del seguimiento 3</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -1255,7 +1255,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Fecha del avance 4</Value>
+                              <Value>Fecha del seguimiento 4</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -1293,7 +1293,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Detalle del avance 4</Value>
+                              <Value>Detalle del seguimiento 4</Value>
                               <Style>
                                 <FontFamily>Tahoma</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -2403,7 +2403,7 @@
         </TablixRowHierarchy>
         <DataSetName>DataSet_Casos</DataSetName>
         <Height>1.9673cm</Height>
-        <Width>256.27043cm</Width>
+        <Width>260.21272cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -2414,7 +2414,7 @@
     <Height>2.36458in</Height>
     <Style />
   </Body>
-  <Width>101.87812in</Width>
+  <Width>102.44595in</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
