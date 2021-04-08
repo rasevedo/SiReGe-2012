@@ -1,0 +1,47 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+CapLogicaNegocios
+</name>
+</assembly>
+<members>
+<member name="P:CapLogicaNegocios.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:CapLogicaNegocios.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:CapLogicaNegocios.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member><member name="M:CapLogicaNegocios.Logica.NuevoParametroSQL(System.String,System.Object)">
+	<summary>
+ Genera un parametro SQL con el valor y el formato requerido
+ </summary>
+	<param name="pName">Nombre del Parametro</param>
+	<param name="pValue">Variable que contiene el valor del parametro</param>
+	<returns>Retorna el parametro con el nombre y el tipo de valor asignados</returns>
+	<remarks></remarks>
+</member><member name="M:CapLogicaNegocios.Logica.NuevoParametroODBC(System.String,System.Object)">
+	<summary>
+ Genera un parametro ODBC con el valor y el formato requerido
+ </summary>
+	<param name="pName">Nombre del Parametro</param>
+	<param name="pValue">Variable que contiene el valor del parametro</param>
+	<returns>Retorna el parametro con el nombre y el tipo de valor asignados</returns>
+	<remarks></remarks>
+</member><member name="M:CapLogicaNegocios.Logica.GenerarMenu(System.String)">
+	<summary>
+ Carga los datos para generar el Menu.
+ </summary>
+	<param name="str_Perfil">Perfil del usuario</param>
+	<returns>DataSet con los datos solicitados</returns>
+	<remarks></remarks>
+</member>
+</members>
+</doc>
