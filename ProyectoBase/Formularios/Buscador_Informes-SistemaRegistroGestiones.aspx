@@ -60,6 +60,10 @@
                                                         <asp:ListItem Text="Informe" Value="Informe"></asp:ListItem>
                                                         <asp:ListItem Text="Estudio" Value="Estudio"></asp:ListItem>
                                                         <asp:ListItem Text="Capacitación" Value="Capacitación"></asp:ListItem>
+                                                        <asp:ListItem Text="Elaboración y/o Revisión de Manuales" Value="Elaboración y/o Revisión de Manuales"></asp:ListItem>
+                                                        <asp:ListItem Text="Procedimientos" Value="Procedimientos"></asp:ListItem>
+                                                        <asp:ListItem Text="Instructivos" Value="Instructivos"></asp:ListItem>
+                                                        <asp:ListItem Text="Otros" Value="Otros"></asp:ListItem>
                                                     </asp:DropDownList></td>
                                             </tr>  
                                         </table>
