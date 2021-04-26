@@ -722,7 +722,7 @@ Partial Public Class dstBitacora_Gestiones
             Me.columnvchNombreUsuario.MaxLength = 50
             Me.columndtiFechaIngreso.AllowDBNull = false
             Me.columnvchNombreFuncionario.MaxLength = 250
-            Me.columnvchConfidencialidadGestiones.MaxLength = 50
+            Me.columnvchConfidencialidadGestiones.MaxLength = 150
             Me.columnvchFuenteGeneradora.AllowDBNull = false
             Me.columnvchFuenteGeneradora.MaxLength = 250
             Me.columnvchTipoServicio.AllowDBNull = false

@@ -215,7 +215,7 @@ Public Class Modificar_Gestiones
             Me.txtDepartamento.Text = dr("vchdescripcionDepartamento").ToString()
             Me.txtNumero_Oficio.Text = dr("vchNumeroOficio").ToString()
             'TipoDimen.SelectedValue = ddlTipo_Dimension.Items.FindByText(dr("vchTipoDimension")).Value
-            ' LetraDimen.SelectedValue = ddlLetra_Dimension.Items.FindByText(dr("vchLetraDimension")).Value
+            'LetraDimen.SelectedValue = ddlLetra_Dimension.Items.FindByText(dr("vchLetraDimension")).Value
             'Me.txtTipo_Detalle_Letra_Dimension.Text = dr("vchDescripcionLetraDimension").ToString()
             Me.txtAsunto.Text = dr("vchDetalleGestiones").ToString()
             Me.txtRespuesta.Text = dr("vchRespuestaGestiones").ToString()

@@ -132,7 +132,7 @@ Public Class Tabla_Gestiones
 
         Dim rptviewer As New ReportViewer()
         rptviewer.ProcessingMode = ProcessingMode.Local
-        rptviewer.LocalReport.ReportPath = "C:\Users\Usuario01\Documents\Visual Studio 2012\Projects\SistemaRegistroGestiones\ProyectoBase\Formularios\Bitacora_Gestion.rdlc"
+        rptviewer.LocalReport.ReportPath = "C:\Users\Usuario01\Documents\Visual Studio 2012\Projects\SistemaRegistroGestiones\ProyectoBase\Formularios\Bitacora_Gestiones.rdlc"
 
         Dim datasource As New ReportDataSource("DataSet_Bitacora_Gestion", ds.Tables(0))
 

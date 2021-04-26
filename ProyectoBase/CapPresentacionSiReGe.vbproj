@@ -307,7 +307,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Formularios\Bitacora_Casos.rdlc" />
-    <EmbeddedResource Include="Formularios\Bitacora_Gestion.rdlc" />
+    <EmbeddedResource Include="Formularios\Bitacora_Gestiones.rdlc" />
     <EmbeddedResource Include="Formularios\Bitacora_Informe.rdlc" />
     <EmbeddedResource Include="Formularios\Reporte_Informes.rdlc" />
     <EmbeddedResource Include="My Project\Resources.resx">

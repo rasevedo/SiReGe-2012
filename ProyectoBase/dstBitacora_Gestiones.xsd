@@ -55,7 +55,7 @@
   <xs:element name="dstBitacora_Gestiones" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="dstBitacora_Gestiones" msprop:Generator_UserDSName="dstBitacora_Gestiones">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="palMostrarGestiones" msprop:Generator_TableClassName="palMostrarGestionesDataTable" msprop:Generator_TableVarName="tablepalMostrarGestiones" msprop:Generator_TablePropName="palMostrarGestiones" msprop:Generator_RowDeletingName="palMostrarGestionesRowDeleting" msprop:Generator_RowChangingName="palMostrarGestionesRowChanging" msprop:Generator_RowEvHandlerName="palMostrarGestionesRowChangeEventHandler" msprop:Generator_RowDeletedName="palMostrarGestionesRowDeleted" msprop:Generator_UserTableName="palMostrarGestiones" msprop:Generator_RowChangedName="palMostrarGestionesRowChanged" msprop:Generator_RowEvArgName="palMostrarGestionesRowChangeEvent" msprop:Generator_RowClassName="palMostrarGestionesRow">
+        <xs:element name="palMostrarGestiones" msprop:Generator_TableClassName="palMostrarGestionesDataTable" msprop:Generator_TableVarName="tablepalMostrarGestiones" msprop:Generator_RowChangedName="palMostrarGestionesRowChanged" msprop:Generator_TablePropName="palMostrarGestiones" msprop:Generator_RowDeletingName="palMostrarGestionesRowDeleting" msprop:Generator_RowChangingName="palMostrarGestionesRowChanging" msprop:Generator_RowEvHandlerName="palMostrarGestionesRowChangeEventHandler" msprop:Generator_RowDeletedName="palMostrarGestionesRowDeleted" msprop:Generator_RowClassName="palMostrarGestionesRow" msprop:Generator_UserTableName="palMostrarGestiones" msprop:Generator_RowEvArgName="palMostrarGestionesRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="intIdGestiones" msdata:ReadOnly="true" msdata:AutoIncrement="true" msprop:Generator_ColumnVarNameInTable="columnintIdGestiones" msprop:Generator_ColumnPropNameInRow="intIdGestiones" msprop:Generator_ColumnPropNameInTable="intIdGestionesColumn" msprop:Generator_UserColumnName="intIdGestiones" type="xs:int" />
@@ -85,7 +85,7 @@
               <xs:element name="vchConfidencialidadGestiones" msprop:Generator_ColumnVarNameInTable="columnvchConfidencialidadGestiones" msprop:Generator_ColumnPropNameInRow="vchConfidencialidadGestiones" msprop:Generator_ColumnPropNameInTable="vchConfidencialidadGestionesColumn" msprop:Generator_UserColumnName="vchConfidencialidadGestiones" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
+                    <xs:maxLength value="150" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
