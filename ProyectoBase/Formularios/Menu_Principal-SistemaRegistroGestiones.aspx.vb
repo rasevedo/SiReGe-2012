@@ -5,19 +5,19 @@
     'RECIBE: La ubicación de las imagenes
     'DEVUELVE: Solo retornan las imagenes como botones.
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
-        imbBtn_Gestion.Attributes.Add("onmouseover", "src='/Contenido/Imagenes/Atencion de Gestiones del Servicio_ON.png'")
+        imbBtn_Gestion.Attributes.Add("onmouseover", "src='../Contenido/Imagenes/Atencion de Gestiones del Servicio_ON.png'")
         imbBtn_Gestion.Width = Unit.Pixel(300)
-        imbBtn_Gestion.Attributes.Add("onmouseout", "src='/Contenido/Imagenes/Atencion de Gestiones del Servicio_OFF.png'")
+        imbBtn_Gestion.Attributes.Add("onmouseout", "src='../Contenido/Imagenes/Atencion de Gestiones del Servicio_OFF.png'")
         imbBtn_Gestion.Width = Unit.Pixel(300)
 
-        imbBtn_DAU.Attributes.Add("onmouseover", "src='/Contenido/Imagenes/DAU_ON.png'")
+        imbBtn_DAU.Attributes.Add("onmouseover", "src='../Contenido/Imagenes/DAU_ON.png'")
         imbBtn_DAU.Width = Unit.Pixel(300)
-        imbBtn_DAU.Attributes.Add("onmouseout", "src='/Contenido/Imagenes/DAU_OFF.png'")
+        imbBtn_DAU.Attributes.Add("onmouseout", "src='../Contenido/Imagenes/DAU_OFF.png'")
         imbBtn_DAU.Width = Unit.Pixel(300)
 
-        imbBtn_DMC.Attributes.Add("onmouseover", "src='/Contenido/Imagenes/DMC_ON.png'")
+        imbBtn_DMC.Attributes.Add("onmouseover", "src='../Contenido/Imagenes/DMC_ON.png'")
         imbBtn_DMC.Width = Unit.Pixel(300)
-        imbBtn_DMC.Attributes.Add("onmouseout", "src='/Contenido/Imagenes/DMC_OFF.png'")
+        imbBtn_DMC.Attributes.Add("onmouseout", "src='../Contenido/Imagenes/DMC_OFF.png'")
         imbBtn_DMC.Width = Unit.Pixel(300)
 
 
